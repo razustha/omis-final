@@ -18,7 +18,7 @@ use App\Http\Controllers\Master\ownershipController;
 use App\Http\Controllers\Master\AddSupplierController;
 use App\Http\Controllers\Master\AttendanceFromController;
 use App\Http\Controllers\Master\TraveltypeController;
-use App\Http\Controllers\Master\OrganizationController;
+
 
 //end of master
 use App\Http\Controllers\Assets\AssestCategoryController;
@@ -107,6 +107,7 @@ use App\Http\Controllers\Reports\LeavereportsController;
 use App\Http\Controllers\Reports\TravelreportsController;
 use App\Http\Controllers\Rostermanagement\RostercategoryController;
 use App\Http\Controllers\Rostermanagement\RosterentriesController;
+use App\Http\Controllers\Settings\OrganizationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Settings\SettingController;
 use App\Http\Controllers\Test\TestController;
@@ -375,23 +376,29 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/destroy/{id}', [AddSupplierController::class, 'destroy'])->name('master.addsupplier.destroy');
             });
 
-            Route::prefix("organization")->group(function () {
-                Route::get('/', [OrganizationController::class, 'index'])->name('master.organization.index');
-                Route::get('/create', [OrganizationController::class, 'create'])->name('master.organization.create');
-                Route::post('/store', [OrganizationController::class, 'store'])->name('master.organization.store');
-                Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('master.organization.show');
-                Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('master.organization.edit');
-                Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('master.organization.update');
-                Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('master.organization.destroy');
-            });
-
-
+        
             Route::get('usersettings', [App\Http\Controllers\Settings\UserSettingController::class, 'index'])->name('usersettings.index');
             Route::put('usersettings/update', [App\Http\Controllers\Settings\UserSettingController::class, 'update'])->name('usersettings.update');
         }
     );
     //End of master Routing
-    
+    /** settings */
+
+    Route::prefix("settings")->group(
+        function () {
+            Route::prefix("organization")->group(function () {
+                Route::get('/', [OrganizationController::class, 'index'])->name('settings.organization.index');
+                Route::get('/create', [OrganizationController::class, 'create'])->name('settings.organization.create');
+                Route::post('/store', [OrganizationController::class, 'store'])->name('settings.organization.store');
+                Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('settings.organization.show');
+                Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('settings.organization.edit') ;
+                Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('settings.organization.update');
+                Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('settings.organization.destroy');
+            });
+                                            
+        }
+    );
+
     /**
      * Start of hr routing
      */
@@ -461,9 +468,6 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [ShiftrosterController::class, 'update'])->name('hr.shiftroster.update');
                 Route::delete('/destroy/{id}', [ShiftrosterController::class, 'destroy'])->name('hr.shiftroster.destroy');
             });
-
-
-
 
             Route::prefix("department")->group(function () {
                 Route::get('/', [DepartmentController::class, 'index'])->name('hr.department.index');

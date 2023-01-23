@@ -29,14 +29,13 @@
                             <div class="card-body">
                 <form method="POST" action="{{route('work.timelog.store')}}" enctype="multipart/form-data">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("projectName","projectName","Project Name")}}
-</div><div class="col-lg-6">{{createText("projectTask","projectTask","Project Task")}}
-</div><div class="col-lg-6">{{createLabel('projectEstimateTime','form-label col-form-label','Project Estimate Time')}}{{createInput('time',"projectEstimateTime","projectEstimateTime","")}}
-</div><div class="col-lg-6">{{createDate("projectStartDate","projectStartDate","Project Start Date",'','','')}}
-</div><div class="col-lg-4">{{createDate("projectEndDate","projectEndDate","Project End Date",'','','')}}
-</div><div class="col-lg-4">{{createText("alias","alias","Alias")}}
-</div><div class="col-lg-4">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
-</div><div class="col-lg-12">{{createLabel('remarks','form-label col-form-label','Remarks')}}{{createTextArea("remarks",'',"remarks",'',"")}}
+<div class="row"><div class="col-lg-6">{{createText("projectName","projectName","ProjectName")}}
+</div><div class="col-lg-6">{{createText("projectTask","projectTask","ProjectTask")}}
+</div><div class="col-lg-6">{{createText("projectEstimateTime","projectEstimateTime","ProjectEstimateTime")}}
+</div><div class="col-lg-6">{{createText("projectStartDate","projectStartDate","ProjectStartDate")}}
+</div><div class="col-lg-6">{{createText("projectEndDate","projectEndDate","ProjectEndDate")}}
+</div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
+</div><div class="col-lg-6">{{createText("remarks","remarks","Remarks")}}
 </div> <br> <div class="col-md-12"><?php createButton("btn-primary","","Submit"); ?>
 </div> </form></div></div></div></div></div></div></div></div>
 @endsection

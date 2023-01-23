@@ -2,15 +2,15 @@
         @csrf
         @method('PUT')
         <div class="row">
-                <div class="col-lg-6">{{createText("rosterName_id","rosterName_id","RosterName
+                <div class="col-lg-6">{{createText("roster_id","rosterName_id","RosterName
                         Id",'',$data->rosterName_id)}}
                 </div>
                 <div class="col-lg-6">{{createText("shift","shift","Shift",'',$data->shift)}}
                 </div>
                 <div class="col-lg-4">
-                        {{createText("shiftFromDate","shiftFromDate","ShiftFromDate",'',$data->shiftFromDate)}}
+                        {{createDate("shiftFromDate","shiftFromDate","Shift From Date",'',$data->shiftFromDate)}}
                 </div>
-                <div class="col-lg-4">{{createText("shiftToDate","shiftToDate","ShiftToDate",'',$data->shiftToDate)}}
+                <div class="col-lg-4">{{createDate("shiftToDate","shiftToDate","Shift To Date",'',$data->shiftToDate)}}
                 </div>
                
                 <div class="col-lg-4">

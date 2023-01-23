@@ -29,13 +29,14 @@
                             <div class="card-body">
                 <form method="POST" action="{{route('hr.warnings.store')}}" enctype="multipart/form-data">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("warningTo","warningTo","WarningTo")}}
-</div><div class="col-lg-6">{{createText("warningSubject","warningSubject","WarningSubject")}}
-</div><div class="col-lg-6">{{createText("warningDate","warningDate","WarningDate")}}
+<div class="row"><div class="col-lg-6">{{createText("warningTo","warningTo","Warning To")}}
+</div><div class="col-lg-6">{{createText("warningSubject","warningSubject","Warning Subject")}}
+</div><div class="col-lg-6">{{createDate("warningDate","warningDate","Warning Date")}}
 </div><div class="col-lg-6">{{createText("warningType_id","warningType_id","WarningType Id")}}
-</div><div class="col-lg-6">{{createText("warningDescription","warningDescription","WarningDescription")}}
 </div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
-</div><div class="col-lg-6">{{createText("remarks","remarks","Remarks")}}
+</div><div class="col-lg-4">{{createLabel('warningDescription', 'form-label col-form-label', 'Description')}}{{createTextArea("warningDescription","warningDescription","WarningDescription", "", "")}}
+
+</div><div class="col-lg-4">{{createLabel('remarks', 'form-label col-form-label', 'Remarks')}}{{createTextArea("remarks","remarks","remarks", "", "")}}
 </div> <br> <div class="col-md-12"><?php createButton("btn-primary","","Submit"); ?>
 </div> </form></div></div></div></div></div></div></div></div>
 @endsection

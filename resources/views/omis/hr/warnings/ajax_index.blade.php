@@ -32,10 +32,10 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
                                         <th class="tb-col"><span class="overline-title">warningTo</span></th>
                                         <th class="tb-col"><span class="overline-title">warningSubject</span></th>
-                                        <th class="tb-col"><span class="overline-title">warningDate</span></th>
+                                        <!-- <th class="tb-col"><span class="overline-title">warningDate</span></th>
                                         <th class="tb-col"><span class="overline-title">warningType_id</span></th>
                                         <th class="tb-col"><span class="overline-title">warningDescription</span></th>
-                                        <th class="tb-col"><span class="overline-title">alias</span></th>
+                                        <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                         <th class="tb-col"><span class="overline-title">status</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
                                         </th>
@@ -50,10 +50,10 @@
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->warningTo }}</td>
                                             <td class="tb-col">{{ $item->warningSubject }}</td>
-                                            <td class="tb-col">{{ $item->warningDate }}</td>
+                                            <!-- <td class="tb-col">{{ $item->warningDate }}</td>
                                             <td class="tb-col">{{ $item->warningType_id }}</td>
                                             <td class="tb-col">{{ $item->warningDescription }}</td>
-                                            <td class="tb-col">{{ $item->alias }}</td>
+                                            <td class="tb-col">{{ $item->alias }}</td> -->
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">

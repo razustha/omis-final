@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Work\Timelog;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class TimelogController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Timelog::where('status','<>',-1)->get();
+                $data = Timelog::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.work.timelog.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.work.timelog.index", compact('data'));
+                return view("omis.work.timelog.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->timelogName)]);
                 Timelog::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Timelog Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Timelog::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->timelogName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Timelog updated Successfully.'], 200);

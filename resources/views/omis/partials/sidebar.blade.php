@@ -39,11 +39,22 @@
                                         class="nk-menu-text">Permissions</span></a></li>
                         </ul>
                     </li>
-                    <li class="nk-menu-item ">
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
+                            <span class="nk-menu-text">Settings</span></a>
+                        <ul class="nk-menu-sub">
+                           
+                            <li class="nk-menu-item"><a href="{{ route('settings.organization.index') }}" class="nk-menu-link"><span
+                                        class="nk-menu-text">Organization</span></a></li>
+                           
+                        </ul>
+                    </li>
+                    {{-- <li class="nk-menu-item ">
                         <a href="#" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
                             <span class="nk-menu-text">Settings</span></a>
-                    </li>
+                    </li> --}}
 
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-file-docs"></em></span><span

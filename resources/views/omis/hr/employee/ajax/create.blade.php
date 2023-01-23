@@ -230,8 +230,7 @@
                             <ul class="d-flex align-items-center gap g-3">
                                 <li><button type="submit"
                                         class="btn btn-primary">Submit</button></li>
-                                <li><a href="products.html"
-                                        class="btn border-0">Cancel</a></li>
+                              
                             </ul>
                         </div>
                     </div>

@@ -12,7 +12,7 @@
             use HasFactory, CreatedUpdatedBy;
 
             protected $table = 'tbl_mangeholiday';
-            protected $primaryKey = 'mangeholiday_id';
+            protected $primaryKey = 'mangeHoliday_id';
             public $timestamps = true;
             protected $fillable =[
                 'companyName_id',

@@ -29,7 +29,8 @@
                             <div class="card-body">
                 <form method="POST" action="{{route('work.workprojects.store')}}" enctype="multipart/form-data">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("projectTitle","projectTitle","ProjectTitle")}}
+ 
+<div class="row"><div class="col-lg-6">{{createText("projectTitle","projectTitle","Project Title")}}
 </div><div class="col-lg-6">{{createText("projectStartClient","projectStartClient","Project Client")}}
 </div><div class="col-lg-6">{{createDate("projectStartDate","projectStartDate","Start Date", "", "", "")}}
 </div><div class="col-lg-6">{{createDate("projectEndDate","projectEndDate","End Date", "", "", "")}}

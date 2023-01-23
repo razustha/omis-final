@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Hr\Latereasons;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class LatereasonsController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Latereasons::where('status','<>',-1)->get();
+                $data = Latereasons::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.hr.latereasons.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.hr.latereasons.index", compact('data'));
+                return view("omis.hr.latereasons.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->latereasonsName)]);
                 Latereasons::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Latereasons Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Latereasons::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->latereasonsName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Latereasons updated Successfully.'], 200);
