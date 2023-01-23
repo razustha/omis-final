@@ -1,5 +1,26 @@
 <?php
+//Start of Master Controllers
+use App\Http\Controllers\Master\CityController;
+use App\Http\Controllers\Master\CountryController;
+use App\Http\Controllers\Master\DepartmentController as MasterDepartmentController;
+use App\Http\Controllers\Master\DistrictController;
+use App\Http\Controllers\Master\FleetController;
+use App\Http\Controllers\Master\HolidayTypesController;
+use App\Http\Controllers\Master\NationalityController;
+use App\Http\Controllers\Master\OrganizationCategoryController;
+use App\Http\Controllers\Master\EmploymentSizeCategoryController;
+use App\Http\Controllers\Master\JobTitleController;
+use App\Http\Controllers\Master\OrganizationTypeController;
+use App\Http\Controllers\Master\PolicyController;
+use App\Http\Controllers\Master\StateController;
+use App\Http\Controllers\Master\DepartmenttypeController;
+use App\Http\Controllers\Master\ownershipController;
+use App\Http\Controllers\Master\AddSupplierController;
+use App\Http\Controllers\Master\AttendanceFromController;
+use App\Http\Controllers\Master\TraveltypeController;
+use App\Http\Controllers\Master\OrganizationController;
 
+//end of master
 use App\Http\Controllers\Assets\AssestCategoryController;
 use App\Http\Controllers\Assets\EquipmentdemandController;
 use App\Http\Controllers\Assets\FixedassetsController;
@@ -13,7 +34,6 @@ use App\Http\Controllers\Hr\ComplaintsController;
 use App\Http\Controllers\Hr\DepartmentController;
 use App\Http\Controllers\Hr\AppreciationController;
 use App\Http\Controllers\Hr\MangeholidayController;
-use App\Http\Controllers\Hr\OrganizationController;
 use App\Http\Controllers\Hr\PromotiondemotionController;
 use App\Http\Controllers\Hr\ResignationController;
 use App\Http\Controllers\Hr\WarningsController;
@@ -37,8 +57,7 @@ use App\Http\Controllers\requisition\ConvinceRequestController;
 use App\Http\Controllers\requisition\CompensatoryLeaveController;
 use App\Http\Controllers\Inventory\BarcodeManagementController;
 use App\Http\Controllers\Hr\TransferController;
-use App\Http\Controllers\Master\AddSupplierController;
-use App\Http\Controllers\Master\AttendanceFromController;
+
 use App\Http\Controllers\Hr\EmployeeController;
 use App\Http\Controllers\Supplier\SuppliercategoryController;
 use App\Http\Controllers\Training\TrainerController;
@@ -54,8 +73,7 @@ use App\Http\Controllers\Travelfleet\TravelslogController;
 use App\Http\Controllers\Travelfleet\VehiclelogController;
 use App\Http\Controllers\Work\TasksController;
 use App\Http\Controllers\work\WorkProjectsController;
-use App\Http\Controllers\Master\CityController;
-use App\Http\Controllers\Master\CountryController;
+
 use App\Http\Controllers\Finance\CreditNotesController;
 use App\Http\Controllers\Finance\EstimatesController;
 use App\Http\Controllers\Finance\FinancePayController;
@@ -76,20 +94,7 @@ use App\Http\Controllers\Hr\EmployeementtimelineController;
 use App\Http\Controllers\Hr\EventController;
 use App\Http\Controllers\Hr\ShiftrosterController;
 use App\Http\Controllers\Hr\LatereasonsController;
-use App\Http\Controllers\Master\DepartmentController as MasterDepartmentController;
-use App\Http\Controllers\Master\DistrictController;
-use App\Http\Controllers\Master\FleetController;
-use App\Http\Controllers\Master\HolidayTypesController;
-use App\Http\Controllers\Master\NationalityController;
-use App\Http\Controllers\Master\OrganizationCategoryController;
-use App\Http\Controllers\Master\EmploymentSizeCategoryController;
-use App\Http\Controllers\Master\JobTitleController;
-use App\Http\Controllers\Master\OrganizationTypeController;
-use App\Http\Controllers\Master\PolicyController;
-use App\Http\Controllers\Master\StateController;
-use App\Http\Controllers\Master\DepartmenttypeController;
-use App\Http\Controllers\Master\ownershipController;
-use App\Http\Controllers\Master\TraveltypeController;
+
 use App\Http\Controllers\Notice\AnnouncementController;
 use App\Http\Controllers\Notice\DetailsviewController;
 use App\Http\Controllers\Officemanagement\PurchaseserviceController;
@@ -118,7 +123,6 @@ Route::get('/', function () {
 Route::get('calander', function () {
 
     return view('omis.calander.index');
-
 });
 
 // Route::get('/', function () {
@@ -143,158 +147,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/store', [GeneralFormController::class, 'store'])->name('form.store');
         }
     );
-    Route::prefix("supplier")->group(
-        function () {
-            Route::prefix("suppliercategory")->group(function () {
-                Route::get('/', [SuppliercategoryController::class, 'index'])->name('supplier.suppliercategory.index');
-                Route::get('/create', [SuppliercategoryController::class, 'create'])->name('supplier.suppliercategory.create');
-                Route::post('/store', [SuppliercategoryController::class, 'store'])->name('supplier.suppliercategory.store');
-                Route::get('/show/{id}', [SuppliercategoryController::class, 'show'])->name('supplier.suppliercategory.show');
-                Route::get('/edit/{id}', [SuppliercategoryController::class, 'edit'])->name('supplier.suppliercategory.edit') ;
-                Route::put('/update/{id}', [SuppliercategoryController::class, 'update'])->name('supplier.suppliercategory.update');
-                Route::delete('/destroy/{id}', [SuppliercategoryController::class, 'destroy'])->name('supplier.suppliercategory.destroy');
-            });
 
-
-        }
-    );
-
-    Route::prefix("recruit")->group(
-        function () {
-            Route::prefix("jobinterview")->group(function () {
-                Route::get('/', [JobinterviewController::class, 'index'])->name('recruit.jobinterview.index');
-                Route::get('/create', [JobinterviewController::class, 'create'])->name('recruit.jobinterview.create');
-                Route::post('/store', [JobinterviewController::class, 'store'])->name('recruit.jobinterview.store');
-                Route::get('/show/{id}', [JobinterviewController::class, 'show'])->name('recruit.jobinterview.show');
-                Route::get('/edit/{id}', [JobinterviewController::class, 'edit'])->name('recruit.jobinterview.edit') ;
-                Route::put('/update/{id}', [JobinterviewController::class, 'update'])->name('recruit.jobinterview.update');
-                Route::delete('/destroy/{id}', [JobinterviewController::class, 'destroy'])->name('recruit.jobinterview.destroy');
-            });
-            Route::prefix("jobpost")->group(function () {
-                Route::get('/', [JobpostController::class, 'index'])->name('recruit.jobpost.index');
-                Route::get('/create', [JobpostController::class, 'create'])->name('recruit.jobpost.create');
-                Route::post('/store', [JobpostController::class, 'store'])->name('recruit.jobpost.store');
-                Route::get('/show/{id}', [JobpostController::class, 'show'])->name('recruit.jobpost.show');
-                Route::get('/edit/{id}', [JobpostController::class, 'edit'])->name('recruit.jobpost.edit') ;
-                Route::put('/update/{id}', [JobpostController::class, 'update'])->name('recruit.jobpost.update');
-                Route::delete('/destroy/{id}', [JobpostController::class, 'destroy'])->name('recruit.jobpost.destroy');
-            });
-
-
-
-        }
-    );
-    Route::prefix("inventory")->group(
-        function () {
-
-
-    Route::prefix("product")->group(function () {
-        Route::get('/', [ProductController::class, 'index'])->name('inventory.product.index');
-        Route::get('/create', [ProductController::class, 'create'])->name('inventory.product.create');
-        Route::post('/store', [ProductController::class, 'store'])->name('inventory.product.store');
-        Route::get('/show/{id}', [ProductController::class, 'show'])->name('inventory.product.show');
-        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('inventory.product.edit') ;
-        Route::put('/update/{id}', [ProductController::class, 'update'])->name('inventory.product.update');
-        Route::delete('/destroy/{id}', [ProductController::class, 'destroy'])->name('inventory.product.destroy');
-    });
-    Route::prefix("purchaseorder")->group(function () {
-        Route::get('/', [PurchaseorderController::class, 'index'])->name('inventory.purchaseorder.index');
-        Route::get('/create', [PurchaseorderController::class, 'create'])->name('inventory.purchaseorder.create');
-        Route::post('/store', [PurchaseorderController::class, 'store'])->name('inventory.purchaseorder.store');
-        Route::get('/show/{id}', [PurchaseorderController::class, 'show'])->name('inventory.purchaseorder.show');
-        Route::get('/edit/{id}', [PurchaseorderController::class, 'edit'])->name('inventory.purchaseorder.edit') ;
-        Route::put('/update/{id}', [PurchaseorderController::class, 'update'])->name('inventory.purchaseorder.update');
-        Route::delete('/destroy/{id}', [PurchaseorderController::class, 'destroy'])->name('inventory.purchaseorder.destroy');
-    });
-
-    Route::prefix("servicelog")->group(function () {
-        Route::get('/', [ServicelogController::class, 'index'])->name('inventory.servicelog.index');
-        Route::get('/create', [ServicelogController::class, 'create'])->name('inventory.servicelog.create');
-        Route::post('/store', [ServicelogController::class, 'store'])->name('inventory.servicelog.store');
-        Route::get('/show/{id}', [ServicelogController::class, 'show'])->name('inventory.servicelog.show');
-        Route::get('/edit/{id}', [ServicelogController::class, 'edit'])->name('inventory.servicelog.edit') ;
-        Route::put('/update/{id}', [ServicelogController::class, 'update'])->name('inventory.servicelog.update');
-        Route::delete('/destroy/{id}', [ServicelogController::class, 'destroy'])->name('inventory.servicelog.destroy');
-    });
-
-    Route::prefix("stockreconcile")->group(function () {
-        Route::get('/', [StockreconcileController::class, 'index'])->name('inventory.stockreconcile.index');
-        Route::get('/create', [StockreconcileController::class, 'create'])->name('inventory.stockreconcile.create');
-        Route::post('/store', [StockreconcileController::class, 'store'])->name('inventory.stockreconcile.store');
-        Route::get('/show/{id}', [StockreconcileController::class, 'show'])->name('inventory.stockreconcile.show');
-        Route::get('/edit/{id}', [StockreconcileController::class, 'edit'])->name('inventory.stockreconcile.edit') ;
-        Route::put('/update/{id}', [StockreconcileController::class, 'update'])->name('inventory.stockreconcile.update');
-        Route::delete('/destroy/{id}', [StockreconcileController::class, 'destroy'])->name('inventory.stockreconcile.destroy');
-    });
-    Route::prefix("purchaseentry")->group(function () {
-        Route::get('/', [PurchaseentryController::class, 'index'])->name('inventory.purchaseentry.index');
-        Route::get('/create', [PurchaseentryController::class, 'create'])->name('inventory.purchaseentry.create');
-        Route::post('/store', [PurchaseentryController::class, 'store'])->name('inventory.purchaseentry.store');
-        Route::get('/show/{id}', [PurchaseentryController::class, 'show'])->name('inventory.purchaseentry.show');
-        Route::get('/edit/{id}', [PurchaseentryController::class, 'edit'])->name('inventory.purchaseentry.edit') ;
-        Route::put('/update/{id}', [PurchaseentryController::class, 'update'])->name('inventory.purchaseentry.update');
-        Route::delete('/destroy/{id}', [PurchaseentryController::class, 'destroy'])->name('inventory.purchaseentry.destroy');
-    });
-
-    Route::prefix("service")->group(function () {
-        Route::get('/', [ServiceController::class, 'index'])->name('inventory.service.index');
-        Route::get('/create', [ServiceController::class, 'create'])->name('inventory.service.create');
-        Route::post('/store', [ServiceController::class, 'store'])->name('inventory.service.store');
-        Route::get('/show/{id}', [ServiceController::class, 'show'])->name('inventory.service.show');
-        Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('inventory.service.edit') ;
-        Route::put('/update/{id}', [ServiceController::class, 'update'])->name('inventory.service.update');
-        Route::delete('/destroy/{id}', [ServiceController::class, 'destroy'])->name('inventory.service.destroy');
-    });
-
-
-            Route::prefix("barcodeManagement")->group(function () {
-                Route::get('/', [BarcodeManagementController::class, 'index'])->name('inventory.barcodemanagement.index');
-                Route::get('/create', [BarcodeManagementController::class, 'create'])->name('inventory.barcodemanagement.create');
-                Route::post('/store', [BarcodeManagementController::class, 'store'])->name('inventory.barcodemanagement.store');
-                Route::get('/show/{id}', [BarcodeManagementController::class, 'show'])->name('inventory.barcodemanagement.show');
-                Route::get('/edit/{id}', [BarcodeManagementController::class, 'edit'])->name('inventory.barcodemanagement.edit');
-                Route::put('/update/{id}', [BarcodeManagementController::class, 'update'])->name('inventory.barcodemanagement.update');
-                Route::delete('/destroy/{id}', [BarcodeManagementController::class, 'destroy'])->name('inventory.barcodemanagement.destroy');
-            });
-
-            Route::prefix("goodreceivedreconcile")->group(function () {
-                Route::get('/', [GoodreceivedreconcileController::class, 'index'])->name('inventory.goodreceivedreconcile.index');
-                Route::get('/create', [GoodreceivedreconcileController::class, 'create'])->name('inventory.goodreceivedreconcile.create');
-                Route::post('/store', [GoodreceivedreconcileController::class, 'store'])->name('inventory.goodreceivedreconcile.store');
-                Route::get('/show/{id}', [GoodreceivedreconcileController::class, 'show'])->name('inventory.goodreceivedreconcile.show');
-                Route::get('/edit/{id}', [GoodreceivedreconcileController::class, 'edit'])->name('inventory.goodreceivedreconcile.edit') ;
-                Route::put('/update/{id}', [GoodreceivedreconcileController::class, 'update'])->name('inventory.goodreceivedreconcile.update');
-                Route::delete('/destroy/{id}', [GoodreceivedreconcileController::class, 'destroy'])->name('inventory.goodreceivedreconcile.destroy');
-            });
-
-        }
-    );
-
-    Route::prefix("Crm")->group(
-        function () {
-            Route::prefix("clients")->group(function () {
-                Route::get('/', [ClientsController::class, 'index'])->name('crm.clients.index');
-                Route::get('/create', [ClientsController::class, 'create'])->name('crm.clients.create');
-                Route::post('/store', [ClientsController::class, 'store'])->name('crm.clients.store');
-                Route::get('/show/{id}', [ClientsController::class, 'show'])->name('crm.clients.show');
-                Route::get('/edit/{id}', [ClientsController::class, 'edit'])->name('crm.clients.edit') ;
-                Route::put('/update/{id}', [ClientsController::class, 'update'])->name('crm.clients.update');
-                Route::delete('/destroy/{id}', [ClientsController::class, 'destroy'])->name('crm.clients.destroy');
-            });
-            Route::prefix("leads")->group(function () {
-                Route::get('/', [LeadsController::class, 'index'])->name('crm.leads.index');
-                Route::get('/create', [LeadsController::class, 'create'])->name('crm.leads.create');
-                Route::post('/store', [LeadsController::class, 'store'])->name('crm.leads.store');
-                Route::get('/show/{id}', [LeadsController::class, 'show'])->name('crm.leads.show');
-                Route::get('/edit/{id}', [LeadsController::class, 'edit'])->name('crm.leads.edit') ;
-                Route::put('/update/{id}', [LeadsController::class, 'update'])->name('crm.leads.update');
-                Route::delete('/destroy/{id}', [LeadsController::class, 'destroy'])->name('crm.leads.destroy');
-            });
-
-
-        }
-    );
-
+    /**
+     * Start of Master Routing
+     */
 
     Route::prefix("master")->group(
         function () {
@@ -304,7 +160,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TestController::class, 'create'])->name('test.test.create');
                 Route::post('/store', [TestController::class, 'store'])->name('test.test.store');
                 Route::get('/show/{id}', [TestController::class, 'show'])->name('test.test.show');
-                Route::get('/edit/{id}', [TestController::class, 'edit'])->name('test.test.edit') ;
+                Route::get('/edit/{id}', [TestController::class, 'edit'])->name('test.test.edit');
                 Route::put('/update/{id}', [TestController::class, 'update'])->name('test.test.update');
                 Route::delete('/destroy/{id}', [TestController::class, 'destroy'])->name('test.test.destroy');
             });
@@ -331,7 +187,6 @@ Route::middleware('auth')->group(function () {
                     Route::delete('/destroy/{id}', [CityController::class, 'destroy'])->name('master.city.destroy');
 
                     Route::get('/checkvalidation', [CityController::class, 'checkValidation'])->name('master.city.checkValidation');
-
                 }
             );
 
@@ -390,7 +245,6 @@ Route::middleware('auth')->group(function () {
                     Route::get('/edit/{id}', [OrganizationTypeController::class, 'edit'])->name('master.organizationtype.edit');
                     Route::put('/update/{id}', [OrganizationTypeController::class, 'update'])->name('master.organizationtype.update');
                     Route::delete('/destroy/{id}', [OrganizationTypeController::class, 'destroy'])->name('master.organizationtype.destroy');
-
                 }
             );
 
@@ -413,7 +267,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TraveltypeController::class, 'create'])->name('master.traveltype.create');
                 Route::post('/store', [TraveltypeController::class, 'store'])->name('master.traveltype.store');
                 Route::get('/show/{id}', [TraveltypeController::class, 'show'])->name('master.traveltype.show');
-                Route::get('/edit/{id}', [TraveltypeController::class, 'edit'])->name('master.traveltype.edit') ;
+                Route::get('/edit/{id}', [TraveltypeController::class, 'edit'])->name('master.traveltype.edit');
                 Route::put('/update/{id}', [TraveltypeController::class, 'update'])->name('master.traveltype.update');
                 Route::delete('/destroy/{id}', [TraveltypeController::class, 'destroy'])->name('master.traveltype.destroy');
             });
@@ -434,7 +288,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [DepartmenttypeController::class, 'create'])->name('master.departmenttype.create');
                 Route::post('/store', [DepartmenttypeController::class, 'store'])->name('master.departmenttype.store');
                 Route::get('/show/{id}', [DepartmenttypeController::class, 'show'])->name('master.departmenttype.show');
-                Route::get('/edit/{id}', [DepartmenttypeController::class, 'edit'])->name('master.departmenttype.edit') ;
+                Route::get('/edit/{id}', [DepartmenttypeController::class, 'edit'])->name('master.departmenttype.edit');
                 Route::put('/update/{id}', [DepartmenttypeController::class, 'update'])->name('master.departmenttype.update');
                 Route::delete('/destroy/{id}', [DepartmenttypeController::class, 'destroy'])->name('master.departmenttype.destroy');
             });
@@ -522,160 +376,50 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/destroy/{id}', [AddSupplierController::class, 'destroy'])->name('master.addsupplier.destroy');
             });
 
-
+            Route::prefix("organization")->group(function () {
+                Route::get('/', [OrganizationController::class, 'index'])->name('master.organization.index');
+                Route::get('/create', [OrganizationController::class, 'create'])->name('master.organization.create');
+                Route::post('/store', [OrganizationController::class, 'store'])->name('master.organization.store');
+                Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('master.organization.show');
+                Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('master.organization.edit');
+                Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('master.organization.update');
+                Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('master.organization.destroy');
+            });
 
 
             Route::get('usersettings', [App\Http\Controllers\Settings\UserSettingController::class, 'index'])->name('usersettings.index');
             Route::put('usersettings/update', [App\Http\Controllers\Settings\UserSettingController::class, 'update'])->name('usersettings.update');
         }
     );
-
-
-    Route::prefix("notice")->group(
-        function () {
-            Route::prefix("announcement")->group(function () {
-                Route::get('/', [AnnouncementController::class, 'index'])->name('notice.announcement.index');
-                Route::get('/create', [AnnouncementController::class, 'create'])->name('notice.announcement.create');
-                Route::post('/store', [AnnouncementController::class, 'store'])->name('notice.announcement.store');
-                Route::get('/show/{id}', [AnnouncementController::class, 'show'])->name('notice.announcement.show');
-                Route::get('/edit/{id}', [AnnouncementController::class, 'edit'])->name('notice.announcement.edit');
-                Route::put('/update/{id}', [AnnouncementController::class, 'update'])->name('notice.announcement.update');
-                Route::delete('/destroy/{id}', [AnnouncementController::class, 'destroy'])->name('notice.announcement.destroy');
-            });
-            Route::prefix("detailsview")->group(function () {
-                Route::get('/', [DetailsviewController::class, 'index'])->name('notice.detailsview.index');
-                Route::get('/create', [DetailsviewController::class, 'create'])->name('notice.detailsview.create');
-                Route::post('/store', [DetailsviewController::class, 'store'])->name('notice.detailsview.store');
-                Route::get('/show/{id}', [DetailsviewController::class, 'show'])->name('notice.detailsview.show');
-                Route::get('/edit/{id}', [DetailsviewController::class, 'edit'])->name('notice.detailsview.edit') ;
-                Route::put('/update/{id}', [DetailsviewController::class, 'update'])->name('notice.detailsview.update');
-                Route::delete('/destroy/{id}', [DetailsviewController::class, 'destroy'])->name('notice.detailsview.destroy');
-            });
-
-
-        }
-    );
-
-
-
-
-    Route::prefix("assets")->group(
-        function () {
-            Route::prefix("assestCategory")->group(function () {
-                Route::get('/', [AssestCategoryController::class, 'index'])->name('assets.assestcategory.index');
-                Route::get('/create', [AssestCategoryController::class, 'create'])->name('assets.assestcategory.create');
-                Route::post('/store', [AssestCategoryController::class, 'store'])->name('assets.assestcategory.store');
-                Route::get('/show/{id}', [AssestCategoryController::class, 'show'])->name('assets.assestcategory.show');
-                Route::get('/edit/{id}', [AssestCategoryController::class, 'edit'])->name('assets.assestcategory.edit');
-                Route::put('/update/{id}', [AssestCategoryController::class, 'update'])->name('assets.assestcategory.update');
-                Route::delete('/destroy/{id}', [AssestCategoryController::class, 'destroy'])->name('assets.assestcategory.destroy');
-            });
-            Route::prefix("fixedassets")->group(function () {
-                Route::get('/', [FixedassetsController::class, 'index'])->name('assets.fixedassets.index');
-                Route::get('/create', [FixedassetsController::class, 'create'])->name('assets.fixedassets.create');
-                Route::post('/store', [FixedassetsController::class, 'store'])->name('assets.fixedassets.store');
-                Route::get('/show/{id}', [FixedassetsController::class, 'show'])->name('assets.fixedassets.show');
-                Route::get('/edit/{id}', [FixedassetsController::class, 'edit'])->name('assets.fixedassets.edit') ;
-                Route::put('/update/{id}', [FixedassetsController::class, 'update'])->name('assets.fixedassets.update');
-                Route::delete('/destroy/{id}', [FixedassetsController::class, 'destroy'])->name('assets.fixedassets.destroy');
-            });
-
-
-            Route::prefix("equipmentdemand")->group(function () {
-                Route::get('/', [EquipmentdemandController::class, 'index'])->name('assets.equipmentdemand.index');
-                Route::get('/create', [EquipmentdemandController::class, 'create'])->name('assets.equipmentdemand.create');
-                Route::post('/store', [EquipmentdemandController::class, 'store'])->name('assets.equipmentdemand.store');
-                Route::get('/show/{id}', [EquipmentdemandController::class, 'show'])->name('assets.equipmentdemand.show');
-                Route::get('/edit/{id}', [EquipmentdemandController::class, 'edit'])->name('assets.equipmentdemand.edit');
-                Route::put('/update/{id}', [EquipmentdemandController::class, 'update'])->name('assets.equipmentdemand.update');
-                Route::delete('/destroy/{id}', [EquipmentdemandController::class, 'destroy'])->name('assets.equipmentdemand.destroy');
-            });
-        }
-    );
-
-    Route::prefix("dictonary")->group(
-        function () {
-            Route::get('/', [DictonaryController::class, 'index']);
-            Route::get('/add', [DictonaryController::class, 'create']);
-            Route::get('/view', [DictonaryController::class, 'view']);
-            Route::post('/store', [DictonaryController::class, 'store']);
-            Route::get('/edit/{id}', [DictonaryController::class, 'edit']);
-            Route::post('/update/{id}', [DictonaryController::class, 'update']);
-            Route::delete('/destroy/{id}', [DictonaryController::class, 'destroy']);
-        }
-    );
-
-
-    Route::prefix("nepal")->group(
-        function () {
-            Route::prefix("city")->group(function () {
-                Route::get('/', [CityController::class, 'index'])->name('nepal.city.index');
-                Route::get('/create', [CityController::class, 'create'])->name('nepal.city.create');
-                Route::post('/store', [CityController::class, 'store'])->name('nepal.city.store');
-                Route::get('/show/{id}', [CityController::class, 'show'])->name('nepal.city.show');
-                Route::get('/edit/{id}', [CityController::class, 'edit'])->name('nepal.city.edit') ;
-                Route::put('/update/{id}', [CityController::class, 'update'])->name('nepal.city.update');
-                Route::delete('/destroy/{id}', [CityController::class, 'destroy'])->name('nepal.city.destroy');
-            });
-        }
-    );
-
-
-
-
-
-    // Route::prefix("department")->group(function () {
-    //     Route::get('/', [DepartmentController::class, 'index']);
-    //     Route::get('/add', [DepartmentController::class, 'create']);
-    //     Route::get('/view', [DepartmentController::class, 'view']);
-    //     Route::post('/store', [DepartmentController::class, 'store']);
-    //     Route::get('/edit/{id}', [DepartmentController::class, 'edit']);
-    //     Route::post('/update/{id}', [DepartmentController::class, 'update']);
-    //     Route::delete('/destroy/{id}', [DepartmentController::class, 'destroy']);
-    // });
-
-
-    Route::get('/settings/{name?}', [SettingController::class, 'master'])->where('name', '(.*)');
-
-
-    // End Settings Routes
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
+    //End of master Routing
+    
+    /**
+     * Start of hr routing
+     */
     Route::prefix('hr')->group(
 
         function () {
 
-                Route::prefix("latereasons")->group(function () {
-                    Route::get('/', [LatereasonsController::class, 'index'])->name('hr.latereasons.index');
-                    Route::get('/create', [LatereasonsController::class, 'create'])->name('hr.latereasons.create');
-                    Route::post('/store', [LatereasonsController::class, 'store'])->name('hr.latereasons.store');
-                    Route::get('/show/{id}', [LatereasonsController::class, 'show'])->name('hr.latereasons.show');
-                    Route::get('/edit/{id}', [LatereasonsController::class, 'edit'])->name('hr.latereasons.edit') ;
-                    Route::put('/update/{id}', [LatereasonsController::class, 'update'])->name('hr.latereasons.update');
-                    Route::delete('/destroy/{id}', [LatereasonsController::class, 'destroy'])->name('hr.latereasons.destroy');
-                });
-                                            Route::prefix("organization")->group(function () {
-            Route::get('/', [OrganizationController::class, 'index'])->name('master.organization.index');
-            Route::get('/create', [OrganizationController::class, 'create'])->name('master.organization.create');
-            Route::post('/store', [OrganizationController::class, 'store'])->name('master.organization.store');
-            Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('master.organization.show');
-            Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('master.organization.edit') ;
-            Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('master.organization.update');
-            Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('master.organization.destroy');
+            Route::prefix("latereasons")->group(function () {
+                Route::get('/', [LatereasonsController::class, 'index'])->name('hr.latereasons.index');
+                Route::get('/create', [LatereasonsController::class, 'create'])->name('hr.latereasons.create');
+                Route::post('/store', [LatereasonsController::class, 'store'])->name('hr.latereasons.store');
+                Route::get('/show/{id}', [LatereasonsController::class, 'show'])->name('hr.latereasons.show');
+                Route::get('/edit/{id}', [LatereasonsController::class, 'edit'])->name('hr.latereasons.edit');
+                Route::put('/update/{id}', [LatereasonsController::class, 'update'])->name('hr.latereasons.update');
+                Route::delete('/destroy/{id}', [LatereasonsController::class, 'destroy'])->name('hr.latereasons.destroy');
+            });
 
-        });
 
-                Route::prefix("employee")->group(function () {
-                    Route::get('/', [EmployeeController::class, 'index'])->name('hr.employee.index');
-                    Route::get('/create', [EmployeeController::class, 'create'])->name('hr.employee.create');
-                    Route::post('/store', [EmployeeController::class, 'store'])->name('hr.employee.store');
-                    Route::get('/show/{id}', [EmployeeController::class, 'show'])->name('hr.employee.show');
-                    Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name('hr.employee.edit') ;
-                    Route::put('/update/{id}', [EmployeeController::class, 'update'])->name('hr.employee.update');
-                    Route::delete('/destroy/{id}', [EmployeeController::class, 'destroy'])->name('hr.employee.destroy');
-                });
+            Route::prefix("employee")->group(function () {
+                Route::get('/', [EmployeeController::class, 'index'])->name('hr.employee.index');
+                Route::get('/create', [EmployeeController::class, 'create'])->name('hr.employee.create');
+                Route::post('/store', [EmployeeController::class, 'store'])->name('hr.employee.store');
+                Route::get('/show/{id}', [EmployeeController::class, 'show'])->name('hr.employee.show');
+                Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name('hr.employee.edit');
+                Route::put('/update/{id}', [EmployeeController::class, 'update'])->name('hr.employee.update');
+                Route::delete('/destroy/{id}', [EmployeeController::class, 'destroy'])->name('hr.employee.destroy');
+            });
 
 
             Route::prefix("resignation")->group(function () {
@@ -683,7 +427,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [ResignationController::class, 'create'])->name('hr.resignation.create');
                 Route::post('/store', [ResignationController::class, 'store'])->name('hr.resignation.store');
                 Route::get('/show/{id}', [ResignationController::class, 'show'])->name('hr.resignation.show');
-                Route::get('/edit/{id}', [ResignationController::class, 'edit'])->name('hr.resignation.edit') ;
+                Route::get('/edit/{id}', [ResignationController::class, 'edit'])->name('hr.resignation.edit');
                 Route::put('/update/{id}', [ResignationController::class, 'update'])->name('hr.resignation.update');
                 Route::delete('/destroy/{id}', [ResignationController::class, 'destroy'])->name('hr.resignation.destroy');
             });
@@ -693,7 +437,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [PromotiondemotionController::class, 'create'])->name('hr.promotiondemotion.create');
                 Route::post('/store', [PromotiondemotionController::class, 'store'])->name('hr.promotiondemotion.store');
                 Route::get('/show/{id}', [PromotiondemotionController::class, 'show'])->name('hr.promotiondemotion.show');
-                Route::get('/edit/{id}', [PromotiondemotionController::class, 'edit'])->name('hr.promotiondemotion.edit') ;
+                Route::get('/edit/{id}', [PromotiondemotionController::class, 'edit'])->name('hr.promotiondemotion.edit');
                 Route::put('/update/{id}', [PromotiondemotionController::class, 'update'])->name('hr.promotiondemotion.update');
                 Route::delete('/destroy/{id}', [PromotiondemotionController::class, 'destroy'])->name('hr.promotiondemotion.destroy');
             });
@@ -704,7 +448,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [MangeholidayController::class, 'create'])->name('hr.mangeholiday.create');
                 Route::post('/store', [MangeholidayController::class, 'store'])->name('hr.mangeholiday.store');
                 Route::get('/show/{id}', [MangeholidayController::class, 'show'])->name('hr.mangeholiday.show');
-                Route::get('/edit/{id}', [MangeholidayController::class, 'edit'])->name('hr.mangeholiday.edit') ;
+                Route::get('/edit/{id}', [MangeholidayController::class, 'edit'])->name('hr.mangeholiday.edit');
                 Route::put('/update/{id}', [MangeholidayController::class, 'update'])->name('hr.mangeholiday.update');
                 Route::delete('/destroy/{id}', [MangeholidayController::class, 'destroy'])->name('hr.mangeholiday.destroy');
             });
@@ -714,7 +458,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [ShiftrosterController::class, 'create'])->name('hr.shiftroster.create');
                 Route::post('/store', [ShiftrosterController::class, 'store'])->name('hr.shiftroster.store');
                 Route::get('/show/{id}', [ShiftrosterController::class, 'show'])->name('hr.shiftroster.show');
-                Route::get('/edit/{id}', [ShiftrosterController::class, 'edit'])->name('hr.shiftroster.edit') ;
+                Route::get('/edit/{id}', [ShiftrosterController::class, 'edit'])->name('hr.shiftroster.edit');
                 Route::put('/update/{id}', [ShiftrosterController::class, 'update'])->name('hr.shiftroster.update');
                 Route::delete('/destroy/{id}', [ShiftrosterController::class, 'destroy'])->name('hr.shiftroster.destroy');
             });
@@ -727,7 +471,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [DepartmentController::class, 'create'])->name('hr.department.create');
                 Route::post('/store', [DepartmentController::class, 'store'])->name('hr.department.store');
                 Route::get('/show/{id}', [DepartmentController::class, 'show'])->name('hr.department.show');
-                Route::get('/edit/{id}', [DepartmentController::class, 'edit'])->name('hr.department.edit') ;
+                Route::get('/edit/{id}', [DepartmentController::class, 'edit'])->name('hr.department.edit');
                 Route::put('/update/{id}', [DepartmentController::class, 'update'])->name('hr.department.update');
                 Route::delete('/destroy/{id}', [DepartmentController::class, 'destroy'])->name('hr.department.destroy');
             });
@@ -781,7 +525,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [AbsentreasonController::class, 'create'])->name('hr.absentreason.create');
                 Route::post('/store', [AbsentreasonController::class, 'store'])->name('hr.absentreason.store');
                 Route::get('/show/{id}', [AbsentreasonController::class, 'show'])->name('hr.absentreason.show');
-                Route::get('/edit/{id}', [AbsentreasonController::class, 'edit'])->name('hr.absentreason.edit') ;
+                Route::get('/edit/{id}', [AbsentreasonController::class, 'edit'])->name('hr.absentreason.edit');
                 Route::put('/update/{id}', [AbsentreasonController::class, 'update'])->name('hr.absentreason.update');
                 Route::delete('/destroy/{id}', [AbsentReasonController::class, 'destroy'])->name('hr.absentreason.destroy');
             });
@@ -803,7 +547,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [AttendenceController::class, 'create'])->name('hr.attendence.create');
                 Route::post('/store', [AttendenceController::class, 'store'])->name('hr.attendence.store');
                 Route::get('/show/{id}', [AttendenceController::class, 'show'])->name('hr.attendence.show');
-                Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit') ;
+                Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit');
                 Route::put('/update/{id}', [AttendenceController::class, 'update'])->name('hr.attendence.update');
                 Route::delete('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy');
             });
@@ -813,7 +557,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [ComplaintsController::class, 'create'])->name('hr.complaints.create');
                 Route::post('/store', [ComplaintsController::class, 'store'])->name('hr.complaints.store');
                 Route::get('/show/{id}', [ComplaintsController::class, 'show'])->name('hr.complaints.show');
-                Route::get('/edit/{id}', [ComplaintsController::class, 'edit'])->name('hr.complaints.edit') ;
+                Route::get('/edit/{id}', [ComplaintsController::class, 'edit'])->name('hr.complaints.edit');
                 Route::put('/update/{id}', [ComplaintsController::class, 'update'])->name('hr.complaints.update');
                 Route::delete('/destroy/{id}', [ComplaintsController::class, 'destroy'])->name('hr.complaints.destroy');
             });
@@ -834,7 +578,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TransferController::class, 'create'])->name('hr.transfer.create');
                 Route::post('/store', [TransferController::class, 'store'])->name('hr.transfer.store');
                 Route::get('/show/{id}', [TransferController::class, 'show'])->name('hr.transfer.show');
-                Route::get('/edit/{id}', [TransferController::class, 'edit'])->name('hr.transfer.edit') ;
+                Route::get('/edit/{id}', [TransferController::class, 'edit'])->name('hr.transfer.edit');
                 Route::put('/update/{id}', [TransferController::class, 'update'])->name('hr.transfer.update');
                 Route::delete('/destroy/{id}', [TransferController::class, 'destroy'])->name('hr.transfer.destroy');
             });
@@ -874,7 +618,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [EmployeementtimelineController::class, 'create'])->name('hr.employeementtimeline.create');
                 Route::post('/store', [EmployeementtimelineController::class, 'store'])->name('hr.employeementtimeline.store');
                 Route::get('/show/{id}', [EmployeementtimelineController::class, 'show'])->name('hr.employeementtimeline.show');
-                Route::get('/edit/{id}', [EmployeementtimelineController::class, 'edit'])->name('hr.employeementtimeline.edit') ;
+                Route::get('/edit/{id}', [EmployeementtimelineController::class, 'edit'])->name('hr.employeementtimeline.edit');
                 Route::put('/update/{id}', [EmployeementtimelineController::class, 'update'])->name('hr.employeementtimeline.update');
                 Route::delete('/destroy/{id}', [EmployeementtimelineController::class, 'destroy'])->name('hr.employeementtimeline.destroy');
             });
@@ -895,13 +639,259 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [OverviewController::class, 'create'])->name('hr.overview.create');
                 Route::post('/store', [OverviewController::class, 'store'])->name('hr.overview.store');
                 Route::get('/show/{id}', [OverviewController::class, 'show'])->name('hr.overview.show');
-                Route::get('/edit/{id}', [OverviewController::class, 'edit'])->name('hr.overview.edit') ;
+                Route::get('/edit/{id}', [OverviewController::class, 'edit'])->name('hr.overview.edit');
                 Route::put('/update/{id}', [OverviewController::class, 'update'])->name('hr.overview.update');
                 Route::delete('/destroy/{id}', [OverviewController::class, 'destroy'])->name('hr.overview.destroy');
             });
         }
-
     );
+    Route::prefix("supplier")->group(
+        function () {
+            Route::prefix("suppliercategory")->group(function () {
+                Route::get('/', [SuppliercategoryController::class, 'index'])->name('supplier.suppliercategory.index');
+                Route::get('/create', [SuppliercategoryController::class, 'create'])->name('supplier.suppliercategory.create');
+                Route::post('/store', [SuppliercategoryController::class, 'store'])->name('supplier.suppliercategory.store');
+                Route::get('/show/{id}', [SuppliercategoryController::class, 'show'])->name('supplier.suppliercategory.show');
+                Route::get('/edit/{id}', [SuppliercategoryController::class, 'edit'])->name('supplier.suppliercategory.edit');
+                Route::put('/update/{id}', [SuppliercategoryController::class, 'update'])->name('supplier.suppliercategory.update');
+                Route::delete('/destroy/{id}', [SuppliercategoryController::class, 'destroy'])->name('supplier.suppliercategory.destroy');
+            });
+        }
+    );
+
+    Route::prefix("recruit")->group(
+        function () {
+            Route::prefix("jobinterview")->group(function () {
+                Route::get('/', [JobinterviewController::class, 'index'])->name('recruit.jobinterview.index');
+                Route::get('/create', [JobinterviewController::class, 'create'])->name('recruit.jobinterview.create');
+                Route::post('/store', [JobinterviewController::class, 'store'])->name('recruit.jobinterview.store');
+                Route::get('/show/{id}', [JobinterviewController::class, 'show'])->name('recruit.jobinterview.show');
+                Route::get('/edit/{id}', [JobinterviewController::class, 'edit'])->name('recruit.jobinterview.edit');
+                Route::put('/update/{id}', [JobinterviewController::class, 'update'])->name('recruit.jobinterview.update');
+                Route::delete('/destroy/{id}', [JobinterviewController::class, 'destroy'])->name('recruit.jobinterview.destroy');
+            });
+            Route::prefix("jobpost")->group(function () {
+                Route::get('/', [JobpostController::class, 'index'])->name('recruit.jobpost.index');
+                Route::get('/create', [JobpostController::class, 'create'])->name('recruit.jobpost.create');
+                Route::post('/store', [JobpostController::class, 'store'])->name('recruit.jobpost.store');
+                Route::get('/show/{id}', [JobpostController::class, 'show'])->name('recruit.jobpost.show');
+                Route::get('/edit/{id}', [JobpostController::class, 'edit'])->name('recruit.jobpost.edit');
+                Route::put('/update/{id}', [JobpostController::class, 'update'])->name('recruit.jobpost.update');
+                Route::delete('/destroy/{id}', [JobpostController::class, 'destroy'])->name('recruit.jobpost.destroy');
+            });
+        }
+    );
+
+    Route::prefix("inventory")->group(
+        function () {
+
+
+            Route::prefix("product")->group(function () {
+                Route::get('/', [ProductController::class, 'index'])->name('inventory.product.index');
+                Route::get('/create', [ProductController::class, 'create'])->name('inventory.product.create');
+                Route::post('/store', [ProductController::class, 'store'])->name('inventory.product.store');
+                Route::get('/show/{id}', [ProductController::class, 'show'])->name('inventory.product.show');
+                Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('inventory.product.edit');
+                Route::put('/update/{id}', [ProductController::class, 'update'])->name('inventory.product.update');
+                Route::delete('/destroy/{id}', [ProductController::class, 'destroy'])->name('inventory.product.destroy');
+            });
+            Route::prefix("purchaseorder")->group(function () {
+                Route::get('/', [PurchaseorderController::class, 'index'])->name('inventory.purchaseorder.index');
+                Route::get('/create', [PurchaseorderController::class, 'create'])->name('inventory.purchaseorder.create');
+                Route::post('/store', [PurchaseorderController::class, 'store'])->name('inventory.purchaseorder.store');
+                Route::get('/show/{id}', [PurchaseorderController::class, 'show'])->name('inventory.purchaseorder.show');
+                Route::get('/edit/{id}', [PurchaseorderController::class, 'edit'])->name('inventory.purchaseorder.edit');
+                Route::put('/update/{id}', [PurchaseorderController::class, 'update'])->name('inventory.purchaseorder.update');
+                Route::delete('/destroy/{id}', [PurchaseorderController::class, 'destroy'])->name('inventory.purchaseorder.destroy');
+            });
+
+            Route::prefix("servicelog")->group(function () {
+                Route::get('/', [ServicelogController::class, 'index'])->name('inventory.servicelog.index');
+                Route::get('/create', [ServicelogController::class, 'create'])->name('inventory.servicelog.create');
+                Route::post('/store', [ServicelogController::class, 'store'])->name('inventory.servicelog.store');
+                Route::get('/show/{id}', [ServicelogController::class, 'show'])->name('inventory.servicelog.show');
+                Route::get('/edit/{id}', [ServicelogController::class, 'edit'])->name('inventory.servicelog.edit');
+                Route::put('/update/{id}', [ServicelogController::class, 'update'])->name('inventory.servicelog.update');
+                Route::delete('/destroy/{id}', [ServicelogController::class, 'destroy'])->name('inventory.servicelog.destroy');
+            });
+
+            Route::prefix("stockreconcile")->group(function () {
+                Route::get('/', [StockreconcileController::class, 'index'])->name('inventory.stockreconcile.index');
+                Route::get('/create', [StockreconcileController::class, 'create'])->name('inventory.stockreconcile.create');
+                Route::post('/store', [StockreconcileController::class, 'store'])->name('inventory.stockreconcile.store');
+                Route::get('/show/{id}', [StockreconcileController::class, 'show'])->name('inventory.stockreconcile.show');
+                Route::get('/edit/{id}', [StockreconcileController::class, 'edit'])->name('inventory.stockreconcile.edit');
+                Route::put('/update/{id}', [StockreconcileController::class, 'update'])->name('inventory.stockreconcile.update');
+                Route::delete('/destroy/{id}', [StockreconcileController::class, 'destroy'])->name('inventory.stockreconcile.destroy');
+            });
+            Route::prefix("purchaseentry")->group(function () {
+                Route::get('/', [PurchaseentryController::class, 'index'])->name('inventory.purchaseentry.index');
+                Route::get('/create', [PurchaseentryController::class, 'create'])->name('inventory.purchaseentry.create');
+                Route::post('/store', [PurchaseentryController::class, 'store'])->name('inventory.purchaseentry.store');
+                Route::get('/show/{id}', [PurchaseentryController::class, 'show'])->name('inventory.purchaseentry.show');
+                Route::get('/edit/{id}', [PurchaseentryController::class, 'edit'])->name('inventory.purchaseentry.edit');
+                Route::put('/update/{id}', [PurchaseentryController::class, 'update'])->name('inventory.purchaseentry.update');
+                Route::delete('/destroy/{id}', [PurchaseentryController::class, 'destroy'])->name('inventory.purchaseentry.destroy');
+            });
+
+            Route::prefix("service")->group(function () {
+                Route::get('/', [ServiceController::class, 'index'])->name('inventory.service.index');
+                Route::get('/create', [ServiceController::class, 'create'])->name('inventory.service.create');
+                Route::post('/store', [ServiceController::class, 'store'])->name('inventory.service.store');
+                Route::get('/show/{id}', [ServiceController::class, 'show'])->name('inventory.service.show');
+                Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('inventory.service.edit');
+                Route::put('/update/{id}', [ServiceController::class, 'update'])->name('inventory.service.update');
+                Route::delete('/destroy/{id}', [ServiceController::class, 'destroy'])->name('inventory.service.destroy');
+            });
+
+
+            Route::prefix("barcodeManagement")->group(function () {
+                Route::get('/', [BarcodeManagementController::class, 'index'])->name('inventory.barcodemanagement.index');
+                Route::get('/create', [BarcodeManagementController::class, 'create'])->name('inventory.barcodemanagement.create');
+                Route::post('/store', [BarcodeManagementController::class, 'store'])->name('inventory.barcodemanagement.store');
+                Route::get('/show/{id}', [BarcodeManagementController::class, 'show'])->name('inventory.barcodemanagement.show');
+                Route::get('/edit/{id}', [BarcodeManagementController::class, 'edit'])->name('inventory.barcodemanagement.edit');
+                Route::put('/update/{id}', [BarcodeManagementController::class, 'update'])->name('inventory.barcodemanagement.update');
+                Route::delete('/destroy/{id}', [BarcodeManagementController::class, 'destroy'])->name('inventory.barcodemanagement.destroy');
+            });
+
+            Route::prefix("goodreceivedreconcile")->group(function () {
+                Route::get('/', [GoodreceivedreconcileController::class, 'index'])->name('inventory.goodreceivedreconcile.index');
+                Route::get('/create', [GoodreceivedreconcileController::class, 'create'])->name('inventory.goodreceivedreconcile.create');
+                Route::post('/store', [GoodreceivedreconcileController::class, 'store'])->name('inventory.goodreceivedreconcile.store');
+                Route::get('/show/{id}', [GoodreceivedreconcileController::class, 'show'])->name('inventory.goodreceivedreconcile.show');
+                Route::get('/edit/{id}', [GoodreceivedreconcileController::class, 'edit'])->name('inventory.goodreceivedreconcile.edit');
+                Route::put('/update/{id}', [GoodreceivedreconcileController::class, 'update'])->name('inventory.goodreceivedreconcile.update');
+                Route::delete('/destroy/{id}', [GoodreceivedreconcileController::class, 'destroy'])->name('inventory.goodreceivedreconcile.destroy');
+            });
+        }
+    );
+
+    Route::prefix("Crm")->group(
+        function () {
+            Route::prefix("clients")->group(function () {
+                Route::get('/', [ClientsController::class, 'index'])->name('crm.clients.index');
+                Route::get('/create', [ClientsController::class, 'create'])->name('crm.clients.create');
+                Route::post('/store', [ClientsController::class, 'store'])->name('crm.clients.store');
+                Route::get('/show/{id}', [ClientsController::class, 'show'])->name('crm.clients.show');
+                Route::get('/edit/{id}', [ClientsController::class, 'edit'])->name('crm.clients.edit');
+                Route::put('/update/{id}', [ClientsController::class, 'update'])->name('crm.clients.update');
+                Route::delete('/destroy/{id}', [ClientsController::class, 'destroy'])->name('crm.clients.destroy');
+            });
+            Route::prefix("leads")->group(function () {
+                Route::get('/', [LeadsController::class, 'index'])->name('crm.leads.index');
+                Route::get('/create', [LeadsController::class, 'create'])->name('crm.leads.create');
+                Route::post('/store', [LeadsController::class, 'store'])->name('crm.leads.store');
+                Route::get('/show/{id}', [LeadsController::class, 'show'])->name('crm.leads.show');
+                Route::get('/edit/{id}', [LeadsController::class, 'edit'])->name('crm.leads.edit');
+                Route::put('/update/{id}', [LeadsController::class, 'update'])->name('crm.leads.update');
+                Route::delete('/destroy/{id}', [LeadsController::class, 'destroy'])->name('crm.leads.destroy');
+            });
+        }
+    );
+
+
+
+
+
+    Route::prefix("notice")->group(
+        function () {
+            Route::prefix("announcement")->group(function () {
+                Route::get('/', [AnnouncementController::class, 'index'])->name('notice.announcement.index');
+                Route::get('/create', [AnnouncementController::class, 'create'])->name('notice.announcement.create');
+                Route::post('/store', [AnnouncementController::class, 'store'])->name('notice.announcement.store');
+                Route::get('/show/{id}', [AnnouncementController::class, 'show'])->name('notice.announcement.show');
+                Route::get('/edit/{id}', [AnnouncementController::class, 'edit'])->name('notice.announcement.edit');
+                Route::put('/update/{id}', [AnnouncementController::class, 'update'])->name('notice.announcement.update');
+                Route::delete('/destroy/{id}', [AnnouncementController::class, 'destroy'])->name('notice.announcement.destroy');
+            });
+            Route::prefix("detailsview")->group(function () {
+                Route::get('/', [DetailsviewController::class, 'index'])->name('notice.detailsview.index');
+                Route::get('/create', [DetailsviewController::class, 'create'])->name('notice.detailsview.create');
+                Route::post('/store', [DetailsviewController::class, 'store'])->name('notice.detailsview.store');
+                Route::get('/show/{id}', [DetailsviewController::class, 'show'])->name('notice.detailsview.show');
+                Route::get('/edit/{id}', [DetailsviewController::class, 'edit'])->name('notice.detailsview.edit');
+                Route::put('/update/{id}', [DetailsviewController::class, 'update'])->name('notice.detailsview.update');
+                Route::delete('/destroy/{id}', [DetailsviewController::class, 'destroy'])->name('notice.detailsview.destroy');
+            });
+        }
+    );
+
+
+
+
+    Route::prefix("assets")->group(
+        function () {
+            Route::prefix("assestCategory")->group(function () {
+                Route::get('/', [AssestCategoryController::class, 'index'])->name('assets.assestcategory.index');
+                Route::get('/create', [AssestCategoryController::class, 'create'])->name('assets.assestcategory.create');
+                Route::post('/store', [AssestCategoryController::class, 'store'])->name('assets.assestcategory.store');
+                Route::get('/show/{id}', [AssestCategoryController::class, 'show'])->name('assets.assestcategory.show');
+                Route::get('/edit/{id}', [AssestCategoryController::class, 'edit'])->name('assets.assestcategory.edit');
+                Route::put('/update/{id}', [AssestCategoryController::class, 'update'])->name('assets.assestcategory.update');
+                Route::delete('/destroy/{id}', [AssestCategoryController::class, 'destroy'])->name('assets.assestcategory.destroy');
+            });
+            Route::prefix("fixedassets")->group(function () {
+                Route::get('/', [FixedassetsController::class, 'index'])->name('assets.fixedassets.index');
+                Route::get('/create', [FixedassetsController::class, 'create'])->name('assets.fixedassets.create');
+                Route::post('/store', [FixedassetsController::class, 'store'])->name('assets.fixedassets.store');
+                Route::get('/show/{id}', [FixedassetsController::class, 'show'])->name('assets.fixedassets.show');
+                Route::get('/edit/{id}', [FixedassetsController::class, 'edit'])->name('assets.fixedassets.edit');
+                Route::put('/update/{id}', [FixedassetsController::class, 'update'])->name('assets.fixedassets.update');
+                Route::delete('/destroy/{id}', [FixedassetsController::class, 'destroy'])->name('assets.fixedassets.destroy');
+            });
+
+
+            Route::prefix("equipmentdemand")->group(function () {
+                Route::get('/', [EquipmentdemandController::class, 'index'])->name('assets.equipmentdemand.index');
+                Route::get('/create', [EquipmentdemandController::class, 'create'])->name('assets.equipmentdemand.create');
+                Route::post('/store', [EquipmentdemandController::class, 'store'])->name('assets.equipmentdemand.store');
+                Route::get('/show/{id}', [EquipmentdemandController::class, 'show'])->name('assets.equipmentdemand.show');
+                Route::get('/edit/{id}', [EquipmentdemandController::class, 'edit'])->name('assets.equipmentdemand.edit');
+                Route::put('/update/{id}', [EquipmentdemandController::class, 'update'])->name('assets.equipmentdemand.update');
+                Route::delete('/destroy/{id}', [EquipmentdemandController::class, 'destroy'])->name('assets.equipmentdemand.destroy');
+            });
+        }
+    );
+
+    Route::prefix("dictonary")->group(
+        function () {
+            Route::get('/', [DictonaryController::class, 'index']);
+            Route::get('/add', [DictonaryController::class, 'create']);
+            Route::get('/view', [DictonaryController::class, 'view']);
+            Route::post('/store', [DictonaryController::class, 'store']);
+            Route::get('/edit/{id}', [DictonaryController::class, 'edit']);
+            Route::post('/update/{id}', [DictonaryController::class, 'update']);
+            Route::delete('/destroy/{id}', [DictonaryController::class, 'destroy']);
+        }
+    );
+
+
+
+
+
+
+
+    // Route::prefix("department")->group(function () {
+    //     Route::get('/', [DepartmentController::class, 'index']);
+    //     Route::get('/add', [DepartmentController::class, 'create']);
+    //     Route::get('/view', [DepartmentController::class, 'view']);
+    //     Route::post('/store', [DepartmentController::class, 'store']);
+    //     Route::get('/edit/{id}', [DepartmentController::class, 'edit']);
+    //     Route::post('/update/{id}', [DepartmentController::class, 'update']);
+    //     Route::delete('/destroy/{id}', [DepartmentController::class, 'destroy']);
+    // });
+
+
+    Route::get('/settings/{name?}', [SettingController::class, 'master'])->where('name', '(.*)');
+
+
+    // End Settings Routes
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
     Route::prefix("requisition")->group(
         function () {
             Route::prefix("leaverequest")->group(function () {
@@ -909,7 +899,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [LeaverequestController::class, 'create'])->name('requisition.leaverequest.create');
                 Route::post('/store', [LeaverequestController::class, 'store'])->name('requisition.leaverequest.store');
                 Route::get('/show/{id}', [LeaverequestController::class, 'show'])->name('requisition.leaverequest.show');
-                Route::get('/edit/{id}', [LeaverequestController::class, 'edit'])->name('requisition.leaverequest.edit') ;
+                Route::get('/edit/{id}', [LeaverequestController::class, 'edit'])->name('requisition.leaverequest.edit');
                 Route::put('/update/{id}', [LeaverequestController::class, 'update'])->name('requisition.leaverequest.update');
                 Route::delete('/destroy/{id}', [LeaverequestController::class, 'destroy'])->name('requisition.leaverequest.destroy');
             });
@@ -928,7 +918,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [FleetrequestController::class, 'create'])->name('requisition.fleetrequest.create');
                 Route::post('/store', [FleetrequestController::class, 'store'])->name('requisition.fleetrequest.store');
                 Route::get('/show/{id}', [FleetrequestController::class, 'show'])->name('requisition.fleetrequest.show');
-                Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('requisition.fleetrequest.edit') ;
+                Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('requisition.fleetrequest.edit');
                 Route::put('/update/{id}', [FleetrequestController::class, 'update'])->name('requisition.fleetrequest.update');
                 Route::delete('/destroy/{id}', [FleetrequestController::class, 'destroy'])->name('requisition.fleetrequest.destroy');
             });
@@ -981,7 +971,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [GeneratorlogbookController::class, 'create'])->name('officemanagement.generatorlogbook.create');
                 Route::post('/store', [GeneratorlogbookController::class, 'store'])->name('officemanagement.generatorlogbook.store');
                 Route::get('/show/{id}', [GeneratorlogbookController::class, 'show'])->name('officemanagement.generatorlogbook.show');
-                Route::get('/edit/{id}', [GeneratorlogbookController::class, 'edit'])->name('officemanagement.generatorlogbook.edit') ;
+                Route::get('/edit/{id}', [GeneratorlogbookController::class, 'edit'])->name('officemanagement.generatorlogbook.edit');
                 Route::put('/update/{id}', [GeneratorlogbookController::class, 'update'])->name('officemanagement.generatorlogbook.update');
                 Route::delete('/destroy/{id}', [GeneratorlogbookController::class, 'destroy'])->name('officemanagement.generatorlogbook.destroy');
             });
@@ -991,14 +981,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [PurchaseserviceController::class, 'create'])->name('officemanagement.purchaseservice.create');
                 Route::post('/store', [PurchaseserviceController::class, 'store'])->name('officemanagement.purchaseservice.store');
                 Route::get('/show/{id}', [PurchaseserviceController::class, 'show'])->name('officemanagement.purchaseservice.show');
-                Route::get('/edit/{id}', [PurchaseserviceController::class, 'edit'])->name('officemanagement.purchaseservice.edit') ;
+                Route::get('/edit/{id}', [PurchaseserviceController::class, 'edit'])->name('officemanagement.purchaseservice.edit');
                 Route::put('/update/{id}', [PurchaseserviceController::class, 'update'])->name('officemanagement.purchaseservice.update');
                 Route::delete('/destroy/{id}', [PurchaseserviceController::class, 'destroy'])->name('officemanagement.purchaseservice.destroy');
             });
-
-
-
-
         }
     );
     Route::prefix("payroll")->group(
@@ -1008,11 +994,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [NewpaymentController::class, 'create'])->name('payroll.newpayment.create');
                 Route::post('/store', [NewpaymentController::class, 'store'])->name('payroll.newpayment.store');
                 Route::get('/show/{id}', [NewpaymentController::class, 'show'])->name('payroll.newpayment.show');
-                Route::get('/edit/{id}', [NewpaymentController::class, 'edit'])->name('payroll.newpayment.edit') ;
+                Route::get('/edit/{id}', [NewpaymentController::class, 'edit'])->name('payroll.newpayment.edit');
                 Route::put('/update/{id}', [NewpaymentController::class, 'update'])->name('payroll.newpayment.update');
                 Route::delete('/destroy/{id}', [NewpaymentController::class, 'destroy'])->name('payroll.newpayment.destroy');
             });
-
         }
     );
     Route::prefix("Training")->group(
@@ -1022,7 +1007,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TrainingtypeController::class, 'create'])->name('training.trainingtype.create');
                 Route::post('/store', [TrainingtypeController::class, 'store'])->name('training.trainingtype.store');
                 Route::get('/show/{id}', [TrainingtypeController::class, 'show'])->name('training.trainingtype.show');
-                Route::get('/edit/{id}', [TrainingtypeController::class, 'edit'])->name('training.trainingtype.edit') ;
+                Route::get('/edit/{id}', [TrainingtypeController::class, 'edit'])->name('training.trainingtype.edit');
                 Route::put('/update/{id}', [TrainingtypeController::class, 'update'])->name('training.trainingtype.update');
                 Route::delete('/destroy/{id}', [TrainingtypeController::class, 'destroy'])->name('training.trainingtype.destroy');
             });
@@ -1031,7 +1016,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TraininglistController::class, 'create'])->name('training.traininglist.create');
                 Route::post('/store', [TraininglistController::class, 'store'])->name('training.traininglist.store');
                 Route::get('/show/{id}', [TraininglistController::class, 'show'])->name('training.traininglist.show');
-                Route::get('/edit/{id}', [TraininglistController::class, 'edit'])->name('training.traininglist.edit') ;
+                Route::get('/edit/{id}', [TraininglistController::class, 'edit'])->name('training.traininglist.edit');
                 Route::put('/update/{id}', [TraininglistController::class, 'update'])->name('training.traininglist.update');
                 Route::delete('/destroy/{id}', [TraininglistController::class, 'destroy'])->name('training.traininglist.destroy');
             });
@@ -1040,13 +1025,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TrainerController::class, 'create'])->name('training.trainer.create');
                 Route::post('/store', [TrainerController::class, 'store'])->name('training.trainer.store');
                 Route::get('/show/{id}', [TrainerController::class, 'show'])->name('training.trainer.show');
-                Route::get('/edit/{id}', [TrainerController::class, 'edit'])->name('training.trainer.edit') ;
+                Route::get('/edit/{id}', [TrainerController::class, 'edit'])->name('training.trainer.edit');
                 Route::put('/update/{id}', [TrainerController::class, 'update'])->name('training.trainer.update');
                 Route::delete('/destroy/{id}', [TrainerController::class, 'destroy'])->name('training.trainer.destroy');
             });
-
-
-
         }
     );
     Route::prefix("travelfleet")->group(
@@ -1057,7 +1039,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [FleetrosterController::class, 'create'])->name('travelfleet.fleetroster.create');
                 Route::post('/store', [FleetrosterController::class, 'store'])->name('travelfleet.fleetroster.store');
                 Route::get('/show/{id}', [FleetrosterController::class, 'show'])->name('travelfleet.fleetroster.show');
-                Route::get('/edit/{id}', [FleetrosterController::class, 'edit'])->name('travelfleet.fleetroster.edit') ;
+                Route::get('/edit/{id}', [FleetrosterController::class, 'edit'])->name('travelfleet.fleetroster.edit');
                 Route::put('/update/{id}', [FleetrosterController::class, 'update'])->name('travelfleet.fleetroster.update');
                 Route::delete('/destroy/{id}', [FleetrosterController::class, 'destroy'])->name('travelfleet.fleetroster.destroy');
             });
@@ -1066,7 +1048,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TravelslogController::class, 'create'])->name('travelfleet.travelslog.create');
                 Route::post('/store', [TravelslogController::class, 'store'])->name('travelfleet.travelslog.store');
                 Route::get('/show/{id}', [TravelslogController::class, 'show'])->name('travelfleet.travelslog.show');
-                Route::get('/edit/{id}', [TravelslogController::class, 'edit'])->name('travelfleet.travelslog.edit') ;
+                Route::get('/edit/{id}', [TravelslogController::class, 'edit'])->name('travelfleet.travelslog.edit');
                 Route::put('/update/{id}', [TravelslogController::class, 'update'])->name('travelfleet.travelslog.update');
                 Route::delete('/destroy/{id}', [TravelslogController::class, 'destroy'])->name('travelfleet.travelslog.destroy');
             });
@@ -1076,7 +1058,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [VehiclelogController::class, 'create'])->name('travelfleet.vehiclelog.create');
                 Route::post('/store', [VehiclelogController::class, 'store'])->name('travelfleet.vehiclelog.store');
                 Route::get('/show/{id}', [VehiclelogController::class, 'show'])->name('travelfleet.vehiclelog.show');
-                Route::get('/edit/{id}', [VehiclelogController::class, 'edit'])->name('travelfleet.vehiclelog.edit') ;
+                Route::get('/edit/{id}', [VehiclelogController::class, 'edit'])->name('travelfleet.vehiclelog.edit');
                 Route::put('/update/{id}', [VehiclelogController::class, 'update'])->name('travelfleet.vehiclelog.update');
                 Route::delete('/destroy/{id}', [VehiclelogController::class, 'destroy'])->name('travelfleet.vehiclelog.destroy');
             });
@@ -1085,7 +1067,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TravelcategoryController::class, 'create'])->name('travelfleet.travelcategory.create');
                 Route::post('/store', [TravelcategoryController::class, 'store'])->name('travelfleet.travelcategory.store');
                 Route::get('/show/{id}', [TravelcategoryController::class, 'show'])->name('travelfleet.travelcategory.show');
-                Route::get('/edit/{id}', [TravelcategoryController::class, 'edit'])->name('travelfleet.travelcategory.edit') ;
+                Route::get('/edit/{id}', [TravelcategoryController::class, 'edit'])->name('travelfleet.travelcategory.edit');
                 Route::put('/update/{id}', [TravelcategoryController::class, 'update'])->name('travelfleet.travelcategory.update');
                 Route::delete('/destroy/{id}', [TravelcategoryController::class, 'destroy'])->name('travelfleet.travelcategory.destroy');
             });
@@ -1094,7 +1076,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TravelapprovalController::class, 'create'])->name('travelfleet.travelapproval.create');
                 Route::post('/store', [TravelapprovalController::class, 'store'])->name('travelfleet.travelapproval.store');
                 Route::get('/show/{id}', [TravelapprovalController::class, 'show'])->name('travelfleet.travelapproval.show');
-                Route::get('/edit/{id}', [TravelapprovalController::class, 'edit'])->name('travelfleet.travelapproval.edit') ;
+                Route::get('/edit/{id}', [TravelapprovalController::class, 'edit'])->name('travelfleet.travelapproval.edit');
                 Route::put('/update/{id}', [TravelapprovalController::class, 'update'])->name('travelfleet.travelapproval.update');
                 Route::delete('/destroy/{id}', [TravelapprovalController::class, 'destroy'])->name('travelfleet.travelapproval.destroy');
             });
@@ -1105,7 +1087,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TravelrequestController::class, 'create'])->name('travelfleet.travelrequest.create');
                 Route::post('/store', [TravelrequestController::class, 'store'])->name('travelfleet.travelrequest.store');
                 Route::get('/show/{id}', [TravelrequestController::class, 'show'])->name('travelfleet.travelrequest.show');
-                Route::get('/edit/{id}', [TravelrequestController::class, 'edit'])->name('travelfleet.travelrequest.edit') ;
+                Route::get('/edit/{id}', [TravelrequestController::class, 'edit'])->name('travelfleet.travelrequest.edit');
                 Route::put('/update/{id}', [TravelrequestController::class, 'update'])->name('travelfleet.travelrequest.update');
                 Route::delete('/destroy/{id}', [TravelrequestController::class, 'destroy'])->name('travelfleet.travelrequest.destroy');
             });
@@ -1116,7 +1098,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [MaintenancelogController::class, 'create'])->name('travelfleet.maintenancelog.create');
                 Route::post('/store', [MaintenancelogController::class, 'store'])->name('travelfleet.maintenancelog.store');
                 Route::get('/show/{id}', [MaintenancelogController::class, 'show'])->name('travelfleet.maintenancelog.show');
-                Route::get('/edit/{id}', [MaintenancelogController::class, 'edit'])->name('travelfleet.maintenancelog.edit') ;
+                Route::get('/edit/{id}', [MaintenancelogController::class, 'edit'])->name('travelfleet.maintenancelog.edit');
                 Route::put('/update/{id}', [MaintenancelogController::class, 'update'])->name('travelfleet.maintenancelog.update');
                 Route::delete('/destroy/{id}', [MaintenancelogController::class, 'destroy'])->name('travelfleet.maintenancelog.destroy');
             });
@@ -1126,7 +1108,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [FleetmanagementController::class, 'create'])->name('travelfleet.fleetmanagement.create');
                 Route::post('/store', [FleetmanagementController::class, 'store'])->name('travelfleet.fleetmanagement.store');
                 Route::get('/show/{id}', [FleetmanagementController::class, 'show'])->name('travelfleet.fleetmanagement.show');
-                Route::get('/edit/{id}', [FleetmanagementController::class, 'edit'])->name('travelfleet.fleetmanagement.edit') ;
+                Route::get('/edit/{id}', [FleetmanagementController::class, 'edit'])->name('travelfleet.fleetmanagement.edit');
                 Route::put('/update/{id}', [FleetmanagementController::class, 'update'])->name('travelfleet.fleetmanagement.update');
                 Route::delete('/destroy/{id}', [FleetmanagementController::class, 'destroy'])->name('travelfleet.fleetmanagement.destroy');
             });
@@ -1136,14 +1118,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [DriverrosterController::class, 'create'])->name('travelfleet.driverroster.create');
                 Route::post('/store', [DriverrosterController::class, 'store'])->name('travelfleet.driverroster.store');
                 Route::get('/show/{id}', [DriverrosterController::class, 'show'])->name('travelfleet.driverroster.show');
-                Route::get('/edit/{id}', [DriverrosterController::class, 'edit'])->name('travelfleet.driverroster.edit') ;
+                Route::get('/edit/{id}', [DriverrosterController::class, 'edit'])->name('travelfleet.driverroster.edit');
                 Route::put('/update/{id}', [DriverrosterController::class, 'update'])->name('travelfleet.driverroster.update');
                 Route::delete('/destroy/{id}', [DriverrosterController::class, 'destroy'])->name('travelfleet.driverroster.destroy');
             });
-
-
-
-         }
+        }
     );
 
     Route::prefix("Finance")->group(
@@ -1162,7 +1141,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [InvoicesController::class, 'create'])->name('finance.invoices.create');
                 Route::post('/store', [InvoicesController::class, 'store'])->name('finance.invoices.store');
                 Route::get('/show/{id}', [InvoicesController::class, 'show'])->name('finance.invoices.show');
-                Route::get('/edit/{id}', [InvoicesController::class, 'edit'])->name('finance.invoices.edit') ;
+                Route::get('/edit/{id}', [InvoicesController::class, 'edit'])->name('finance.invoices.edit');
                 Route::put('/update/{id}', [InvoicesController::class, 'update'])->name('finance.invoices.update');
                 Route::delete('/destroy/{id}', [InvoicesController::class, 'destroy'])->name('finance.invoices.destroy');
             });
@@ -1172,7 +1151,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [EstimatesController::class, 'create'])->name('finance.estimates.create');
                 Route::post('/store', [EstimatesController::class, 'store'])->name('finance.estimates.store');
                 Route::get('/show/{id}', [EstimatesController::class, 'show'])->name('finance.estimates.show');
-                Route::get('/edit/{id}', [EstimatesController::class, 'edit'])->name('finance.estimates.edit') ;
+                Route::get('/edit/{id}', [EstimatesController::class, 'edit'])->name('finance.estimates.edit');
                 Route::put('/update/{id}', [EstimatesController::class, 'update'])->name('finance.estimates.update');
                 Route::delete('/destroy/{id}', [EstimatesController::class, 'destroy'])->name('finance.estimates.destroy');
             });
@@ -1271,7 +1250,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TasksController::class, 'create'])->name('work.tasks.create');
                 Route::post('/store', [TasksController::class, 'store'])->name('work.tasks.store');
                 Route::get('/show/{id}', [TasksController::class, 'show'])->name('work.tasks.show');
-                Route::get('/edit/{id}', [TasksController::class, 'edit'])->name('work.tasks.edit') ;
+                Route::get('/edit/{id}', [TasksController::class, 'edit'])->name('work.tasks.edit');
                 Route::put('/update/{id}', [TasksController::class, 'update'])->name('work.tasks.update');
                 Route::delete('/destroy/{id}', [TasksController::class, 'destroy'])->name('work.tasks.destroy');
             });
@@ -1281,14 +1260,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TimelogController::class, 'create'])->name('work.timelog.create');
                 Route::post('/store', [TimelogController::class, 'store'])->name('work.timelog.store');
                 Route::get('/show/{id}', [TimelogController::class, 'show'])->name('work.timelog.show');
-                Route::get('/edit/{id}', [TimelogController::class, 'edit'])->name('work.timelog.edit') ;
+                Route::get('/edit/{id}', [TimelogController::class, 'edit'])->name('work.timelog.edit');
                 Route::put('/update/{id}', [TimelogController::class, 'update'])->name('work.timelog.update');
                 Route::delete('/destroy/{id}', [TimelogController::class, 'destroy'])->name('work.timelog.destroy');
             });
-
-
-
-
         }
     );
     Route::prefix("project")->group(
@@ -1298,13 +1273,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [WorkfromhomeController::class, 'create'])->name('project.workfromhome.create');
                 Route::post('/store', [WorkfromhomeController::class, 'store'])->name('project.workfromhome.store');
                 Route::get('/show/{id}', [WorkfromhomeController::class, 'show'])->name('project.workfromhome.show');
-                Route::get('/edit/{id}', [WorkfromhomeController::class, 'edit'])->name('project.workfromhome.edit') ;
+                Route::get('/edit/{id}', [WorkfromhomeController::class, 'edit'])->name('project.workfromhome.edit');
                 Route::put('/update/{id}', [WorkfromhomeController::class, 'update'])->name('project.workfromhome.update');
                 Route::delete('/destroy/{id}', [WorkfromhomeController::class, 'destroy'])->name('project.workfromhome.destroy');
             });
-
-
-
         }
     );
 
@@ -1315,7 +1287,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [RostercategoryController::class, 'create'])->name('rostermanagement.rostercategory.create');
                 Route::post('/store', [RostercategoryController::class, 'store'])->name('rostermanagement.rostercategory.store');
                 Route::get('/show/{id}', [RostercategoryController::class, 'show'])->name('rostermanagement.rostercategory.show');
-                Route::get('/edit/{id}', [RostercategoryController::class, 'edit'])->name('rostermanagement.rostercategory.edit') ;
+                Route::get('/edit/{id}', [RostercategoryController::class, 'edit'])->name('rostermanagement.rostercategory.edit');
                 Route::put('/update/{id}', [RostercategoryController::class, 'update'])->name('rostermanagement.rostercategory.update');
                 Route::delete('/destroy/{id}', [RostercategoryController::class, 'destroy'])->name('rostermanagement.rostercategory.destroy');
             });
@@ -1325,12 +1297,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [RosterentriesController::class, 'create'])->name('rostermanagement.rosterentries.create');
                 Route::post('/store', [RosterentriesController::class, 'store'])->name('rostermanagement.rosterentries.store');
                 Route::get('/show/{id}', [RosterentriesController::class, 'show'])->name('rostermanagement.rosterentries.show');
-                Route::get('/edit/{id}', [RosterentriesController::class, 'edit'])->name('rostermanagement.rosterentries.edit') ;
+                Route::get('/edit/{id}', [RosterentriesController::class, 'edit'])->name('rostermanagement.rosterentries.edit');
                 Route::put('/update/{id}', [RosterentriesController::class, 'update'])->name('rostermanagement.rosterentries.update');
                 Route::delete('/destroy/{id}', [RosterentriesController::class, 'destroy'])->name('rostermanagement.rosterentries.destroy');
             });
-
-
         }
     );
 
@@ -1338,17 +1308,17 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix("eventsandmeetings")->group(
         function () {
-            Route::prefix("meeting")->group(function () {
-                Route::get('/', [MeetingController::class, 'index'])->name('eventsandmeetings.meeting.index');
-                Route::get('/create', [MeetingController::class, 'create'])->name('eventsandmeetings.meeting.create');
-                Route::post('/store', [MeetingController::class, 'store'])->name('eventsandmeetings.meeting.store');
-                Route::get('/show/{id}', [MeetingController::class, 'show'])->name('eventsandmeetings.meeting.show');
-                Route::get('/edit/{id}', [MeetingController::class, 'edit'])->name('eventsandmeetings.meeting.edit');
-                Route::put('/update/{id}', [MeetingController::class, 'update'])->name('eventsandmeetings.meeting.update');
-                Route::delete('/destroy/{id}', [MeetingController::class, 'destroy'])->name('eventsandmeetings.meeting.destroy');
-            }
+            Route::prefix("meeting")->group(
+                function () {
+                    Route::get('/', [MeetingController::class, 'index'])->name('eventsandmeetings.meeting.index');
+                    Route::get('/create', [MeetingController::class, 'create'])->name('eventsandmeetings.meeting.create');
+                    Route::post('/store', [MeetingController::class, 'store'])->name('eventsandmeetings.meeting.store');
+                    Route::get('/show/{id}', [MeetingController::class, 'show'])->name('eventsandmeetings.meeting.show');
+                    Route::get('/edit/{id}', [MeetingController::class, 'edit'])->name('eventsandmeetings.meeting.edit');
+                    Route::put('/update/{id}', [MeetingController::class, 'update'])->name('eventsandmeetings.meeting.update');
+                    Route::delete('/destroy/{id}', [MeetingController::class, 'destroy'])->name('eventsandmeetings.meeting.destroy');
+                }
             );
-
         }
     );
 
@@ -1361,7 +1331,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [TravelreportsController::class, 'create'])->name('reports.travelreports.create');
                 Route::post('/store', [TravelreportsController::class, 'store'])->name('reports.travelreports.store');
                 Route::get('/show/{id}', [TravelreportsController::class, 'show'])->name('reports.travelreports.show');
-                Route::get('/edit/{id}', [TravelreportsController::class, 'edit'])->name('reports.travelreports.edit') ;
+                Route::get('/edit/{id}', [TravelreportsController::class, 'edit'])->name('reports.travelreports.edit');
                 Route::put('/update/{id}', [TravelreportsController::class, 'update'])->name('reports.travelreports.update');
                 Route::delete('/destroy/{id}', [TravelreportsController::class, 'destroy'])->name('reports.travelreports.destroy');
             });
@@ -1371,7 +1341,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [FinancereportsController::class, 'create'])->name('reports.financereports.create');
                 Route::post('/store', [FinancereportsController::class, 'store'])->name('reports.financereports.store');
                 Route::get('/show/{id}', [FinancereportsController::class, 'show'])->name('reports.financereports.show');
-                Route::get('/edit/{id}', [FinancereportsController::class, 'edit'])->name('reports.financereports.edit') ;
+                Route::get('/edit/{id}', [FinancereportsController::class, 'edit'])->name('reports.financereports.edit');
                 Route::put('/update/{id}', [FinancereportsController::class, 'update'])->name('reports.financereports.update');
                 Route::delete('/destroy/{id}', [FinancereportsController::class, 'destroy'])->name('reports.financereports.destroy');
             });
@@ -1381,7 +1351,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [LeavereportsController::class, 'create'])->name('reports.leavereports.create');
                 Route::post('/store', [LeavereportsController::class, 'store'])->name('reports.leavereports.store');
                 Route::get('/show/{id}', [LeavereportsController::class, 'show'])->name('reports.leavereports.show');
-                Route::get('/edit/{id}', [LeavereportsController::class, 'edit'])->name('reports.leavereports.edit') ;
+                Route::get('/edit/{id}', [LeavereportsController::class, 'edit'])->name('reports.leavereports.edit');
                 Route::put('/update/{id}', [LeavereportsController::class, 'update'])->name('reports.leavereports.update');
                 Route::delete('/destroy/{id}', [LeavereportsController::class, 'destroy'])->name('reports.leavereports.destroy');
             });
@@ -1391,7 +1361,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [ExpensesreportsController::class, 'create'])->name('reports.expensesreports.create');
                 Route::post('/store', [ExpensesreportsController::class, 'store'])->name('reports.expensesreports.store');
                 Route::get('/show/{id}', [ExpensesreportsController::class, 'show'])->name('reports.expensesreports.show');
-                Route::get('/edit/{id}', [ExpensesreportsController::class, 'edit'])->name('reports.expensesreports.edit') ;
+                Route::get('/edit/{id}', [ExpensesreportsController::class, 'edit'])->name('reports.expensesreports.edit');
                 Route::put('/update/{id}', [ExpensesreportsController::class, 'update'])->name('reports.expensesreports.update');
                 Route::delete('/destroy/{id}', [ExpensesreportsController::class, 'destroy'])->name('reports.expensesreports.destroy');
             });
@@ -1401,13 +1371,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [AttendancereportsController::class, 'create'])->name('reports.attendancereports.create');
                 Route::post('/store', [AttendancereportsController::class, 'store'])->name('reports.attendancereports.store');
                 Route::get('/show/{id}', [AttendancereportsController::class, 'show'])->name('reports.attendancereports.show');
-                Route::get('/edit/{id}', [AttendancereportsController::class, 'edit'])->name('reports.attendancereports.edit') ;
+                Route::get('/edit/{id}', [AttendancereportsController::class, 'edit'])->name('reports.attendancereports.edit');
                 Route::put('/update/{id}', [AttendancereportsController::class, 'update'])->name('reports.attendancereports.update');
                 Route::delete('/destroy/{id}', [AttendancereportsController::class, 'destroy'])->name('reports.attendancereports.destroy');
             });
-
-
-
         }
     );
 
