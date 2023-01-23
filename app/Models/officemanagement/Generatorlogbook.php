@@ -1,0 +1,61 @@
+<?php
+        namespace App\Models\Officemanagement;
+
+        use App\Models\User;
+        use Illuminate\Database\Eloquent\Casts\Attribute;
+        use Illuminate\Database\Eloquent\Factories\HasFactory;
+        use Illuminate\Database\Eloquent\Model;
+        use App\Traits\CreatedUpdatedBy;
+
+        class Generatorlogbook extends Model
+        {
+            use HasFactory, CreatedUpdatedBy;
+
+            protected $table = 'tbl_generatorlogbook';
+            protected $primaryKey = 'generatorlogbook_id';
+            public $timestamps = true;
+            protected $fillable =[
+                'logbookTitle',
+'subTitle',
+'pageNumber',
+'checkedDate',
+'fullName',
+'purpose',
+'from',
+'to',
+'totalTime',
+'dieselConsumed',
+'mobileConsume',
+'servicingDate',
+'createdOn',
+'createdBy',
+'alias',
+'status',
+'remarks',
+'created_at',
+'updated_at',
+'updatedBy',
+
+            ];
+
+            protected function status(): Attribute
+            {
+                return Attribute::make(
+                    get: fn ($value) => $value == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>',
+                );
+            }
+
+    protected function createdBy(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  User::find($value) ? User::find($value)->name : '',
+        );
+    }
+
+    protected function updatedBy(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => User::find($value) ? User::find($value)->name : '',
+        );
+    }
+        }

@@ -1,0 +1,48 @@
+.buttons-excel{
+    background: #4BB543 !important;
+    border:none !important;
+    color:#fff !important;
+    // border-radius:5px !important;
+}
+.buttons-pdf{
+    background:#df3c4e !important;
+    color:#fff !important;
+    // border-radius:5px !important;
+    border: none !important;
+}
+
+.dataTables_paginate .current{
+    background:#5f38f9 !important;
+    color:#fff !important;
+    border-radius:6px !important;
+    border:1px solid #dfd7fe !important;
+}
+
+.dt-buttons{
+    padding-left:20px !important;
+}
+.dataTables_filter{
+    padding-right:20px !important;
+}
+#CustomTable_length{
+    padding-left:20px !important;
+    padding-top:5px!important;
+}
+#CustomTable_info{
+    padding-left:20px;
+    padding-top:20px !important;
+}
+.dt-buttons, #customTable_length, .dataTables_filter{
+    padding-bottom:10px;
+}
+
+.dataTables_paginate .paginate_button:hover{
+    background:#5f38f9 !important;
+    color:#dfd7fe !important;
+    border-radius:6px !important;
+    border:1px solid #dfd7fe !important;
+}
+.dataTables_paginate{
+    padding-right:20px;
+    padding-top:10px !important;
+}

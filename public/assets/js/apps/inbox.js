@@ -1,0 +1,1 @@
+!function(e){"use strict";e.Inbox={reply:function(e){document.querySelectorAll(e).forEach(e=>{e.addEventListener("click",(function(n){n.preventDefault(),void 0===n.delegateTarget&&e.classList.toggle("is-collapsed")}))})}},e.Inbox.init=function(){e.Inbox.reply(".toggle-reply")},e.winLoad(e.Inbox.init)}(NioApp);
