@@ -61,7 +61,7 @@
                     class="nk-menu-link"><span class="nk-menu-text">Countries </span></a></li>
             <li class="nk-menu-item"><a href="{{ route('master.state.index') }}"
                     class="nk-menu-link"><span class="nk-menu-text">state </span></a></li>
-            <li class="nk-menu-item"><a href="{{ route('hr.organization.index') }}"
+            <li class="nk-menu-item"><a href="{{ route('master.organization.index') }}"
                     class="nk-menu-link"><span class="nk-menu-text">Organization</span></a></li>
             <li class="nk-menu-item"><a href="{{ route('master.district.index') }}"
                     class="nk-menu-link"><span class="nk-menu-text">District </span></a></li>

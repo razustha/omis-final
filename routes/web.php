@@ -657,13 +657,13 @@ Route::middleware('auth')->group(function () {
                     Route::delete('/destroy/{id}', [LatereasonsController::class, 'destroy'])->name('hr.latereasons.destroy');
                 });
                                             Route::prefix("organization")->group(function () {
-            Route::get('/', [OrganizationController::class, 'index'])->name('hr.organization.index');
-            Route::get('/create', [OrganizationController::class, 'create'])->name('hr.organization.create');
-            Route::post('/store', [OrganizationController::class, 'store'])->name('hr.organization.store');
-            Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('hr.organization.show');
-            Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('hr.organization.edit') ;
-            Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('hr.organization.update');
-            Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('hr.organization.destroy');
+            Route::get('/', [OrganizationController::class, 'index'])->name('master.organization.index');
+            Route::get('/create', [OrganizationController::class, 'create'])->name('master.organization.create');
+            Route::post('/store', [OrganizationController::class, 'store'])->name('master.organization.store');
+            Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('master.organization.show');
+            Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('master.organization.edit') ;
+            Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('master.organization.update');
+            Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('master.organization.destroy');
 
         });
 
