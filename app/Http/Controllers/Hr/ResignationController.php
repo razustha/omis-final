@@ -4,11 +4,13 @@
         use Illuminate\Http\Request;
         use App\Models\Hr\Resignation;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class ResignationController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Resignation::where('status','<>',-1)->get();
+                $data = Resignation::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.hr.resignation.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
@@ -27,7 +29,7 @@
 
             public function store(Request $request)
             {
-
+                $request->request->add(['alias' => slugify($request->resignationName)]);
                 Resignation::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Resignation Created Successfully.'], 200);
@@ -44,6 +46,8 @@
                 }
                 return view("omis.hr.resignation.show", compact('data'));
             }
+
+
             public function edit(Request $request, $id)
             {
                 $data = Resignation::findOrFail($id);
@@ -58,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Resignation::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->resignationName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Resignation updated Successfully.'], 200);
@@ -132,3 +137,4 @@
                 }
             }
         }
+        

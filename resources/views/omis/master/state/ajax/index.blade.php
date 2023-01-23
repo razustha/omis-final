@@ -2,10 +2,10 @@
     <thead class="table-light">
         <tr>
         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">country_id</span></th>
-<th class="tb-col"><span class="overline-title">stateName</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
-<th class="tb-col"><span class="overline-title">status</span></th>
+<th class="tb-col"><span class="overline-title">Country</span></th>
+<th class="tb-col"><span class="overline-title">State Name</span></th>
+<th class="tb-col"><span class="overline-title">Alias</span></th>
+<th class="tb-col"><span class="overline-title">Status</span></th>
 <th class="tb-col" data-sortable="false"><span
                     class="overline-title">Action</span></th>
         </tr>

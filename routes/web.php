@@ -236,18 +236,17 @@ Route::middleware('auth')->group(function () {
                 }
             );
 
-            Route::prefix("organizationType")->group(
-                function () {
-                    Route::get('/', [OrganizationTypeController::class, 'index'])->name('master.organizationtype.index');
-                    Route::get('/create', [OrganizationTypeController::class, 'create'])->name('master.organizationtype.create');
-                    Route::post('/store', [OrganizationTypeController::class, 'store'])->name('master.organizationtype.store');
-                    Route::get('/show/{id}', [OrganizationTypeController::class, 'show'])->name('master.organizationtype.show');
-                    Route::get('/edit/{id}', [OrganizationTypeController::class, 'edit'])->name('master.organizationtype.edit');
-                    Route::put('/update/{id}', [OrganizationTypeController::class, 'update'])->name('master.organizationtype.update');
-                    Route::delete('/destroy/{id}', [OrganizationTypeController::class, 'destroy'])->name('master.organizationtype.destroy');
-                }
-            );
-
+            Route::prefix("organizationtype")->group(function () {
+                Route::get('/', [OrganizationtypeController::class, 'index'])->name('master.organizationtype.index');
+                Route::get('/create', [OrganizationtypeController::class, 'create'])->name('master.organizationtype.create');
+                Route::post('/store', [OrganizationtypeController::class, 'store'])->name('master.organizationtype.store');
+                Route::get('/show/{id}', [OrganizationtypeController::class, 'show'])->name('master.organizationtype.show');
+                Route::get('/edit/{id}', [OrganizationtypeController::class, 'edit'])->name('master.organizationtype.edit') ;
+                Route::put('/update/{id}', [OrganizationtypeController::class, 'update'])->name('master.organizationtype.update');
+                Route::delete('/destroy/{id}', [OrganizationtypeController::class, 'destroy'])->name('master.organizationtype.destroy');
+            });
+                                            
+                                            
 
 
             Route::prefix("ownership")->group(

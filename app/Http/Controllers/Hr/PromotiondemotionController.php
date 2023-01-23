@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Hr\Promotiondemotion;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class PromotiondemotionController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Promotiondemotion::where('status','<>',-1)->get();
+                $data = Promotiondemotion::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.hr.promotiondemotion.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.hr.promotiondemotion.index", compact('data'));
+                return view("omis.hr.promotiondemotion.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->promotiondemotionName)]);
                 Promotiondemotion::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Promotiondemotion Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Promotiondemotion::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->promotiondemotionName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Promotiondemotion updated Successfully.'], 200);

@@ -30,9 +30,9 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">countryName</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
-<th class="tb-col"><span class="overline-title">status</span></th>
+<th class="tb-col"><span class="overline-title">Country Name</span></th>
+<th class="tb-col"><span class="overline-title">Alias</span></th>
+<th class="tb-col"><span class="overline-title">Status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
                                         </tr>

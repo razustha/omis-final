@@ -120,12 +120,12 @@ class BibClass
             $modelPath .=  ucfirst($directoryName) . '/';
         }
 
-        if (!file_exists('../app/Models/' . $modelPath)) {
-            mkdir('../app/Models/' . $modelPath, 0777, true);
+        if (!file_exists(base_path() .'/app/Models/' . $modelPath)) {
+            mkdir(base_path() .'/app/Models/' . $modelPath, 0777, true);
         }
         $filename = $modelClass . ".php";
-        if (!file_exists("../app/Models/" . $modelPath . $filename)) {
-            $file = fopen("../app/Models/" . $modelPath . $filename, 'w');
+        if (!file_exists(base_path() ."/app/Models/" . $modelPath . $filename)) {
+            $file = fopen(base_path() ."/app/Models/" . $modelPath . $filename, 'w');
             fwrite($file, $contentString);
             fclose($file);
         }

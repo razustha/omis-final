@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Crm\Leads;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class LeadsController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Leads::where('status','<>',-1)->get();
+                $data = Leads::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.crm.leads.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.crm.leads.index", compact('data'));
+                return view("omis.crm.leads.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->leadsName)]);
                 Leads::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Leads Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Leads::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->leadsName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Leads updated Successfully.'], 200);

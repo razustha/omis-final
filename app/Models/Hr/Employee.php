@@ -1,0 +1,83 @@
+<?php
+        namespace App\Models\Hr;
+
+        use App\Models\User;
+        use Illuminate\Database\Eloquent\Casts\Attribute;
+        use Illuminate\Database\Eloquent\Factories\HasFactory;
+        use Illuminate\Database\Eloquent\Model;
+        use App\Traits\CreatedUpdatedBy;
+
+        class Employee extends Model
+        {
+            use HasFactory, CreatedUpdatedBy;
+
+            protected $table = 'tbl_employee';
+            protected $primaryKey = 'employee_id';
+            public $timestamps = true;
+            protected $fillable =[
+                'employeeType_id',
+'firstName',
+'middleName',
+'lastName',
+'gender_id',
+'dateOfBirth',
+'nationality_id',
+'password',
+'temproryAddress',
+'phoneNumber',
+'alternateNumber',
+'emailAddress',
+'country_id',
+'city_id',
+'state_id',
+'district_id',
+'permanentAddress',
+'postalCode',
+'organization_id',
+'department_id',
+'designation_id',
+'panNo',
+'document_id',
+'documentName',
+'documentPath',
+'profilePhoto',
+'aboutMe',
+'sign',
+'fatherName',
+'motherName',
+'grandFatherName',
+'grandMotherName',
+'spouse',
+'emergencyContact',
+'createdOn',
+'createdBy',
+'updatedBy',
+'alias',
+'status',
+'remarks',
+'created_at',
+'updated_at',
+
+            ];
+
+            protected $appends = ['status_name'];
+
+            protected function getStatusNameAttribute()
+            {
+                return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
+            }
+
+    protected function createdBy(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  User::find($value) ? User::find($value)->name : '',
+        );
+    }
+
+    protected function updatedBy(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => User::find($value) ? User::find($value)->name : '',
+        );
+    }
+        }
