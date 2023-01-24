@@ -16,6 +16,7 @@ class City extends Model
     protected $primaryKey = 'city_id';
     public $timestamps = true;
     protected $fillable = [
+        'country_id',
         'state_id',
         'district_id',
         'cityName',
@@ -36,6 +37,28 @@ class City extends Model
     {
         return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
     }
+
+    protected function countryId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  Country::find($value) ? Country::find($value)->countryName : '',
+        );
+    }
+
+    protected function stateId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  State::find($value) ? State::find($value)->stateName : '',
+        );
+    }
+
+    protected function districtId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  District::find($value) ? District::find($value)->districtName : '',
+        );
+    }
+
 
     protected function createdBy(): Attribute
     {
