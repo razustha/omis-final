@@ -355,14 +355,14 @@
                     }
                 }
 
-                function getSelectForForeignColumn($tableName = "", $pk, $name, $class = "", $data = null)
+                function getSelectForForeignColumn($tableName = "", $pk, $name, $class = "", $data = null,$display="")
                 {
 
                     $systems =  DB::table($tableName)->orderBy($pk, 'asc')->pluck($name, $pk);
                     if (!$data) {
-                        customCreateSelect($pk, $pk, null, $pk, $systems, null);
+                        customCreateSelect($pk, $pk, null, $display, $systems, null);
                     } else {
-                        customCreateSelect($pk, $pk, null, $pk, $systems, $data->$pk);
+                        customCreateSelect($pk, $pk, null, $display, $systems, $data->$pk);
                     }
                 }
 

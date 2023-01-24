@@ -80,4 +80,11 @@
             get: fn ($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
+    protected function departmentId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  Department::find($value) ? Department::find($value)->departmentName : '',
+        );
+    }
+    
         }

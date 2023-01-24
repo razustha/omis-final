@@ -7,7 +7,7 @@
                 <div class="nk-block-head">
                 <div class="nk-block-head-between flex-wrap gap g-2">
                     <div class="nk-block-head-content">
-                        <h2 class="nk-block-title">Edit CreditNotes</h1>
+                        <h2 class="nk-block-title">Edit Creditnotes</h1>
 
                     </div>
                     <div class="nk-block-head-content">
@@ -17,7 +17,7 @@
                                 <span>View Cities</span>
                             </a>
                         </li>
-                      
+
                     </ul>
                 </div>
                 </div>
@@ -27,15 +27,15 @@
 
                         <div class="card">
                             <div class="card-body">
-                <form method="POST" action="{{route('finance.creditnotes.update',[$data->creditNote_id])}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('finance.creditnotes.update',[$data->creditnotes_id])}}" enctype="multipart/form-data">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{{createText("departmentName","departmentName","Department Name",'',$data->departmentName)}}
-</div><div class="col-lg-6">{{createDate("creditNoteDate","creditNoteDate","Date",'',$data->creditNoteDate)}}
-</div><div class="col-lg-4">{{createText("creditDetails","creditDetails","CreditDetails",'',$data->creditDetails)}}
-</div><div class="col-lg-4">{{createText("alias","alias","Alias",'',$data->alias)}}
-</div><div class="col-lg-4">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'],$data->status)}}
-</div><div class="col-lg-12">{{createLabel('remarks', 'form-label col-form-label', 'Remarks')}}{{createTextArea("remarks","remarks","remarks",'',$data->remarks)}}
+<div class="row"><div class="col-lg-6">{{createText("creditNoteDate","creditNoteDate","CreditNoteDate",'',$data->creditNoteDate)}}
+</div><div class="col-lg-6">{{createText("creditDetails","creditDetails","CreditDetails",'',$data->creditDetails)}}
+</div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'],$data->status)}}
+</div><div class="col-lg-6">{{createText("remarks","remarks","Remarks",'',$data->remarks)}}
+</div><div class="col-lg-6">{{createText("creditNote_id","creditNote_id","CreditNote Id",'',$data->creditNote_id)}}
+</div><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant Id",'',$data->applicant_id)}}
 </div>  <div class="col-md-12"><?php createButton("btn-primary","","Submit"); ?>
 </div> </form></div></div></div></div></div></div></div></div>
 @endsection

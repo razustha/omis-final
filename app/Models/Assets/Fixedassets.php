@@ -12,7 +12,7 @@
             use HasFactory, CreatedUpdatedBy;
 
             protected $table = 'tbl_fixedassets';
-            protected $primaryKey = 'fixedAssets_id';
+            protected $primaryKey = 'fixedassets_id';
             public $timestamps = true;
             protected $fillable =[
                 'assetsValue',

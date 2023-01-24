@@ -17,25 +17,27 @@
             protected $fillable =[
                 'announcementTitle',
 'company_id',
-'announcementSummary',
 'announcementDepartment',
 'announcementStartDate',
 'announcementEndDate',
-'announcementDescription',
 'createdOn',
 'createdBy',
 'alias',
 'status',
 'remarks',
+'created_at',
+'updated_at',
+'updatedBy',
 
             ];
-                
-            protected function status(): Attribute
+
+            protected $appends = ['status_name'];
+
+            protected function getStatusNameAttribute()
             {
-                return Attribute::make(
-                    get: fn ($value) => $value == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>',
-                );
+                return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
             }
+
     protected function createdBy(): Attribute
     {
         return Attribute::make(

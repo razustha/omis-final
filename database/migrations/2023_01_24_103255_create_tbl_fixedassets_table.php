@@ -14,15 +14,15 @@
 
             {
 Schema::create("tbl_fixedassets", function (Blueprint $table) {
-$table->string("assestName");
-$table->string("assetsValue");
-$table->datetime("date");
-$table->datetime("createdOn");
-$table->string("createdBy");
-$table->string("alias");
+$table->string("assestName")->nullable();
+$table->string("assetsValue")->nullable();
+$table->datetime("date")->nullable();;
+$table->datetime("createdOn")->nullable();;
+$table->string("createdBy")->nullable();
+$table->string("alias")->nullable();
 $table->integer("status")->default(0);
-$table->text("remarks");
-$table->string("updatedBy");
+$table->text("remarks")->nullable();;
+$table->string("updatedBy")->nullable();
 $table->integer("assets_id")->default(0);
 $table->integer("fixedAssets_id")->default(0);
 $table->timestamps();

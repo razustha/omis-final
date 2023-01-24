@@ -111,23 +111,7 @@
                                         </div>
                                     </div>
                                     <div class="card-content col-sep">
-                                        <div class="card-body">
-                                            <div class="bio-block">
-                                                <h4 class="bio-block-title">About Me</h4>
-                                                <p>I code and design websites worldwide. Mauris varius tellus vitae tristique sagittis. Sed aliquet, est nec auctor aliquet, orci ex vestibulum ex, non pharetra lacus erat ac nulla.</p>
-                                                <p>Sed vulputate, ligula eget mollis auctor, lectus elit feugiat urna, eget euismod turpis lectus sed ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ut velit finibus, scelerisque sapien vitae, pharetra est. Nunc accumsan ligula vehicula scelerisque vulputate. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, dolore?</p>
-                                                <div class="row g-gs">
-                                                    <div class="col-lg-6">
-                                                        <div class="small">Designation:</div>
-                                                        <h5 class="small">Node.js Developer</h5>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="small">Website:</div>
-                                                        <h5 class="small">www.softnio.com</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    
                                         <div class="card-body">
                                             <div class="bio-block">
                                                 <h4 class="bio-block-title">Recent Activity</h4>

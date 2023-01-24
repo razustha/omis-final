@@ -7,7 +7,7 @@
                 <div class="nk-block-head">
                 <div class="nk-block-head-between flex-wrap gap g-2">
                     <div class="nk-block-head-content">
-                        <h2 class="nk-block-title">Add CreditNotes</h1>
+                        <h2 class="nk-block-title">Add Creditnotes</h1>
 
                     </div>
                     <div class="nk-block-head-content">
@@ -17,7 +17,7 @@
                                 <span>View Cities</span>
                             </a>
                         </li>
-                      
+
                     </ul>
                 </div>
                 </div>
@@ -29,12 +29,12 @@
                             <div class="card-body">
                 <form method="POST" action="{{route('finance.creditnotes.store')}}" enctype="multipart/form-data">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("departmentName","departmentName","Department Name")}}
-</div><div class="col-lg-6">{{createDate("creditNoteDate","creditNoteDate","Date", "", "", "")}}
-</div><div class="col-lg-4">{{createText("creditDetails","creditDetails","Details")}}
-</div><div class="col-lg-4">{{createText("alias","alias","Alias")}}
-</div><div class="col-lg-4">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
-</div><div class="col-lg-12">{{createLabel('remarks', 'form-label col-form-label', 'Remarks')}}{{createTextArea("remarks","remarks","remarks","", "", "")}}
+<div class="row"><div class="col-lg-6">{{createText("creditNoteDate","creditNoteDate","CreditNoteDate")}}
+</div><div class="col-lg-6">{{createText("creditDetails","creditDetails","CreditDetails")}}
+</div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
+</div><div class="col-lg-6">{{createText("remarks","remarks","Remarks")}}
+</div><div class="col-lg-6">{{createText("creditNote_id","creditNote_id","CreditNote Id")}}
+</div><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant Id")}}
 </div> <br> <div class="col-md-12"><?php createButton("btn-primary","","Submit"); ?>
 </div> </form></div></div></div></div></div></div></div></div>
 @endsection

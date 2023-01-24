@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Recruit\Jobpost;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class JobpostController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Jobpost::where('status','<>',-1)->get();
+                $data = Jobpost::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.recruit.jobpost.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.recruit.jobpost.index", compact('data'));
+                return view("omis.recruit.jobpost.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->jobpostName)]);
                 Jobpost::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Jobpost Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Jobpost::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->jobpostName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Jobpost updated Successfully.'], 200);

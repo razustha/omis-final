@@ -30,12 +30,12 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">projectName</span></th>
-<th class="tb-col"><span class="overline-title">projectTask</span></th>
-<th class="tb-col"><span class="overline-title">projectEstimateTime</span></th>
-<th class="tb-col"><span class="overline-title">projectStartDate</span></th>
+<th class="tb-col"><span class="overline-title">project Name</span></th>
+<th class="tb-col"><span class="overline-title">project Task</span></th>
+<th class="tb-col"><span class="overline-title">Estimate Time</span></th>
+<!-- <th class="tb-col"><span class="overline-title">projectStartDate</span></th>
 <th class="tb-col"><span class="overline-title">projectEndDate</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+<th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -50,9 +50,9 @@
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->projectName }}</td>
 <td class="tb-col">{{ $item->projectTask }}</td>
 <td class="tb-col">{{ $item->projectEstimateTime }}</td>
-<td class="tb-col">{{ $item->projectStartDate }}</td>
+<!-- <td class="tb-col">{{ $item->projectStartDate }}</td>
 <td class="tb-col">{{ $item->projectEndDate }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+<td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
