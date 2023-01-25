@@ -17,6 +17,9 @@
         <li class="nk-menu-item"><a href="{{ route('hr.employeementtimeline.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Employment Timeline </span></a>
         </li>
+        <li class="nk-menu-item"><a href="{{ route('hr.employeeonboarding.index') }}" class="nk-menu-link"><span
+                    class="nk-menu-text">Employee on boarding</span></a>
+        </li>
         <li class="nk-menu-item"><a href="{{ route('hr.resignation.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Resignation</span></a>
         </li>
@@ -235,7 +238,7 @@
                 class="nk-menu-link"><span class="nk-menu-text">Travel Category</span></a></li>
         <li class="nk-menu-item"><a href="{{ route('travelfleet.travelapproval.index') }}"
                 class="nk-menu-link"><span class="nk-menu-text">Travel Approval</span></a></li>
-        <li class="nk-menu-item"><a href="{{ route('requisition.fleetrequest.index') }}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('travelfleet.fleetrequest.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Fleet Request</span></a></li>
     </ul>
 </li>
@@ -318,7 +321,7 @@
         <li class="nk-menu-item"><a href="{{ route('eventsandmeetings.meeting.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Meetings</span></a></li>
 
-        <li class="nk-menu-item"><a href="{{ route('hr.event.index') }}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{route('eventsandmeetings.event.index')}}" class="nk-menu-link"><span
                     class="nk-menu-text">Events </span></a></li>
 
     </ul>
@@ -334,7 +337,7 @@
         <li class="nk-menu-item"><a href="{{ route('supplier.suppliercategory.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Category </span></a></li>
 
-        <li class="nk-menu-item"><a href="{{ route('supplier.addsupplier.index') }}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{route('supplier.addsupplier.index')}}" class="nk-menu-link"><span
                     class="nk-menu-text">Add Supplier</span></a></li>
     </ul>
 </li>

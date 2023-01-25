@@ -79,10 +79,10 @@
                                         </div>
                                 
                                         <div class="col-lg-4">
-                                        {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'') !!}
+                                        {!! getSelectForForeignColumn("tbl_department","department_id","departmentName","Department") !!}
                                         </div>
                                         <div class="col-lg-6">
-                                        {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'') !!}
+                                        {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName","Designation") !!}
                                         </div> 
                                         
                                         

@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Requisition\Leaverequest;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class LeaverequestController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Leaverequest::where('status','<>',-1)->get();
+                $data = Leaverequest::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.requisition.leaverequest.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.leaverequest.index", compact('data'));
+                return view("omis.requisition.leaverequest.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->leaverequestName)]);
                 Leaverequest::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Leaverequest Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Leaverequest::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->leaverequestName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Leaverequest updated Successfully.'], 200);

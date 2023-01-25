@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Training\Traininglist;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class TraininglistController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Traininglist::where('status','<>',-1)->get();
+                $data = Traininglist::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.training.traininglist.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.training.traininglist.index", compact('data'));
+                return view("omis.training.traininglist.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->traininglistName)]);
                 Traininglist::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Traininglist Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Traininglist::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->traininglistName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Traininglist updated Successfully.'], 200);

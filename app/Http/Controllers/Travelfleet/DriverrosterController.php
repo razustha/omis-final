@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Travelfleet\Driverroster;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class DriverrosterController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Driverroster::where('status','<>',-1)->get();
+                $data = Driverroster::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.travelfleet.driverroster.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.travelfleet.driverroster.index", compact('data'));
+                return view("omis.travelfleet.driverroster.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->driverrosterName)]);
                 Driverroster::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Driverroster Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Driverroster::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->driverrosterName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Driverroster updated Successfully.'], 200);

@@ -7,12 +7,12 @@
         use Illuminate\Database\Eloquent\Model;
         use App\Traits\CreatedUpdatedBy;
 
-        class CompensatoryLeave extends Model
+        class Compensatoryleave extends Model
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_compensatoryLeave';
-            protected $primaryKey = 'compensatoryLeave_id';
+            protected $table = 'tbl_compensatoryleave';
+            protected $primaryKey = 'compensatoryleave_id';
             public $timestamps = true;
             protected $fillable =[
                 'applicant_id',
@@ -34,6 +34,9 @@
 'alias',
 'status',
 'remarks',
+'created_at',
+'updated_at',
+'updatedBy',
 
             ];
 

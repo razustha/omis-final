@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Travelfleet\Maintenancelog;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class MaintenancelogController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Maintenancelog::where('status','<>',-1)->get();
+                $data = Maintenancelog::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.travelfleet.maintenancelog.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.travelfleet.maintenancelog.index", compact('data'));
+                return view("omis.travelfleet.maintenancelog.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->maintenancelogName)]);
                 Maintenancelog::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Maintenancelog Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Maintenancelog::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->maintenancelogName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Maintenancelog updated Successfully.'], 200);

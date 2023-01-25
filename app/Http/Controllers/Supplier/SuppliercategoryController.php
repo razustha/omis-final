@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Supplier\Suppliercategory;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class SuppliercategoryController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Suppliercategory::where('status','<>',-1)->get();
+                $data = Suppliercategory::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.supplier.suppliercategory.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.supplier.suppliercategory.index", compact('data'));
+                return view("omis.supplier.suppliercategory.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->suppliercategoryName)]);
                 Suppliercategory::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Suppliercategory Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Suppliercategory::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->suppliercategoryName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Suppliercategory updated Successfully.'], 200);

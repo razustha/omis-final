@@ -279,8 +279,9 @@
                 function createTextArea($name, $class = "", $id = "", $row = "", $display)
                 {
                 ?>
+               
                     <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
-                <?php echo $display; ?>
+                    <?php echo $display; ?>
             </textarea>
                 <?php
                 }
@@ -355,7 +356,7 @@
                     }
                 }
 
-                function getSelectForForeignColumn($tableName = "", $pk, $name, $class = "", $data = null,$display="")
+                function getSelectForForeignColumn($tableName = "", $pk, $name, $class = "", $data = null, $display="")
                 {
 
                     $systems =  DB::table($tableName)->orderBy($pk, 'asc')->pluck($name, $pk);
@@ -365,6 +366,8 @@
                         customCreateSelect($pk, $pk, null, $display, $systems, $data->$pk);
                     }
                 }
+
+          
 
                 function usersetting($query)
                 {
