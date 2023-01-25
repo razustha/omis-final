@@ -12,6 +12,9 @@
                         class="icon ni ni-arrow-left"></em></button></div>
         </div>
     </div>
+    @if(auth()->user()->user_type == 'EMPLOYEE')
+    
+    @else
     <div class="nk-sidebar-element nk-sidebar-body">
         <div class="nk-sidebar-content">
             <div class="nk-sidebar-menu" data-simplebar>
@@ -95,4 +98,5 @@
             </div>
         </div>
     </div>
+    @endif
 </div>

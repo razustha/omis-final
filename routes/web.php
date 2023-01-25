@@ -129,6 +129,17 @@ Route::get('calander', function () {
     return view('omis.calander.index');
 });
 
+Route::get('/user/dashboard', function () {
+    return view('employee\dashboard');
+})->middleware(['auth'])->name('employee');
+
+Route::get('/user/attandance', function () {
+    return view('employee\attandance\index');
+})->name('employee.attandance.index');
+
+Route::get('/user/leaves', function () {
+    return view('employee\leaves\index');
+})->name('employee.leaves.index');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
