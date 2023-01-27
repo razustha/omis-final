@@ -88,8 +88,8 @@
                                        <div class="col-lg-4">
                                         {{ createText("reportingTo","reportingTo","ReportingTo",'',$data->reportingTo) }}
                                         </div>
-                                        <div class="col-lg-6">
-                                            {{ createText('panNo', 'panNo', 'PanNo') }}
+                                        <div class="col-lg-4">
+                                            {{ createText('panNo', 'panNo', 'PanNo','', 'PAN No.') }}
                                         </div>
 
 
@@ -210,34 +210,3 @@
         </div>
     </div>
 </form>
-
-
-
-
-{{-- <form method="post" action="{{ route("hr.employee.store") }}" >
-            @csrf
-        <div class="row"><div class="col-lg-6"> {{createText("employeeType_id","employeeType_id","EmployeeType Id")}}
-        </div><div class="col-lg-6">{{createText("firstName","firstName","FirstName")}}
-        </div><div class="col-lg-6">{{createText("middleName","middleName","MiddleName")}}
-        </div><div class="col-lg-6">{{createText("lastName","lastName","LastName")}}
-        </div><div class="col-lg-6">{{createText("gender_id","gender_id","Gender Id")}}
-        </div><div class="col-lg-6">{{createText("dateOfBirth","dateOfBirth","DateOfBirth")}}
-        </div><div class="col-lg-6">{{createText("nationality_id","nationality_id","Nationality Id")}}
-        </div><div class="col-lg-6">{{createText("temproryAddress","temproryAddress","TemproryAddress")}}
-        </div><div class="col-lg-6">{{createText("phoneNumber","phoneNumber","PhoneNumber")}}
-        </div><div class="col-lg-6">{{createText("alternateNumber","alternateNumber","AlternateNumber")}}
-        </div><div class="col-lg-6">{{createText("emailAddress","emailAddress","EmailAddress")}}
-        </div><div class="col-lg-6">{{createText("country_id","country_id","Country Id")}}
-        </div><div class="col-lg-6">{{createText("city_id","city_id","City Id")}}
-        </div><div class="col-lg-6">{{createText("state_id","state_id","State Id")}}
-        </div><div class="col-lg-6">{{createText("district_id","district_id","District Id")}}
-        </div><div class="col-lg-6">{{createText("permanentAddress","permanentAddress","PermanentAddress")}}
-        </div><div class="col-lg-6">{{createText("postalCode","postalCode","PostalCode")}}
-        </div><div class="col-lg-6">{{createText("organization_id","organization_id","Organization Id")}}
-        </div><div class="col-lg-6">{{createText("department_id","department_id","Department Id")}}
-        </div><div class="col-lg-6">{{createText("designation_id","designation_id","Designation Id")}}
-        </div><div class="col-lg-6">{{createText("panNo","panNo","PanNo")}}
-        </div> <br> <div class="col-md-12"><?php //createButton("btn-primary","","Submit");
-        ?>
-                </div>
-        </form> --}}
