@@ -7,11 +7,11 @@
         use Illuminate\Database\Eloquent\Model;
         use App\Traits\CreatedUpdatedBy;
 
-        class LeaveApplication extends Model
+        class Leaveapplication extends Model
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_leaveApplication';
+            protected $table = 'tbl_leaveapplication';
             protected $primaryKey = 'leaveApplication_id';
             public $timestamps = true;
             protected $fillable =[
@@ -27,8 +27,11 @@
 'createdBy',
 'alias',
 'status',
-'remarks',
 'leaveApplication_status',
+'remarks',
+'created_at',
+'updated_at',
+'updatedBy',
 
             ];
 

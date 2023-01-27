@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Leaveapplication List</h1>
+                                    <h2 class="nk-block-title">Leave Application List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Leaveapplication</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Leaveapplication","hr.leaveapplication.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Leave Application","hr.leaveapplication.create") !!}
                                     </ul>
                                 </div>
                             </div>
@@ -31,15 +31,11 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">leaveRequestedBy</span></th>
-{{-- <th class="tb-col"><span class="overline-title">employeeNumber</span></th> --}}
-{{-- <th class="tb-col"><span class="overline-title">chooseDepartment_id</span></th> --}}
+<th class="tb-col"><span class="overline-title">employee_id</span></th>
+<th class="tb-col"><span class="overline-title">chooseDepartment_id</span></th>
 <th class="tb-col"><span class="overline-title">leaveType</span></th>
-<th class="tb-col"><span class="overline-title">leaveStart</span></th>
-<th class="tb-col"><span class="overline-title">leaveEnd</span></th>
-{{-- <th class="tb-col"><span class="overline-title">leaveApprovalBy</span></th>
-<th class="tb-col"><span class="overline-title">leaveApprovedDate</span></th> --}}
-{{-- <th class="tb-col"><span class="overline-title">alias</span></th> --}}
-<th class="tb-col"><span class="overline-title">Leave Status</span></th>
+
+<th class="tb-col"><span class="overline-title">leaveApplication_status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
                                         </tr>
@@ -51,21 +47,23 @@
                                         @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->leaveRequestedBy }}</td>
-{{-- <td class="tb-col">{{ $item->employeeNumber }}</td> --}}
-{{-- <td class="tb-col">{{ $item->chooseDepartment_id }}</td> --}}
+<td class="tb-col">{{ $item->employee_id }}</td>
+<td class="tb-col">{{ $item->chooseDepartment_id }}</td>
 <td class="tb-col">{{ $item->leaveType }}</td>
-<td class="tb-col">{{ $item->leaveStart }}</td>
-<td class="tb-col">{{ $item->leaveEnd }}</td>
-{{-- <td class="tb-col">{{ $item->leaveApprovalBy }}</td>
-<td class="tb-col">{{ $item->leaveApprovedDate }}</td> --}}
-{{-- <td class="tb-col">{{ $item->alias }}</td> --}}
-<td class="tb-col">{{ ucfirst($item->leaveApplication_status)}}</td>
+
+<td class="tb-col">
+    @if($item->leaveApplication_status == null)
+        <span>Pending</span>
+    @else
+        {{ $item->leaveApplication_status }}
+    @endif
+</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>
+                                                <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'hr.leaveapplication.show',$item->leaveApplication_id) !!}
                                                 </li>
-                                               <li>
+                                               <li> 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'hr.leaveapplication.edit',$item->leaveApplication_id) !!}
                                                 </li>
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'hr.leaveapplication.destroy',$item->leaveApplication_id) !!}</li>
@@ -135,7 +133,7 @@
     </div>
 </div>
 @endsection
-
+    
 @section('js')
 <script>
     function approvedthis(id) {

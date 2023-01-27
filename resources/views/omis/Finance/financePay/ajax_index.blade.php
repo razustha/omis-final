@@ -7,11 +7,11 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Financepay List</h1>
+                                    <h2 class="nk-block-title">Payments List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Financepay</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Financepay Manage</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Payments</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Payments Manage</a></li>
                                                 <li class="breadcrumb-item active" aria-current="page">Financepay
                                                 </li>
                                             </ol>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Financepay","finance.financepay.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Payments","finance.financepay.create") !!}
                                     </ul>
                                 </div>
                             </div>

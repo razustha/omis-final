@@ -7,19 +7,19 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Mangeholiday List</h1>
+                                    <h2 class="nk-block-title">Manage Holiday</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Mangeholiday</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Mangeholiday Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Mangeholiday
+                                                <li class="breadcrumb-item"><a href="#">Manageholiday</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Manageholiday Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Manageholiday
                                                 </li>
                                             </ol>
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Mangeholiday","hr.mangeholiday.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Manage Holiday","hr.mangeholiday.create") !!}
                                     </ul>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
 <th class="tb-col"><span class="overline-title">companyName_id</span></th>
 <th class="tb-col"><span class="overline-title">eventStartDate</span></th>
 <th class="tb-col"><span class="overline-title">eventEndDate</span></th>
-<th class="tb-col"><span class="overline-title">holidayDescription</span></th>
+<!-- <th class="tb-col"><span class="overline-title">holidayDescription</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
@@ -49,7 +49,7 @@
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->companyName_id }}</td>
 <td class="tb-col">{{ $item->eventStartDate }}</td>
 <td class="tb-col">{{ $item->eventEndDate }}</td>
-<td class="tb-col">{{ $item->holidayDescription }}</td>
+<!-- <td class="tb-col">{{ $item->holidayDescription }}</td> -->
 <!-- <td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">

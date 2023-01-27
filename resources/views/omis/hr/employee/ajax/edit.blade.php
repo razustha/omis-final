@@ -1,4 +1,4 @@
-<form action="{{ route('hr.employee.update', [$data->employee_id]) }}" id="updateCustomForm">
+<form action="{{ route('hr.employee.update', [$data->employee_id]) }}" id="updateCustomForm" method="POST">
     @csrf
     @method('PUT')
 
@@ -89,7 +89,7 @@
                                         {{ createText("reportingTo","reportingTo","ReportingTo",'',$data->reportingTo) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('panNo', 'panNo', 'PanNo','', 'PAN No.') }}
+                                            {{ createText('panNo', 'panNo', 'PanNo','',$data->panNo) }}
                                         </div>
 
 
@@ -134,15 +134,14 @@
                         <hr>
                         <div class="col-12">
                             <div class="form-group"><label class="form-label">Thumbnail</label>
+                                @if($data->profilePhoto)
+                                    <img id="holder" style="margin-top:15px;max-height:300px;" class="img img-fluid" src="{{$data->profilePhoto}}">
+                                @endif
                                 <div class="form-control-wrap">
-                                    <div class="image-upload-wrap d-flex flex-column align-items-center">
-                                        <div class="media media-huge border"><img id="image-result" class="w-100 h-100"
-                                                src="../images/avatar/avatar-placeholder.jpg" alt="avatar"></div>
-                                        <div class="pt-3"><input class="upload-image" data-target="image-result"
-                                                id="change-avatar" type="file" max="1" hidden><label
-                                                for="change-avatar" class="btn btn-md btn-primary">Change</label>
-                                        </div>
-                                    </div>
+                                    <input id="thumbnail" class="form-control" type="text" name="profilePhoto" value="" readonly>
+                                    <button id="lfm btn-image" data-input="thumbnail" data-preview="holder" class="lfm btn icon-left btn-primary mt-2 btn-image">
+                                        <i class="fa fa-upload"></i> &nbsp;Choose
+                                    </button>
                                 </div>
                                 <div class="form-note mt-3">Set the product
                                     thumbnail image. Only *.png, *.jpg and *.jpeg

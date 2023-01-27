@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Fixedassets List</h1>
+                                    <h2 class="nk-block-title">Fixed Assets List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Fixedassets</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Fixedassets","assets.fixedassets.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Fixed Assets","assets.fixedassets.create") !!}
                                     </ul>
                                 </div>
                             </div>

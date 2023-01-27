@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Expensesclaim List</h1>
+                                    <h2 class="nk-block-title">Expenses Claim List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Expensesclaim</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Expensesclaim","finance.expensesclaim.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Expenses Claim","finance.expensesclaim.create") !!}
                                     </ul>
                                 </div>
                             </div>

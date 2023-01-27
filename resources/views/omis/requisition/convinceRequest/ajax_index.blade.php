@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Convincerequest List</h1>
+                                    <h2 class="nk-block-title">Convince Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Convincerequest</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Convincerequest","requisition.convincerequest.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Convince Request","requisition.convincerequest.create") !!}
                                     </ul>
                                 </div>
                             </div>

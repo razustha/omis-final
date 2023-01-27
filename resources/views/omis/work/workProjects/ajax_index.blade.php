@@ -10,16 +10,16 @@
                                     <h2 class="nk-block-title">Workprojects List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Workprojects</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Workprojects Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Workprojects
+                                                <li class="breadcrumb-item"><a href="#">projects</a></li>
+                                                <li class="breadcrumb-item"><a href="#">projects Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">projects
                                                 </li>
                                             </ol>
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Workprojects","work.workprojects.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","projects","work.workprojects.create") !!}
                                     </ul>
                                 </div>
                             </div>

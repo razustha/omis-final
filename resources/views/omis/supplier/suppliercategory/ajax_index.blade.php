@@ -7,19 +7,19 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Suppliercategory List</h1>
+                                    <h2 class="nk-block-title">category List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Suppliercategory</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Suppliercategory Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Suppliercategory
+                                                <li class="breadcrumb-item"><a href="#">category</a></li>
+                                                <li class="breadcrumb-item"><a href="#">category Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">category
                                                 </li>
                                             </ol>
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Suppliercategory","supplier.suppliercategory.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","category","supplier.suppliercategory.create") !!}
                                     </ul>
                                 </div>
                             </div>

@@ -3,6 +3,7 @@
 <div class="nk-content">
     <div class="container">
         <div class="nk-content-inner">
+         
             <div class="nk-content-body">
                 <div class="nk-block-head">
                     <div class="nk-block-head">
@@ -19,28 +20,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--
-                                            <div class="nk-block-head-content">
-                                                <div class="d-flex gap g-3">
-                                                    <div class="gap-col">
-                                                        <div class="box-dotted py-2">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="h4 mb-0">44.3K</div><span class="change up ms-1 small"><em class="icon ni ni-arrow-down"></em></span>
-                                                            </div>
-                                                            <div class="smaller">Followers</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="gap-col">
-                                                        <div class="box-dotted py-2">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="h4 mb-0">4.5k</div><span class="change up ms-1 small"><em class="icon ni ni-arrow-up"></em></span>
-                                                            </div>
-                                                            <div class="smaller">Following</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
--->
+                            
                         </div>
                     </div>
                     <div class="nk-block-head-between gap g-2">
@@ -58,16 +38,10 @@
                                 <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#permission" type="button"> Permission </button></li>
                             </ul>
                         </div>
-                        <!--
-                                        <div class="gap-col">
-                                            <ul class="d-flex gap g-2">
-                                                <li class="d-none d-md-block"><a href="user-edit.html" class="btn btn-soft btn-primary"><em class="icon ni ni-edit"></em><span>Edit Profile</span></a></li>
-                                                <li class="d-md-none"><a href="user-edit.html" class="btn btn-soft btn-primary btn-icon"><em class="icon ni ni-edit"></em></a></li>
-                                            </ul>
-                                        </div>
--->
+             
                     </div>
                 </div>
+               
                 <div class="nk-block">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane show active" id="profile" tabindex="0">
@@ -78,11 +52,11 @@
                                             <div class="bio-block">
                                                 <h4 class="bio-block-title">Details</h4>
                                                 <ul class="list-group list-group-borderless small">
-                                                    <li class="list-group-item"><span class="title fw-medium w-40 d-inline-block">Employee ID:</span><span class="text">{{$data->designation_id}}</span></li>
+                                                    <li class="list-group-item"><span class="title fw-medium w-40 d-inline-block">Employee ID:</span><span class="text">{{$data->employee_id}}</span></li>
                                                     <li class="list-group-item"><span class="title fw-medium w-40 d-inline-block">Full Name:</span><span class="text">{{$data->firstName}} {{$data->middleName}} {{$data->lastName}}</span></li>
                                                     <li class="list-group-item"><span class="title fw-medium w-40 d-inline-block">Email:</span><span class="text">{{$data->emailAddress}}</span></li>
                                                     <li class="list-group-item"><span class="title fw-medium w-40 d-inline-block">Address:</span><span class="text">{{$data->permanentAddress}}</span></li>
-                                                    <li class="list-group-item"><span class="title fw-medium w-40 d-inline-block">Joining Date</span><span class="text">{{$data->createdAt}}</span></li>
+                                                    <li class="list-group-item"><span class="title fw-medium w-40 d-inline-block">Joining Date</span><span class="text">{{$data->joiningDate}}</span></li>
                                                 </ul>
                                             </div>
                                             <div class="bio-block">
@@ -1074,7 +1048,7 @@
                                                         <th class="tb-col"><span class="overline-title">Appreciated By</span></th>
                                                         <th class="tb-col"><span class="overline-title">Recieved By</span></th>
                                                         <!-- <th class="tb-col"><span class="overline-title">Recieved On</span></th>
-<th class="tb-col"><span class="overline-title">Approved On</span></th> -->
+                                                        <th class="tb-col"><span class="overline-title">Approved On</span></th> -->
                                                         <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                                         <th class="tb-col"><span class="overline-title">status</span></th>
                                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span></th>
@@ -1121,11 +1095,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
 
                 <div class="tab-pane show " id="shiftroaster" tabindex="0">
                     <div class="card card-gutter-md">
@@ -1194,9 +1163,6 @@
                     </div>
                 </div>
             </div>
-
-
-
 
             <div class="tab-pane show " id="permission" tabindex="0">
                 <div class="card card-gutter-md">
@@ -1446,8 +1412,6 @@
                 </div>
             </div>
 
-
-
             <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxl" id="addOffcanvas">
                 <div class="offcanvas-header border-bottom border-dark">
                     <h5 class="offcanvas-title" id="offcanvasTopLabel">Filters</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -1490,8 +1454,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             <div id="project" class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg">
                 <div class="offcanvas-header border-bottom border-dark">
@@ -1542,8 +1504,6 @@
                 </div>
             </div>
 
-
-
             <div id="reqleave" class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg">
                 <div class="offcanvas-header border-bottom border-dark">
                     <h5 class="offcanvas-title" id="offcanvasTopLabel">Filters</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -1588,7 +1548,8 @@
                     </div>
                 </div>
             </div>
-{{ pre($data) }}
+        </div></div></div></div>
+{{-- {{ pre($data) }} --}}
 @endsection
 
 @section('js')

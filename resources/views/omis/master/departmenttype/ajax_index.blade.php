@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Departmenttype List</h1>
+                                    <h2 class="nk-block-title">Department Type List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Departmenttype</a></li>
@@ -32,7 +32,7 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">departmentParent_id</span></th>
 <th class="tb-col"><span class="overline-title">departmentName</span></th>
-<th class="tb-col"><span class="overline-title">jobTitle</span></th>
+<th class="tb-col"><span class="overline-title">Designation</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th>
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span

@@ -7,12 +7,12 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Jobtitle List</h1>
+                                    <h2 class="nk-block-title">Designation List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Jobtitle</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Jobtitle Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Jobtitle
+                                                <li class="breadcrumb-item"><a href="#">Designation</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Designation Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Adding Designation
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">jobTitleName</span></th>
+<th class="tb-col"><span class="overline-title">Designation</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th>
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span

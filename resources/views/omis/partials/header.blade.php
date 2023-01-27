@@ -226,8 +226,7 @@
                                             src="{{ asset('assets/images/avatar/a.jpg') }}" alt=""
                                             class="img-thumbnail"></div>
                                     <div class="media-text">
-                                        <div class="lead-text">Raju Shrestha</div><span class="sub-text">Owner &
-                                            Founder</span>
+                                        <div class="lead-text">{{ auth()->user()->name }}</div><span class="sub-text">{{ auth()->user()->user_type }}</span>
                                     </div>
                                 </div>
                             </div>

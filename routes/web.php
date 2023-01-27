@@ -17,6 +17,7 @@ use App\Http\Controllers\Master\PolicyController;
 use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\DepartmenttypeController;
 use App\Http\Controllers\Master\ownershipController;
+use App\Http\Controllers\Master\LeavetypeController;
 
 use App\Http\Controllers\Master\AttendanceFromController;
 use App\Http\Controllers\Master\TraveltypeController;
@@ -47,12 +48,18 @@ use App\Http\Controllers\Inventory\ServiceController;
 use App\Http\Controllers\Inventory\ServicelogController;
 use App\Http\Controllers\Inventory\StockreconcileController;
 use App\Http\Controllers\Notice\OverviewController;
+use App\Http\Controllers\Officemanagement\CashdepositeController;
+use App\Http\Controllers\Officemanagement\ContractController;
 use App\Http\Controllers\Officemanagement\GeneratorlogbookController;
 use App\Http\Controllers\Payroll\NewpaymentController;
 use App\Http\Controllers\Recruit\JobinterviewController;
 use App\Http\Controllers\Recruit\JobpostController;
 use App\Http\Controllers\Recruit\InterviewscheduleController;
 use App\Http\Controllers\Recruit\JobapplicationController;
+use App\Http\Controllers\Recruit\ExperienceletterController;
+use App\Http\Controllers\Recruit\OfferletterController;
+use App\Http\Controllers\Recruit\RecuritreportsController;
+use App\Http\Controllers\Reports\TaskreportsController;
 use App\Http\Controllers\Requisition\LeaverequestController;
 use App\Http\Controllers\requisition\TravelController;
 use App\Http\Controllers\requisition\RequisitiontravelController;
@@ -84,13 +91,11 @@ use App\Http\Controllers\Finance\EstimatesController;
 use App\Http\Controllers\Finance\FinancePayController;
 use App\Http\Controllers\Crm\ClientsController;
 use App\Http\Controllers\Eventsandmeetings\MeetingController;
-use App\Http\Controllers\Finance\CashdepositeController;
 use App\Http\Controllers\Finance\CashrequestController;
 use App\Http\Controllers\Finance\ExpensesclaimController;
 use App\Http\Controllers\Finance\FinanceExpensesController;
 use App\Http\Controllers\Hr\AbsentReasonController;
 use App\Http\Controllers\Hr\AttendenceController;
-use App\Http\Controllers\Hr\ContractController;
 use App\Http\Controllers\Hr\DesignationController;
 use App\Http\Controllers\Hr\CmsController;
 use App\Http\Controllers\Hr\EmployeelistController;
@@ -117,9 +122,8 @@ use App\Http\Controllers\Settings\SettingController;
 use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\Travelfleet\DriverrosterController;
 use App\Http\Controllers\Work\TimelogController;
-
-
-
+use App\Models\Hr\Leaveapplication;
+use App\Models\User;
 
 // Route::get('/dashboard', function () {    return view('omis\welcome');});
 Route::get('/', function () {
@@ -132,15 +136,19 @@ Route::get('calander', function () {
 
 Route::get('/user/dashboard', function () {
     return view('employee\dashboard');
-})->middleware(['auth'])->name('employee');
+})->middleware(['auth'])->name('employee.dashboard');
 
 Route::get('/user/attandance', function () {
-    return view('employee\attandance\index');
+    $users = User::where('id',auth()->user()->id)->get();
+    return view('employee\attandance\index',compact('users'));
 })->name('employee.attandance.index');
 
 Route::get('/user/leaves', function () {
-    return view('employee\leaves\index');
+    $data = Leaveapplication::where('status','<>',-1)->where('employee_id',auth()->user()->id)->orderBy('created_at','desc')->get();
+    return view('employee\leaves\ajax_index',compact('data'));
 })->name('employee.leaves.index');
+
+
 
 
 // Route::get('/', function () {
@@ -192,6 +200,16 @@ Route::middleware('auth')->group(function () {
                 Route::get('/edit/{id}', [CountryController::class, 'edit'])->name('master.country.edit');
                 Route::put('/update/{id}', [CountryController::class, 'update'])->name('master.country.update');
                 Route::delete('/destroy/{id}', [CountryController::class, 'destroy'])->name('master.country.destroy');
+            });
+
+                   Route::prefix("leavetype")->group(function () {
+                Route::get('/', [LeavetypeController::class, 'index'])->name('master.leavetype.index');
+                Route::get('/create', [LeavetypeController::class, 'create'])->name('master.leavetype.create');
+                Route::post('/store', [LeavetypeController::class, 'store'])->name('master.leavetype.store');
+                Route::get('/show/{id}', [LeavetypeController::class, 'show'])->name('master.leavetype.show');
+                Route::get('/edit/{id}', [LeavetypeController::class, 'edit'])->name('master.leavetype.edit') ;
+                Route::put('/update/{id}', [LeavetypeController::class, 'update'])->name('master.leavetype.update');
+                Route::delete('/destroy/{id}', [LeavetypeController::class, 'destroy'])->name('master.leavetype.destroy');
             });
 
             Route::prefix("city")->group(
@@ -607,16 +625,6 @@ Route::middleware('auth')->group(function () {
             });
 
 
-            Route::prefix("contract")->group(function () {
-                Route::get('/', [ContractController::class, 'index'])->name('hr.contract.index');
-                Route::get('/create', [ContractController::class, 'create'])->name('hr.contract.create');
-                Route::post('/store', [ContractController::class, 'store'])->name('hr.contract.store');
-                Route::get('/show/{id}', [ContractController::class, 'show'])->name('hr.contract.show');
-                Route::get('/edit/{id}', [ContractController::class, 'edit'])->name('hr.contract.edit');
-                Route::put('/update/{id}', [ContractController::class, 'update'])->name('hr.contract.update');
-                Route::delete('/destroy/{id}', [ContractController::class, 'destroy'])->name('hr.contract.destroy');
-            });
-
             Route::prefix("attendence")->group(function () {
                 Route::get('/', [AttendenceController::class, 'index'])->name('hr.attendence.index');
                 Route::get('/create', [AttendenceController::class, 'create'])->name('hr.attendence.create');
@@ -687,6 +695,36 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [JobinterviewController::class, 'update'])->name('recruit.jobinterview.update');
                 Route::delete('/destroy/{id}', [JobinterviewController::class, 'destroy'])->name('recruit.jobinterview.destroy');
             });
+            Route::prefix("recuritreports")->group(function () {
+                Route::get('/', [RecuritreportsController::class, 'index'])->name('recruit.recuritreports.index');
+                Route::get('/create', [RecuritreportsController::class, 'create'])->name('recruit.recuritreports.create');
+                Route::post('/store', [RecuritreportsController::class, 'store'])->name('recruit.recuritreports.store');
+                Route::get('/show/{id}', [RecuritreportsController::class, 'show'])->name('recruit.recuritreports.show');
+                Route::get('/edit/{id}', [RecuritreportsController::class, 'edit'])->name('recruit.recuritreports.edit') ;
+                Route::put('/update/{id}', [RecuritreportsController::class, 'update'])->name('recruit.recuritreports.update');
+                Route::delete('/destroy/{id}', [RecuritreportsController::class, 'destroy'])->name('recruit.recuritreports.destroy');
+            });
+                                            
+            Route::prefix("experienceletter")->group(function () {
+                Route::get('/', [ExperienceletterController::class, 'index'])->name('recruit.experienceletter.index');
+                Route::get('/create', [ExperienceletterController::class, 'create'])->name('recruit.experienceletter.create');
+                Route::post('/store', [ExperienceletterController::class, 'store'])->name('recruit.experienceletter.store');
+                Route::get('/show/{id}', [ExperienceletterController::class, 'show'])->name('recruit.experienceletter.show');
+                Route::get('/edit/{id}', [ExperienceletterController::class, 'edit'])->name('recruit.experienceletter.edit') ;
+                Route::put('/update/{id}', [ExperienceletterController::class, 'update'])->name('recruit.experienceletter.update');
+                Route::delete('/destroy/{id}', [ExperienceletterController::class, 'destroy'])->name('recruit.experienceletter.destroy');
+            });
+                                            
+                                                        Route::prefix("offerletter")->group(function () {
+            Route::get('/', [OfferletterController::class, 'index'])->name('recruit.offerletter.index');
+            Route::get('/create', [OfferletterController::class, 'create'])->name('recruit.offerletter.create');
+            Route::post('/store', [OfferletterController::class, 'store'])->name('recruit.offerletter.store');
+            Route::get('/show/{id}', [OfferletterController::class, 'show'])->name('recruit.offerletter.show');
+            Route::get('/edit/{id}', [OfferletterController::class, 'edit'])->name('recruit.offerletter.edit') ;
+            Route::put('/update/{id}', [OfferletterController::class, 'update'])->name('recruit.offerletter.update');
+            Route::delete('/destroy/{id}', [OfferletterController::class, 'destroy'])->name('recruit.offerletter.destroy');
+        });
+                                        
             Route::prefix("jobpost")->group(function () {
                 Route::get('/', [JobpostController::class, 'index'])->name('recruit.jobpost.index');
                 Route::get('/create', [JobpostController::class, 'create'])->name('recruit.jobpost.create');
@@ -781,15 +819,16 @@ Route::middleware('auth')->group(function () {
             });
 
 
-            Route::prefix("barcodeManagement")->group(function () {
-                Route::get('/', [BarcodeManagementController::class, 'index'])->name('inventory.barcodemanagement.index');
-                Route::get('/create', [BarcodeManagementController::class, 'create'])->name('inventory.barcodemanagement.create');
-                Route::post('/store', [BarcodeManagementController::class, 'store'])->name('inventory.barcodemanagement.store');
-                Route::get('/show/{id}', [BarcodeManagementController::class, 'show'])->name('inventory.barcodemanagement.show');
-                Route::get('/edit/{id}', [BarcodeManagementController::class, 'edit'])->name('inventory.barcodemanagement.edit');
-                Route::put('/update/{id}', [BarcodeManagementController::class, 'update'])->name('inventory.barcodemanagement.update');
-                Route::delete('/destroy/{id}', [BarcodeManagementController::class, 'destroy'])->name('inventory.barcodemanagement.destroy');
+            Route::prefix("barcodemanagement")->group(function () {
+                Route::get('/', [BarcodemanagementController::class, 'index'])->name('inventory.barcodemanagement.index');
+                Route::get('/create', [BarcodemanagementController::class, 'create'])->name('inventory.barcodemanagement.create');
+                Route::post('/store', [BarcodemanagementController::class, 'store'])->name('inventory.barcodemanagement.store');
+                Route::get('/show/{id}', [BarcodemanagementController::class, 'show'])->name('inventory.barcodemanagement.show');
+                Route::get('/edit/{id}', [BarcodemanagementController::class, 'edit'])->name('inventory.barcodemanagement.edit') ;
+                Route::put('/update/{id}', [BarcodemanagementController::class, 'update'])->name('inventory.barcodemanagement.update');
+                Route::delete('/destroy/{id}', [BarcodemanagementController::class, 'destroy'])->name('inventory.barcodemanagement.destroy');
             });
+                                            
 
             Route::prefix("goodreceivedreconcile")->group(function () {
                 Route::get('/', [GoodreceivedreconcileController::class, 'index'])->name('inventory.goodreceivedreconcile.index');
@@ -1013,7 +1052,26 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [GeneratorlogbookController::class, 'update'])->name('officemanagement.generatorlogbook.update');
                 Route::delete('/destroy/{id}', [GeneratorlogbookController::class, 'destroy'])->name('officemanagement.generatorlogbook.destroy');
             });
-
+            Route::prefix("cashdeposite")->group(function () {
+                Route::get('/', [CashdepositeController::class, 'index'])->name('officemanagement.cashdeposite.index');
+                Route::get('/create', [CashdepositeController::class, 'create'])->name('officemanagement.cashdeposite.create');
+                Route::post('/store', [CashdepositeController::class, 'store'])->name('officemanagement.cashdeposite.store');
+                Route::get('/show/{id}', [CashdepositeController::class, 'show'])->name('officemanagement.cashdeposite.show');
+                Route::get('/edit/{id}', [CashdepositeController::class, 'edit'])->name('officemanagement.cashdeposite.edit') ;
+                Route::put('/update/{id}', [CashdepositeController::class, 'update'])->name('officemanagement.cashdeposite.update');
+                Route::delete('/destroy/{id}', [CashdepositeController::class, 'destroy'])->name('officemanagement.cashdeposite.destroy');
+            });
+                                            
+            Route::prefix("contract")->group(function () {
+                Route::get('/', [ContractController::class, 'index'])->name('officemanagement.contract.index');
+                Route::get('/create', [ContractController::class, 'create'])->name('officemanagement.contract.create');
+                Route::post('/store', [ContractController::class, 'store'])->name('officemanagement.contract.store');
+                Route::get('/show/{id}', [ContractController::class, 'show'])->name('officemanagement.contract.show');
+                Route::get('/edit/{id}', [ContractController::class, 'edit'])->name('officemanagement.contract.edit') ;
+                Route::put('/update/{id}', [ContractController::class, 'update'])->name('officemanagement.contract.update');
+                Route::delete('/destroy/{id}', [ContractController::class, 'destroy'])->name('officemanagement.contract.destroy');
+            });
+                                            
             Route::prefix("purchaseservice")->group(function () {
                 Route::get('/', [PurchaseserviceController::class, 'index'])->name('officemanagement.purchaseservice.index');
                 Route::get('/create', [PurchaseserviceController::class, 'create'])->name('officemanagement.purchaseservice.create');
@@ -1245,15 +1303,7 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/destroy/{id}', [AdvancerequestController::class, 'destroy'])->name('finance.advancerequest.destroy');
             });
                                             
-            Route::prefix("cashdeposite")->group(function () {
-                Route::get('/', [CashdepositeController::class, 'index'])->name('finance.cashdeposite.index');
-                Route::get('/create', [CashdepositeController::class, 'create'])->name('finance.cashdeposite.create');
-                Route::post('/store', [CashdepositeController::class, 'store'])->name('finance.cashdeposite.store');
-                Route::get('/show/{id}', [CashdepositeController::class, 'show'])->name('finance.cashdeposite.show');
-                Route::get('/edit/{id}', [CashdepositeController::class, 'edit'])->name('finance.cashdeposite.edit');
-                Route::put('/update/{id}', [CashdepositeController::class, 'update'])->name('finance.cashdeposite.update');
-                Route::delete('/destroy/{id}', [CashdepositeController::class, 'destroy'])->name('finance.cashdeposite.destroy');
-            });
+          
 
             Route::prefix("cashrequest")->group(function () {
                 Route::get('/', [CashrequestController::class, 'index'])->name('finance.cashrequest.index');
@@ -1392,6 +1442,17 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [TravelreportsController::class, 'update'])->name('reports.travelreports.update');
                 Route::delete('/destroy/{id}', [TravelreportsController::class, 'destroy'])->name('reports.travelreports.destroy');
             });
+            
+            Route::prefix("taskreports")->group(function () {
+                Route::get('/', [TaskreportsController::class, 'index'])->name('reports.taskreports.index');
+                Route::get('/create', [TaskreportsController::class, 'create'])->name('reports.taskreports.create');
+                Route::post('/store', [TaskreportsController::class, 'store'])->name('reports.taskreports.store');
+                Route::get('/show/{id}', [TaskreportsController::class, 'show'])->name('reports.taskreports.show');
+                Route::get('/edit/{id}', [TaskreportsController::class, 'edit'])->name('reports.taskreports.edit') ;
+                Route::put('/update/{id}', [TaskreportsController::class, 'update'])->name('reports.taskreports.update');
+                Route::delete('/destroy/{id}', [TaskreportsController::class, 'destroy'])->name('reports.taskreports.destroy');
+            });
+                                            
 
             Route::prefix("financereports")->group(function () {
                 Route::get('/', [FinancereportsController::class, 'index'])->name('reports.financereports.index');

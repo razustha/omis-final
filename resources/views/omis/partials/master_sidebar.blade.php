@@ -22,6 +22,10 @@
     class="nk-menu-link"><span class="nk-menu-text">Fleet Types</span></a></li>
 <li class="nk-menu-item"><a href="{{ route('master.traveltype.index') }}"
     class="nk-menu-link"><span class="nk-menu-text">Travel Types</span></a></li>
+
+        <li class="nk-menu-item"><a href="{{ route('master.leavetype.index') }}" class="nk-menu-link"><span
+                    class="nk-menu-text">Leave Type</span></a></li>
+
 <li class="nk-menu-item"><a href="{{ route('master.departmenttype.index') }}"
     class="nk-menu-link"><span class="nk-menu-text">Department Type</span></a></li>
 <li class="nk-menu-item"><a href="{{ route('master.employmentsizecategory.index') }}"
@@ -29,4 +33,4 @@
 <li class="nk-menu-item"><a href="{{ route('master.attendancefrom.index') }}"
     class="nk-menu-link"><span class="nk-menu-text">Attendance Form</span></a></li>
 <li class="nk-menu-item"><a href="{{ route('master.jobtitle.index') }}"
-    class="nk-menu-link"><span class="nk-menu-text">Job Title</span></a></li>
+    class="nk-menu-link"><span class="nk-menu-text">Designation</span></a></li>
