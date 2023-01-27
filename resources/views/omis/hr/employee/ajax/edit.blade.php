@@ -12,7 +12,7 @@
                                 <div class="row g-gs">
                                     <div class="col-6">
                                         <label class="form-label">Employee Id -
-                                            11</label>
+                                            {{ $data->employee_id }}</label>
         
                                     </div>
                                     <hr class="border-primary border-2 opacity-85">

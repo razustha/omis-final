@@ -29,6 +29,10 @@
 'alias',
 'status',
 'remarks',
+'created_at',
+'updated_at',
+'updatedBy',
+'companyName_id',
 
             ];
 

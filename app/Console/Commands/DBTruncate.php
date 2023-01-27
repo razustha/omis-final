@@ -39,6 +39,8 @@ class DBTruncate extends Command
             }
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             foreach ($allTables as $table) {
+                if ($table == 'tbl_country' || $table == 'tbl_state' || $table == 'tbl_district')
+                    continue;
                 DB::table($table)->truncate();
             }
 

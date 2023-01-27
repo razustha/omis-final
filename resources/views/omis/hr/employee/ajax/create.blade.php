@@ -8,8 +8,7 @@
                         <div class="card-body">
                             <div class="row g-gs">
                                 <div class="col-6">
-                                    <label class="form-label">Employee Id -
-                                        11</label>
+                                    <label class="form-label">Employee Id - 11</label>
     
                                 </div>
                                 <hr class="border-primary border-2 opacity-85">
@@ -79,12 +78,14 @@
                                         </div>
                                 
                                         <div class="col-lg-4">
-                                        {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'') !!}
+                                        {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'','',"Department") !!}
                                         </div>
                                         <div class="col-lg-6">
-                                        {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'') !!}
+                                        {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'','',"Designation") !!}
                                         </div> 
-                                        
+                                        <div class="col-lg-4">
+                                            {{ createText('reportingTo ', 'reportingTo', 'Reporting To ') }}
+                                        </div>
                                         
                                         <div class="col-lg-6">
                                             {{ createText('panNo', 'panNo', 'PanNo') }}

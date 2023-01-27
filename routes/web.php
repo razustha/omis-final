@@ -1,6 +1,7 @@
 <?php
 //Start of Master Controllers
 use App\Http\Controllers\Assets\FixedassetsController;
+use App\Http\Controllers\Hr\EmployeeonboardingController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\DepartmentController as MasterDepartmentController;
@@ -52,7 +53,6 @@ use App\Http\Controllers\Recruit\JobinterviewController;
 use App\Http\Controllers\Recruit\JobpostController;
 use App\Http\Controllers\Recruit\InterviewscheduleController;
 use App\Http\Controllers\Recruit\JobapplicationController;
-use App\Http\Controllers\Requisition\FleetrequestController;
 use App\Http\Controllers\Requisition\LeaverequestController;
 use App\Http\Controllers\requisition\TravelController;
 use App\Http\Controllers\requisition\RequisitiontravelController;
@@ -68,6 +68,7 @@ use App\Http\Controllers\Training\TrainerController;
 use App\Http\Controllers\Training\TraininglistController;
 use App\Http\Controllers\Training\TrainingtypeController;
 use App\Http\Controllers\Travelfleet\FleetmanagementController;
+use App\Http\Controllers\Travelfleet\FleetrequestController;
 use App\Http\Controllers\Travelfleet\FleetrosterController;
 use App\Http\Controllers\Travelfleet\MaintenancelogController;
 use App\Http\Controllers\Travelfleet\TravelapprovalController;
@@ -94,7 +95,7 @@ use App\Http\Controllers\Hr\DesignationController;
 use App\Http\Controllers\Hr\CmsController;
 use App\Http\Controllers\Hr\EmployeelistController;
 use App\Http\Controllers\Hr\EmployeementtimelineController;
-use App\Http\Controllers\Hr\EventController;
+use App\Http\Controllers\Eventsandmeetings\EventController;
 use App\Http\Controllers\Hr\ShiftrosterController;
 use App\Http\Controllers\Hr\LatereasonsController;
 
@@ -140,6 +141,8 @@ Route::get('/user/attandance', function () {
 Route::get('/user/leaves', function () {
     return view('employee\leaves\index');
 })->name('employee.leaves.index');
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -420,7 +423,16 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/destroy/{id}', [LatereasonsController::class, 'destroy'])->name('hr.latereasons.destroy');
             });
 
-
+            Route::prefix("employeeonboarding")->group(function () {
+                Route::get('/', [EmployeeonboardingController::class, 'index'])->name('hr.employeeonboarding.index');
+                Route::get('/create', [EmployeeonboardingController::class, 'create'])->name('hr.employeeonboarding.create');
+                Route::post('/store', [EmployeeonboardingController::class, 'store'])->name('hr.employeeonboarding.store');
+                Route::get('/show/{id}', [EmployeeonboardingController::class, 'show'])->name('hr.employeeonboarding.show');
+                Route::get('/edit/{id}', [EmployeeonboardingController::class, 'edit'])->name('hr.employeeonboarding.edit') ;
+                Route::put('/update/{id}', [EmployeeonboardingController::class, 'update'])->name('hr.employeeonboarding.update');
+                Route::delete('/destroy/{id}', [EmployeeonboardingController::class, 'destroy'])->name('hr.employeeonboarding.destroy');
+            });
+            
             Route::prefix("employee")->group(function () {
                 Route::get('/', [EmployeeController::class, 'index'])->name('hr.employee.index');
                 Route::get('/create', [EmployeeController::class, 'create'])->name('hr.employee.create');
@@ -631,15 +643,7 @@ Route::middleware('auth')->group(function () {
             });
 
 
-            Route::prefix("event")->group(function () {
-                Route::get('/', [EventController::class, 'index'])->name('hr.event.index');
-                Route::get('/create', [EventController::class, 'create'])->name('hr.event.create');
-                Route::post('/store', [EventController::class, 'store'])->name('hr.event.store');
-                Route::get('/show/{id}', [EventController::class, 'show'])->name('hr.event.show');
-                Route::get('/edit/{id}', [EventController::class, 'edit'])->name('hr.event.edit');
-                Route::put('/update/{id}', [EventController::class, 'update'])->name('hr.event.update');
-                Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('hr.event.destroy');
-            });
+           
 
            
         }
@@ -953,17 +957,7 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [TravelController::class, 'update'])->name('requisition.travel.update');
                 Route::delete('/destroy/{id}', [TravelController::class, 'destroy'])->name('requisition.travel.destroy');
             });
-            Route::prefix("fleetrequest")->group(function () {
-                Route::get('/', [FleetrequestController::class, 'index'])->name('requisition.fleetrequest.index');
-                Route::get('/create', [FleetrequestController::class, 'create'])->name('requisition.fleetrequest.create');
-                Route::post('/store', [FleetrequestController::class, 'store'])->name('requisition.fleetrequest.store');
-                Route::get('/show/{id}', [FleetrequestController::class, 'show'])->name('requisition.fleetrequest.show');
-                Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('requisition.fleetrequest.edit');
-                Route::put('/update/{id}', [FleetrequestController::class, 'update'])->name('requisition.fleetrequest.update');
-                Route::delete('/destroy/{id}', [FleetrequestController::class, 'destroy'])->name('requisition.fleetrequest.destroy');
-            });
-
-
+    
             Route::prefix("requisitiontravel")->group(function () {
                 Route::get('/', [RequisitiontravelController::class, 'index'])->name('requisition.requisitiontravel.index');
                 Route::get('/create', [RequisitiontravelController::class, 'create'])->name('requisition.requisitiontravel.create');
@@ -1073,7 +1067,16 @@ Route::middleware('auth')->group(function () {
     );
     Route::prefix("travelfleet")->group(
         function () {
-
+            Route::prefix("fleetrequest")->group(function () {
+                Route::get('/', [FleetrequestController::class, 'index'])->name('travelfleet.fleetrequest.index');
+                Route::get('/create', [FleetrequestController::class, 'create'])->name('travelfleet.fleetrequest.create');
+                Route::post('/store', [FleetrequestController::class, 'store'])->name('travelfleet.fleetrequest.store');
+                Route::get('/show/{id}', [FleetrequestController::class, 'show'])->name('travelfleet.fleetrequest.show');
+                Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('travelfleet.fleetrequest.edit') ;
+                Route::put('/update/{id}', [FleetrequestController::class, 'update'])->name('travelfleet.fleetrequest.update');
+                Route::delete('/destroy/{id}', [FleetrequestController::class, 'destroy'])->name('travelfleet.fleetrequest.destroy');
+            });
+                                            
             Route::prefix("fleetroster")->group(function () {
                 Route::get('/', [FleetrosterController::class, 'index'])->name('travelfleet.fleetroster.index');
                 Route::get('/create', [FleetrosterController::class, 'create'])->name('travelfleet.fleetroster.create');
@@ -1348,6 +1351,16 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix("eventsandmeetings")->group(
         function () {
+            Route::prefix("event")->group(function () {
+                Route::get('/', [EventController::class, 'index'])->name('eventsandmeetings.event.index');
+                Route::get('/create', [EventController::class, 'create'])->name('eventsandmeetings.event.create');
+                Route::post('/store', [EventController::class, 'store'])->name('eventsandmeetings.event.store');
+                Route::get('/show/{id}', [EventController::class, 'show'])->name('eventsandmeetings.event.show');
+                Route::get('/edit/{id}', [EventController::class, 'edit'])->name('eventsandmeetings.event.edit') ;
+                Route::put('/update/{id}', [EventController::class, 'update'])->name('eventsandmeetings.event.update');
+                Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('eventsandmeetings.event.destroy');
+            });
+                                            
             Route::prefix("meeting")->group(
                 function () {
                     Route::get('/', [MeetingController::class, 'index'])->name('eventsandmeetings.meeting.index');

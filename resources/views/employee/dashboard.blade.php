@@ -14,7 +14,7 @@
                                 <div class="col-xxl-12">
                                 <div class="nk-block-head-between flex-wrap gap g-3">
                                         <div class="nk-block-head-content">
-                                            <h2 class="nk-block-title py-4">Welcome, User name</h2>
+                                            <h2 class="nk-block-title py-4">Welcome, Raju</h2>
                                          </div>
                                         <div class="nk-block-head-content">
                                                 <div class="d-flex gap">

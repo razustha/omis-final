@@ -1,12 +1,10 @@
-
-                <form >
+<form action="{{route('training.trainer.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("trainerFullName","trainerFullName","TrainerFullName")}}
-</div><div class="col-lg-6">{{createText("trainerPhone","trainerPhone","TrainerPhone")}}
-</div><div class="col-lg-6">{{createText("trainerAddress","trainerAddress","TrainerAddress")}}
-</div><div class="col-lg-6">{{createText("trainerEmail","trainerEmail","TrainerEmail")}}
-</div><div class="col-lg-6">{{createText("alias","alias","Alias")}}
-</div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
-</div><div class="col-lg-6">{{createText("remarks","remarks","Remarks")}}
-</div> <br> <div class="col-md-12"><?php createButton("btn-primary","","Submit"); ?>
+<div class="row"><div class="col-lg-6">{{createText("trainerFullName","trainerFullName","Full Name")}}
+</div><div class="col-lg-6">{{createText("trainerPhone","trainerPhone","Phone")}}
+</div><div class="col-lg-4">{{createText("trainerAddress","trainerAddress","Address")}}
+</div><div class="col-lg-4">{{createText("trainerEmail","trainerEmail","Email")}}
+</div><div class="col-lg-4">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
+</div><div class="col-lg-12">{{createLabel('remarks','form-label col-form-label','Remarks')}}{{createTextArea("remarks","remarks","Remarks","","")}}
+</div> <br> <div class="col-md-12"><?php createButton("btn-primary btn-store","","Submit"); ?>
 </div> </form>
