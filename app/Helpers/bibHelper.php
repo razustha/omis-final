@@ -279,7 +279,7 @@
                 function createTextArea($name, $class = "", $id = "", $row = "", $display)
                 {
                 ?>
-               
+
                     <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
                     <?php echo $display; ?>
             </textarea>
@@ -355,19 +355,26 @@
                         return [];
                     }
                 }
-
-                function getSelectForForeignColumn($tableName = "", $pk, $name, $class = "", $data = null, $display="")
+                
+                /**
+                 * $tableName = Name of table
+                 * $pk = primary key of table
+                 * $name = table select column name
+                 * $class = extra class
+                 * $data = Existing data or for edit case showing selected data
+                 * $display = Displaying name or showing label name.
+                 */
+                function getSelectForForeignColumn($tableName = "", $pk, $name, $class = "", $data = null, $display = null)
                 {
-
                     $systems =  DB::table($tableName)->orderBy($pk, 'asc')->pluck($name, $pk);
                     if (!$data) {
-                        customCreateSelect($pk, $pk, null, $display, $systems, null);
+                        customCreateSelect($pk, $pk, null, $display ?? $name, $systems, null);
                     } else {
-                        customCreateSelect($pk, $pk, null, $display, $systems, $data->$pk);
+                        customCreateSelect($pk, $pk, null, $display ?? $name, $systems, $data->$pk);
                     }
                 }
 
-          
+
 
                 function usersetting($query)
                 {
