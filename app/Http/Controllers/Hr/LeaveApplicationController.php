@@ -29,6 +29,8 @@
 
             public function store(Request $request)
             {
+                $request['leaveRequestedBy'] = auth()->user()->name;
+                $request['employee_id'] = auth()->user()->id;
                 $request->request->add(['alias' => slugify($request->leaveapplicationName)]);
                 Leaveapplication::create($request->all());
                 if ($request->ajax()) {
@@ -136,5 +138,28 @@
                 } else {
                 }
             }
+
+            public function toApprove(Request $request) {
+
+                $data = Leaveapplication::findOrFail($request->approved_id);
+                $dat['leaveApprovalBy'] = auth()->user()->id;
+                $dat['leaveApprovedDate'] = date('Y-m-d');
+                $dat['leaveApplication_status'] = "approved";
+                $request->request->add(['alias' => slugify($request->leaveapplicationName)]);
+                $data->update($dat);
+                return redirect()->route('hr.leaveapplication.index')->with('success','The Leaveapplication has been approved.');
+
+            }
+
+            public function toReject(Request $request) {
+
+                $data = Leaveapplication::findOrFail($request->rejected_id);
+                $dat['leaveApprovalBy'] = auth()->user()->id;
+                $dat['leaveApprovedDate'] = date('Y-m-d');
+                $dat['leaveApplication_status'] = "rejected";
+                $request->request->add(['alias' => slugify($request->leaveapplicationName)]);
+                $data->update($dat);
+                return redirect()->route('hr.leaveapplication.index')->with('success','The Leaveapplication has been rejected.');
+
+            }
         }
-        

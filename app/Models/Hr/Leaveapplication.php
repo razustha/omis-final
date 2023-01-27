@@ -7,16 +7,16 @@
         use Illuminate\Database\Eloquent\Model;
         use App\Traits\CreatedUpdatedBy;
 
-        class Leaveapplication extends Model
+        class LeaveApplication extends Model
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_leaveapplication';
+            protected $table = 'tbl_leaveApplication';
             protected $primaryKey = 'leaveApplication_id';
             public $timestamps = true;
             protected $fillable =[
                 'leaveRequestedBy',
-'employeeNumber',
+'employee_id',
 'chooseDepartment_id',
 'leaveType',
 'leaveStart',
@@ -28,9 +28,7 @@
 'alias',
 'status',
 'remarks',
-'created_at',
-'updated_at',
-'updatedBy',
+'leaveApplication_status',
 
             ];
 

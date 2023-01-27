@@ -30,16 +30,16 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">leave Requested By</span></th>
-<th class="tb-col"><span class="overline-title">employeeNumber</span></th>
-<th class="tb-col"><span class="overline-title">Department_id</span></th>
+<th class="tb-col"><span class="overline-title">leaveRequestedBy</span></th>
+{{-- <th class="tb-col"><span class="overline-title">employeeNumber</span></th> --}}
+{{-- <th class="tb-col"><span class="overline-title">chooseDepartment_id</span></th> --}}
 <th class="tb-col"><span class="overline-title">leaveType</span></th>
-<!-- <th class="tb-col"><span class="overline-title">leaveStart</span></th>
+<th class="tb-col"><span class="overline-title">leaveStart</span></th>
 <th class="tb-col"><span class="overline-title">leaveEnd</span></th>
-<th class="tb-col"><span class="overline-title">leaveApprovalBy</span></th>
-<th class="tb-col"><span class="overline-title">leaveApprovedDate</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th> -->
-<th class="tb-col"><span class="overline-title">status</span></th>
+{{-- <th class="tb-col"><span class="overline-title">leaveApprovalBy</span></th>
+<th class="tb-col"><span class="overline-title">leaveApprovedDate</span></th> --}}
+{{-- <th class="tb-col"><span class="overline-title">alias</span></th> --}}
+<th class="tb-col"><span class="overline-title">Leave Status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
                                         </tr>
@@ -51,24 +51,32 @@
                                         @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->leaveRequestedBy }}</td>
-<td class="tb-col">{{ $item->employeeNumber }}</td>
-<td class="tb-col">{{ $item->chooseDepartment_id }}</td>
+{{-- <td class="tb-col">{{ $item->employeeNumber }}</td> --}}
+{{-- <td class="tb-col">{{ $item->chooseDepartment_id }}</td> --}}
 <td class="tb-col">{{ $item->leaveType }}</td>
-<!-- <td class="tb-col">{{ $item->leaveStart }}</td>
+<td class="tb-col">{{ $item->leaveStart }}</td>
 <td class="tb-col">{{ $item->leaveEnd }}</td>
-<td class="tb-col">{{ $item->leaveApprovalBy }}</td>
-<td class="tb-col">{{ $item->leaveApprovedDate }}</td>
-<td class="tb-col">{{ $item->alias }}</td> -->
-<td class="tb-col">{!! $item->status_name !!}</td>
+{{-- <td class="tb-col">{{ $item->leaveApprovalBy }}</td>
+<td class="tb-col">{{ $item->leaveApprovedDate }}</td> --}}
+{{-- <td class="tb-col">{{ $item->alias }}</td> --}}
+<td class="tb-col">{{ ucfirst($item->leaveApplication_status)}}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'hr.leaveapplication.show',$item->leaveApplication_id) !!}
                                                 </li>
-                                               <li> 
+                                               <li>
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'hr.leaveapplication.edit',$item->leaveApplication_id) !!}
                                                 </li>
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'hr.leaveapplication.destroy',$item->leaveApplication_id) !!}</li>
+                                                @if($item->leaveApplication_status == null && auth()->user()->user_type == "SUPER ADMIN")
+                                                    <li>
+                                                        <button type="button" class="btn btn-primary btn-approve btn-sm mr-2" onclick="approvedthis({{$item->leaveApplication_id}})" value="1">Approve</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="button" class="btn btn-danger btn-approve btn-sm pl-2" onclick="rejectthis({{$item->leaveApplication_id}})" value="0">Reject This</button>
+                                                    </li>
+                                                @endif
                                                </ul> </td>
                                                </tr>
 
@@ -127,4 +135,50 @@
     </div>
 </div>
 @endsection
-    
+
+@section('js')
+<script>
+    function approvedthis(id) {
+        var approved_id = JSON.parse(id);
+        $.ajax({
+            type: 'get',
+            url: '{{route('hr.leaveapplication.tobeapprove')}}',
+            data: {
+                _token: '{{csrf_token()}}',
+                approved_id: approved_id,
+            },
+            success:function(response){
+            if(typeof(response) != 'object'){
+                response = JSON.parse(response)
+            }
+            if(response.status){
+                window.location.reload();
+            }
+        }
+
+        })
+    }
+
+    function rejectthis(id) {
+        var rejected_id = JSON.parse(id);
+        $.ajax({
+            type: 'get',
+            url: '{{route('hr.leaveapplication.tobereject')}}',
+            data: {
+                _token: '{{csrf_token()}}',
+                rejected_id: rejected_id,
+            },
+            success:function(response){
+            if(typeof(response) != 'object'){
+                response = JSON.parse(response)
+            }
+            if(response.status){
+                window.location.reload();
+            }
+        }
+
+        })
+    }
+</script>
+@endsection
+

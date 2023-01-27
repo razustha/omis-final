@@ -49,6 +49,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $(document).on('click', ".btn-hover-danger", function() {
             let _token = "{{ csrf_token() }}";
@@ -99,6 +100,7 @@
                 url: route,
                 success: function(res) {
                     $("#editConvasByAjax").html(res.content);
+                    $('.lfm').filemanager('image');
                 }
             })
         })
@@ -110,6 +112,8 @@
                 url: route,
                 success: function(res) {
                     $("#addConvasByAjax").html(res.content);
+                    $('.lfm').filemanager('image');
+                
                 }
             })
         })

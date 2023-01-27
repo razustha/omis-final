@@ -34,6 +34,7 @@
         </div>
     </div>
     @include('employee/partials/footerincludes');
+
     <script src="{{ asset('assets/js/fullscreen.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
@@ -50,9 +51,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
-    <script type="text/javascript">
-        $('.lfm').filemanager('file');
-    </script>
+    
     <script>
         $(document).on('click', ".btn-hover-danger", function() {
             let _token = "{{ csrf_token() }}";
@@ -103,6 +102,7 @@
                 url: route,
                 success: function(res) {
                     $("#editConvasByAjax").html(res.content);
+                    $('.lfm').filemanager('image');
                 }
             })
         })
@@ -114,6 +114,7 @@
                 url: route,
                 success: function(res) {
                     $("#addConvasByAjax").html(res.content);
+                    $('.lfm').filemanager('image');
                 }
             })
         })

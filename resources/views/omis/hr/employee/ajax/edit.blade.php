@@ -83,13 +83,13 @@
                                             {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'','','Deapartment',$data) !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'','','Designation',$data) !!}
+                                            {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'','','Deapartment',$data) !!}
                                         </div>
                                        <div class="col-lg-4">
                                         {{ createText("reportingTo","reportingTo","ReportingTo",'',$data->reportingTo) }}
                                         </div>
-                                        <div class="col-lg-4">
-                                            {{ createText('panNo', 'panNo', 'PanNo','',$data->panNo) }}
+                                        <div class="col-lg-6">
+                                            {{ createText('panNo', 'panNo', 'PanNo') }}
                                         </div>
 
 
