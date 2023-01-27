@@ -1,13 +1,13 @@
 @extends('omis.partials.layouts')
 @section('content')
     <div class="nk-content">
-        <div class="container">
+        <div class="container-fluid">
             <div class="nk-content-inner">
                 <div class="nk-content-body">
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title">Employee List</h1>
+                                <h2 class="nk-block-title">Employees</h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
                                             <li class="breadcrumb-item"><a href="#">Employee</a></li>
