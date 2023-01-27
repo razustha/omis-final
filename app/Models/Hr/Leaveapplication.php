@@ -55,4 +55,8 @@
             get: fn ($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
+    public function employee(){
+        return $this->belongsTo(User::class);
+        
+    }
         }

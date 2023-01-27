@@ -254,7 +254,20 @@
                 function actionCanvasButton($name = "", $class = "", $dataTarget = "", $iconClass = "", $route = "", $id)
                 {
                 ?>
-                    <button class="btn btn-color-primary btn-hover-primary btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
+                    
+                        <?php if($iconClass == "edit") {
+                            ?>
+                            <button class="btn btn-color-primary btn-hover-primary btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
+                        <?php
+                        } else {
+                            ?>
+                            <button class="btn btn-color-success btn-hover-success btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
+
+                        <?php
+                        }
+                        ?>
+                    
+
                 <?php
                 }
 
