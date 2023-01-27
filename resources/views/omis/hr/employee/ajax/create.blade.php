@@ -78,14 +78,16 @@
                                         </div>
                                 
                                         <div class="col-lg-4">
-                                        {!! getSelectForForeignColumn("tbl_department","department_id","departmentName","Department") !!}
+                                        {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'','',"Department") !!}
                                         </div>
-                                        <div class="col-lg-6">
-                                        {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName","Designation") !!}
+                                        <div class="col-lg-4">
+                                        {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'','',"Designation") !!}
                                         </div> 
+                                        <div class="col-lg-4">
+                                            {{ createText('reportingTo ', 'reportingTo', 'Reporting To ') }}
+                                        </div>
                                         
-                                        
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             {{ createText('panNo', 'panNo', 'PanNo') }}
                                         </div>
                                      
