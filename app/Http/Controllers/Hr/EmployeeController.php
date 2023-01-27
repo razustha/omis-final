@@ -24,8 +24,15 @@ class EmployeeController extends Controller
 
     public function create(Request $request)
     {
+        $last = Employee::latest()->first();
+        if ($last) {
+            $emp_id = $last->employee_id + 1;
+        } else {
+            $emp_id = 1;
+        }
+
         if ($request->ajax()) {
-            $html = view("omis.hr.employee.ajax.create")->render();
+            $html = view("omis.hr.employee.ajax.create", ['emp_id' => $emp_id])->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
         return view("omis.hr.employee.create");

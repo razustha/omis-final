@@ -7,11 +7,7 @@
                 <div class="card card-gutter-md">
                     <div class="card-body">
                         <div class="row g-gs">
-                            <div class="col-6">
-                                <label class="form-label">Employee Id -
-                                    11</label>
-
-                            </div>
+                            
                             <hr class="border-primary border-2 opacity-85">
 
                             <div class="col-lg-12">
