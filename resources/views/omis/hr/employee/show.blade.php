@@ -2158,5 +2158,5 @@
                         </div>
                     </div>
                 </div>
-                {{ pre($data) }}
+               
             @endsection
