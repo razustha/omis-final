@@ -536,6 +536,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/edit/{id}', [LeaveApplicationController::class, 'edit'])->name('hr.leaveapplication.edit');
                 Route::put('/update/{id}', [LeaveApplicationController::class, 'update'])->name('hr.leaveapplication.update');
                 Route::delete('/destroy/{id}', [LeaveApplicationController::class, 'destroy'])->name('hr.leaveapplication.destroy');
+                Route::get('tobeapprove', [LeaveApplicationController::class, 'toApprove'])->name('hr.leaveapplication.tobeapprove');
+                Route::get('tobereject', [LeaveApplicationController::class, 'toReject'])->name('hr.leaveapplication.tobereject');
             });
 
 
@@ -569,6 +571,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit');
                 Route::put('/update/{id}', [AttendenceController::class, 'update'])->name('hr.attendence.update');
                 Route::delete('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy');
+                Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn');
+                Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut');
             });
 
             Route::prefix("complaints")->group(function () {

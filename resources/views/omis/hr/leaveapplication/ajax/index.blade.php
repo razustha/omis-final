@@ -3,8 +3,6 @@
         <tr>
         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">leaveRequestedBy</span></th>
-<th class="tb-col"><span class="overline-title">employeeNumber</span></th>
-<th class="tb-col"><span class="overline-title">chooseDepartment_id</span></th>
 <th class="tb-col"><span class="overline-title">leaveType</span></th>
 <th class="tb-col"><span class="overline-title">leaveStart</span></th>
 <th class="tb-col"><span class="overline-title">leaveEnd</span></th>
