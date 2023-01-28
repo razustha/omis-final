@@ -10,10 +10,10 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <div class=" h-100">
-                                      
+
                                             <div class="d-flex flex-column flex-sm-row-reverse align-items-sm-center justify-content-sm-between">
                                                 <div class="mb-5 mt-4 mt-sm-0">
-                                                    
+
                                                     @if(empty(auth()->user()->todayAttendance()))
                                                     <button class="btn btn-primary btn-checkIn" >
                                                         + Clock In
@@ -30,13 +30,13 @@
 
                                                     @endif
                                                 </div>
-                                    
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                          
-                         
+
+
                         </div>
                     </div>
                 </div>
@@ -46,13 +46,13 @@
 
 
     {{-- Update CheckIn --}}
-    <div class="modal fade update_CheckIn" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    <div class="modal fade new_CheckIn" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title align-self-center mt-0 text-center" id="exampleModalLabel">Add Check In</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn-primary close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -85,8 +85,9 @@
 @section('js')
 
     <script type="text/javascript">
+
         $(document).on('click', ".btn-checkIn", function() {
-            $('.update_CheckIn').modal('show');
+            $('.new_CheckIn').modal('show');
 
         })
     </script>
