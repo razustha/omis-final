@@ -1,9 +1,9 @@
-
-                <form action="{{route('supplier.addsupplier.store')}}" id="storeCustomForm">
+<form action="{{route('supplier.addsupplier.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-4">{{createText("day","day","Day")}}
-</div><div class="col-lg-4">{{createDate("date","date","Date")}}
-</div><div class="col-lg-4">{{createText("addSupplier_id","addSupplier_id","AddSupplier Id")}}
-</div><div class="col-lg-12">{{createLabel('remarks','form-label col-form-label','Remarks')}}{{createTextArea("remarks","","remarks",'','')}}
+<div class="row"><div class="col-lg-6">{{createText("goodsName","goodsName","Goods Name")}}
+</div><div class="col-lg-6">{{createText("day","day","Day")}}
+</div><div class="col-lg-6">{{createDate("date","date","Date")}}
+</div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
+</div><div class="col-lg-12">{{createLabel('remarks','form-label col-form-label','Remarks')}}{{createTextArea("remarks","remarks","Remarks","","")}}
 </div> <br> <div class="col-md-12"><?php createButton("btn-primary btn-store","","Submit"); ?>
 </div> </form>

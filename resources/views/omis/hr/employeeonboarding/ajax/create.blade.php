@@ -1,5 +1,5 @@
 
-                <form action="{{route('hr.employeeonboarding.store')}}" id="storeCustomForm">
+<form action="{{route('hr.employeeonboarding.store')}}" id="storeCustomForm">
  @csrf 
 <div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'') !!}
 </div><div class="col-lg-6">{{createText("departmentName","departmentName","DepartmentName")}}

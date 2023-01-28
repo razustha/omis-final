@@ -12,7 +12,7 @@
             use HasFactory, CreatedUpdatedBy;
 
             protected $table = 'tbl_leavereports';
-            protected $primaryKey = 'leaveReports_id ';
+            protected $primaryKey = 'leaveReports_id';
             public $timestamps = true;
             protected $fillable =[
                 'applicant_id',

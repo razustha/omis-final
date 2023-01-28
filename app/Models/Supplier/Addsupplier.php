@@ -15,7 +15,8 @@
             protected $primaryKey = 'addsupplier_id';
             public $timestamps = true;
             protected $fillable =[
-                'day',
+                'goodsName',
+'day',
 'date',
 'createdOn',
 'createdBy',
@@ -25,7 +26,6 @@
 'created_at',
 'updated_at',
 'updatedBy',
-'addSupplier_id',
 
             ];
 

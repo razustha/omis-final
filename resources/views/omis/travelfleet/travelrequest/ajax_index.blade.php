@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Travelrequest List</h1>
+                                    <h2 class="nk-block-title">Travel Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Travelrequest</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Travelrequest","travelfleet.travelrequest.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Travel Request","travelfleet.travelrequest.create") !!}
                                     </ul>
                                 </div>
                             </div>
@@ -31,11 +31,11 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">travellerName</span></th>
-<th class="tb-col"><span class="overline-title">date</span></th>
+<!-- <th class="tb-col"><span class="overline-title">date</span></th>
 <th class="tb-col"><span class="overline-title">time</span></th>
 <th class="tb-col"><span class="overline-title">destination</span></th>
 <th class="tb-col"><span class="overline-title">totalDays</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+<th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -48,11 +48,11 @@
                                         @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->travellerName }}</td>
-<td class="tb-col">{{ $item->date }}</td>
+<!-- <td class="tb-col">{{ $item->date }}</td>
 <td class="tb-col">{{ $item->time }}</td>
 <td class="tb-col">{{ $item->destination }}</td>
 <td class="tb-col">{{ $item->totalDays }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+<td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">

@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Reports\Attendancereports;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class AttendancereportsController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Attendancereports::where('status','<>',-1)->get();
+                $data = Attendancereports::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.reports.attendancereports.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.reports.attendancereports.index", compact('data'));
+                return view("omis.reports.attendancereports.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->attendancereportsName)]);
                 Attendancereports::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Attendancereports Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Attendancereports::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->attendancereportsName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Attendancereports updated Successfully.'], 200);

@@ -22,26 +22,31 @@
                                     <div class="col-lg-4">
                                         {{ createText('firstName', 'firstName', 'First Name') }}
                                     </div>
+
                                     <div class="col-lg-4">
                                         {{ createText('middleName', 'middleName', 'Middle Name') }}
                                     </div>
+
                                     <div class="col-lg-4">
                                         {{ createText('lastName', 'lastName', 'Last Name') }}
                                     </div>
-                                    <div class="col-lg-4">
-                                        {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others']) }}
 
-                                        <!-- </div><div class="col-lg-6">{{ createText('gender_id', 'gender_id', 'Gender Id') }} -->
+                                    <div class="col-lg-4">
+                                        {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others']) }}                                     
                                     </div>
+
                                     <div class="col-lg-4">
                                         {{ createDate('dateOfBirth', 'dateOfBirth', 'Date Of Birth') }}
                                     </div>
+
                                     <div class="col-lg-4">
-                                        {{ createText('nationality_id', 'nationality_id', 'Nationality') }}
+                                        {!! getSelectForForeignColumn("tbl_nationality","nationality_id","nationalityName",'') !!}
                                     </div>
+
                                     <div class="col-lg-4">
-                                        {{ createPassword('password', 'password', 'Password') }}
+                                        {{createText("password","password","Password")}}
                                     </div>
+                                    
                                     <div class="col-lg-4">
                                         {{ createText('phoneNumber', 'phoneNumber', 'Phone Number') }}
                                     </div>
@@ -67,14 +72,14 @@
                                     <div class="col-lg-3">
                                     {!! getSelectForForeignColumn("tbl_city","city_id","cityName",'') !!}
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address') }}
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         {{ createText('temproryAddress', 'temproryAddress', 'Temporary Address') }}
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                     {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'') !!}
                                     </div>
                                     <div class="col-lg-6">
@@ -92,7 +97,8 @@
                                         {{ createDate('joinDate', 'joinDate', 'Join Date') }}
                                     </div>
                                     <div class="col-lg-6">
-                                        {{ createText('reportingTo', 'reportingTo', 'Reporting To') }}
+                                          {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }}
+                                         {!! getSelectForForeignColumn("tbl_employeelist","employee_id","employeeFullName",'') !!}
                                     </div>
 
 
@@ -413,6 +419,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-12">
                             <div class="form-group"><label
                                     class="form-label">Receive email
@@ -424,7 +431,7 @@
                                                 class="form-check form-check-inline">
                                                 <input class="form-check-input"
                                                     type="radio"
-                                                    name="inlineRadioOptions"
+                                                    name="inlineRadioOptions1"
                                                     id="inlineRadio1"
                                                     value="option3"><label
                                                     class="form-check-label"
@@ -434,7 +441,7 @@
                                                 class="form-check form-check-inline">
                                                 <input class="form-check-input"
                                                     type="radio"
-                                                    name="inlineRadioOptions"
+                                                    name="inlineRadioOptions1"
                                                     id="inlineRadio2"
                                                     value="option4"><label
                                                     class="form-check-label"

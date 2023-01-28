@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Designation List</h1>
+                                    <h2 class="nk-block-title">Designation </h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Designation</a></li>

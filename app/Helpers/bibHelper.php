@@ -122,6 +122,16 @@
         ?>
 
         <?php
+        function createHidden($name, $id, $display, $class = "", $value = "", $placeHolder = "")
+        {
+        ?>
+            <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
+            <input type="hidden" id="<?php echo $id; ?>" placeholder="<?php echo $placeHolder; ?>" name="<?php echo $name; ?>" class="form-control <?php $class; ?>" value="<?php echo $value; ?>">
+        <?php
+        }
+        ?>
+
+        <?php
         function createDate($name, $id, $display, $class = "", $value = "", $placeHolder = "")
         {
         ?>
@@ -244,7 +254,20 @@
                 function actionCanvasButton($name = "", $class = "", $dataTarget = "", $iconClass = "", $route = "", $id)
                 {
                 ?>
-                    <button class="btn btn-color-primary btn-hover-primary btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
+                    
+                        <?php if($iconClass == "edit") {
+                            ?>
+                            <button class="btn btn-color-primary btn-hover-primary btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
+                        <?php
+                        } else {
+                            ?>
+                            <button class="btn btn-color-success btn-hover-success btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
+
+                        <?php
+                        }
+                        ?>
+                    
+
                 <?php
                 }
 
@@ -317,13 +340,14 @@
 
                 function master_updateColumn($tableName, $data, $id)
                 {
+                    $TablePK=mid($tableName,4)."_id";
                     $allcolumns = Schema::getColumnListing($tableName);
 
                     $datakey = array_keys($data);
                     // dd($allcolumns, $data);
                     foreach ($data as $key => $value) {
                         if (in_array($key, $allcolumns)) {
-                            DB::table($tableName)->where('country_id', $id)->update($data);
+                            DB::table($tableName)->where($tablePK, $id)->update($data);
                             return true;
                         }
                     }

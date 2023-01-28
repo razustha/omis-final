@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Addsupplier List</h1>
+                                    <h2 class="nk-block-title">Add Supplier List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Addsupplier</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Addsupplier","supplier.addsupplier.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Add Supplier","supplier.addsupplier.create") !!}
                                     </ul>
                                 </div>
                             </div>
@@ -30,10 +30,11 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
+<th class="tb-col"><span class="overline-title">goodsName</span></th>
 <th class="tb-col"><span class="overline-title">day</span></th>
 <th class="tb-col"><span class="overline-title">date</span></th>
-
-<th class="tb-col"><span class="overline-title">addSupplier_id</span></th>
+<!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
+<th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
                                         </tr>
@@ -44,19 +45,20 @@
                                         @endphp
                                         @foreach ($data as $item)
                                         <tr>
-                                            <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->day }}</td>
+                                            <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->goodsName }}</td>
+<td class="tb-col">{{ $item->day }}</td>
 <td class="tb-col">{{ $item->date }}</td>
-
-<td class="tb-col">{{ $item->addSupplier_id }}</td>
+<!-- <td class="tb-col">{{ $item->alias }}</td> -->
+<td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
-                                                    {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'supplier.addsupplier.show',$item->goodsName) !!}
+                                                    {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'supplier.addsupplier.show',$item->addsupplier_id) !!}
                                                 </li>
                                                <li> 
-                                                        {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'supplier.addsupplier.edit',$item->goodsName) !!}
+                                                        {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'supplier.addsupplier.edit',$item->addsupplier_id) !!}
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'supplier.addsupplier.destroy',$item->goodsName) !!}</li>
+                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'supplier.addsupplier.destroy',$item->addsupplier_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

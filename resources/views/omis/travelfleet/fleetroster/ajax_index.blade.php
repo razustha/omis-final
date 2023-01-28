@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Fleetroster List</h1>
+                                    <h2 class="nk-block-title">Fleet Roster List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Fleetroster</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Fleetroster","travelfleet.fleetroster.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Fleet Roster","travelfleet.fleetroster.create") !!}
                                     </ul>
                                 </div>
                             </div>

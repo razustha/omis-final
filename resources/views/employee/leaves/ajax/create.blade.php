@@ -2,8 +2,6 @@
                 <form action="{{route('hr.leaveapplication.store')}}" id="storeCustomForm">
  @csrf 
 <div class="row"><div class="col-lg-6">{{createText("leaveRequestedBy","leaveRequestedBy","Leave Requested By")}}
-</div><div class="col-lg-6">{{createText("employeeNumber","employeeNumber","Employee Number")}}
-</div><div class="col-lg-6">{{createText("chooseDepartment_id","chooseDepartment_id","Department Id")}}
 </div><div class="col-lg-6">{{createText("leaveType","leaveType","Leave Type")}}
 </div><div class="col-lg-6">{{createDate("leaveStart","leaveStart","Leave Start")}}
 </div><div class="col-lg-6">{{createDate("leaveEnd","leaveEnd","Leave End")}}

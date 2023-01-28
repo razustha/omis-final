@@ -167,21 +167,18 @@
                     class="nk-menu-text">Job Interview</span></a></li>
         <li class="nk-menu-item"><a href="{{ Route('recruit.jobpost.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Job Post</span></a></li>
-        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Skills</span></a>
-        </li>
-        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Jobs</span></a>
-        </li>
+       
+      
         <li class="nk-menu-item"><a href="{{route('recruit.jobapplication.index')}}" class="nk-menu-link"><span class="nk-menu-text">Job
                     Applications</span></a></li>
         <li class="nk-menu-item"><a href="{{route('recruit.interviewschedule.index')}}" class="nk-menu-link"><span class="nk-menu-text">Interview
                     Schedule</span></a></li>
-        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Offer
+        <li class="nk-menu-item"><a href="{{route('recruit.offerletter.index')}}" class="nk-menu-link"><span class="nk-menu-text">Offer
                     Letter</span></a></li>
-        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Experienced
+        <li class="nk-menu-item"><a href="{{route('recruit.experienceletter.index')}}" class="nk-menu-link"><span class="nk-menu-text">Experienced
                     Letter</span></a></li>
-        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Candidate
-                    Database</span></a></li>
-        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span
+        
+        <li class="nk-menu-item"><a href="{{route('recruit.recuritreports.index')}}" class="nk-menu-link"><span
                     class="nk-menu-text">Reports</span></a></li>
     </ul>
 </li>
@@ -249,11 +246,11 @@
     <ul class="nk-menu-sub">
         <li class="nk-menu-item"><a href="{{ route('officemanagement.generatorlogbook.index') }}"
                 class="nk-menu-link"><span class="nk-menu-text">Generator Logbook</span></a></li>
-        <li class="nk-menu-item"><a href="{{ route('hr.contract.index') }}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('officemanagement.contract.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Contract </span></a></li>
         <li class="nk-menu-item"><a href="{{ route('officemanagement.purchaseservice.index') }}"
                 class="nk-menu-link"><span class="nk-menu-text">Purchase Service </span></a></li>
-        <li class="nk-menu-item"><a href="{{ route('finance.cashdeposite.index') }}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('officemanagement.cashdeposite.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Cash Deposit</span></a></li>
     </ul>
 </li>
@@ -298,7 +295,7 @@
             class="nk-menu-icon"><em class="icon ni ni-files"></em></span><span
             class="nk-menu-text">Reports</span></a>
     <ul class="nk-menu-sub">
-        <li class="nk-menu-item"><a href="{{ route('reports.travelreports.index') }}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('reports.taskreports.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Task Report</span></a></li>
 
         <li class="nk-menu-item"><a href="{{ route('reports.financereports.index') }}" class="nk-menu-link"><span
@@ -341,14 +338,14 @@
                     class="nk-menu-text">Add Supplier</span></a></li>
     </ul>
 </li>
-<li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
+<!-- <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
             class="nk-menu-icon"><em class="icon ni ni-archived"></em></span><span class="nk-menu-text">File
             Manager</span></a>
-    <ul class="nk-menu-sub">
+    <!-- <ul class="nk-menu-sub">
 
-        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">404
-                    Classic</span></a></li>
-        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">504
-                    Classic</span></a></li>
-    </ul>
-</li>
+        <!-- <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">404
+                    Classic</span></a></li> -->
+        <!-- <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">504
+                    Classic</span></a></li> -->
+    </ul> -->
+</li> -->

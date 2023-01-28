@@ -1,7 +1,7 @@
 
                 <form action="{{route('timesheet.absentreason.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("designation","designation","Designation")}}
+<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'') !!}
 </div><div class="col-lg-6">{{createText("dateAbsense","dateAbsense","DateAbsense")}}
 </div><div class="col-lg-6">{{createText("dayAbsense","dayAbsense","DayAbsense")}}
 </div><div class="col-lg-6">{{createText("holidayApprovedBy","holidayApprovedBy","HolidayApprovedBy")}}

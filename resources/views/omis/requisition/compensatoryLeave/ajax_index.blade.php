@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Compensatoryleave List</h1>
+                                    <h2 class="nk-block-title">Compensatory Leave List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Compensatoryleave</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Compensatoryleave","requisition.compensatoryleave.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Compensatory Leave","requisition.compensatoryleave.create") !!}
                                     </ul>
                                 </div>
                             </div>

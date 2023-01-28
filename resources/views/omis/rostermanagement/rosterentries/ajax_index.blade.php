@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Rosterentries List</h1>
+                                    <h2 class="nk-block-title">Roster Entries List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Rosterentries</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Rosterentries","rostermanagement.rosterentries.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Roster Entries","rostermanagement.rosterentries.create") !!}
                                     </ul>
                                 </div>
                             </div>

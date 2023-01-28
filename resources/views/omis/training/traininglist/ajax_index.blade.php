@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Traininglist List</h1>
+                                    <h2 class="nk-block-title">Training List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Traininglist</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Traininglist","training.traininglist.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Training List","training.traininglist.create") !!}
                                     </ul>
                                 </div>
                             </div>
@@ -30,12 +30,12 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">trainingList</span></th>
+<th class="tb-col"><span class="overline-title">training List</span></th>
 <th class="tb-col"><span class="overline-title">trainer_id</span></th>
-<th class="tb-col"><span class="overline-title">trainingDate</span></th>
+<!-- <th class="tb-col"><span class="overline-title">trainingDate</span></th>
 <th class="tb-col"><span class="overline-title">trainigEndDate</span></th>
 <th class="tb-col"><span class="overline-title">department_id</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+<th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -49,10 +49,10 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->trainingList }}</td>
 <td class="tb-col">{{ $item->trainer_id }}</td>
-<td class="tb-col">{{ $item->trainingDate }}</td>
+<!-- <td class="tb-col">{{ $item->trainingDate }}</td>
 <td class="tb-col">{{ $item->trainigEndDate }}</td>
 <td class="tb-col">{{ $item->department_id }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+<td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">

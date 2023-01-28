@@ -54,12 +54,14 @@ class User extends Authenticatable
     ];
 
     public function todayAttendance()
-    {
+    {   
+        $auth = auth()->user()->id;
         $attendance = DB::table('tbl_attendence')
         ->join('users', 'users.id','tbl_attendence.employee_id')
         ->select('users.id as user_id','users.name','tbl_attendence.attendence_id')
         ->where('tbl_attendence.todayDate',date('Y-m-d'))
         ->where('tbl_attendence.timePicker2',null)
+        ->where('tbl_attendence.employee_id',$auth)
         ->first();
         return $attendance;
     }

@@ -29,8 +29,6 @@
 
             public function store(Request $request)
             {
-                $request['leaveRequestedBy'] = auth()->user()->name;
-                $request['employee_id'] = auth()->user()->id;
                 $request->request->add(['alias' => slugify($request->leaveapplicationName)]);
                 Leaveapplication::create($request->all());
                 if ($request->ajax()) {
@@ -163,3 +161,4 @@
 
             }
         }
+        

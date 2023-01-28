@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Leaverequest List</h1>
+                                    <h2 class="nk-block-title">Leave Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Leaverequest</a></li>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Leaverequest","requisition.leaverequest.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Leave Request","requisition.leaverequest.create") !!}
                                     </ul>
                                 </div>
                             </div>

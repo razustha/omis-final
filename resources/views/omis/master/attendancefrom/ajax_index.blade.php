@@ -32,11 +32,10 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">attendanceFromLocation</span></th>
 <th class="tb-col"><span class="overline-title">attendanceFromType</span></th>
-<th class="tb-col"><span class="overline-title">attendanceFromDescription</span></th>
 <th class="tb-col"><span class="overline-title">attendanceFromActiveFrom</span></th>
-<th class="tb-col"><span class="overline-title">attendanceFromApprovedEmployee_id</span></th>
-<th class="tb-col"><span class="overline-title">attendanceFromSupervisorEmployee_id</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+
+
+
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -50,11 +49,9 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->attendanceFromLocation }}</td>
 <td class="tb-col">{{ $item->attendanceFromType }}</td>
-<td class="tb-col">{{ $item->attendanceFromDescription }}</td>
+
 <td class="tb-col">{{ $item->attendanceFromActiveFrom }}</td>
-<td class="tb-col">{{ $item->attendanceFromApprovedEmployee_id }}</td>
-<td class="tb-col">{{ $item->attendanceFromSupervisorEmployee_id }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">

@@ -8,5 +8,5 @@
     <title>{{env('APP_NAME')}}</title>
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
- 
+    
 </head>

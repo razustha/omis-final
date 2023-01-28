@@ -4,16 +4,18 @@
         use Illuminate\Http\Request;
         use App\Models\Reports\Leavereports;
         use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\Validator;
+
         class LeavereportsController extends Controller
         {
            public function index(Request $request)
             {
-                $data = Leavereports::where('status','<>',-1)->get();
+                $data = Leavereports::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.reports.leavereports.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.reports.leavereports.index", compact('data'));
+                return view("omis.reports.leavereports.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
@@ -27,6 +29,7 @@
 
             public function store(Request $request)
             {
+                $request->request->add(['alias' => slugify($request->leavereportsName)]);
                 Leavereports::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Leavereports Created Successfully.'], 200);
@@ -59,6 +62,7 @@
             public function update(Request $request, $id)
             {
                 $data = Leavereports::findOrFail($id);
+                $request->request->add(['alias' => slugify($request->leavereportsName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Leavereports updated Successfully.'], 200);

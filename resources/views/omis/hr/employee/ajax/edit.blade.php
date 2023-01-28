@@ -11,7 +11,7 @@
                             <div class="row g-gs">
                                 <div class="col-6">
                                     <label class="form-label">Employee Id -
-                                        11</label>
+                                        {{ $data->employee_id }}</label>
 
                                 </div>
                                 <hr class="border-primary border-2 opacity-85">
@@ -19,7 +19,6 @@
                                 <div class="col-lg-12">
                                     <div class="row">
                                         <!-- <div class="col-lg-6">
-                                                {{ createText('employeeType_id', 'employeeType_id', 'Employee Type Id') }}
                                             </div> -->
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Personal Details</h2>
@@ -35,19 +34,19 @@
                                             {{ createText('lastName', 'lastName', 'Last Name','',$data->lastName) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others']) }}
+                                            {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others'],$data->gender_id) }}
 
-                                            <!-- </div><div class="col-lg-6">{{ createText('gender_id', 'gender_id', 'Gender Id') }} -->
+                                           
                                         </div>
                                         <div class="col-lg-4">
                                             {{ createDate('dateOfBirth', 'dateOfBirth', 'Date Of Birth','',$data->dateOfBirth) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('nationality_id', 'nationality_id', 'Nationality','',$data->nationality_id) }}
+                                            {!! getSelectForForeignColumn("tbl_nationality","nationality_id","nationalityName",'',$data) !!}
                                         </div>
-                                        {{-- <div class="col-lg-4">
-                                            {{ createPassword('password', 'password', 'Password') }}
-                                        </div> --}}
+                                        <div class="col-lg-4">
+                                            {{ createPassword('password', 'password', 'Password','',$data->password) }}
+                                        </div>
                                         <div class="col-lg-4">
                                             {{ createText('phoneNumber', 'phoneNumber', 'Phone Number','',$data->phoneNumber) }}
                                         </div>
@@ -61,76 +60,41 @@
                                         </div>
 
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '',$data) !!}
+                                            {!! getSelectForForeignColumn("tbl_country","country_id","countryName",'',$data) !!}
                                         </div>
 
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '',$data) !!}
+                                            {!! getSelectForForeignColumn("tbl_state","state_id","stateName",'',$data) !!}
                                         </div>
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '',$data) !!}
+                                            {!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '') !!}
                                         </div>
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '',$data) !!}
+                                            {!! getSelectForForeignColumn("tbl_city","city_id","cityName",'',$data) !!}
                                         </div>
                                         <div class="col-lg-4">
                                             {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address','',$data->permanentAddress) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address','',$data->temproryAddress) }}
+                                            {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address') }}
                                         </div>
 
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '',$data) !!}
+                                            {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'','','Deapartment',$data) !!}
                                         </div>
-                                        <div class="col-lg-6">
-                                            {!! getSelectForForeignColumn('tbl_designation', 'designation_id', 'designationName', '',$data) !!}
+                                        <div class="col-lg-4">
+                                            {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'','','Deapartment',$data) !!}
                                         </div>
-
-
-                                        <div class="col-lg-6">
+                                       <div class="col-lg-4">
+                                        {{ createText("reportingTo","reportingTo","ReportingTo",'',$data->reportingTo) }}
+                                        </div>
+                                        <div class="col-lg-4">
                                             {{ createText('panNo', 'panNo', 'PanNo','',$data->panNo) }}
                                         </div>
 
 
                                         <div class="col-lg-12">
-                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', $data->remarks) }}
-                                        </div>
-                                        <hr>
-                                        <h5 class="mt-3">Add Document/Image Item</h5>
-                                        <div id="additernary_edu">
-                                            @if (isset($documents) && $documents->isEmpty() == false)
-                                                @foreach ($documents as $key => $document)
-                                                    <input type="hidden" class="form-control"
-                                                        name="checklist_id[{{ $key }}]"
-                                                        value={{ $document->document_id }}>
-                                                    <div class="form-group row d-flex align-items-end">.
-                                                        <div class="col-sm-4">
-                                                            <label class="control-label">Document Name</label>
-                                                            <input type="text" name="image_name[]"
-                                                                class="form-control"
-                                                                value="{{ $document->image_name }}" readonly>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <input type="hidden" name="image_path[]"
-                                                                class="form-control"
-                                                                value="{{ $document->image_path }}" readonly>
-                                                            <a href="{{ $document->image_path }}" target="__blank">
-                                                                View Uploaded File
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            @endif
-                                            <div class="form-group row d-flex align-items-end">
-                                                <div class="col-md-2 mb-2" style="margin-top: 10px;">
-                                                    <input id="additemrowedu" type="button"
-                                                        class="btn btn-sm btn-primary mr-1" value="Add Document">
-                                                </div>
-
-                                            </div>
-                                            <input type="hidden" id="tempedu" value="0" name="temp">
+                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
                                         </div>
 
 
@@ -173,11 +137,11 @@
                                 @if($data->profilePhoto)
                                     <img id="holder" style="margin-top:15px;max-height:300px;" class="img img-fluid" src="{{$data->profilePhoto}}">
                                 @endif
-                                <div class="form-control-wrap mt-2">
+                                <div class="form-control-wrap">
                                     <input id="thumbnail" class="form-control" type="text" name="profilePhoto" value="" readonly>
-                                    <a href="javascript: void(0);" id="lfm" data-input="thumbnail" data-preview="holder" class="lfm btn icon-left btn-primary mt-2">
-                                        <i class="fa fa-upload"></i> &nbsp;Change
-                                    </a>
+                                    <button id="lfm btn-image" data-input="thumbnail" data-preview="holder" class="lfm btn icon-left btn-primary mt-2 btn-image">
+                                        <i class="fa fa-upload"></i> &nbsp;Choose
+                                    </button>
                                 </div>
                                 <div class="form-note mt-3">Set the product
                                     thumbnail image. Only *.png, *.jpg and *.jpeg
@@ -194,15 +158,13 @@
                                     <ul class="g-4">
                                         <li>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio"
-                                                    name="inlineRadioOptions" id="loginAllowedYes"
-                                                    value="option1"><label class="form-check-label"
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                    id="loginAllowedYes" value="option1"><label class="form-check-label"
                                                     for="loginAllowedYes">Yes</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio"
-                                                    name="inlineRadioOptions" id="loginAllowedNo"
-                                                    value="option2"><label class="form-check-label"
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                    id="loginAllowedNo" value="option2"><label class="form-check-label"
                                                     for="loginAllowedNo">No</label>
                                             </div>
 
@@ -218,9 +180,8 @@
                                     <ul class="g-4">
                                         <li>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio"
-                                                    name="inlineRadioOptions" id="inlineRadio1"
-                                                    value="option3"><label class="form-check-label"
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                    id="inlineRadio1" value="option3"><label class="form-check-label"
                                                     for="inlineRadio1">Yes</label>
                                             </div>
                                             <div class="form-check form-check-inline">
@@ -248,34 +209,3 @@
         </div>
     </div>
 </form>
-
-
-
-
-{{-- <form method="post" action="{{ route("hr.employee.store") }}" >
-            @csrf
-        <div class="row"><div class="col-lg-6"> {{createText("employeeType_id","employeeType_id","EmployeeType Id")}}
-        </div><div class="col-lg-6">{{createText("firstName","firstName","FirstName")}}
-        </div><div class="col-lg-6">{{createText("middleName","middleName","MiddleName")}}
-        </div><div class="col-lg-6">{{createText("lastName","lastName","LastName")}}
-        </div><div class="col-lg-6">{{createText("gender_id","gender_id","Gender Id")}}
-        </div><div class="col-lg-6">{{createText("dateOfBirth","dateOfBirth","DateOfBirth")}}
-        </div><div class="col-lg-6">{{createText("nationality_id","nationality_id","Nationality Id")}}
-        </div><div class="col-lg-6">{{createText("temproryAddress","temproryAddress","TemproryAddress")}}
-        </div><div class="col-lg-6">{{createText("phoneNumber","phoneNumber","PhoneNumber")}}
-        </div><div class="col-lg-6">{{createText("alternateNumber","alternateNumber","AlternateNumber")}}
-        </div><div class="col-lg-6">{{createText("emailAddress","emailAddress","EmailAddress")}}
-        </div><div class="col-lg-6">{{createText("country_id","country_id","Country Id")}}
-        </div><div class="col-lg-6">{{createText("city_id","city_id","City Id")}}
-        </div><div class="col-lg-6">{{createText("state_id","state_id","State Id")}}
-        </div><div class="col-lg-6">{{createText("district_id","district_id","District Id")}}
-        </div><div class="col-lg-6">{{createText("permanentAddress","permanentAddress","PermanentAddress")}}
-        </div><div class="col-lg-6">{{createText("postalCode","postalCode","PostalCode")}}
-        </div><div class="col-lg-6">{{createText("organization_id","organization_id","Organization Id")}}
-        </div><div class="col-lg-6">{{createText("department_id","department_id","Department Id")}}
-        </div><div class="col-lg-6">{{createText("designation_id","designation_id","Designation Id")}}
-        </div><div class="col-lg-6">{{createText("panNo","panNo","PanNo")}}
-        </div> <br> <div class="col-md-12"><?php //createButton("btn-primary","","Submit");
-        ?>
-                </div>
-        </form> --}}
