@@ -12,24 +12,24 @@
                                     <div class=" h-100">
                                       
                                             <div class="d-flex flex-column flex-sm-row-reverse align-items-sm-center justify-content-sm-between">
-                                                <div class="mb-5 mt-4 mt-sm-0">
-                                                    
+                                            <div class="mb-5 mt-4 mt-sm-0">
+
                                                     @if(empty(auth()->user()->todayAttendance()))
                                                     <button class="btn btn-primary btn-checkIn" >
                                                         + Clock In
                                                     </button>
-                                                    @else
+                                                @else
                                                     <form action="{{route('hr.attendence.checkOut',auth()->user()->todayAttendance()->attendence_id)}}" method="POST">
                                                         @csrf
                                                         <div class="form-group ">
                                                             <input type="hidden" value="{{auth()->user()->id}}">
                                                         <button type="submit" class="btn btn-danger btn-checkOut" >
-                                                            + Clock Out
-                                                        </button>
+                                                                + Clock Out
+                                                            </button>
                                                     </form>
 
-                                                    @endif
-                                                </div>
+                                                @endif
+                                            </div>
                                     
                                         </div>
                                     </div>
