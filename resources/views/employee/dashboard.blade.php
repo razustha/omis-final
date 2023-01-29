@@ -19,7 +19,7 @@
                                             </div>
                                             <div class="d-flex flex-column flex-sm-row-reverse align-items-sm-center justify-content-sm-between">
                                                 <div class="mb-5 mt-4 mt-sm-0">
-                                                    
+
                                                     @if(empty(auth()->user()->todayAttendance()))
                                                     <button class="btn btn-primary btn-checkIn" >
                                                         + Clock In
@@ -36,7 +36,7 @@
 
                                                     @endif
                                                 </div>
-                                    
+
                                         </div>
                                         </div>
                                     </div>
@@ -906,5 +906,10 @@
             $('.update_CheckIn').modal('show');
 
         })
+        $( document ).ready(function() {
+            $(window).on('load', function() {
+                $('.update_CheckIn').modal('show');
+            });
+        });
     </script>
 @endsection

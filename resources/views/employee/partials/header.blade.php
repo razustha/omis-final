@@ -55,19 +55,19 @@
                                 class="nk-nav-text">Dashboard</span></a>
 
                     </li>
-                   
-                    
+
+
                 </ul>
             </nav>
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav ms-2">
-                  
+
                     <li>
-                       
+
                         <button class="btn btn-icon btn-sm btn-zoom " onclick="openFullscreen();"><em class="icon ni ni-maximize"></em></button>
-                        
+
                     </li>
-                 
+
                     <li class="dropdown"><button class="btn btn-icon btn-sm btn-zoom d-sm-none"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside"><em
                                 class="icon ni ni-search"></em></button><button
@@ -116,7 +116,7 @@
                                     <li>
                                         <div class="media-group">
                                             <div class="media media-md media-middle media-circle text-bg-light"><img
-                                                    src="{{ asset('assets/images/avatar/a.jpg') }}" alt="">
+                                                    src="{{ auth()->user()->employee->profilePhoto }}" alt="">
                                             </div>
                                             <div class="media-text">
                                                 <div class="lead-text">Sharon Walker</div><span
@@ -168,23 +168,24 @@
                     <li class="dropdown"><a href="#" data-bs-toggle="dropdown">
                             <div class="d-sm-none">
                                 <div class="media media-md media-circle"><img
-                                        src="{{ asset('assets/images/avatar/a.jpg') }}" alt=""
+                                        src="{{ auth()->user()->employee->profilePhoto }}" alt=""
                                         class="img-thumbnail"></div>
                             </div>
                             <div class="d-none d-sm-block">
-                                <div class="media media-circle"><img src="{{ asset('assets/images/avatar/a.jpg') }}"
+                                <div class="media media-circle"><img src="{{ auth()->user()->employee->profilePhoto }}"
                                         alt="" class="img-thumbnail"></div>
                             </div>
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-md">
                             <div class="dropdown-content dropdown-content-x-lg py-3 border-bottom border-light">
                                 <div class="media-group">
                                     <div class="media media-xl media-middle media-circle"><img
-                                            src="{{ asset('assets/images/avatar/a.jpg') }}" alt=""
+                                            src="{{ auth()->user()->employee->profilePhoto }}" alt=""
                                             class="img-thumbnail"></div>
                                     <div class="media-text">
                                         <div class="lead-text">{{ auth()->user()->name }}</div><span class="sub-text">{{ auth()->user()->user_type }}</span>
-                                    </div>  
+                                    </div>
                             </div>
                             <div class="dropdown-content dropdown-content-x-lg py-3 border-bottom border-light">
                                 <ul class="link-list">

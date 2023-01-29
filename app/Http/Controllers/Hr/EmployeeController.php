@@ -3,8 +3,10 @@
         use App\Http\Controllers\Controller;
         use Illuminate\Http\Request;
         use App\Models\Hr\Employee;
-        use Illuminate\Support\Facades\DB;
-        use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
         class EmployeeController extends Controller
         {
@@ -29,6 +31,27 @@
 
             public function store(Request $request)
             {
+                $validator = Validator::make($request->all(), [
+                    'firstName' => 'required',
+                    'password' => 'required',
+                    'emailAddress' => 'required|email:unique:users',
+                ]);
+
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
+                if ($request->status == 1) {
+                    $users = [
+                        'name' => $request->firstName . ' ' . $request->middleName . ' ' . $request->lastName,
+                        'email' => $request->emailAddress,
+                        'password' => Hash::make($request->password),
+                        'user_type' => 'EMPLOYEE'
+                    ];
+                    User::create($users);
+                }
                 $request->request->add(['alias' => slugify($request->employeeName)]);
                 Employee::create($request->all());
                 if ($request->ajax()) {
@@ -137,4 +160,3 @@
                 }
             }
         }
-        

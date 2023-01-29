@@ -33,6 +33,38 @@
             </div>
         </div>
     </div>
+
+    {{-- Update CheckIn --}}
+    <div class="modal fade update_CheckIn" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title align-self-center mt-0 text-center" id="exampleModalLabel">Add Check In</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('hr.attendence.checkIn')}}" method="POST">
+                        @csrf
+                        <div class="form-group row">
+                            <input type="hidden" value="{{auth()->user()->id}}">
+                            <div class="col-md-12">
+                                {{ createText('location', 'location', 'location') }}
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-lg-12">
+                                    {{ createText('workFrom', 'workFrom', 'Work From') }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <?php createButton("btn-primary","","Save"); ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
     @include('omis/partials/footerincludes');
     <script src="{{ asset('assets/js/fullscreen.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
@@ -113,7 +145,7 @@
                 success: function(res) {
                     $("#addConvasByAjax").html(res.content);
                     $('.lfm').filemanager('image');
-                
+
                 }
             })
         })
@@ -205,6 +237,20 @@
                 [10, 25, 50, -1],
                 [10, 25, 50, "All"]
             ],
+        });
+
+        // For Attendence
+        $(document ).ready(function() {
+            $(".update_CheckIn").modal({
+                show: false,
+                backdrop: 'static',
+                keyboard: false
+            });
+            @if(empty(auth()->user()->attendence()))
+                $(window).on('load', function() {
+                    $('.update_CheckIn').modal('show');
+                });
+            @endif
         });
     </script>
     @yield('js')
