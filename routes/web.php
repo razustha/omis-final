@@ -122,6 +122,7 @@ use App\Http\Controllers\Settings\SettingController;
 use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\Travelfleet\DriverrosterController;
 use App\Http\Controllers\Work\TimelogController;
+use App\Models\Hr\Employee;
 use App\Models\Hr\Leaveapplication;
 use App\Models\User;
 
@@ -156,7 +157,8 @@ Route::get('/user/leaves', function () {
 // });
 
 Route::get('/dashboard', function () {
-    return view('omis\welcome');
+    $employees = Employee::where('status','<>',-1)->orderBy('created_at','desc')->get();
+    return view('omis\welcome',compact('employees'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
