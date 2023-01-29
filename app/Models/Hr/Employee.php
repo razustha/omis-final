@@ -50,6 +50,8 @@ class Employee extends Model
         'grandMotherName',
         'spouse',
         'emergencyContact',
+        'is_login',
+        'is_email_notification',
         'createdOn',
         'createdBy',
         'updatedBy',

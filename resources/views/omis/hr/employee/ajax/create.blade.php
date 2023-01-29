@@ -1,243 +1,232 @@
-<form method="post" action="{{ route("hr.employee.store") }}" >
-@csrf
-<div class="row g-gs">
-    <div class="col-xxl-9 col-lg-9 col-md-9 col-sm-9">
-        <div class="gap gy-4">
-            <div class="gap-col">
-                <div class="card card-gutter-md">
-                    <div class="card-body">
-                        <div class="row g-gs">
-                            
-                            <hr class="border-primary border-2 opacity-85">
+<form method="post" action="{{ route('hr.employee.store') }}">
+    @csrf
+    <div class="row g-gs">
+        <div class="col-xxl-9 col-lg-9 col-md-9 col-sm-9">
+            <div class="gap gy-4">
+                <div class="gap-col">
+                    <div class="card card-gutter-md">
+                        <div class="card-body">
+                            <div class="row g-gs">
+                                <div class="col-6">
+                                    <label class="form-label">Employee Id -
+                                        {{ $emp_id }}</label>
+                                </div>
+                                <hr class="border-primary border-2 opacity-85">
 
-                            <div class="col-lg-12">
-                                <div class="row">
-                                    <!-- <div class="col-lg-6">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <!-- <div class="col-lg-6">
                                         {{ createText('employeeType_id', 'employeeType_id', 'Employee Type Id') }}
                                     </div> -->
-                                    <div class="col-lg-12">
-                                        <h2 class="mt-3">Personal Details</h2>
-                                    </div>
+                                        <div class="col-lg-12">
+                                            <h2 class="mt-3">Personal Details</h2>
+                                        </div>
 
-                                    <div class="col-lg-4">
-                                        {{ createText('firstName', 'firstName', 'First Name') }}
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {{ createText('firstName', 'firstName', 'First Name') }}
+                                        </div>
 
-                                    <div class="col-lg-4">
-                                        {{ createText('middleName', 'middleName', 'Middle Name') }}
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {{ createText('middleName', 'middleName', 'Middle Name') }}
+                                        </div>
 
-                                    <div class="col-lg-4">
-                                        {{ createText('lastName', 'lastName', 'Last Name') }}
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {{ createText('lastName', 'lastName', 'Last Name') }}
+                                        </div>
 
-                                    <div class="col-lg-4">
-                                        {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others']) }}                                     
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others']) }}
+                                        </div>
 
-                                    <div class="col-lg-4">
-                                        {{ createDate('dateOfBirth', 'dateOfBirth', 'Date Of Birth') }}
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {{ createDate('dateOfBirth', 'dateOfBirth', 'Date Of Birth') }}
+                                        </div>
 
-                                    <div class="col-lg-4">
-                                        {!! getSelectForForeignColumn("tbl_nationality","nationality_id","nationalityName",'') !!}
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {!! getSelectForForeignColumn('tbl_nationality', 'nationality_id', 'nationalityName', '') !!}
+                                        </div>
 
-                                    <div class="col-lg-4">
-                                        {{createText("password","password","Password")}}
-                                    </div>
-                                    
-                                    <div class="col-lg-4">
-                                        {{ createText('phoneNumber', 'phoneNumber', 'Phone Number') }}
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {{ createPassword('password', 'password', 'Password') }}
+                                        </div>
 
-                                    <div class="col-lg-4">
-                                        {{ createEmail('emailAddress', 'emailAddress', 'Email Address') }}
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {{ createText('phoneNumber', 'phoneNumber', 'Phone Number') }}
+                                        </div>
 
-                                    <div class="col-lg-12">
-                                        <h2 class="mt-3">Address Details</h2>
-                                    </div>
+                                        <div class="col-lg-4">
+                                            {{ createEmail('emailAddress', 'emailAddress', 'Email Address') }}
+                                        </div>
 
-                                    <div class="col-lg-3">
-                                    {!! getSelectForForeignColumn("tbl_country","country_id","countryName",'') !!}
-                                    </div>
+                                        <div class="col-lg-12">
+                                            <h2 class="mt-3">Address Details</h2>
+                                        </div>
 
-                                    <div class="col-lg-3">
-                                    {!! getSelectForForeignColumn("tbl_state","state_id","stateName",'') !!}
-                                    </div>
-                                    <div class="col-lg-3">
-                                    {!! getSelectForForeignColumn("tbl_district","district_id","districtName",'') !!}
-                                    </div>
-                                    <div class="col-lg-3">
-                                    {!! getSelectForForeignColumn("tbl_city","city_id","cityName",'') !!}
-                                    </div>
-                                    <div class="col-lg-6">
-                                        {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address') }}
-                                    </div>
-                                    <div class="col-lg-6">
-                                        {{ createText('temproryAddress', 'temproryAddress', 'Temporary Address') }}
-                                    </div>
+                                        <div class="col-lg-3">
+                                            {!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '', '', 'Country Name') !!}
+                                        </div>
 
-                                    <div class="col-lg-6">
-                                    {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'') !!}
-                                    </div>
-                                    <div class="col-lg-6">
-                                    {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'') !!}
-                                    </div>
+                                        <div class="col-lg-3">
+                                            {!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', '', 'State Name') !!}
+                                        </div>
+                                        <div class="col-lg-3">
+                                            {!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', '', 'District Name') !!}
+                                        </div>
+                                        <div class="col-lg-3">
+                                            {!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', '', 'City Name') !!}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address') }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ createText('temproryAddress', 'temproryAddress', 'Temporary Address') }}
+                                        </div>
 
-
-                                    <div class="col-lg-6">
-                                        {{ createText('panNo', 'panNo', 'PanNo') }}
-                                    </div>
-                                    <div class="col-lg-6">
-                                        {{ createText('skills', 'skills', 'Skills') }}
-                                    </div>
-                                    <div class="col-lg-6">
-                                        {{ createDate('joinDate', 'joinDate', 'Join Date') }}
-                                    </div>
-                                    <div class="col-lg-6">
-                                          {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }}
-                                         {!! getSelectForForeignColumn("tbl_employeelist","employee_id","employeeFullName",'') !!}
-                                    </div>
+                                        <div class="col-lg-6">
+                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department Name') !!}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {!! getSelectForForeignColumn(
+                                                'tbl_designation',
+                                                'designation_id',
+                                                'designationName',
+                                                '',
+                                                '',
+                                                'Designation Name',
+                                            ) !!}
+                                        </div>
 
 
-                                    <div class="col-lg-12">
-                                        {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
+                                        <div class="col-lg-6">
+                                            {{ createText('panNo', 'panNo', 'PanNo') }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ createText('skills', 'skills', 'Skills') }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ createDate('joinDate', 'joinDate', 'Join Date') }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
+                                            {!! getSelectForForeignColumn('tbl_employeelist', 'employee_id', 'employeeFullName', '','','Reporting To') !!}
+                                        </div>
+
+
+                                        <div class="col-lg-12">
+                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
+                                        </div>
+
+
+
+
                                     </div>
 
-
-
-
+                                    <!-- end -->
                                 </div>
 
-                                <!-- end -->
+
+
+
                             </div>
-
-
-
-
                         </div>
                     </div>
                 </div>
+
+
             </div>
-
-
         </div>
-    </div>
-    <div class="col-xxl-3 col-lg-3 col-md-3 col-sm-3">
-        <div class="card card-gutter-md">
-            <div class="card-body">
-                <div class="row g-gs">
+        <div class="col-xxl-3 col-lg-3 col-md-3 col-sm-3">
+            <div class="card card-gutter-md">
+                <div class="card-body">
+                    <div class="row g-gs">
 
-                    <div class="col-12">
-                        <!--switch -->
-                        <!-- <div class="form-check form-switch form-check-lg">
+                        <div class="col-12">
+                            <!--switch -->
+                            <!-- <div class="form-check form-switch form-check-lg">
                             <input class="form-check-input" type="checkbox"
                                 value="" id="flexSwitchSizeLg">
                             <label class="form-check-label"
                                 for="flexSwitchSizeLg"> Status</label>
                         </div> -->
-                        {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
-                    </div>
-                    <hr>
-                    <div class="col-12">
-                        <div class="form-group"><label
-                                class="form-label">Thumbnail</label>
-                            <div class="form-control-wrap">
-                                <input id="thumbnail" class="form-control" type="text" name="profilePhoto" value="" readonly>
-                                <button id="lfm btn-image" data-input="thumbnail" data-preview="holder" class="lfm btn icon-left btn-primary mt-2 btn-image">
-                                    <i class="fa fa-upload"></i> &nbsp;Choose
-                                </button>
-                            </div>
-                            <div class="form-note mt-3">Set the product
-                                thumbnail image. Only *.png, *.jpg and *.jpeg
-                                image files are accepted.</div>
+                            {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
                         </div>
-                    </div>
-
-
-
-
-                    <div class="col-12">
-                        <div class="form-group"><label
-                                class="form-label">Login Allowed</label>
-                            <div class="form-control-wrap">
-                                <ul class="g-4">
-                                    <li>
-                                        <div
-                                            class="form-check form-check-inline">
-                                            <input class="form-check-input"
-                                                type="radio"
-                                                name="inlineRadioOptions"
-                                                id="loginAllowedYes"
-                                                value="option1"><label
-                                                class="form-check-label"
-                                                for="loginAllowedYes">Yes</label>
-                                        </div>
-                                        <div
-                                            class="form-check form-check-inline">
-                                            <input class="form-check-input"
-                                                type="radio"
-                                                name="inlineRadioOptions"
-                                                id="loginAllowedNo"
-                                                value="option2"><label
-                                                class="form-check-label"
-                                                for="loginAllowedNo">No</label>
-                                        </div>
-
-                                    </li>
-                                </ul>
+                        <hr>
+                        <div class="col-12">
+                            <div class="form-group"><label class="form-label">Thumbnail</label>
+                                <div class="form-control-wrap">
+                                    <input id="thumbnail" class="form-control" type="text" name="profilePhoto"
+                                        value="" readonly>
+                                    <button id="lfm btn-image" data-input="thumbnail" data-preview="holder"
+                                        class="lfm btn icon-left btn-primary mt-2 btn-image">
+                                        <i class="fa fa-upload"></i> &nbsp;Choose
+                                    </button>
+                                </div>
+                                <div class="form-note mt-3">Set the product
+                                    thumbnail image. Only *.png, *.jpg and *.jpeg
+                                    image files are accepted.</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group"><label
-                                class="form-label">Receive email
-                                notifications?</label>
-                            <div class="form-control-wrap">
-                                <ul class="g-4">
-                                    <li>
-                                        <div
-                                            class="form-check form-check-inline">
-                                            <input class="form-check-input"
-                                                type="radio"
-                                                name="inlineRadioOptions"
-                                                id="inlineRadio1"
-                                                value="option3"><label
-                                                class="form-check-label"
-                                                for="inlineRadio1">Yes</label>
-                                        </div>
-                                        <div
-                                            class="form-check form-check-inline">
-                                            <input class="form-check-input"
-                                                type="radio"
-                                                name="inlineRadioOptions"
-                                                id="inlineRadio2"
-                                                value="option4"><label
-                                                class="form-check-label"
-                                                for="inlineRadio2">No</label>
-                                        </div>
 
-                                    </li>
-                                </ul>
+
+
+
+                        <div class="col-12">
+                            <div class="form-group"><label class="form-label">Login Allowed</label>
+                                <div class="form-control-wrap">
+                                    <ul class="g-4">
+                                        <li>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="is_login"
+                                                    id="loginAllowedYes" value="1" checked><label
+                                                    class="form-check-label" for="loginAllowedYes">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="is_login"
+                                                    id="loginAllowedNo" value="0">
+                                                <label class="form-check-label" for="loginAllowedNo">No</label>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <hr class="border-primary border-2 opacity-85">
-                    <div class="gap-col">
-                        <ul class="d-flex align-items-center gap g-3">
-                            <li><button type="submit"
-                                    class="btn btn-primary">Submit</button></li>
-                            <li><a href="products.html"
-                                    class="btn border-0">Cancel</a></li>
-                        </ul>
+                        <div class="col-12">
+                            <div class="form-group"><label class="form-label">Receive email
+                                    notifications?</label>
+                                <div class="form-control-wrap">
+                                    <ul class="g-4">
+                                        <li>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                    name="is_email_notification" id="inlineRadio1" value="1"><label
+                                                    class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio"
+                                                    name="is_email_notification" id="inlineRadio2" value="0"
+                                                    checked><label class="form-check-label"
+                                                    for="inlineRadio2">No</label>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="border-primary border-2 opacity-85">
+                        <div class="gap-col">
+                            <ul class="d-flex align-items-center gap g-3">
+                                <li><button type="submit" class="btn btn-primary">Submit</button></li>
+                                <li><a href="products.html" class="btn border-0">Cancel</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </form>
 
 
@@ -496,8 +485,7 @@
     </div><div class="col-lg-6">{{createText("department_id","department_id","Department Id")}}
     </div><div class="col-lg-6">{{createText("designation_id","designation_id","Designation Id")}}
     </div><div class="col-lg-6">{{createText("panNo","panNo","PanNo")}}
-    </div> <br> <div class="col-md-12"><?php //createButton("btn-primary","","Submit"); ?>
+    </div> <br> <div class="col-md-12"><?php //createButton("btn-primary","","Submit");
+    ?>
             </div>
     </form> --}}
-
-

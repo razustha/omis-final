@@ -25,34 +25,41 @@
                                         </div>
 
                                         <div class="col-lg-4">
-                                            {{ createText('firstName', 'firstName', 'First Name','',$data->firstName) }}
+                                            {{ createText('firstName', 'firstName', 'First Name', '', $data->firstName) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('middleName', 'middleName', 'Middle Name','',$data->middleName) }}
+                                            {{ createText('middleName', 'middleName', 'Middle Name', '', $data->middleName) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('lastName', 'lastName', 'Last Name','',$data->lastName) }}
+                                            {{ createText('lastName', 'lastName', 'Last Name', '', $data->lastName) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others'],$data->gender_id) }}
+                                            {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others'], $data->gender_id) }}
 
-                                           
+
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createDate('dateOfBirth', 'dateOfBirth', 'Date Of Birth','',$data->dateOfBirth) }}
+                                            {{ createDate('dateOfBirth', 'dateOfBirth', 'Date Of Birth', '', $data->dateOfBirth) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn("tbl_nationality","nationality_id","nationalityName",'',$data) !!}
+                                            {!! getSelectForForeignColumn(
+                                                'tbl_nationality',
+                                                'nationality_id',
+                                                'nationalityName',
+                                                '',
+                                                $data,
+                                                'Nationality Name',
+                                            ) !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createPassword('password', 'password', 'Password','',$data->password) }}
+                                            {{ createPassword('password', 'password', 'Password', '', $data->password) }}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('phoneNumber', 'phoneNumber', 'Phone Number','',$data->phoneNumber) }}
+                                            {{ createText('phoneNumber', 'phoneNumber', 'Phone Number', '', $data->phoneNumber) }}
                                         </div>
 
                                         <div class="col-lg-4">
-                                            {{ createEmail('emailAddress', 'emailAddress', 'Email Address','',$data->emailAddress) }}
+                                            {{ createEmail('emailAddress', 'emailAddress', 'Email Address', '', $data->emailAddress) }}
                                         </div>
 
                                         <div class="col-lg-12">
@@ -60,41 +67,57 @@
                                         </div>
 
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn("tbl_country","country_id","countryName",'',$data) !!}
+                                            {!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '', $data, 'Country Name') !!}
                                         </div>
 
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn("tbl_state","state_id","stateName",'',$data) !!}
+                                            {!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', $data, 'State Name') !!}
                                         </div>
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '') !!}
+                                            {!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', $data, 'District Name') !!}
                                         </div>
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn("tbl_city","city_id","cityName",'',$data) !!}
+                                            {!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', $data, 'City Name') !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address','',$data->permanentAddress) }}
+                                            {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address', '', $data->permanentAddress) }}
                                         </div>
                                         <div class="col-lg-4">
                                             {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address') }}
                                         </div>
 
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'','','Deapartment',$data) !!}
+                                            {!! getSelectForForeignColumn(
+                                                'tbl_department',
+                                                'department_id',
+                                                'departmentName',
+                                                '',
+                                                $data,
+                                                'Deapartment Name',
+                                            ) !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn("tbl_designation","designation_id","designationName",'','','Deapartment',$data) !!}
-                                        </div>
-                                       <div class="col-lg-4">
-                                        {{ createText("reportingTo","reportingTo","ReportingTo",'',$data->reportingTo) }}
+                                            {!! getSelectForForeignColumn(
+                                                'tbl_designation',
+                                                'designation_id',
+                                                'designationName',
+                                                '',
+                                                $data,
+                                                'Designation Name',
+                                            ) !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('panNo', 'panNo', 'PanNo','',$data->panNo) }}
+                                            {{-- {{ createText('reportingTo', 'reportingTo', 'ReportingTo', '','', $data->reportingTo,'Reporting To') }} --}}
+                                            {!! getSelectForForeignColumn('tbl_employeelist', 'employee_id', 'employeeFullName', '',$data->reportingTo,'Reporting To') !!}
+
+                                        </div>
+                                        <div class="col-lg-4">
+                                            {{ createText('panNo', 'panNo', 'PanNo', '', $data->panNo) }}
                                         </div>
 
 
                                         <div class="col-lg-12">
-                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
+                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks','', $data->remarks) }}
                                         </div>
 
 
@@ -134,12 +157,15 @@
                         <hr>
                         <div class="col-12">
                             <div class="form-group"><label class="form-label">Thumbnail</label>
-                                @if($data->profilePhoto)
-                                    <img id="holder" style="margin-top:15px;max-height:300px;" class="img img-fluid" src="{{$data->profilePhoto}}">
+                                @if ($data->profilePhoto)
+                                    <img id="holder" style="margin-top:15px;max-height:300px;" class="img img-fluid"
+                                        src="{{ $data->profilePhoto }}">
                                 @endif
                                 <div class="form-control-wrap">
-                                    <input id="thumbnail" class="form-control" type="text" name="profilePhoto" value="" readonly>
-                                    <button id="lfm btn-image" data-input="thumbnail" data-preview="holder" class="lfm btn icon-left btn-primary mt-2 btn-image">
+                                    <input id="thumbnail" class="form-control" type="text" name="profilePhoto"
+                                        value="" readonly>
+                                    <button id="lfm btn-image" data-input="thumbnail" data-preview="holder"
+                                        class="lfm btn icon-left btn-primary mt-2 btn-image">
                                         <i class="fa fa-upload"></i> &nbsp;Choose
                                     </button>
                                 </div>
@@ -158,14 +184,16 @@
                                     <ul class="g-4">
                                         <li>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                    id="loginAllowedYes" value="option1"><label class="form-check-label"
-                                                    for="loginAllowedYes">Yes</label>
+                                                <input class="form-check-input" type="radio" name="is_login"
+                                                    id="loginAllowedYes" value="1"
+                                                    {{ $data->is_login == 1 ? 'checked' : '' }}><label
+                                                    class="form-check-label" for="loginAllowedYes">Yes</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                    id="loginAllowedNo" value="option2"><label class="form-check-label"
-                                                    for="loginAllowedNo">No</label>
+                                                <input class="form-check-input" type="radio" name="is_login"
+                                                    id="loginAllowedNo" value="0"
+                                                    {{ $data->is_login == 0 ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="loginAllowedNo">No</label>
                                             </div>
 
                                         </li>
@@ -180,14 +208,15 @@
                                     <ul class="g-4">
                                         <li>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                    id="inlineRadio1" value="option3"><label class="form-check-label"
+                                                <input class="form-check-input" type="radio"
+                                                    name="is_email_notification" id="inlineRadio1"
+                                                    value="1" {{ $data->is_email_notification == 1 ? 'checked' : '' }} ><label class="form-check-label"
                                                     for="inlineRadio1">Yes</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio"
-                                                    name="inlineRadioOptions" id="inlineRadio2"
-                                                    value="option4"><label class="form-check-label"
+                                                    name="is_email_notification" id="inlineRadio2" value="0"
+                                                    {{ $data->is_email_notification == 0 ? 'checked' : '' }}><label class="form-check-label"
                                                     for="inlineRadio2">No</label>
                                             </div>
 
