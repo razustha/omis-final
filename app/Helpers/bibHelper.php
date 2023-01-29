@@ -299,7 +299,7 @@
 
 
                 <?php
-                function createTextArea($name, $class = "", $id = "", $row = "", $display)
+                function createTextArea($name, $class = "", $id = "", $row = "", $display="")
                 {
                 ?>
                     <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">

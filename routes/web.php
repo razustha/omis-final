@@ -139,13 +139,13 @@ Route::get('/user/dashboard', function () {
 })->middleware(['auth'])->name('employee.dashboard');
 
 Route::get('/user/attandance', function () {
-    $users = User::where('id',auth()->user()->id)->get();
-    return view('employee\attandance\index',compact('users'));
+    $users = User::where('id', auth()->user()->id)->get();
+    return view('employee\attandance\index', compact('users'));
 })->name('employee.attandance.index');
 
 Route::get('/user/leaves', function () {
-    $data = Leaveapplication::where('status','<>',-1)->where('employee_id',auth()->user()->id)->orderBy('created_at','desc')->get();
-    return view('employee\leaves\ajax_index',compact('data'));
+    $data = Leaveapplication::where('status', '<>', -1)->where('employee_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+    return view('employee\leaves\ajax_index', compact('data'));
 })->name('employee.leaves.index');
 
 
@@ -202,12 +202,12 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/destroy/{id}', [CountryController::class, 'destroy'])->name('master.country.destroy');
             });
 
-                   Route::prefix("leavetype")->group(function () {
+            Route::prefix("leavetype")->group(function () {
                 Route::get('/', [LeavetypeController::class, 'index'])->name('master.leavetype.index');
                 Route::get('/create', [LeavetypeController::class, 'create'])->name('master.leavetype.create');
                 Route::post('/store', [LeavetypeController::class, 'store'])->name('master.leavetype.store');
                 Route::get('/show/{id}', [LeavetypeController::class, 'show'])->name('master.leavetype.show');
-                Route::get('/edit/{id}', [LeavetypeController::class, 'edit'])->name('master.leavetype.edit') ;
+                Route::get('/edit/{id}', [LeavetypeController::class, 'edit'])->name('master.leavetype.edit');
                 Route::put('/update/{id}', [LeavetypeController::class, 'update'])->name('master.leavetype.update');
                 Route::delete('/destroy/{id}', [LeavetypeController::class, 'destroy'])->name('master.leavetype.destroy');
             });
@@ -277,12 +277,12 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [OrganizationtypeController::class, 'create'])->name('master.organizationtype.create');
                 Route::post('/store', [OrganizationtypeController::class, 'store'])->name('master.organizationtype.store');
                 Route::get('/show/{id}', [OrganizationtypeController::class, 'show'])->name('master.organizationtype.show');
-                Route::get('/edit/{id}', [OrganizationtypeController::class, 'edit'])->name('master.organizationtype.edit') ;
+                Route::get('/edit/{id}', [OrganizationtypeController::class, 'edit'])->name('master.organizationtype.edit');
                 Route::put('/update/{id}', [OrganizationtypeController::class, 'update'])->name('master.organizationtype.update');
                 Route::delete('/destroy/{id}', [OrganizationtypeController::class, 'destroy'])->name('master.organizationtype.destroy');
             });
-                                            
-                                            
+
+
 
 
             Route::prefix("ownership")->group(
@@ -401,7 +401,7 @@ Route::middleware('auth')->group(function () {
                 }
             );
 
-        
+
             Route::get('usersettings', [App\Http\Controllers\Settings\UserSettingController::class, 'index'])->name('usersettings.index');
             Route::put('usersettings/update', [App\Http\Controllers\Settings\UserSettingController::class, 'update'])->name('usersettings.update');
         }
@@ -416,11 +416,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [OrganizationController::class, 'create'])->name('settings.organization.create');
                 Route::post('/store', [OrganizationController::class, 'store'])->name('settings.organization.store');
                 Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('settings.organization.show');
-                Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('settings.organization.edit') ;
+                Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('settings.organization.edit');
                 Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('settings.organization.update');
                 Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('settings.organization.destroy');
             });
-                                            
         }
     );
 
@@ -446,11 +445,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [EmployeeonboardingController::class, 'create'])->name('hr.employeeonboarding.create');
                 Route::post('/store', [EmployeeonboardingController::class, 'store'])->name('hr.employeeonboarding.store');
                 Route::get('/show/{id}', [EmployeeonboardingController::class, 'show'])->name('hr.employeeonboarding.show');
-                Route::get('/edit/{id}', [EmployeeonboardingController::class, 'edit'])->name('hr.employeeonboarding.edit') ;
+                Route::get('/edit/{id}', [EmployeeonboardingController::class, 'edit'])->name('hr.employeeonboarding.edit');
                 Route::put('/update/{id}', [EmployeeonboardingController::class, 'update'])->name('hr.employeeonboarding.update');
                 Route::delete('/destroy/{id}', [EmployeeonboardingController::class, 'destroy'])->name('hr.employeeonboarding.destroy');
             });
-            
+
             Route::prefix("employee")->group(function () {
                 Route::get('/', [EmployeeController::class, 'index'])->name('hr.employee.index');
                 Route::get('/create', [EmployeeController::class, 'create'])->name('hr.employee.create');
@@ -653,11 +652,6 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [EmployeementtimelineController::class, 'update'])->name('hr.employeementtimeline.update');
                 Route::delete('/destroy/{id}', [EmployeementtimelineController::class, 'destroy'])->name('hr.employeementtimeline.destroy');
             });
-
-
-           
-
-           
         }
     );
     Route::prefix("supplier")->group(
@@ -676,11 +670,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [AddsupplierController::class, 'create'])->name('supplier.addsupplier.create');
                 Route::post('/store', [AddsupplierController::class, 'store'])->name('supplier.addsupplier.store');
                 Route::get('/show/{id}', [AddsupplierController::class, 'show'])->name('supplier.addsupplier.show');
-                Route::get('/edit/{id}', [AddsupplierController::class, 'edit'])->name('supplier.addsupplier.edit') ;
+                Route::get('/edit/{id}', [AddsupplierController::class, 'edit'])->name('supplier.addsupplier.edit');
                 Route::put('/update/{id}', [AddsupplierController::class, 'update'])->name('supplier.addsupplier.update');
                 Route::delete('/destroy/{id}', [AddsupplierController::class, 'destroy'])->name('supplier.addsupplier.destroy');
             });
-                                            
         }
     );
 
@@ -700,31 +693,31 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [RecuritreportsController::class, 'create'])->name('recruit.recuritreports.create');
                 Route::post('/store', [RecuritreportsController::class, 'store'])->name('recruit.recuritreports.store');
                 Route::get('/show/{id}', [RecuritreportsController::class, 'show'])->name('recruit.recuritreports.show');
-                Route::get('/edit/{id}', [RecuritreportsController::class, 'edit'])->name('recruit.recuritreports.edit') ;
+                Route::get('/edit/{id}', [RecuritreportsController::class, 'edit'])->name('recruit.recuritreports.edit');
                 Route::put('/update/{id}', [RecuritreportsController::class, 'update'])->name('recruit.recuritreports.update');
                 Route::delete('/destroy/{id}', [RecuritreportsController::class, 'destroy'])->name('recruit.recuritreports.destroy');
             });
-                                            
+
             Route::prefix("experienceletter")->group(function () {
                 Route::get('/', [ExperienceletterController::class, 'index'])->name('recruit.experienceletter.index');
                 Route::get('/create', [ExperienceletterController::class, 'create'])->name('recruit.experienceletter.create');
                 Route::post('/store', [ExperienceletterController::class, 'store'])->name('recruit.experienceletter.store');
                 Route::get('/show/{id}', [ExperienceletterController::class, 'show'])->name('recruit.experienceletter.show');
-                Route::get('/edit/{id}', [ExperienceletterController::class, 'edit'])->name('recruit.experienceletter.edit') ;
+                Route::get('/edit/{id}', [ExperienceletterController::class, 'edit'])->name('recruit.experienceletter.edit');
                 Route::put('/update/{id}', [ExperienceletterController::class, 'update'])->name('recruit.experienceletter.update');
                 Route::delete('/destroy/{id}', [ExperienceletterController::class, 'destroy'])->name('recruit.experienceletter.destroy');
             });
-                                            
-                                                        Route::prefix("offerletter")->group(function () {
-            Route::get('/', [OfferletterController::class, 'index'])->name('recruit.offerletter.index');
-            Route::get('/create', [OfferletterController::class, 'create'])->name('recruit.offerletter.create');
-            Route::post('/store', [OfferletterController::class, 'store'])->name('recruit.offerletter.store');
-            Route::get('/show/{id}', [OfferletterController::class, 'show'])->name('recruit.offerletter.show');
-            Route::get('/edit/{id}', [OfferletterController::class, 'edit'])->name('recruit.offerletter.edit') ;
-            Route::put('/update/{id}', [OfferletterController::class, 'update'])->name('recruit.offerletter.update');
-            Route::delete('/destroy/{id}', [OfferletterController::class, 'destroy'])->name('recruit.offerletter.destroy');
-        });
-                                        
+
+            Route::prefix("offerletter")->group(function () {
+                Route::get('/', [OfferletterController::class, 'index'])->name('recruit.offerletter.index');
+                Route::get('/create', [OfferletterController::class, 'create'])->name('recruit.offerletter.create');
+                Route::post('/store', [OfferletterController::class, 'store'])->name('recruit.offerletter.store');
+                Route::get('/show/{id}', [OfferletterController::class, 'show'])->name('recruit.offerletter.show');
+                Route::get('/edit/{id}', [OfferletterController::class, 'edit'])->name('recruit.offerletter.edit');
+                Route::put('/update/{id}', [OfferletterController::class, 'update'])->name('recruit.offerletter.update');
+                Route::delete('/destroy/{id}', [OfferletterController::class, 'destroy'])->name('recruit.offerletter.destroy');
+            });
+
             Route::prefix("jobpost")->group(function () {
                 Route::get('/', [JobpostController::class, 'index'])->name('recruit.jobpost.index');
                 Route::get('/create', [JobpostController::class, 'create'])->name('recruit.jobpost.create');
@@ -739,20 +732,19 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [JobapplicationController::class, 'create'])->name('recruit.jobapplication.create');
                 Route::post('/store', [JobapplicationController::class, 'store'])->name('recruit.jobapplication.store');
                 Route::get('/show/{id}', [JobapplicationController::class, 'show'])->name('recruit.jobapplication.show');
-                Route::get('/edit/{id}', [JobapplicationController::class, 'edit'])->name('recruit.jobapplication.edit') ;
+                Route::get('/edit/{id}', [JobapplicationController::class, 'edit'])->name('recruit.jobapplication.edit');
                 Route::put('/update/{id}', [JobapplicationController::class, 'update'])->name('recruit.jobapplication.update');
                 Route::delete('/destroy/{id}', [JobapplicationController::class, 'destroy'])->name('recruit.jobapplication.destroy');
             });
-                                                               Route::prefix("interviewschedule")->group(function () {
-            Route::get('/', [InterviewscheduleController::class, 'index'])->name('recruit.interviewschedule.index');
-            Route::get('/create', [InterviewscheduleController::class, 'create'])->name('recruit.interviewschedule.create');
-            Route::post('/store', [InterviewscheduleController::class, 'store'])->name('recruit.interviewschedule.store');
-            Route::get('/show/{id}', [InterviewscheduleController::class, 'show'])->name('recruit.interviewschedule.show');
-            Route::get('/edit/{id}', [InterviewscheduleController::class, 'edit'])->name('recruit.interviewschedule.edit') ;
-            Route::put('/update/{id}', [InterviewscheduleController::class, 'update'])->name('recruit.interviewschedule.update');
-            Route::delete('/destroy/{id}', [InterviewscheduleController::class, 'destroy'])->name('recruit.interviewschedule.destroy');
-        });
-                                                                 
+            Route::prefix("interviewschedule")->group(function () {
+                Route::get('/', [InterviewscheduleController::class, 'index'])->name('recruit.interviewschedule.index');
+                Route::get('/create', [InterviewscheduleController::class, 'create'])->name('recruit.interviewschedule.create');
+                Route::post('/store', [InterviewscheduleController::class, 'store'])->name('recruit.interviewschedule.store');
+                Route::get('/show/{id}', [InterviewscheduleController::class, 'show'])->name('recruit.interviewschedule.show');
+                Route::get('/edit/{id}', [InterviewscheduleController::class, 'edit'])->name('recruit.interviewschedule.edit');
+                Route::put('/update/{id}', [InterviewscheduleController::class, 'update'])->name('recruit.interviewschedule.update');
+                Route::delete('/destroy/{id}', [InterviewscheduleController::class, 'destroy'])->name('recruit.interviewschedule.destroy');
+            });
         }
     );
 
@@ -824,11 +816,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [BarcodemanagementController::class, 'create'])->name('inventory.barcodemanagement.create');
                 Route::post('/store', [BarcodemanagementController::class, 'store'])->name('inventory.barcodemanagement.store');
                 Route::get('/show/{id}', [BarcodemanagementController::class, 'show'])->name('inventory.barcodemanagement.show');
-                Route::get('/edit/{id}', [BarcodemanagementController::class, 'edit'])->name('inventory.barcodemanagement.edit') ;
+                Route::get('/edit/{id}', [BarcodemanagementController::class, 'edit'])->name('inventory.barcodemanagement.edit');
                 Route::put('/update/{id}', [BarcodemanagementController::class, 'update'])->name('inventory.barcodemanagement.update');
                 Route::delete('/destroy/{id}', [BarcodemanagementController::class, 'destroy'])->name('inventory.barcodemanagement.destroy');
             });
-                                            
+
 
             Route::prefix("goodreceivedreconcile")->group(function () {
                 Route::get('/', [GoodreceivedreconcileController::class, 'index'])->name('inventory.goodreceivedreconcile.index');
@@ -885,11 +877,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [OverviewController::class, 'create'])->name('notice.overview.create');
                 Route::post('/store', [OverviewController::class, 'store'])->name('notice.overview.store');
                 Route::get('/show/{id}', [OverviewController::class, 'show'])->name('notice.overview.show');
-                Route::get('/edit/{id}', [OverviewController::class, 'edit'])->name('notice.overview.edit') ;
+                Route::get('/edit/{id}', [OverviewController::class, 'edit'])->name('notice.overview.edit');
                 Route::put('/update/{id}', [OverviewController::class, 'update'])->name('notice.overview.update');
                 Route::delete('/destroy/{id}', [OverviewController::class, 'destroy'])->name('notice.overview.destroy');
             });
-                                            
+
             Route::prefix("detailsview")->group(function () {
                 Route::get('/', [DetailsviewController::class, 'index'])->name('notice.detailsview.index');
                 Route::get('/create', [DetailsviewController::class, 'create'])->name('notice.detailsview.create');
@@ -916,18 +908,18 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [AssestCategoryController::class, 'update'])->name('assets.assestcategory.update');
                 Route::delete('/destroy/{id}', [AssestCategoryController::class, 'destroy'])->name('assets.assestcategory.destroy');
             });
-          
-                                            
+
+
             Route::prefix("fixedassets")->group(function () {
                 Route::get('/', [FixedassetsController::class, 'index'])->name('assets.fixedassets.index');
                 Route::get('/create', [FixedassetsController::class, 'create'])->name('assets.fixedassets.create');
                 Route::post('/store', [FixedassetsController::class, 'store'])->name('assets.fixedassets.store');
                 Route::get('/show/{id}', [FixedassetsController::class, 'show'])->name('assets.fixedassets.show');
-                Route::get('/edit/{id}', [FixedassetsController::class, 'edit'])->name('assets.fixedassets.edit') ;
+                Route::get('/edit/{id}', [FixedassetsController::class, 'edit'])->name('assets.fixedassets.edit');
                 Route::put('/update/{id}', [FixedassetsController::class, 'update'])->name('assets.fixedassets.update');
                 Route::delete('/destroy/{id}', [FixedassetsController::class, 'destroy'])->name('assets.fixedassets.destroy');
             });
-                                            
+
 
             Route::prefix("equipmentdemand")->group(function () {
                 Route::get('/', [EquipmentdemandController::class, 'index'])->name('assets.equipmentdemand.index');
@@ -1000,7 +992,7 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [TravelController::class, 'update'])->name('requisition.travel.update');
                 Route::delete('/destroy/{id}', [TravelController::class, 'destroy'])->name('requisition.travel.destroy');
             });
-    
+
             Route::prefix("requisitiontravel")->group(function () {
                 Route::get('/', [RequisitiontravelController::class, 'index'])->name('requisition.requisitiontravel.index');
                 Route::get('/create', [RequisitiontravelController::class, 'create'])->name('requisition.requisitiontravel.create');
@@ -1057,21 +1049,21 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [CashdepositeController::class, 'create'])->name('officemanagement.cashdeposite.create');
                 Route::post('/store', [CashdepositeController::class, 'store'])->name('officemanagement.cashdeposite.store');
                 Route::get('/show/{id}', [CashdepositeController::class, 'show'])->name('officemanagement.cashdeposite.show');
-                Route::get('/edit/{id}', [CashdepositeController::class, 'edit'])->name('officemanagement.cashdeposite.edit') ;
+                Route::get('/edit/{id}', [CashdepositeController::class, 'edit'])->name('officemanagement.cashdeposite.edit');
                 Route::put('/update/{id}', [CashdepositeController::class, 'update'])->name('officemanagement.cashdeposite.update');
                 Route::delete('/destroy/{id}', [CashdepositeController::class, 'destroy'])->name('officemanagement.cashdeposite.destroy');
             });
-                                            
+
             Route::prefix("contract")->group(function () {
                 Route::get('/', [ContractController::class, 'index'])->name('officemanagement.contract.index');
                 Route::get('/create', [ContractController::class, 'create'])->name('officemanagement.contract.create');
                 Route::post('/store', [ContractController::class, 'store'])->name('officemanagement.contract.store');
                 Route::get('/show/{id}', [ContractController::class, 'show'])->name('officemanagement.contract.show');
-                Route::get('/edit/{id}', [ContractController::class, 'edit'])->name('officemanagement.contract.edit') ;
+                Route::get('/edit/{id}', [ContractController::class, 'edit'])->name('officemanagement.contract.edit');
                 Route::put('/update/{id}', [ContractController::class, 'update'])->name('officemanagement.contract.update');
                 Route::delete('/destroy/{id}', [ContractController::class, 'destroy'])->name('officemanagement.contract.destroy');
             });
-                                            
+
             Route::prefix("purchaseservice")->group(function () {
                 Route::get('/', [PurchaseserviceController::class, 'index'])->name('officemanagement.purchaseservice.index');
                 Route::get('/create', [PurchaseserviceController::class, 'create'])->name('officemanagement.purchaseservice.create');
@@ -1134,11 +1126,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [FleetrequestController::class, 'create'])->name('travelfleet.fleetrequest.create');
                 Route::post('/store', [FleetrequestController::class, 'store'])->name('travelfleet.fleetrequest.store');
                 Route::get('/show/{id}', [FleetrequestController::class, 'show'])->name('travelfleet.fleetrequest.show');
-                Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('travelfleet.fleetrequest.edit') ;
+                Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('travelfleet.fleetrequest.edit');
                 Route::put('/update/{id}', [FleetrequestController::class, 'update'])->name('travelfleet.fleetrequest.update');
                 Route::delete('/destroy/{id}', [FleetrequestController::class, 'destroy'])->name('travelfleet.fleetrequest.destroy');
             });
-                                            
+
             Route::prefix("fleetroster")->group(function () {
                 Route::get('/', [FleetrosterController::class, 'index'])->name('travelfleet.fleetroster.index');
                 Route::get('/create', [FleetrosterController::class, 'create'])->name('travelfleet.fleetroster.create');
@@ -1298,12 +1290,12 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [AdvancerequestController::class, 'create'])->name('finance.advancerequest.create');
                 Route::post('/store', [AdvancerequestController::class, 'store'])->name('finance.advancerequest.store');
                 Route::get('/show/{id}', [AdvancerequestController::class, 'show'])->name('finance.advancerequest.show');
-                Route::get('/edit/{id}', [AdvancerequestController::class, 'edit'])->name('finance.advancerequest.edit') ;
+                Route::get('/edit/{id}', [AdvancerequestController::class, 'edit'])->name('finance.advancerequest.edit');
                 Route::put('/update/{id}', [AdvancerequestController::class, 'update'])->name('finance.advancerequest.update');
                 Route::delete('/destroy/{id}', [AdvancerequestController::class, 'destroy'])->name('finance.advancerequest.destroy');
             });
-                                            
-          
+
+
 
             Route::prefix("cashrequest")->group(function () {
                 Route::get('/', [CashrequestController::class, 'index'])->name('finance.cashrequest.index');
@@ -1410,11 +1402,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [EventController::class, 'create'])->name('eventsandmeetings.event.create');
                 Route::post('/store', [EventController::class, 'store'])->name('eventsandmeetings.event.store');
                 Route::get('/show/{id}', [EventController::class, 'show'])->name('eventsandmeetings.event.show');
-                Route::get('/edit/{id}', [EventController::class, 'edit'])->name('eventsandmeetings.event.edit') ;
+                Route::get('/edit/{id}', [EventController::class, 'edit'])->name('eventsandmeetings.event.edit');
                 Route::put('/update/{id}', [EventController::class, 'update'])->name('eventsandmeetings.event.update');
                 Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('eventsandmeetings.event.destroy');
             });
-                                            
+
             Route::prefix("meeting")->group(
                 function () {
                     Route::get('/', [MeetingController::class, 'index'])->name('eventsandmeetings.meeting.index');
@@ -1442,17 +1434,17 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [TravelreportsController::class, 'update'])->name('reports.travelreports.update');
                 Route::delete('/destroy/{id}', [TravelreportsController::class, 'destroy'])->name('reports.travelreports.destroy');
             });
-            
+
             Route::prefix("taskreports")->group(function () {
                 Route::get('/', [TaskreportsController::class, 'index'])->name('reports.taskreports.index');
                 Route::get('/create', [TaskreportsController::class, 'create'])->name('reports.taskreports.create');
                 Route::post('/store', [TaskreportsController::class, 'store'])->name('reports.taskreports.store');
                 Route::get('/show/{id}', [TaskreportsController::class, 'show'])->name('reports.taskreports.show');
-                Route::get('/edit/{id}', [TaskreportsController::class, 'edit'])->name('reports.taskreports.edit') ;
+                Route::get('/edit/{id}', [TaskreportsController::class, 'edit'])->name('reports.taskreports.edit');
                 Route::put('/update/{id}', [TaskreportsController::class, 'update'])->name('reports.taskreports.update');
                 Route::delete('/destroy/{id}', [TaskreportsController::class, 'destroy'])->name('reports.taskreports.destroy');
             });
-                                            
+
 
             Route::prefix("financereports")->group(function () {
                 Route::get('/', [FinancereportsController::class, 'index'])->name('reports.financereports.index');

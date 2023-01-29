@@ -10,8 +10,8 @@
                                 <h2 class="nk-block-title">Leave Application List</h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                            <li class="breadcrumb-item"><a href="#">Leaveapplication</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Leaveapplication Manage</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Leave Application</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Leave Application Manage</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Leaveapplication
                                             </li>
                                         </ol>
