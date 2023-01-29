@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Hr;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Hr\Employee;
+use App\Models\Master\Document;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -60,7 +61,7 @@ class EmployeeController extends Controller
             User::create($users);
         }
         $request->request->add(['alias' => slugify($request->employeeName)]);
-        Employee::create($request->all());
+
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Employee Created Successfully.'], 200);
         }
@@ -70,11 +71,12 @@ class EmployeeController extends Controller
     public function show(Request $request, $id)
     {
         $data = Employee::findOrFail($id);
+        $documents = Document::where('imageable_type', Employee::class)->where('imageable_id', $data->employee_id)->get();
         if ($request->ajax()) {
             $html = view("omis.hr.employee.ajax.show", compact('data'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
-        return view("omis.hr.employee.show", compact('data'));
+        return view("omis.hr.employee.show", compact('data','documents'));
     }
 
 
@@ -92,8 +94,48 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $data = Employee::findOrFail($id);
-        $request->request->add(['alias' => slugify($request->employeeName)]);
-        $data->update($request->all());
+
+        $employee = $data->update($request->except('image_name','image_path','temp','inlineRadioOptions'));
+
+        $imagePath = [];
+        $data = $request->all();
+
+        if(!empty($data['image_path'])) {
+            foreach ($data['image_path'] as $key => $value) {
+                if(!empty($data['checklist_id'][$key])){
+                    $existingDocs = Document::find($data['checklist_id'][$key]);
+                    if($existingDocs){
+                        $imagePath[] = $existingDocs->image_path;
+                    }
+                }
+                $imagePath[$key] = $data['image_path'][$key];
+            }
+        }
+        if (!empty($data['image_name'])) {
+            foreach ($data['image_name'] as  $key => $value) {
+                if($value != null) {
+                    $files = [
+                        'image_path' => $request->image_path[$key],
+                        'imageable_type' => Employee::class,
+                        'imageable_id' => $id,
+                        'image_name' => $data['image_name'][$key]
+                    ];
+
+                    if(isset($imagePath[$key])){
+                        $files['image_path'] = $imagePath[$key];
+                    }
+                    if(!empty($data['checklist_id'][$key])){
+                        $existingQuli = Document::find($data['checklist_id'][$key]);
+                        if($existingQuli){
+                            $existingQuli->update($files);
+                        }
+                    }else{
+                        Document::create($files);
+                    }
+                }
+
+            }
+        }
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Employee updated Successfully.'], 200);
         }

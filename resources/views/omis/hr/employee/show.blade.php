@@ -3,7 +3,7 @@
 <div class="nk-content">
     <div class="container">
         <div class="nk-content-inner">
-         
+
             <div class="nk-content-body">
                 <div class="nk-block-head">
                     <div class="nk-block-head">
@@ -20,7 +20,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="nk-block-head-between gap g-2">
@@ -38,10 +38,10 @@
                                 <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#permission" type="button"> Permission </button></li>
                             </ul>
                         </div>
-             
+
                     </div>
                 </div>
-               
+
                 <div class="nk-block">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane show active" id="profile" tabindex="0">

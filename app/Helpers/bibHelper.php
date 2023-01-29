@@ -4,7 +4,8 @@
         use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
         use App\Models\Master\State;
-        use App\Models\Setting\Setting;
+use App\Models\OrganizationSettings\OrganizationSettings;
+use App\Models\Setting\Setting;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Schema;
         use App\Models\Settings\UserSettings;
@@ -254,7 +255,7 @@
                 function actionCanvasButton($name = "", $class = "", $dataTarget = "", $iconClass = "", $route = "", $id)
                 {
                 ?>
-                    
+
                         <?php if($iconClass == "edit") {
                             ?>
                             <button class="btn btn-color-primary btn-hover-primary btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
@@ -266,7 +267,7 @@
                         <?php
                         }
                         ?>
-                    
+
 
                 <?php
                 }
@@ -378,7 +379,7 @@
                         return [];
                     }
                 }
-                
+
                 /**
                  * $tableName = Name of table
                  * $pk = primary key of table
@@ -402,8 +403,14 @@
                 function usersetting($query)
                 {
                     $usersetting = UserSettings::fetch($query)->where('user_id', auth()->user()->id)->first();
-
                     return $usersetting ? $usersetting->value : null;
+                }
+
+                function organizationSetting($query)
+                {
+                    $organizationSetting = OrganizationSettings::fetch($query)->first();
+
+                    return $organizationSetting ? $organizationSetting->value : null;
                 }
 
                 function includeHelper()
