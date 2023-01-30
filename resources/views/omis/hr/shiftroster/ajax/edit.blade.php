@@ -2,7 +2,7 @@
         @csrf
         @method('PUT')
         <div class="row">
-                <div class="col-lg-6">{{createText("roster_id","rosterName_id","RosterName
+                <div class="col-lg-6">{{createText("roster_id","rosterName_id","Roster
                         Id",'',$data->rosterName_id)}}
                 </div>
                 <div class="col-lg-6">{{createText("shift","shift","Shift",'',$data->shift)}}

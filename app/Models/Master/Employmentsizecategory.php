@@ -12,7 +12,7 @@
             use HasFactory, CreatedUpdatedBy;
 
             protected $table = 'tbl_employmentsizecategory';
-            protected $primaryKey = 'employmentsizecategory_id';
+            protected $primaryKey = 'employmentSizeCategory_id';
             public $timestamps = true;
             protected $fillable =[
                 'employmentSizeCategory',

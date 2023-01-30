@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Leavetype List</h1>
+                                    <h2 class="nk-block-title">Leave Type List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Leavetype</a></li>
@@ -30,13 +30,13 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">leaveType</span></th>
-<th class="tb-col"><span class="overline-title">leavePaidStatus</span></th>
-<th class="tb-col"><span class="overline-title">numberOfLeave</span></th>
-<th class="tb-col"><span class="overline-title">monthlyLimit</span></th>
-<th class="tb-col"><span class="overline-title">colorCode</span></th>
+<th class="tb-col"><span class="overline-title">leave Type</span></th>
+<!-- <th class="tb-col"><span class="overline-title">leavePaidStatus</span></th> -->
+<th class="tb-col"><span class="overline-title">number Of Leave</span></th>
+<!-- <th class="tb-col"><span class="overline-title">monthlyLimit</span></th> -->
+<!-- <th class="tb-col"><span class="overline-title">colorCode</span></th>
 <th class="tb-col"><span class="overline-title">assignEmployee</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+<th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -49,12 +49,12 @@
                                         @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->leaveType }}</td>
-<td class="tb-col">{{ $item->leavePaidStatus }}</td>
+<!-- <td class="tb-col">{{ $item->leavePaidStatus }}</td> -->
 <td class="tb-col">{{ $item->numberOfLeave }}</td>
-<td class="tb-col">{{ $item->monthlyLimit }}</td>
+<!-- <td class="tb-col">{{ $item->monthlyLimit }}</td>
 <td class="tb-col">{{ $item->colorCode }}</td>
 <td class="tb-col">{{ $item->assignEmployee }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+<td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
@@ -75,7 +75,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Leavetype</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Leave Type</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -94,7 +94,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Leavetype<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Leave Type<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

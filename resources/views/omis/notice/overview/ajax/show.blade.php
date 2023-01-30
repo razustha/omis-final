@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['overviewFor']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>OverviewFor :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->overviewFor}}</span></p><p><b>OverviewBy :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->overviewBy}}</span></p><p><b>OverviewDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->overviewDate}}</span></p><p><b>OverviewDescription :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->overviewDescription}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Overview For :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->overviewFor}}</span></p><p><b>Overview By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->overviewBy}}</span></p><p><b>Overview Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->overviewDate}}</span></p><p><b>Overview Description :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->overviewDescription}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

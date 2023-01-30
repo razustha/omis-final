@@ -9,7 +9,8 @@
                             <div class="row g-gs">
                                 <div class="col-6">
                                     <label class="form-label">Employee Id -
-                                        {{ $emp_id }}</label>
+                                        {{ $emp_id }}
+                                    </label>
                                 </div>
                                 <hr class="border-primary border-2 opacity-85">
 
@@ -83,17 +84,10 @@
                                         </div>
 
                                         <div class="col-lg-6">
-                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department Name') !!}
+                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department') !!}
                                         </div>
                                         <div class="col-lg-6">
-                                            {!! getSelectForForeignColumn(
-                                                'tbl_designation',
-                                                'designation_id',
-                                                'designationName',
-                                                '',
-                                                '',
-                                                'Designation Name',
-                                            ) !!}
+                                            {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
                                         </div>
 
 

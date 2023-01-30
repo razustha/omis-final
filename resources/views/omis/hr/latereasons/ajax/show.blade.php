@@ -1,12 +1,12 @@
 <div class="offcanvas-header border-bottom border-light">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Latereasons</h5><button type="button" class="btn-close"
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Late Reasons</h5><button type="button" class="btn-close"
             data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" data-simplebar>
         <div class="nk-block-head-content w-100">
             <div class="d-flex justify-content-between pb-4">
     
-                <h2>Latereasons Details</h2>
+                <h2>Late Reasons Details</h2>
                 <button class="btn btn-primary print_pdf">Print PDF</button>
             </div>
             <div class="card w-100">
@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['applicantsName_id']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>ApplicantsName Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicantsName_id}}</span></p><p><b>LateDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->lateDate}}</span></p><p><b>DayLate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->dayLate}}</span></p><p><b>LateDesignation :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->lateDesignation}}</span></p><p><b>ReasonForLate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->reasonForLate}}</span></p><p><b>SubmittedBy :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->submittedBy}}</span></p><p><b>CheckedBy :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->checkedBy}}</span></p><p><b>ApprovedBy :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->approvedBy}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Applicants Name Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicantsName_id}}</span></p><p><b>Late Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->lateDate}}</span></p><p><b>Day Late :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->dayLate}}</span></p><p><b>Late Designation :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->lateDesignation}}</span></p><p><b>Reason For Late :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->reasonForLate}}</span></p><p><b>Submitted By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->submittedBy}}</span></p><p><b>Checked By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->checkedBy}}</span></p><p><b>Approved By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->approvedBy}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

@@ -33,7 +33,7 @@
 <th class="tb-col"><span class="overline-title">purchaseTitle</span></th>
 <th class="tb-col"><span class="overline-title">contractName</span></th>
 <th class="tb-col"><span class="overline-title">referenceNumber</span></th>
-<th class="tb-col"><span class="overline-title">date</span></th>
+<!-- <th class="tb-col"><span class="overline-title">date</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">vatNumber</span></th>
 <th class="tb-col"><span class="overline-title">address</span></th>
 <th class="tb-col"><span class="overline-title">contact</span></th>
@@ -58,7 +58,7 @@
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->purchaseTitle }}</td>
 <td class="tb-col">{{ $item->contractName }}</td>
 <td class="tb-col">{{ $item->referenceNumber }}</td>
-<td class="tb-col">{{ $item->date }}</td>
+<!-- <td class="tb-col">{{ $item->date }}</td> -->
 <!-- <td class="tb-col">{{ $item->vatNumber }}</td>
 <td class="tb-col">{{ $item->address }}</td>
 <td class="tb-col">{{ $item->contact }}</td>
@@ -89,7 +89,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Purchaseservice</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Purchase Service</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -108,7 +108,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Purchaseservice<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Purchase Service<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

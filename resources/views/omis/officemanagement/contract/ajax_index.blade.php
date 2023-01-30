@@ -30,10 +30,10 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">ownerName</span></th>
-<th class="tb-col"><span class="overline-title">contactTitle</span></th>
-<th class="tb-col"><span class="overline-title">issueDate</span></th>
-<th class="tb-col"><span class="overline-title">expireDate</span></th>
+<th class="tb-col"><span class="overline-title">owner Name</span></th>
+<th class="tb-col"><span class="overline-title">contract Title</span></th>
+<th class="tb-col"><span class="overline-title">issue Date</span></th>
+<th class="tb-col"><span class="overline-title">expire Date</span></th>
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span

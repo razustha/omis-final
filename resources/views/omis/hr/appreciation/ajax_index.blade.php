@@ -30,10 +30,10 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">appreciationTitle</span></th>
-<th class="tb-col"><span class="overline-title">appreciationType</span></th>
+<th class="tb-col"><span class="overline-title">appreciation Title</span></th>
+<th class="tb-col"><span class="overline-title">appreciation Type</span></th>
 <!-- <th class="tb-col"><span class="overline-title">appreciatedBy</span></th> -->
-<th class="tb-col"><span class="overline-title">recievedBy</span></th>
+<th class="tb-col"><span class="overline-title">recieved By</span></th>
 <!-- <th class="tb-col"><span class="overline-title">appreciationRecievedOn</span></th>
 <th class="tb-col"><span class="overline-title">appreciatioanApprovedOn</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th> -->

@@ -31,7 +31,7 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">training List</span></th>
-<th class="tb-col"><span class="overline-title">trainer_id</span></th>
+<!-- <th class="tb-col"><span class="overline-title">trainer_id</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">trainingDate</span></th>
 <th class="tb-col"><span class="overline-title">trainigEndDate</span></th>
 <th class="tb-col"><span class="overline-title">department_id</span></th>
@@ -48,7 +48,7 @@
                                         @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->trainingList }}</td>
-<td class="tb-col">{{ $item->trainer_id }}</td>
+<!-- <td class="tb-col">{{ $item->trainer_id }}</td> -->
 <!-- <td class="tb-col">{{ $item->trainingDate }}</td>
 <td class="tb-col">{{ $item->trainigEndDate }}</td>
 <td class="tb-col">{{ $item->department_id }}</td>
@@ -73,7 +73,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Traininglist</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Training List</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -92,7 +92,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Traininglist<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Training List<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

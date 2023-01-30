@@ -31,7 +31,7 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">employee_id</span></th>
-<th class="tb-col"><span class="overline-title">dateOfTransfer</span></th>
+<th class="tb-col"><span class="overline-title">date Of Transfer</span></th>
 <th class="tb-col"><span class="overline-title">employeeName_id</span></th>
 <!-- <th class="tb-col"><span class="overline-title">fromDepartment</span></th>
 <th class="tb-col"><span class="overline-title">toDepartment</span></th>

@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Absentreason","hr.absentreason.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Absent Reason","hr.absentreason.create") !!}
                                     </ul>
                                 </div>
                             </div>
@@ -31,8 +31,8 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">designation</span></th>
-<th class="tb-col"><span class="overline-title">dateAbsense</span></th>
-<th class="tb-col"><span class="overline-title">dayAbsense</span></th>
+<th class="tb-col"><span class="overline-title">date Absense</span></th>
+<th class="tb-col"><span class="overline-title">day Absense</span></th>
 <!-- <th class="tb-col"><span class="overline-title">holidayApprovedBy</span></th>
 <th class="tb-col"><span class="overline-title">reasonAbsence</span></th>
 <th class="tb-col"><span class="overline-title">submittedBy</span></th>

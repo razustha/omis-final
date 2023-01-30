@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['trainerFullName']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>TrainerFullName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->trainerFullName}}</span></p><p><b>TrainerPhone :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->trainerPhone}}</span></p><p><b>TrainerAddress :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->trainerAddress}}</span></p><p><b>TrainerEmail :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->trainerEmail}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Trainer Full Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->trainerFullName}}</span></p><p><b>Trainer Phone :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->trainerPhone}}</span></p><p><b>Trainer Address :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->trainerAddress}}</span></p><p><b>Trainer Email :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->trainerEmail}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

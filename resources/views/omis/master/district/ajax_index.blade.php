@@ -32,7 +32,7 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
                                         <th class="tb-col"><span class="overline-title">country_id</span></th>
                                         <th class="tb-col"><span class="overline-title">state_id</span></th>
-                                        <th class="tb-col"><span class="overline-title">districtName</span></th>
+                                        <th class="tb-col"><span class="overline-title">district Name</span></th>
                                         <th class="tb-col"><span class="overline-title">status</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
                                         </th>

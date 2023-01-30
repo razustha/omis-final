@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">nationalityName</span></th>
+<th class="tb-col"><span class="overline-title">nationality Name</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th>
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span

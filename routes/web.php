@@ -149,6 +149,9 @@ Route::get('/user/leaves', function () {
     return view('employee\leaves\ajax_index', compact('data'));
 })->name('employee.leaves.index');
 
+Route::get('/organization/dashboard', function () {
+    return view('organization\dashboard');
+})->middleware(['auth'])->name('organization.dashboard');
 
 
 

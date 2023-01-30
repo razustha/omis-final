@@ -6,15 +6,15 @@
         </div>
         <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', $data) !!}
         </div>
-        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', $data) !!}
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', $data) !!}
         </div>
-        <div class="col-lg-6">{{ createText('cityName', 'cityName', 'CityName', '', $data->cityName) }}
+        <div class="col-lg-4">{{ createText('cityName', 'cityName', 'CityName', '', $data->cityName) }}
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
         </div>
-        <div class="col-lg-6">{{ createText('remarks', 'remarks', 'Remarks', '', $data->remarks) }}
+        <div class="col-lg-12">{{createLabel('remarks','form-label col-form-label','Remarks')}}{{ createTextArea('remarks', 'remarks', 'Remarks', '', $data->remarks) }}
         </div>
-        <div class="col-md-12"><?php createButton('btn-primary btn-update', '', 'Submit'); ?>
+        <div class="col-md-12"><?php createButton('btn-primary btn-update', '', 'Update'); ?>
         </div>
 </form>

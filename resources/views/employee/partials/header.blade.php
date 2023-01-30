@@ -154,7 +154,7 @@
                     </li>
 
                     <li><button class="btn btn-icon btn-sm btn-zoom d-sm-none" data-bs-toggle="offcanvas"
-                            data-bs-target="#notificationOffcanvas"><em class="icon ni ni-bell"></em></button><button
+                            data-bs-target="#notificationOffcanvas"><em class="icon ni ni-bell"> </em></button> <button
                             class="btn btn-icon btn-md btn-zoom d-none d-sm-inline-flex" data-bs-toggle="offcanvas"
                             data-bs-target="#notificationOffcanvas"><em class="icon ni ni-bell"></em></button></li>
 
@@ -189,8 +189,7 @@
                             </div>
                             <div class="dropdown-content dropdown-content-x-lg py-3 border-bottom border-light">
                                 <ul class="link-list">
-                                    <li><a href="profile.html"><em class="icon ni ni-user"></em> <span>My
-                                                Profile</span></a></li>
+                                    <li><a href="profile.html"><em class="icon ni ni-user"></em> <span>My Profile</span></a></li>
                                     <li><a href="profile-edit.html"><em class="icon ni ni-setting-alt"></em>
                                             <span>Account Settings</span></a></li>
                                     <li><a href="profile-edit.html"><em class="icon ni ni-menu-circled"></em>

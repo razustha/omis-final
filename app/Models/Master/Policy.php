@@ -1,37 +1,39 @@
 <?php
+        namespace App\Models\Master;
 
-namespace App\Models\Master;
+        use App\Models\User;
+        use Illuminate\Database\Eloquent\Casts\Attribute;
+        use Illuminate\Database\Eloquent\Factories\HasFactory;
+        use Illuminate\Database\Eloquent\Model;
+        use App\Traits\CreatedUpdatedBy;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Traits\CreatedUpdatedBy;
+        class Policy extends Model
+        {
+            use HasFactory, CreatedUpdatedBy;
 
-class Policy extends Model
-{
-    use HasFactory, CreatedUpdatedBy;
+            protected $table = 'tbl_policy';
+            protected $primaryKey = 'policy_id';
+            public $timestamps = true;
+            protected $fillable =[
+                'policyName',
+'policyDetail',
+'createdOn',
+'createdBy',
+'updatedBy',
+'status',
+'alias',
+'remarks',
+'created_at',
+'updated_at',
 
-    protected $table = 'tbl_policy';
-    protected $primaryKey = 'policy_id';
-    public $timestamps = true;
-    protected $fillable = [
-        'policyName',
-        'policyDetail',
-        'createdOn',
-        'createdBy',
-        'status',
-        'alias',
-        'remarks',
+            ];
 
-    ];
+            protected $appends = ['status_name'];
 
-    protected function status(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => $value == 1 ? '<span class="badge text-bg-warning-soft"> Active </span>' : '<span class="badge text-bg-secondary-soft">Inactive</span>',
-        );
-    }
+            protected function getStatusNameAttribute()
+            {
+                return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
+            }
 
     protected function createdBy(): Attribute
     {
@@ -46,4 +48,4 @@ class Policy extends Model
             get: fn ($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
-}
+        }

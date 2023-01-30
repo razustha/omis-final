@@ -32,8 +32,8 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">department_id</span></th>
 <th class="tb-col"><span class="overline-title">employee_id</span></th>
-<th class="tb-col"><span class="overline-title">resignationDate</span></th>
-<th class="tb-col"><span class="overline-title">description</span></th>
+<!-- <th class="tb-col"><span class="overline-title">resignationDate</span></th>
+<th class="tb-col"><span class="overline-title">description</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
@@ -48,8 +48,8 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->department_id }}</td>
 <td class="tb-col">{{ $item->employee_id }}</td>
-<td class="tb-col">{{ $item->resignationDate }}</td>
-<td class="tb-col">{{ $item->description }}</td>
+<!-- <td class="tb-col">{{ $item->resignationDate }}</td>
+<td class="tb-col">{{ $item->description }}</td> -->
 <!-- <td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">

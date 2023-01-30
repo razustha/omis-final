@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['jobTitle']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>JobTitle :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->jobTitle}}</span></p><p><b>JobType :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->jobType}}</span></p><p><b>VacancyNumber :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->vacancyNumber}}</span></p><p><b>ClosingDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->closingDate}}</span></p><p><b>JobCategory :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->jobCategory}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Job Title :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->jobTitle}}</span></p><p><b>Job Type :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->jobType}}</span></p><p><b>Vacancy Number :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->vacancyNumber}}</span></p><p><b>Closing Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->closingDate}}</span></p><p><b>Job Category :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->jobCategory}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

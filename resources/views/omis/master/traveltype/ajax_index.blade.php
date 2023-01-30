@@ -7,7 +7,7 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title">Traveltype List</h1>
+                                <h2 class="nk-block-title">Travel Type List</h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
                                             <li class="breadcrumb-item"><a href="#">Traveltype</a></li>
@@ -19,7 +19,7 @@
                             </div>
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
-                                    {!! createCanvasButton('customBtnAdd', '', 'Traveltype', 'master.traveltype.create') !!}
+                                    {!! createCanvasButton('customBtnAdd', '', 'Travel Type', 'master.traveltype.create') !!}
                                 </ul>
                             </div>
                         </div>
@@ -30,9 +30,9 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">travelTypeName</span></th>
-                                        <th class="tb-col"><span class="overline-title">travelTypeDescription</span></th>
-                                        <th class="tb-col"><span class="overline-title">alias</span></th>
+                                        <th class="tb-col"><span class="overline-title">travel Type Name</span></th>
+                                        <!-- <th class="tb-col"><span class="overline-title">travelTypeDescription</span></th>
+                                        <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                         <th class="tb-col"><span class="overline-title">status</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
                                         </th>
@@ -46,8 +46,8 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->travelTypeName }}</td>
-                                            <td class="tb-col">{{ $item->travelTypeDescription }}</td>
-                                            <td class="tb-col">{{ $item->alias }}</td>
+                                            <!-- <td class="tb-col">{{ $item->travelTypeDescription }}</td>
+                                            <td class="tb-col">{{ $item->alias }}</td> -->
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
@@ -82,7 +82,7 @@
                             {{-- Add Modal --}}
                             <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                                 <div class="offcanvas-header border-bottom border-light">
-                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Traveltype</h5><button
+                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Travel Type</h5><button
                                         type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>
@@ -103,7 +103,7 @@
                         {{-- Edit Modal --}}
                         <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Traveltype<h5><button type="button"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Travel Type<h5><button type="button"
                                             class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

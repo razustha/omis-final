@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['policyName']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>PolicyName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->policyName}}</span></p><p><b>PolicyDetail :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->policyDetail}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Policy Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->policyName}}</span></p><p><b>Policy Detail :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->policyDetail}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

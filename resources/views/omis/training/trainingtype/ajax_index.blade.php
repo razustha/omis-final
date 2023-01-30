@@ -65,7 +65,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Trainingtype</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Training Type</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -84,7 +84,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Trainingtype<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Training Type<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

@@ -32,7 +32,7 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">employee_id</span></th>
 <th class="tb-col"><span class="overline-title">workingShift</span></th>
-<th class="tb-col"><span class="overline-title">workingHour</span></th>
+<!-- <th class="tb-col"><span class="overline-title">workingHour</span></th> -->
 <th class="tb-col"><span class="overline-title">workingMode</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -47,7 +47,7 @@
                                         <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->employee_id }}</td>
 
 <td class="tb-col">{{ $item->workingShift }}</td>
-<td class="tb-col">{{ $item->workingHour }}</td>
+<!-- <td class="tb-col">{{ $item->workingHour }}</td> -->
 <td class="tb-col">{{ $item->workingMode }}</td>
 
 <td class="tb-col">
@@ -69,7 +69,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Employeeonboarding</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Employee Onboarding</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -88,7 +88,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Employeeonboarding<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Employee Onboarding<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>
