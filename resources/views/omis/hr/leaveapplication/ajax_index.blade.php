@@ -43,7 +43,6 @@
                                         $i = 1;
                                     @endphp
                                     @foreach ($data as $item)
-                                    
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->leaveRequestedBy }}</td>
@@ -52,9 +51,8 @@
 
                                             <td class="tb-col">
                                                 @if ($item->leaveApplication_status == null)
-                                                    
                                                     <span class="badge text-bg-warning">Pending</span>
-                                                @elseif($item->leaveApplication_status == "approved")
+                                                @elseif($item->leaveApplication_status == 'approved')
                                                     <span class="badge text-bg-success">Approved</span>
                                                 @else
                                                     <span class="badge text-bg-danger">Rejected</span>
@@ -86,15 +84,21 @@
                                                     @if ($item->leaveApplication_status == null && auth()->user()->user_type == 'SUPER ADMIN')
                                                         <li>
                                                             <button type="button"
-                                                                class="btn btn-primary btn-approve btn-sm mr-2"
+                                                                class="btn btn-color-info btn-hover-info btn-icon btn-soft btn-approve "
                                                                 onclick="approvedthis({{ $item->leaveApplication_id }})"
-                                                                value="1">Approve</button>
+                                                                value="1" data-bs-toggle="tooltip"
+                                                                data-bs-placement="top"
+                                                                data-bs-custom-class="custom-tooltip" title="Approved"> <em
+                                                                    class="icon ni ni-check-circle"></em></button>
                                                         </li>
                                                         <li>
                                                             <button type="button"
-                                                                class="btn btn-danger btn-approve btn-sm pl-2"
+                                                                class="btn btn-color-danger btn-hover-danger btn-icon btn-soft btn-approve "
                                                                 onclick="rejectthis({{ $item->leaveApplication_id }})"
-                                                                value="0">Reject This</button>
+                                                                value="0" data-bs-toggle="tooltip"
+                                                                data-bs-placement="top"
+                                                                data-bs-custom-class="custom-tooltip" title="Rejected"> <em
+                                                                    class="icon ni ni-cross-circle"></em></button>
                                                         </li>
                                                     @endif
                                                 </ul>

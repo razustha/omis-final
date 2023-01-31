@@ -1,7 +1,7 @@
 @extends('omis.partials.layouts')
-        @section('content')
+@section('content')
 
-        <div class="nk-content nk-content-inner">
+    <div class="nk-content nk-content-inner">
         <div class="nk-content-inner row">
 
 
@@ -15,14 +15,22 @@
                                     Settings</span></button></div>
 
                         <ul class="nk-ibx-menu nav flex-column nav-pills">
-                            <li><a href="#v-pills-home" class="nk-ibx-menu-item active" data-bs-toggle="pill"><em class="icon ni ni-inbox"></em><span>Global Setting</span></a></li>
-                            <li><a href="#v-pills-sms" class="nk-ibx-menu-item" data-bs-toggle="pill"><em class="icon ni ni-star"></em><span>SMS Setting</span></a></li>
-                            <li><a href="#v-pills-smsgateway" class="nk-ibx-menu-item" data-bs-toggle="pill"><em class="icon ni ni-whatsapp"></em><span>SMS Gateway</span></a></li>
-                            <li><a href="#v-pills-email" class="nk-ibx-menu-item" data-bs-toggle="pill"><em class="icon ni ni-clock"></em><span>Email Setting</span></a></li>
-                            <li><a href="#v-pills-notification" class="nk-ibx-menu-item" data-bs-toggle="pill"><em class="icon ni ni-send-alt"></em><span>Notification Setting</span></a></li>
-                            <li><a href="#v-pills-emailmessage" class="nk-ibx-menu-item" data-bs-toggle="pill"><em class="icon ni ni-mail"></em><span>Email Message</span></a></li>
-                            <li><a href="#v-pills-emailgroup" class="nk-ibx-menu-item" data-bs-toggle="pill"><em class="icon ni ni-emails"></em><span>Email Group</span></a></li>
-                            <li><a href="#v-pills-usertable" class="nk-ibx-menu-item" data-bs-toggle="pill"><em class="icon ni ni-user"></em><span>User Table</span></a></li>
+                            <li><a href="#v-pills-home" class="nk-ibx-menu-item active" data-bs-toggle="pill"><em
+                                        class="icon ni ni-inbox"></em><span>Global Setting</span></a></li>
+                            <li><a href="#v-pills-sms" class="nk-ibx-menu-item" data-bs-toggle="pill"><em
+                                        class="icon ni ni-star"></em><span>SMS Setting</span></a></li>
+                            <li><a href="#v-pills-smsgateway" class="nk-ibx-menu-item" data-bs-toggle="pill"><em
+                                        class="icon ni ni-whatsapp"></em><span>SMS Gateway</span></a></li>
+                            <li><a href="#v-pills-email" class="nk-ibx-menu-item" data-bs-toggle="pill"><em
+                                        class="icon ni ni-clock"></em><span>Email Setting</span></a></li>
+                            <li><a href="#v-pills-notification" class="nk-ibx-menu-item" data-bs-toggle="pill"><em
+                                        class="icon ni ni-send-alt"></em><span>Notification Setting</span></a></li>
+                            <li><a href="#v-pills-emailmessage" class="nk-ibx-menu-item" data-bs-toggle="pill"><em
+                                        class="icon ni ni-mail"></em><span>Email Message</span></a></li>
+                            <li><a href="#v-pills-emailgroup" class="nk-ibx-menu-item" data-bs-toggle="pill"><em
+                                        class="icon ni ni-emails"></em><span>Email Group</span></a></li>
+                            <li><a href="#v-pills-usertable" class="nk-ibx-menu-item" data-bs-toggle="pill"><em
+                                        class="icon ni ni-user"></em><span>User Table</span></a></li>
 
                         </ul>
                     </div>
@@ -77,4 +85,3 @@
             </div>
         </div>
     </div>
-</div>

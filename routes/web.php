@@ -143,6 +143,18 @@ Route::get('/user/dashboard', function () {
     return view('employee\dashboard');
 })->middleware(['auth'])->name('employee.dashboard');
 
+Route::get('/user/projects', function () {
+    return view('employee\projects\index');
+})->name('employee.projects.index');
+
+Route::get('/user/tasks', function () {
+    return view('employee\tasks\index');
+})->name('employee.tasks.index');
+
+Route::get('/user/expenses', function () {
+    return view('employee\expenses\index');
+})->name('employee.expenses.index');
+
 Route::get('/user/attandance', function () {
     $users = User::where('id', auth()->user()->id)->get();
     return view('employee\attandance\index', compact('users'));
