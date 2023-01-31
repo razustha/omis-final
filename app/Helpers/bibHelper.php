@@ -4,26 +4,17 @@
         use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
         use App\Models\Master\State;
-<<<<<<< HEAD
-        use App\Models\OrganizationSettings\OrganizationSettings;
-        use App\Models\Setting\Setting;
-        use Illuminate\Support\Facades\DB;
-=======
-use App\Models\Settings\OrganizationSettings;
+        use App\Models\Settings\OrganizationSettings;
 use App\Models\Setting\Setting;
 use App\Models\Settings\NotificationSettings;
-use Illuminate\Support\Facades\DB;
->>>>>>> 8e4de10897e07fc4d885ad32041cd481706e72ff
-        use Illuminate\Support\Facades\Schema;
         use App\Models\Settings\UserSettings;
 
 
         function label($text)
-        {
             //here we will write translator code
             //below is only example, we have to use session to check current language setting to use or not using the following dictonary
             //this dictonary must be fetched from settings in main application
-
+{
             $dictonary = array(
                 "Command" => "प्रयोग",
                 "Industry Name" => "उद्योगको नाम",

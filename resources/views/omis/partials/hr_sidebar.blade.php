@@ -341,11 +341,12 @@
 <!-- <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
             class="nk-menu-icon"><em class="icon ni ni-archived"></em></span><span class="nk-menu-text">File
             Manager</span></a>
-    <!-- <ul class="nk-menu-sub">
+     <ul class="nk-menu-sub">
 
-        <!-- <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">404
-                    Classic</span></a></li> -->
-        <!-- <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">504
-                    Classic</span></a></li> -->
-    </ul> -->
-</li> -->
+         <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">404
+                    Classic</span></a></li>
+        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">504
+                    Classic</span></a></li>
+    </ul> 
+</li> 
+-->
