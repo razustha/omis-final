@@ -4,9 +4,16 @@
         use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
         use App\Models\Master\State;
+<<<<<<< HEAD
         use App\Models\OrganizationSettings\OrganizationSettings;
         use App\Models\Setting\Setting;
         use Illuminate\Support\Facades\DB;
+=======
+use App\Models\Settings\OrganizationSettings;
+use App\Models\Setting\Setting;
+use App\Models\Settings\NotificationSettings;
+use Illuminate\Support\Facades\DB;
+>>>>>>> 8e4de10897e07fc4d885ad32041cd481706e72ff
         use Illuminate\Support\Facades\Schema;
         use App\Models\Settings\UserSettings;
 
@@ -409,8 +416,13 @@
                 function organizationSetting($query)
                 {
                     $organizationSetting = OrganizationSettings::fetch($query)->first();
-
                     return $organizationSetting ? $organizationSetting->value : null;
+                }
+
+                function notificationSetting($query)
+                {
+                    $notificationSetting = NotificationSettings::fetch($query)->first();
+                    return $notificationSetting ? $notificationSetting->value : null;
                 }
 
                 function includeHelper()

@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Setting;
+namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Models\Settings\OrganizationSettings;
 use App\Models\Setting\Setting;
+use App\Models\Settings\NotificationSettings;
 use Illuminate\Http\Request;
 
-class SettingController extends Controller
+class OrganizationSettingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +18,9 @@ class SettingController extends Controller
     public function index()
     {
         //
-        $settings = Setting::all();
-        return view('setting.index', compact('settings'));
+        $organizationsettings = OrganizationSettings::all();
+        $notificationsettings = NotificationSettings::all();
+        return view('omis.settings.organizationsettings', compact('organizationsettings','notificationsettings'));
     }
 
     /**
@@ -72,15 +75,15 @@ class SettingController extends Controller
      */
     public function update(Request $request)
     {
-        foreach ($request->get('setting') as $slug => $value)
+        foreach ($request->get('organizationSetting') as $slug => $value)
         {
-            $setting = Setting::firstOrCreate([
-                'slug' => $slug
+            $organizationSetting = OrganizationSettings::firstOrCreate([
+                'key' => $slug
             ]);
 
-            if ($setting)
+            if ($organizationSetting)
             {
-                $setting->update(['value' => $value]);
+                $organizationSetting->update(['value' => $value]);
             }
         }
 
