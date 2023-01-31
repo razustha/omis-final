@@ -2,13 +2,13 @@
         @csrf
         @method('PUT')
         <div class="row">
-                <div class="col-lg-6">{{createText("barCode_id","barCode_id","BarCode Id",'',$data->barCode_id)}}
+                <div class="col-lg-6">{{createText("barCode_id","barCode_id","Barcode Id",'',$data->barCode_id)}}
                         </div>
                         <div class="col-lg-6">
-                        {{createText("stockName","stockName","StockName",'',$data->stockName)}}
+                        {{createText("stockName","stockName","Stock Name",'',$data->stockName)}}
                 </div>
                 <div class="col-lg-6">
-                        {{createText("barCodeType","barCodeType","BarCodeType",'',$data->barCodeType)}}
+                        {{createText("barCodeType","barCodeType","Barcode Type",'',$data->barCodeType)}}
                 </div>
                 <div class="col-lg-6">{{createDate("date","date","Date",'',$data->date)}}
                 </div>
@@ -21,7 +21,7 @@
                         col-form-label','Remarks')}}{{createTextArea("remarks",'',"remarks",'',$data->remarks)}}
                 </div>
                 <div class="col-md-12">
-                        <?php createButton("btn-primary btn-update","","Submit"); ?>
+                        <?php createButton("btn-primary btn-update","","Update"); ?>
                 </div>
         </div>
 </form>
