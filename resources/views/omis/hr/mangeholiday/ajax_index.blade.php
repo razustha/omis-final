@@ -31,6 +31,7 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">company Name_id</span></th>
+<th class="tb-col"><span class="overline-title">Holiday Title</span></th>
 <th class="tb-col"><span class="overline-title">event Start Date</span></th>
 <th class="tb-col"><span class="overline-title">event End Date</span></th>
 <!-- <th class="tb-col"><span class="overline-title">holidayDescription</span></th> -->
@@ -47,6 +48,7 @@
                                         @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->companyName_id }}</td>
+<td class="tb-col">{{ $item->title }}</td>
 <td class="tb-col">{{ $item->eventStartDate }}</td>
 <td class="tb-col">{{ $item->eventEndDate }}</td>
 <!-- <td class="tb-col">{{ $item->holidayDescription }}</td> -->
@@ -54,10 +56,10 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'hr.mangeholiday.show',$item->mangeHoliday_id) !!}
                                                 </li>
-                                               <li> 
+                                               <li>
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'hr.mangeholiday.edit',$item->mangeHoliday_id) !!}
                                                 </li>
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'hr.mangeholiday.destroy',$item->mangeHoliday_id) !!}</li>
@@ -119,4 +121,3 @@
     </div>
 </div>
 @endsection
-    

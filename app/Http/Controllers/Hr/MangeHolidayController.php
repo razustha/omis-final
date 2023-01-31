@@ -29,12 +29,18 @@
 
             public function store(Request $request)
             {
-                $request->request->add(['alias' => slugify($request->mangeholidayName)]);
-                Mangeholiday::create($request->all());
-                if ($request->ajax()) {
-                    return response()->json(['status' => true, 'message' => 'The Mangeholiday Created Successfully.'], 200);
+                $allholiday = Mangeholiday::get();
+                $previousholiday = $allholiday->where('date', '=',$request->date)->first();
+                if(isset($previousholiday)) {
+                    $request->request->add(['alias' => slugify($request->mangeholidayName)]);
+                    Mangeholiday::create($request->all());
+                    if ($request->ajax()) {
+                        return response()->json(['status' => true, 'message' => 'The Mangeholiday Created Successfully.'], 200);
+                    }
+                    return redirect()->route('hr.mangeholiday.index')->with('success','The Mangeholiday created Successfully.');
                 }
-                return redirect()->route('hr.mangeholiday.index')->with('success','The Mangeholiday created Successfully.');
+
+
             }
 
             public function show(Request $request, $id)
@@ -137,4 +143,3 @@
                 }
             }
         }
-        

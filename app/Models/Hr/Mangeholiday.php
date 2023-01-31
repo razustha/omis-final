@@ -16,6 +16,7 @@
             public $timestamps = true;
             protected $fillable =[
                 'companyName_id',
+                'title',
 'eventStartDate',
 'eventEndDate',
 'holidayDescription',
