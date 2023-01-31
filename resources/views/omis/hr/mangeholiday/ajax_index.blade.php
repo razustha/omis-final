@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Manage Holiday</h1>
+                                    <h2 class="nk-block-title">Manage Holiday List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">Manageholiday</a></li>
@@ -30,12 +30,12 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">company Name_id</span></th>
-<th class="tb-col"><span class="overline-title">Holiday Title</span></th>
-<th class="tb-col"><span class="overline-title">event Start Date</span></th>
-<th class="tb-col"><span class="overline-title">event End Date</span></th>
-<!-- <th class="tb-col"><span class="overline-title">holidayDescription</span></th> -->
-<!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
+<th class="tb-col"><span class="overline-title">company_id</span></th>
+<th class="tb-col"><span class="overline-title">title</span></th>
+<!-- <th class="tb-col"><span class="overline-title">eventStartDate</span></th>
+<th class="tb-col"><span class="overline-title">eventEndDate</span></th>
+<th class="tb-col"><span class="overline-title">holidayDescription</span></th>
+<th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -49,17 +49,17 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->companyName_id }}</td>
 <td class="tb-col">{{ $item->title }}</td>
-<td class="tb-col">{{ $item->eventStartDate }}</td>
+<!-- <td class="tb-col">{{ $item->eventStartDate }}</td>
 <td class="tb-col">{{ $item->eventEndDate }}</td>
-<!-- <td class="tb-col">{{ $item->holidayDescription }}</td> -->
-<!-- <td class="tb-col">{{ $item->alias }}</td> -->
+<td class="tb-col">{{ $item->holidayDescription }}</td>
+<td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>
+                                                <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'hr.mangeholiday.show',$item->mangeHoliday_id) !!}
                                                 </li>
-                                               <li>
+                                               <li> 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'hr.mangeholiday.edit',$item->mangeHoliday_id) !!}
                                                 </li>
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'hr.mangeholiday.destroy',$item->mangeHoliday_id) !!}</li>
@@ -73,7 +73,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Manage Holiday</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Mange Holiday</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -121,3 +121,4 @@
     </div>
 </div>
 @endsection
+    

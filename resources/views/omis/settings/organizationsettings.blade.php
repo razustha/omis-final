@@ -4,9 +4,7 @@
 
     
     
-            @include("omis/partials/sidebar") 
             
-            @include("omis/partials/header")
             <div class="nk-content nk-content-inner">
                 <div class="nk-content-inner row">
                     <div class="nk-content-body">
@@ -208,5 +206,4 @@
         
     
 
-@include("omis/partials/footerincludes")
  @endsection

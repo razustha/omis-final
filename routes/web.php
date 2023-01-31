@@ -131,6 +131,14 @@ use App\Models\OrganizationSettings\OrganizationSettings;
 use App\Models\User;
 
 // Route::get('/dashboard', function () {    return view('omis\welcome');});
+// Route::get('permission', function () {
+//     return view('omis.usermanagement.permission.index')->name('usermanagement.permission.index');
+// });
+
+Route::get('/usermanagement/permission', function () {
+    return view('omis\usermanagement\permission\index');})->name('usermanagement.index');
+
+
 Route::get('/', function () {
     return redirect('/login');
 });
