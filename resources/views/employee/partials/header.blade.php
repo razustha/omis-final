@@ -167,22 +167,29 @@
                     </li>
                     <li class="dropdown"><a href="#" data-bs-toggle="dropdown">
                             <div class="d-sm-none">
-                                <div class="media media-md media-circle"><img
+                                @if(!empty(auth()->user()->employee->profilePhoto))
+                                    <div class="media media-md media-circle"><img
                                         src="{{ auth()->user()->employee->profilePhoto }}" alt=""
                                         class="img-thumbnail"></div>
+                                @endif
                             </div>
                             <div class="d-none d-sm-block">
-                                <div class="media media-circle"><img src="{{ auth()->user()->employee->profilePhoto }}"
+                                @if(!empty(auth()->user()->employee->profilePhoto))
+                                    <div class="media media-circle"><img src="{{ auth()->user()->employee->profilePhoto }}"
                                         alt="" class="img-thumbnail"></div>
+                                @endif
                             </div>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-md">
                             <div class="dropdown-content dropdown-content-x-lg py-3 border-bottom border-light">
                                 <div class="media-group">
+                                    @if(!empty(auth()->user()->employee->profilePhoto))
                                     <div class="media media-xl media-middle media-circle"><img
                                             src="{{ auth()->user()->employee->profilePhoto }}" alt=""
-                                            class="img-thumbnail"></div>
+                                            class="img-thumbnail">
+                                    </div>
+                                    @endif
                                     <div class="media-text">
                                         <div class="lead-text">{{ auth()->user()->name }}</div><span class="sub-text">{{ auth()->user()->user_type }}</span>
                                     </div>
