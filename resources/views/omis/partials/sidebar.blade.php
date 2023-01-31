@@ -15,7 +15,7 @@
         </div>
     </div>
     @if(auth()->user()->user_type == 'EMPLOYEE')
-    
+
     @else
     <div class="nk-sidebar-element nk-sidebar-body">
         <div class="nk-sidebar-content">
@@ -49,10 +49,12 @@
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
                             <span class="nk-menu-text">Settings</span></a>
                         <ul class="nk-menu-sub">
-                           
+
                             <li class="nk-menu-item"><a href="{{ route('settings.organization.index') }}" class="nk-menu-link"><span
                                         class="nk-menu-text">Organization</span></a></li>
-                           
+                            <li class="nk-menu-item"><a href="{{ route('settings.organizationsettings.index') }}" class="nk-menu-link"><span
+                                            class="nk-menu-text">Organization Setting</span></a></li>
+
                         </ul>
                     </li>
                     {{-- <li class="nk-menu-item ">
@@ -80,7 +82,7 @@
                         <h6 class="overline-title">Applications Forms</h6>
                     </li>
 
-                    
+
                                 @include('omis.partials.hr_sidebar')
 
 

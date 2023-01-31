@@ -107,6 +107,7 @@ use App\Http\Controllers\Hr\LatereasonsController;
 use App\Http\Controllers\Notice\AnnouncementController;
 use App\Http\Controllers\Notice\DetailsviewController;
 use App\Http\Controllers\Officemanagement\PurchaseserviceController;
+use App\Http\Controllers\Settings\OrganizationSettingsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Project\WorkfromhomeController;
 use App\Http\Controllers\Reports\AttendancereportsController;
@@ -116,6 +117,7 @@ use App\Http\Controllers\Reports\LeavereportsController;
 use App\Http\Controllers\Reports\TravelreportsController;
 use App\Http\Controllers\Rostermanagement\RostercategoryController;
 use App\Http\Controllers\Rostermanagement\RosterentriesController;
+use App\Http\Controllers\Settings\NotificationSettingsController;
 use App\Http\Controllers\Settings\OrganizationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Settings\SettingController;
@@ -124,6 +126,7 @@ use App\Http\Controllers\Travelfleet\DriverrosterController;
 use App\Http\Controllers\Work\TimelogController;
 use App\Models\Hr\Employee;
 use App\Models\Hr\Leaveapplication;
+use App\Models\OrganizationSettings\OrganizationSettings;
 use App\Models\User;
 
 // Route::get('/dashboard', function () {    return view('omis\welcome');});
@@ -425,6 +428,10 @@ Route::middleware('auth')->group(function () {
                 Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('settings.organization.update');
                 Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('settings.organization.destroy');
             });
+
+            Route::get('organizationsettings', [OrganizationSettingsController::class, 'index'])->name('settings.organizationsettings.index');
+            Route::put('organizationsettings/update', [OrganizationSettingsController::class, 'update'])->name('settings.organizationsettings.update');
+            Route::put('notificationsettings/update', [NotificationSettingsController::class, 'update'])->name('settings.notificationsettings.update');
         }
     );
 

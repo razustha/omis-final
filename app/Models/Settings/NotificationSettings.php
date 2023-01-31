@@ -9,12 +9,12 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 
-class OrganizationSettings extends Model
+class NotificationSettings extends Model
 {
     use HasFactory, CreatedUpdatedBy;
 
-    protected $table = 'tbl_organizationsetting';
-    protected $primaryKey = 'organizationsetting_id';
+    protected $table = 'tbl_organizationnotification';
+    protected $primaryKey = 'organizationnotification_id';
     protected $fillable = [
         'organization_id','key', 'value','createdOn',
         'createdBy',
