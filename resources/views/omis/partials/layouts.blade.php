@@ -27,7 +27,7 @@
             @include('omis/partials/sidebar')
             <div class="nk-wrap">
                 @include('omis/partials/header')
-                @include('omis.partials.flash-message');
+                @include('omis.partials.flash-message')
                 @yield('content')
                 @include('omis/partials/footer')
             </div>

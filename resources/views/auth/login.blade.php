@@ -11,8 +11,9 @@
                             <div class="card card-gutter-lg rounded-4 card-auth">
                                 <div class="card-body">
                                     <div class="brand-logo mb-4">
-                                        <div class="logo-wrap">
-                                            LOGO HERE
+                                        <div class="logo-wraps">
+                                            <img src="assets/images/logo/logo2.png">
+
                                         </div>
                                     </div>
                                     <div class="nk-block-head">

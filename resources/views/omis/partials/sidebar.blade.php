@@ -1,6 +1,6 @@
 <div class="nk-sidebar nk-sidebar-fixed is-theme" id="sidebar">
     <div class="nk-sidebar-element nk-sidebar-head">
-        <div class="nk-sidebar-brand"><a href="index-2.html" class="logo-link">
+        <div class="nk-sidebar-brand"><a href="#" class="logo-link">
                 <div class="logo-wrap">
                     <img src="assets/images/logo/logo1.png">
                 </div>
