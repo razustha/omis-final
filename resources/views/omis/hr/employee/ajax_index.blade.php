@@ -50,7 +50,8 @@
                                             <td class="tb-col">{{ $item->employee_id }}</td>
                                             <td class="tb-col">
                                                 <div class="media-group">
-                                                    <div class="media-text"> <a href="{{ route('hr.employee.show', [$item->employee_id]) }}"> {{ $item->firstName }} {{ $item->middleName }}
+                                                    <div class="media-text"> <a href="{{ route('hr.employee.show', [$item->employee_id]) }}"> 
+                                                        {{ $item->firstName }} {{ $item->middleName }}
                                                         {{ $item->lastName }} </a><span class="small text">{{ $item->emailAddress }}</span></div>
                                                 </div>
                                                </td>

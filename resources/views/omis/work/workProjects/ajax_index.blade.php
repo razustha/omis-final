@@ -7,7 +7,7 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Workprojects List</h1>
+                                    <h2 class="nk-block-title">projects List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
                                                 <li class="breadcrumb-item"><a href="#">projects</a></li>
@@ -32,8 +32,8 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">project Title</span></th>
 <!-- <th class="tb-col"><span class="overline-title">projectStartClient</span></th> -->
-<th class="tb-col"><span class="overline-title">StartDate</span></th>
-<th class="tb-col"><span class="overline-title">EndDate</span></th>
+<th class="tb-col"><span class="overline-title">Start Date</span></th>
+<th class="tb-col"><span class="overline-title">End Date</span></th>
 <th class="tb-col"><span class="overline-title">Priority</span></th>
 <!-- <th class="tb-col"><span class="overline-title">companyName_id</span></th>
 <th class="tb-col"><span class="overline-title">assignedEmployees</span></th>
@@ -79,7 +79,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Workprojects</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add projects</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -98,7 +98,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Workprojects<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit projects<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

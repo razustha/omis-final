@@ -33,9 +33,9 @@
 <th class="tb-col"><span class="overline-title">fleet_id</span></th>
 <th class="tb-col"><span class="overline-title">fleet Name</span></th>
 <th class="tb-col"><span class="overline-title">model Number</span></th>
-<th class="tb-col"><span class="overline-title">number Plate_id</span></th>
+<!-- <th class="tb-col"><span class="overline-title">number Plate_id</span></th>
 <th class="tb-col"><span class="overline-title">number Plate Type</span></th>
-<th class="tb-col"><span class="overline-title">plate Number</span></th>
+<th class="tb-col"><span class="overline-title">plate Number</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">rootPermit</span></th>
 <th class="tb-col"><span class="overline-title">issueDate</span></th>
 <th class="tb-col"><span class="overline-title">expireDate</span></th>
@@ -54,9 +54,9 @@
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->fleet_id }}</td>
 <td class="tb-col">{{ $item->fleetName }}</td>
 <td class="tb-col">{{ $item->modelNumber }}</td>
-<td class="tb-col">{{ $item->numberPlate_id }}</td>
+<!-- <td class="tb-col">{{ $item->numberPlate_id }}</td>
 <td class="tb-col">{{ $item->numberPlateType }}</td>
-<td class="tb-col">{{ $item->plateNumber }}</td>
+<td class="tb-col">{{ $item->plateNumber }}</td> -->
 <!-- <td class="tb-col">{{ $item->rootPermit }}</td>
 <td class="tb-col">{{ $item->issueDate }}</td>
 <td class="tb-col">{{ $item->expireDate }}</td>
@@ -81,7 +81,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Fleetrequest</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Fleet Request</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -100,7 +100,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Fleetrequest<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Fleet Request<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

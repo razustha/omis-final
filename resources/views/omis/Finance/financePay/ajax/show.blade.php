@@ -1,12 +1,12 @@
 <div class="offcanvas-header border-bottom border-light">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Financepay</h5><button type="button" class="btn-close"
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Payments</h5><button type="button" class="btn-close"
             data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" data-simplebar>
         <div class="nk-block-head-content w-100">
             <div class="d-flex justify-content-between pb-4">
     
-                <h2>Financepay Details</h2>
+                <h2>Payments Details</h2>
                 <button class="btn btn-primary print_pdf">Print PDF</button>
             </div>
             <div class="card w-100">
@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['payeePhone']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>PayeePhone :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payeePhone}}</span></p><p><b>PayeeAccount :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payeeAccount}}</span></p><p><b>PayerName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payerName}}</span></p><p><b>PayerPhone :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payerPhone}}</span></p><p><b>PayerAccount :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payerAccount}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Payee Phone :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payeePhone}}</span></p><p><b>Payee Account :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payeeAccount}}</span></p><p><b>PayerName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payerName}}</span></p><p><b>Payer Phone :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payerPhone}}</span></p><p><b>Payer Account :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->payerAccount}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

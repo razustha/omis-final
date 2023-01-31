@@ -1,12 +1,12 @@
 <div class="offcanvas-header border-bottom border-light">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Rosterentries</h5><button type="button" class="btn-close"
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Roster Entries</h5><button type="button" class="btn-close"
             data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" data-simplebar>
         <div class="nk-block-head-content w-100">
             <div class="d-flex justify-content-between pb-4">
     
-                <h2>Rosterentries Details</h2>
+                <h2>Roster Entries Details</h2>
                 <button class="btn btn-primary print_pdf">Print PDF</button>
             </div>
             <div class="card w-100">
@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['entryType_id']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>EntryType Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->entryType_id}}</span></p><p><b>Time :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->time}}</span></p><p><b>Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->date}}</span></p><p><b>OfficerName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->officerName}}</span></p><p><b>ApplicantName Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicantName_id}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Entry Type Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->entryType_id}}</span></p><p><b>Time :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->time}}</span></p><p><b>Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->date}}</span></p><p><b>Officer Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->officerName}}</span></p><p><b>Applicant Name Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicantName_id}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

@@ -52,12 +52,12 @@
                             <span class="nk-menu-text">Events</span></a>
                     </li>
 
-                   <li class="nk-menu-item ">
+            <!--        <li class="nk-menu-item ">
                         <a href="#" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
                             <span class="nk-menu-text">Settings</span></a>
                     </li>
-       
+        -->
 
              </ul>
             </div>

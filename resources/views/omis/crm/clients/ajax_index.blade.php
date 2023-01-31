@@ -33,7 +33,7 @@
 <th class="tb-col"><span class="overline-title">applicantName_id</span></th>
 <th class="tb-col"><span class="overline-title">phone</span></th>
 <th class="tb-col"><span class="overline-title">email</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+<!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -48,7 +48,7 @@
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->applicantName_id }}</td>
 <td class="tb-col">{{ $item->phone }}</td>
 <td class="tb-col">{{ $item->email }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+<!-- <td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">

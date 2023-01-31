@@ -30,10 +30,10 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">tasksStartDate</span></th>
-<th class="tb-col"><span class="overline-title">tasksEndDate</span></th>
+<th class="tb-col"><span class="overline-title">Start Date</span></th>
+<th class="tb-col"><span class="overline-title">End Date</span></th>
 <!-- <th class="tb-col"><span class="overline-title">department_id</span></th> -->
-<th class="tb-col"><span class="overline-title">tasksAssignedTo</span></th>
+<th class="tb-col"><span class="overline-title">Assigned To</span></th>
 <!-- <th class="tb-col"><span class="overline-title">companyName</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>

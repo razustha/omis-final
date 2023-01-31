@@ -11,5 +11,5 @@
 </div><div class="col-lg-6">{{createLabel('creditDetails','form-label col-form-label','Details')}}{{createTextArea("creditDetails","creditDetails","CreditDetails",'',$data->creditDetails)}}
 
 </div><div class="col-lg-6">{{createLabel('remarks','form-label col-form-label','Remarks')}}{{createTextArea("remarks","remarks","Remarks",'',$data->remarks)}}
-</div>  <div class="col-md-12"><?php createButton("btn-primary btn-update","","Submit"); ?>
+</div>  <div class="col-md-12"><?php createButton("btn-primary btn-update","","Update"); ?>
 </div> </form>

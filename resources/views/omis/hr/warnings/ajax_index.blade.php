@@ -30,8 +30,8 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">warningTo</span></th>
-                                        <th class="tb-col"><span class="overline-title">warningSubject</span></th>
+                                        <th class="tb-col"><span class="overline-title">warning To</span></th>
+                                        <th class="tb-col"><span class="overline-title">warning Subject</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">warningDate</span></th>
                                         <th class="tb-col"><span class="overline-title">warningType_id</span></th>
                                         <th class="tb-col"><span class="overline-title">warningDescription</span></th>

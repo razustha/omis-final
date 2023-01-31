@@ -30,8 +30,8 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">trainerFullName</span></th>
-<th class="tb-col"><span class="overline-title">trainerPhone</span></th>
+<th class="tb-col"><span class="overline-title">trainer Full Name</span></th>
+<th class="tb-col"><span class="overline-title">trainer Phone</span></th>
 <!-- <th class="tb-col"><span class="overline-title">trainerAddress</span></th>
 <th class="tb-col"><span class="overline-title">trainerEmail</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th> -->

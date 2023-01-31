@@ -6,38 +6,42 @@
                 <div class="nk-content-body">
                     <div class="g-gs">
                         <div class="col-xxl-12">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
-                                    <div class=" h-100">
-
+                                        <div class="nk-block-head-between flex-wrap gap ">
+                                            <div class="nk-block-head-content">
+                                                <h2 class="nk-block-title py-4">Welcome, {{ auth()->user()->name }}</h2>
+                                            </div>
                                             <div class="d-flex flex-column flex-sm-row-reverse align-items-sm-center justify-content-sm-between">
-                                                <div class="mb-5 mt-4 mt-sm-0">
+                                                <div class="mb-0 mt-4 mt-sm-0">
 
                                                     @if(empty(auth()->user()->todayAttendance()))
-                                                    <button class="btn btn-primary btn-checkIn" >
+                                                    <button class="btn btn-primary btn-checkIn">
                                                         + Clock In
                                                     </button>
-                                                @else
+                                                    @else
                                                     <form action="{{route('hr.attendence.checkOut',auth()->user()->todayAttendance()->attendence_id)}}" method="POST">
                                                         @csrf
                                                         <div class="form-group ">
                                                             <input type="hidden" value="{{auth()->user()->id}}">
-                                                        <button type="submit" class="btn btn-danger btn-checkOut" >
-                                                                + Clock Out
+                                                            <button type="submit" class="btn btn-danger btn-checkOut">
+                                                                - Clock Out
                                                             </button>
+                                                        </div>
                                                     </form>
 
                                                     @endif
                                                 </div>
+                                                <div class="p-2">
+                                                   <div class="d-flex align-items-center">
+                                                       <div class="h4 mb-0">12:00 AM</div>
+                                                   </div>
+                                                   <div class="smaller">Tuesday</div>
+                                                
+                                               </div>
 
+                                            </div>
+                                         
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-
-
-                        </div>
                     </div>
                     <div class="row g-gs">
                         <div class="col-sm-6 col-xl-6 col-xxl-3">
@@ -92,6 +96,44 @@
                                 <div class="card-body">
                                     <div class="card-title-group align-items-start">
                                         <div class="card-title">
+                                            <h4 class="title">Today Attendance</h4>
+                                        </div>
+                                        <div
+                                            class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="amount h1">2,153</div>
+                                     
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-6 col-xxl-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="card-title-group align-items-start">
+                                        <div class="card-title">
+                                            <h4 class="title">Today Leaves</h4>
+                                        </div>
+                                        <div
+                                            class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="amount h1">2,153</div>
+                                     
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-6 col-xxl-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="card-title-group align-items-start">
+                                        <div class="card-title">
                                             <h4 class="title">Total Projects</h4>
                                         </div>
                                         <div
@@ -125,9 +167,48 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-sm-6 col-xl-6 col-xxl-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="card-title-group align-items-start">
+                                        <div class="card-title">
+                                            <h4 class="title">Pending Tasks</h4>
+                                        </div>
+                                        <div
+                                            class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="amount h1">2,153</div>
+                                     
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-6 col-xxl-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="card-title-group align-items-start">
+                                        <div class="card-title">
+                                            <h4 class="title">Total Leads</h4>
+                                        </div>
+                                        <div
+                                            class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="amount h1">2,153</div>
+                                     
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                      
                      
                         <div class="col-xxl-6">
-                            <div class="card h-100">
+                            <div class="card">
                                 <div class="card-body flex-grow-0 py-2">
                                     <div class="card-title-group">
                                         <div class="card-title">
@@ -197,185 +278,296 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-xxl-4">
+                        <div class="col-xxl-6">
                             <div class="card h-100">
-                                <div class="card-body">
+                                <div class="card-body py-2 flex-grow-0">
                                     <div class="card-title-group">
                                         <div class="card-title">
-                                            <h5 class="title">Sessions Device</h5>
+                                            <h5 class="title">Projects Stats</h5>
                                         </div>
-                                        <div class="card-tools"><em class="icon-hint icon ni ni-help-fill"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Sessions from device"></em></div>
-                                    </div>
-                                    <div class="nk-chart-analytics-session-device mt-4"><canvas
-                                            data-nk-chart="doughnut" id="sessionsDevice"></canvas></div>
-                                    <div
-                                        class="chart-legend-group justify-content-around pt-4 flex-wrap gap g-2">
-                                        <div class="chart-legend"><span class="dot bg-info"></span>
-                                            <div class="chart-legend-text">
-                                                <div class="title">Mobile</div>
-                                            </div>
-                                        </div>
-                                        <div class="chart-legend"><span class="dot bg-warning"></span>
-                                            <div class="chart-legend-text">
-                                                <div class="title">Tablet</div>
-                                            </div>
-                                        </div>
-                                        <div class="chart-legend"><span class="dot bg-success"></span>
-                                            <div class="chart-legend-text">
-                                                <div class="title">Desktop</div>
-                                            </div>
-                                        </div>
-                                        <div class="chart-legend"><span class="dot bg-purple"></span>
-                                            <div class="chart-legend-text">
-                                                <div class="title">Others</div>
-                                            </div>
+                                        <div class="card-tools d-none d-sm-inline-block"><a href="#"
+                                                class="btn btn-sm btn-soft btn-secondary">Export Report</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xxl-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <div class="card-title-group">
-                                        <div class="card-title">
-                                            <h5 class="title">Recent Activity</h5>
-                                        </div>
-                                    </div>
-                                    <div class="nk-timeline nk-timeline-center mt-4">
-                                        <div class="nk-timeline-group">
-                                            <div class="nk-timeline-heading">
-                                                <h6 class="overline-title">today</h6>
-                                            </div>
-                                            <ul class="nk-timeline-list">
-                                                <li class="nk-timeline-item">
-                                                    <div class="nk-timeline-item-inner">
-                                                        <div class="nk-timeline-symbol">
-                                                            <div
-                                                                class="media media-md media-middle media-circle text-bg-info">
-                                                                <em class="icon ni ni-user"></em></div>
-                                                        </div>
-                                                        <div class="nk-timeline-content">
-                                                            <p class="small"><strong>Nick Mark</strong>
-                                                                mentioned <strong>Sara Smith</strong> in a
-                                                                new post</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="nk-timeline-item">
-                                                    <div class="nk-timeline-item-inner">
-                                                        <div class="nk-timeline-symbol">
-                                                            <div
-                                                                class="media media-md media-middle media-circle text-bg-warning">
-                                                                <em class="icon ni ni-signout"></em></div>
-                                                        </div>
-                                                        <div class="nk-timeline-content">
-                                                            <p class="small">The post <strong>Post
-                                                                    Name</strong> was removed by
-                                                                <strong>Nick Mark</strong></p>
+                                <div class="table-responsive">
+                                    <table class="table table-middle mb-0">
+                                        <thead class="table-light table-head-sm">
+                                            <tr>
+                                                <th class="tb-col"><span class="overline-title">items</span>
+                                                </th>
+                                                
+                                                <th class="tb-col tb-col-center tb-col-sm"><span
+                                                        class="overline-title">progress</span></th>
+                                                <th class="tb-col tb-col-center  tb-col-xxl"><span
+                                                        class="overline-title">asign</span></th>
+                                                <th class="tb-col tb-col-center"><span
+                                                        class="overline-title">status</span></th>
+                                                <th class="tb-col tb-col-center"><span
+                                                        class="overline-title"><span
+                                                            class="d-none d-sm-inline-blcok">due</span>
+                                                        date</span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="tb-col">
+                                                    <div class="media-group">
+                                                        <div
+                                                            class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/a.jpg" alt=""></div>
+                                                        <div class="media-text"><a href="#"
+                                                                class="title">Create Wireframe</a><span
+                                                                class="text smaller">Esther Howard</span>
                                                         </div>
                                                     </div>
-                                                </li>
-                                                <li class="nk-timeline-item">
-                                                    <div class="nk-timeline-item-inner">
-                                                        <div class="nk-timeline-symbol">
-                                                            <div
-                                                                class="media media-md media-middle media-circle text-bg-success">
-                                                                <em class="icon ni ni-file-text"></em></div>
-                                                        </div>
-                                                        <div class="nk-timeline-content">
-                                                            <p class="small"><strong>Patrick
-                                                                    Sullivan</strong> published a new
-                                                                <strong>post</strong> </p>
+                                                </td>
+                                              
+                                                <td class="tb-col tb-col-center tb-col-sm">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="small me-1">63%</span>
+                                                        <div class="progress progress-sm w-100">
+                                                            <div class="progress-bar bg-success"
+                                                                data-progress="63%"></div>
                                                         </div>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="nk-timeline-group">
-                                            <div class="nk-timeline-heading">
-                                                <h6 class="overline-title">yesterday</h6>
-                                            </div>
-                                            <ul class="nk-timeline-list">
-                                                <li class="nk-timeline-item">
-                                                    <div class="nk-timeline-item-inner">
-                                                        <div class="nk-timeline-symbol">
-                                                            <div
-                                                                class="media media-md media-middle media-circle text-bg-info">
-                                                                <em class="icon ni ni-shuffle"></em></div>
-                                                        </div>
-                                                        <div class="nk-timeline-content">
-                                                            <p class="small"><strong>240+</strong> users
-                                                                have subscribed to Newsletter #1 </p>
+                                                </td>
+                                                <td class="tb-col tb-col-center  tb-col-xxl">
+                                                    <div class="media-group media-group-overlap">
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="David"><img src="assets/images/avatar/a.jpg"
+                                                                alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Sanjoy"><img src="assets/images/avatar/b.jpg"
+                                                                alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Kinchit"><img src="assets/images/avatar/c.jpg"
+                                                                alt=""></div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span
+                                                        class="badge text-bg-info-soft">In progress</span>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span class="small">07 Sep
+                                                        2022</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb-col">
+                                                    <div class="media-group">
+                                                        <div
+                                                            class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/b.jpg" alt=""></div>
+                                                        <div class="media-text"><a href="#"
+                                                                class="title">Divine Opulence</a><span
+                                                                class="text smaller">Jenny Wilson</span>
                                                         </div>
                                                     </div>
-                                                </li>
-                                                <li class="nk-timeline-item">
-                                                    <div class="nk-timeline-item-inner">
-                                                        <div class="nk-timeline-symbol">
-                                                            <div
-                                                                class="media media-md media-middle media-circle text-bg-success">
-                                                                <em class="icon ni ni-signout"></em></div>
-                                                        </div>
-                                                        <div class="nk-timeline-content">
-                                                            <p class="small">The post <strong>Post
-                                                                    Name</strong> was suspended by
-                                                                <strong>Nick Mark</strong> </p>
+                                                </td>
+                                          
+                                                <td class="tb-col tb-col-center tb-col-sm">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="small me-1">100%</span>
+                                                        <div class="progress progress-sm w-100">
+                                                            <div class="progress-bar bg-success"
+                                                                data-progress="100%"></div>
                                                         </div>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center tb-col-xxl">
+                                                    <div class="media-group media-group-overlap">
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Alex Smith"><img
+                                                                src="assets/images/avatar/a.jpg" alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Alex Smith"><img
+                                                                src="assets/images/avatar/b.jpg" alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Alex Smith"><img
+                                                                src="assets/images/avatar/c.jpg" alt=""></div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span
+                                                        class="badge text-bg-success-soft">Completed</span>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span class="small">12 Aug
+                                                        2022</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb-col">
+                                                    <div class="media-group">
+                                                        <div
+                                                            class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/c.jpg" alt=""></div>
+                                                        <div class="media-text"><a href="#"
+                                                                class="title">Charto CRM</a><span
+                                                                class="text smaller">Cody Fisher</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            
+                                                <td class="tb-col tb-col-center tb-col-sm">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="small me-1">30%</span>
+                                                        <div class="progress progress-sm w-100">
+                                                            <div class="progress-bar bg-success"
+                                                                data-progress="30%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center tb-col-xxl">
+                                                    <div class="media-group media-group-overlap">
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Alex Smith"><img
+                                                                src="assets/images/avatar/a.jpg" alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Alex Smith"><img
+                                                                src="assets/images/avatar/b.jpg" alt=""></div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span
+                                                        class="badge text-bg-info-soft">In progress</span>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span class="small">18 Oct
+                                                        2022</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb-col">
+                                                    <div class="media-group">
+                                                        <div
+                                                            class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/d.jpg" alt=""></div>
+                                                        <div class="media-text"><a href="#"
+                                                                class="title">Mountain Trip Kit </a><span
+                                                                class="text smaller">Savannah Nguyen</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                               
+                                                <td class="tb-col tb-col-center tb-col-sm">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="small me-1">0%</span>
+                                                        <div class="progress progress-sm w-100">
+                                                            <div class="progress-bar bg-success"
+                                                                data-progress="0%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center tb-col-xxl">
+                                                    <div class="media-group media-group-overlap">
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Jhon"><img src="assets/images/avatar/a.jpg"
+                                                                alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Marku"><img src="assets/images/avatar/b.jpg"
+                                                                alt=""></div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span
+                                                        class="badge text-bg-warning-soft">Pending</span>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span class="small">25 Jul
+                                                        2022</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb-col">
+                                                    <div class="media-group">
+                                                        <div
+                                                            class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/e.jpg" alt=""></div>
+                                                        <div class="media-text"><a href="#"
+                                                                class="title">Chat Application</a><span
+                                                                class="text smaller">Jane Cooper</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                             
+                                                <td class="tb-col tb-col-center tb-col-sm">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="small me-1">80%</span>
+                                                        <div class="progress progress-sm w-100">
+                                                            <div class="progress-bar bg-success"
+                                                                data-progress="80%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center tb-col-xxl">
+                                                    <div class="media-group media-group-overlap">
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Kevin"><img src="assets/images/avatar/a.jpg"
+                                                                alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Ebadot"><img src="assets/images/avatar/b.jpg"
+                                                                alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Alex Smith"><img
+                                                                src="assets/images/avatar/c.jpg" alt=""></div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span
+                                                        class="badge text-bg-info-soft">In progress</span>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span class="small">07 Sep
+                                                        2022</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb-col">
+                                                    <div class="media-group">
+                                                        <div
+                                                            class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/a.jpg" alt=""></div>
+                                                        <div class="media-text"><a href="#"
+                                                                class="title">Mountain Trip Kit </a><span
+                                                                class="text smaller">Jane Cooper</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                               
+                                                <td class="tb-col tb-col-center tb-col-sm">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="small me-1">36%</span>
+                                                        <div class="progress progress-sm w-100">
+                                                            <div class="progress-bar bg-success"
+                                                                data-progress="36%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center tb-col-xxl">
+                                                    <div class="media-group media-group-overlap">
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Jane Smith"><img
+                                                                src="assets/images/avatar/a.jpg" alt=""></div>
+                                                        <div class="media media-xs media-circle media-border border-white"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Alex Smith"><img
+                                                                src="assets/images/avatar/b.jpg" alt=""></div>
+                                                    </div>
+                                                </td>
+                                                <td class="tb-col tb-col-center"><span
+                                                        class="badge text-bg-info-soft">In progress</span>
+                                                </td>
+                                                <td class="tb-col tb-col-center "><span class="small">25 Jul
+                                                        2022</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <div class="card-title-group">
-                                        <div class="card-title">
-                                            <h5 class="title">Web Sessions by Region</h5>
-                                        </div>
-                                        <div class="card-tools"><em class="icon-hint icon ni ni-help-fill"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Web Sessions from region"></em></div>
-                                    </div>
-                                    <div class="nk-chart-analytics-session-region-map mt-3 mx-auto">
-                                        <div class="js-svgmap js-svgmap-zoom-off" id="svgWorldMap"></div>
-                                    </div>
-                                    <div
-                                        class="list-group-heading d-flex align-items-center justify-content-between">
-                                        <h6 class="title">Top Region</h6>
-                                        <h6 class="title">Sessions</h6>
-                                    </div>
-                                    <ul class="list-group list-group-borderless list-group-sm">
-                                        <li
-                                            class="list-group-item d-flex justify-content-between align-items-center smaller">
-                                            <span class="title">United States</span><span
-                                                class="text">8,465</span></li>
-                                        <li
-                                            class="list-group-item d-flex justify-content-between align-items-center smaller">
-                                            <span class="title">United Kingdom</span><span
-                                                class="text">6,423</span></li>
-                                        <li
-                                            class="list-group-item d-flex justify-content-between align-items-center smaller">
-                                            <span class="title">Canada</span><span class="text">5,764</span>
-                                        </li>
-                                        <li
-                                            class="list-group-item d-flex justify-content-between align-items-center smaller">
-                                            <span class="title">Germany</span><span
-                                                class="text">1,374</span></li>
-                                        <li
-                                            class="list-group-item d-flex justify-content-between align-items-center smaller">
-                                            <span class="title">Bangladesh</span><span
-                                                class="text">890</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>

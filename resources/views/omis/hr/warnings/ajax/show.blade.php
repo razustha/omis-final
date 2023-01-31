@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['warningTo']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>WarningTo :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningTo}}</span></p><p><b>WarningSubject :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningSubject}}</span></p><p><b>WarningDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningDate}}</span></p><p><b>WarningType Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningType_id}}</span></p><p><b>WarningDescription :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningDescription}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Warning To :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningTo}}</span></p><p><b>Warning Subject :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningSubject}}</span></p><p><b>Warning Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningDate}}</span></p><p><b>Warning Type Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningType_id}}</span></p><p><b>Warning Description :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->warningDescription}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['projectName']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>ProjectName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectName}}</span></p><p><b>ProjectTask :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectTask}}</span></p><p><b>ProjectEstimateTime :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectEstimateTime}}</span></p><p><b>ProjectStartDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectStartDate}}</span></p><p><b>ProjectEndDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectEndDate}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Project Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectName}}</span></p><p><b>Project Task :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectTask}}</span></p><p><b>Project Estimate Time :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectEstimateTime}}</span></p><p><b>Project Start Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectStartDate}}</span></p><p><b>Project End Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->projectEndDate}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

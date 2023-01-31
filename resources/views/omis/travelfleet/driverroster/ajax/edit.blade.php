@@ -17,7 +17,7 @@
             col-form-label','Remarks')}}{{createTextArea("remarks","remarks","Remarks",'',$data->remarks)}}
         </div>
         <div class="col-md-12">
-            <?php createButton("btn-primary btn-update","","Submit"); ?>
+            <?php createButton("btn-primary btn-update","","Update"); ?>
         </div>
         </div>
 </form>

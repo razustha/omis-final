@@ -1,12 +1,12 @@
 <div class="offcanvas-header border-bottom border-light">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Attendancefrom</h5><button type="button" class="btn-close"
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Attendance From</h5><button type="button" class="btn-close"
             data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" data-simplebar>
         <div class="nk-block-head-content w-100">
             <div class="d-flex justify-content-between pb-4">
     
-                <h2>Attendancefrom Details</h2>
+                <h2>Attendance From Details</h2>
                 <button class="btn btn-primary print_pdf">Print PDF</button>
             </div>
             <div class="card w-100">
@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['attendanceFromLocation']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>AttendanceFromLocation :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromLocation}}</span></p><p><b>AttendanceFromType :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromType}}</span></p><p><b>AttendanceFromDescription :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromDescription}}</span></p><p><b>AttendanceFromActiveFrom :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromActiveFrom}}</span></p><p><b>AttendanceFromApprovedEmployee Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromApprovedEmployee_id}}</span></p><p><b>AttendanceFromSupervisorEmployee Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromSupervisorEmployee_id}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Attendance Location :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromLocation}}</span></p><p><b>Attendance Type :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromType}}</span></p><p><b>Description :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromDescription}}</span></p><p><b>Active From :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromActiveFrom}}</span></p><p><b>Approved Employee Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromApprovedEmployee_id}}</span></p><p><b>Supervisor Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->attendanceFromSupervisorEmployee_id}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

@@ -5,7 +5,7 @@
 </div><div class="col-lg-6">{{createText("applicantsName","applicantsName","Applicants Name")}}
 </div><div class="col-lg-6">{{createText("applyedDepartmentName","applyedDepartmentName","Applied Department Name")}}
 </div><div class="col-lg-6">{{createText("workingExperience","workingExperience","Working Experience")}}
-</div><div class="col-lg-6">{{createText("previousWorkingCompanyName","previousWorkingCompanyName","Previous Working CompanyName")}}
+</div><div class="col-lg-6">{{createText("previousWorkingCompanyName","previousWorkingCompanyName","Previous Working Company Name")}}
 </div><div class="col-lg-6">{{createDate("applyDate","applyDate","Apply Date")}}
 </div><div class="col-lg-6">{{createText("recommendedBy","recommendedBy","Recommended By")}}
 </div><div class="col-lg-6">{{createText("portfolio","portfolio","Portfolio")}}

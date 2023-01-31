@@ -30,9 +30,9 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">leadType</span></th>
-<th class="tb-col"><span class="overline-title">leadName</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+<th class="tb-col"><span class="overline-title">lead Type</span></th>
+<th class="tb-col"><span class="overline-title">lead Name</span></th>
+<!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -46,7 +46,7 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->leadType }}</td>
 <td class="tb-col">{{ $item->leadName }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+<!-- <td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">

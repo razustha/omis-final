@@ -26065,6 +26065,11 @@ a.fc-event-darker-soft {
     position: relative;
     height: 20px
 }
+.logo-wraps {
+    display: inline-flex;
+    position: relative;
+    height: 20px
+}
 
 .logo-link {
     display: inline-flex
@@ -26139,6 +26144,9 @@ a.fc-event-darker-soft {
 @media(min-width: 576px) {
     .logo-wrap {
         height: 34px
+    }
+    .logo-wraps {
+        height: 60px
     }
 }
 
@@ -28065,6 +28073,9 @@ img {
 
 .tb-col-middle {
     vertical-align: middle
+}
+.tb-col-center {
+    text-align: center
 }
 
 .tb-col-check {

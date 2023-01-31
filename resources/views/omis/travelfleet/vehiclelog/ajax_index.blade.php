@@ -30,11 +30,11 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">riderName</span></th>
-<th class="tb-col"><span class="overline-title">vehicleNumber</span></th>
+<th class="tb-col"><span class="overline-title">rider Name</span></th>
+<th class="tb-col"><span class="overline-title">vehicle Number</span></th>
 <th class="tb-col"><span class="overline-title">date</span></th>
-<th class="tb-col"><span class="overline-title">arrivalTime</span></th>
-<th class="tb-col"><span class="overline-title">departureTime</span></th>
+<!-- <th class="tb-col"><span class="overline-title">arrivalTime</span></th>
+<th class="tb-col"><span class="overline-title">departureTime</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">from</span></th>
 <th class="tb-col"><span class="overline-title">to</span></th>
 <th class="tb-col"><span class="overline-title">purpose</span></th> -->
@@ -53,8 +53,8 @@
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->riderName }}</td>
 <td class="tb-col">{{ $item->vehicleNumber }}</td>
 <td class="tb-col">{{ $item->date }}</td>
-<td class="tb-col">{{ $item->arrivalTime }}</td>
-<td class="tb-col">{{ $item->departureTime }}</td>
+<!-- <td class="tb-col">{{ $item->arrivalTime }}</td>
+<td class="tb-col">{{ $item->departureTime }}</td> -->
 <!-- <td class="tb-col">{{ $item->from }}</td>
 <td class="tb-col">{{ $item->to }}</td>
 <td class="tb-col">{{ $item->purpose }}</td> -->
@@ -79,7 +79,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Vehiclelog</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Vehicle Log</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -98,7 +98,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Vehiclelog<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Vehicle Log<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

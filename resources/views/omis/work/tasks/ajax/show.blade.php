@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['tasksStartDate']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>TasksStartDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->tasksStartDate}}</span></p><p><b>TasksEndDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->tasksEndDate}}</span></p><p><b>Department Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->department_id}}</span></p><p><b>TasksAssignedTo :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->tasksAssignedTo}}</span></p><p><b>CompanyName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->companyName}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Tasks Start Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->tasksStartDate}}</span></p><p><b>Tasks End Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->tasksEndDate}}</span></p><p><b>Department Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->department_id}}</span></p><p><b>Tasks Assigned To :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->tasksAssignedTo}}</span></p><p><b>Company Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->companyName}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

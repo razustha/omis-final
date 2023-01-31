@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['company_id']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>Company Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->company_id}}</span></p><p><b>InvoicesTitle :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->invoicesTitle}}</span></p><p><b>Amount :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->amount}}</span></p><p><b>AmountInWords :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->amountInWords}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Company Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->company_id}}</span></p><p><b>Invoices Title :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->invoicesTitle}}</span></p><p><b>Amount :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->amount}}</span></p><p><b>Amount In Words :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->amountInWords}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

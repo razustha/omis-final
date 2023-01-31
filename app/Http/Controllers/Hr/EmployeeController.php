@@ -59,6 +59,7 @@ class EmployeeController extends Controller
                 'user_type' => 'EMPLOYEE'
             ];
             User::create($users);
+            Employee::create($request->all());
         }
         $request->request->add(['alias' => slugify($request->employeeName)]);
 
