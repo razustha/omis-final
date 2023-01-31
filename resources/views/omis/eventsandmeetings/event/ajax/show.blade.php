@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['eventTitle']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>EventTitle :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->eventTitle}}</span></p><p><b>EventDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->eventDate}}</span></p><p><b>EventTime :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->eventTime}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Event Title :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->eventTitle}}</span></p><p><b>Event Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->eventDate}}</span></p><p><b>Event Time :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->eventTime}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

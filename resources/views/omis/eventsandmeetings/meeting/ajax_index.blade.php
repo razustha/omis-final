@@ -30,9 +30,9 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">meetingTitle</span></th>
-<th class="tb-col"><span class="overline-title">meetingDate</span></th>
-<th class="tb-col"><span class="overline-title">meetingTime</span></th>
+<th class="tb-col"><span class="overline-title">meeting Title</span></th>
+<th class="tb-col"><span class="overline-title">meeting Date</span></th>
+<!-- <th class="tb-col"><span class="overline-title">meeting Time</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">meetingNote</span></th>
 <th class="tb-col"><span class="overline-title">selectCompany</span></th>
 <th class="tb-col"><span class="overline-title">selectDepartment</span></th>
@@ -50,7 +50,7 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->meetingTitle }}</td>
 <td class="tb-col">{{ $item->meetingDate }}</td>
-<td class="tb-col">{{ $item->meetingTime }}</td>
+<!-- <td class="tb-col">{{ $item->meetingTime }}</td> -->
 <!-- <td class="tb-col">{{ $item->meetingNote }}</td>
 <td class="tb-col">{{ $item->selectCompany }}</td>
 <td class="tb-col">{{ $item->selectDepartment }}</td>

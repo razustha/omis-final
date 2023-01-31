@@ -1,12 +1,12 @@
 <div class="offcanvas-header border-bottom border-light">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Taskreports</h5><button type="button" class="btn-close"
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Task Reports</h5><button type="button" class="btn-close"
             data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" data-simplebar>
         <div class="nk-block-head-content w-100">
             <div class="d-flex justify-content-between pb-4">
     
-                <h2>Taskreports Details</h2>
+                <h2>Task Reports Details</h2>
                 <button class="btn btn-primary print_pdf">Print PDF</button>
             </div>
             <div class="card w-100">
@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['employee_id']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>Employee Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->employee_id}}</span></p><p><b>TaskType :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskType}}</span></p><p><b>TaskName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskName}}</span></p><p><b>TastStartDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->tastStartDate}}</span></p><p><b>TaskEndDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskEndDate}}</span></p><p><b>TaskOverdueDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskOverdueDate}}</span></p><p><b>TaskReportsBy :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskReportsBy}}</span></p><p><b>TaotalDaysToComplete :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taotalDaysToComplete}}</span></p><p><b>TaskAssignBy :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskAssignBy}}</span></p><p><b>IssueDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->issueDate}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Employee Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->employee_id}}</span></p><p><b>Task Type :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskType}}</span></p><p><b>Task Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskName}}</span></p><p><b>Task Start Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->tastStartDate}}</span></p><p><b>Task End Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskEndDate}}</span></p><p><b>Task Overdue Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskOverdueDate}}</span></p><p><b>Task Reports By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskReportsBy}}</span></p><p><b>Total Days To Complete :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taotalDaysToComplete}}</span></p><p><b>Task Assign By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->taskAssignBy}}</span></p><p><b>Issue Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->issueDate}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

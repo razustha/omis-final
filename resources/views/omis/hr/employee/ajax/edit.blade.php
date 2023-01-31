@@ -93,7 +93,7 @@
                                                 'departmentName',
                                                 '',
                                                 $data,
-                                                'Deapartment Name',
+                                                'Deapartment ',
                                             ) !!}
                                         </div>
                                         <div class="col-lg-4">
@@ -103,7 +103,7 @@
                                                 'designationName',
                                                 '',
                                                 $data,
-                                                'Designation Name',
+                                                'Designation ',
                                             ) !!}
                                         </div>
                                         <div class="col-lg-4">

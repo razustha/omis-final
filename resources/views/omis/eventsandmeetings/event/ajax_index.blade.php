@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">eventTitle</span></th>
+<th class="tb-col"><span class="overline-title">event Title</span></th>
 <!-- <th class="tb-col"><span class="overline-title">eventDate</span></th>
 <th class="tb-col"><span class="overline-title">eventTime</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th> -->

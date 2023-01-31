@@ -390,7 +390,7 @@ use App\Models\Setting\Setting;
                  */
                 function getSelectForForeignColumn($tableName = "", $pk, $name, $class = "", $data = null, $display = null)
                 {
-                    $systems =  DB::table($tableName)->orderBy($pk, 'asc')->pluck($name, $pk);
+                    $systems =  DB::table($tableName)->where('status','<>',-1)->orderBy($pk, 'asc')->pluck($name, $pk);
                     if (!$data) {
                         customCreateSelect($pk, $pk, null, $display ?? $name, $systems, null);
                     } else {

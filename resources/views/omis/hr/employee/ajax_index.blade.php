@@ -50,11 +50,17 @@
                                             <td class="tb-col">{{ $item->employee_id }}</td>
                                             <td class="tb-col">
                                                 <div class="media-group">
-                                                    <div class="media-text"> <a href="{{ route('hr.employee.show', [$item->employee_id]) }}"> 
-                                                        {{ $item->firstName }} {{ $item->middleName }}
-                                                        {{ $item->lastName }} </a><span class="small text">{{ $item->emailAddress }}</span></div>
+                                                    <div class="media media-md media-middle media-circle">
+                                                        <img src="{{ $item->profilePhoto }}"
+                                                        class="img-thumbnail" alt="">
+                                                    </div>
+                                                    <div class="media-text"> <a
+                                                            href="{{ route('hr.employee.show', [$item->employee_id]) }}">
+                                                            {{ $item->firstName }} {{ $item->middleName }}
+                                                            {{ $item->lastName }} </a><span
+                                                            class="small text">{{ $item->emailAddress }}</span></div>
                                                 </div>
-                                               </td>
+                                            </td>
                                             <td class="tb-col">{{ $item->phoneNumber }}</td>
                                             <td class="tb-col">{{ $item->department_id }}</td>
                                             <td class="tb-col">{{ $item->designation_id }}</td>
@@ -64,7 +70,8 @@
                                                     {{-- <li>
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'hr.employee.show', $item->employee_id) !!}
                                                     </li> --}}
-                                                    <li>{{ actionButton("View Employee","<em class=\"icon ni ni-eye\"></em>", route('hr.employee.show', [$item->employee_id]), "btn-showModal") }}</li>
+                                                    <li>{{ actionButton('View Employee', "<em class=\"icon ni ni-eye\"></em>", route('hr.employee.show', [$item->employee_id]), 'btn-showModal') }}
+                                                    </li>
                                                     <li>
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'hr.employee.edit', $item->employee_id) !!}
                                                     </li>
@@ -128,8 +135,4 @@
         </div>
     </div>
     </div>
-
 @endsection
-
-
-
