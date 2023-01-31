@@ -1,12 +1,12 @@
 <div class="offcanvas-header border-bottom border-light">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Financereports</h5><button type="button" class="btn-close"
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Finance Reports</h5><button type="button" class="btn-close"
             data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" data-simplebar>
         <div class="nk-block-head-content w-100">
             <div class="d-flex justify-content-between pb-4">
     
-                <h2>Financereports Details</h2>
+                <h2>Finance Reports Details</h2>
                 <button class="btn btn-primary print_pdf">Print PDF</button>
             </div>
             <div class="card w-100">
@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['applicants_id']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>Applicants Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicants_id}}</span></p><p><b>Company Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->company_id}}</span></p><p><b>JobRole :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->jobRole}}</span></p><p><b>ApplicantsDepartment :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicantsDepartment}}</span></p><p><b>ReportBy :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->reportBy}}</span></p><p><b>IssueDate :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->issueDate}}</span></p><p><b>ReportDescription :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->reportDescription}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Applicants Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicants_id}}</span></p><p><b>Company Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->company_id}}</span></p><p><b>Job Role :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->jobRole}}</span></p><p><b>Applicants Department :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicantsDepartment}}</span></p><p><b>Report By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->reportBy}}</span></p><p><b>Issue Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->issueDate}}</span></p><p><b>Report Description :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->reportDescription}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

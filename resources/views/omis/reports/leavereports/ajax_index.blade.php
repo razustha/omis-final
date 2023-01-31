@@ -31,11 +31,11 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">applicant_id</span></th>
-<th class="tb-col"><span class="overline-title">leaveReason</span></th>
-<th class="tb-col"><span class="overline-title">leaveApprovedBy</span></th>
+<th class="tb-col"><span class="overline-title">leave Reason</span></th>
+<!-- <th class="tb-col"><span class="overline-title">leaveApprovedBy</span></th>
 <th class="tb-col"><span class="overline-title">totalLeaveDays</span></th>
 <th class="tb-col"><span class="overline-title">leaveDate</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+<th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -49,10 +49,10 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->applicant_id }}</td>
 <td class="tb-col">{{ $item->leaveReason }}</td>
-<td class="tb-col">{{ $item->leaveApprovedBy }}</td>
+<!-- <td class="tb-col">{{ $item->leaveApprovedBy }}</td>
 <td class="tb-col">{{ $item->totalLeaveDays }}</td>
 <td class="tb-col">{{ $item->leaveDate }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+<td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
@@ -73,7 +73,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Leavereports</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Leave Reports</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -92,7 +92,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Leavereports<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Leave Reports<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

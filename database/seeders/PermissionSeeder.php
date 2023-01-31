@@ -48,13 +48,17 @@ class PermissionSeeder extends Seeder
                 ],
             ],
 
+            'Hr' => [
+
+            ]
+
         ];
 
         $moduleID = 1;
         foreach ($permissions as $mkey => $modules) {
             foreach ($modules as $gkey => $models) {
                 foreach ($models as $model) {
-                    $slug = slugify($model, "");
+                    $slug = slugify($model);
                     $permissionName = ucwords(str_replace(".", " ", "$model"));
                     $pemArr = [
                         'name' => $permissionName,
