@@ -12,19 +12,47 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
+                                <h2 class="nk-block-title">Events and Holiday</h1>
 
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div id='calendar'></div>
+                            </div>
+                            <div class="nk-block-head-content">
+                                <ul class="d-flex">
+                                    {!! createCanvasButton('customBtnAdd', '', 'Manage Holiday', 'hr.mangeholiday.create') !!}
+                                </ul>
+                            </div>
+                            <div class="row mt-3">
 
-                                                <div style='clear:both'></div>
-                                            </div>
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div id='calendar'></div>
+
+                                            <div style='clear:both'></div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Add Modal --}}
+            <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
+                <div class="offcanvas-header border-bottom border-light">
+                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Manage Holiday</h5><button
+                        type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" data-simplebar>
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="alert alert-danger print-error-msg" style="display:none">
+                                <ul></ul>
+                            </div>
+                            <div id="addConvasByAjax">
                             </div>
                         </div>
                     </div>
@@ -35,6 +63,7 @@
     @push('js')
     <script src="{{asset('assets/js/moment.js')}}"></script>
     <script src="{{asset('assets/js/fullcalendar.min.js')}}"></script>
+
     <script>
         $(document).ready(function () {
             $.ajaxSetup({
@@ -45,11 +74,6 @@
 
             var calendar = $('#calendar').fullCalendar({
                 editable:false,
-                header:{
-                    left:'prev,next today',
-                    center:'title',
-                    right:'month'
-                },
                 events: {
                     url: '{{ route('fetchcalendardata') }}',
                     type: 'GET',
