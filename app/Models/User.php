@@ -12,11 +12,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 use Carbon\Carbon;
+use App\Permissions\HasPermissionsTrait;
 
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable,HasPermissionsTrait;
 
     /**
      * The attributes that are mass assignable.
