@@ -1,5 +1,5 @@
 @include('employee/partials/headerincludes')
-
+@section('content')
 <body class="nk-body" data-sidebar-collapse="lg" data-navbar-collapse="lg">
     <div class="nk-app-root">
         <div class="nk-main">
@@ -60,17 +60,18 @@
                                             <div class="card-body py-2 flex-grow-0">
                                                 <div class="card-title-group">
                                                     <div class="card-title">
+                                                        
                                                     <h2 class="title mb-4 pt-0">Profile Overview</h2>
                                                 
                                                                 <div class="nk-block-head-content">
                                                             <div class="d-flex flex-column flex-md-row align-items-md-center">
-                                                                 <div class="media media-huge media-circle"><img src="/storage/photos/1/unnamed.jpg" class="img-thumbnail">
+                                                                 <div class="media media-huge media-circle"><img src="{{ auth()->user()->employee->profilePhoto }}" class="img-thumbnail">
                                                              </div>
                                                                 <div   div class="mt-3 mt-md-0 ms-md-3">
-                                                             <h3 class="title mb-1">Raju Shrestha</h3><span class="small">Owner & Founder</span>
+                                                             <h3 class="title mb-1">{{ auth()->user()->name }}</h3><span class="small">{{ auth()->user()->user_type }}</span>
                                                                 <ul class="nk-list-option pt-1">
-                                                                    <li><span class="small">California, United States</span>&nbsp;<em class="icon ni ni-map-pin"></em></li><br>
-                                                            <li><span class="small">Softnio</span>&nbsp;<em class="icon ni ni-building"></em></li>
+                                                                    <br>
+                                                           
                                                                      </ul>
                                                                   </div>
                                                             </div>

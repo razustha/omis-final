@@ -4,8 +4,8 @@
         use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
         use App\Models\Master\State;
-use App\Models\OrganizationSettings\OrganizationSettings;
-use App\Models\Setting\Setting;
+        use App\Models\OrganizationSettings\OrganizationSettings;
+        use App\Models\Setting\Setting;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Schema;
         use App\Models\Settings\UserSettings;
@@ -256,17 +256,17 @@ use App\Models\Setting\Setting;
                 {
                 ?>
 
-                        <?php if($iconClass == "edit") {
-                            ?>
-                            <button class="btn btn-color-primary btn-hover-primary btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
-                        <?php
-                        } else {
-                            ?>
-                            <button class="btn btn-color-success btn-hover-success btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
+                    <?php if ($iconClass == "edit") {
+                    ?>
+                        <button class="btn btn-color-primary btn-hover-primary btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
+                    <?php
+                    } else {
+                    ?>
+                        <button class="btn btn-color-success btn-hover-success btn-icon btn-soft <?php echo $class; ?>" name="<?php echo $name; ?>" data-route="<?php echo route($route, $id); ?>" data-bs-toggle="offcanvas" data-bs-target="#<?php echo $dataTarget; ?>"> <em class="icon ni ni-<?php echo $iconClass; ?>"></em></button>
 
-                        <?php
-                        }
-                        ?>
+                    <?php
+                    }
+                    ?>
 
 
                 <?php
@@ -300,7 +300,7 @@ use App\Models\Setting\Setting;
 
 
                 <?php
-                function createTextArea($name, $class = "", $id = "", $row = "", $display="")
+                function createTextArea($name, $class = "", $id = "", $row = "", $display = "")
                 {
                 ?>
                     <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
@@ -341,7 +341,7 @@ use App\Models\Setting\Setting;
 
                 function master_updateColumn($tableName, $data, $id)
                 {
-                    $TablePK=mid($tableName,4)."_id";
+                    $TablePK = mid($tableName, 4) . "_id";
                     $allcolumns = Schema::getColumnListing($tableName);
 
                     $datakey = array_keys($data);
@@ -390,7 +390,7 @@ use App\Models\Setting\Setting;
                  */
                 function getSelectForForeignColumn($tableName = "", $pk, $name, $class = "", $data = null, $display = null)
                 {
-                    $systems =  DB::table($tableName)->where('status','<>',-1)->orderBy($pk, 'asc')->pluck($name, $pk);
+                    $systems =  DB::table($tableName)->where('status', '<>', -1)->orderBy($pk, 'asc')->pluck($name, $pk);
                     if (!$data) {
                         customCreateSelect($pk, $pk, null, $display ?? $name, $systems, null);
                     } else {

@@ -6,42 +6,45 @@
                 <div class="nk-content-body">
                     <div class="g-gs">
                         <div class="col-xxl-12">
-                                        <div class="nk-block-head-between flex-wrap gap ">
-                                            <div class="nk-block-head-content">
-                                                <h2 class="nk-block-title py-4">Welcome, {{ auth()->user()->name }}</h2>
-                                            </div>
-                                            <div class="d-flex flex-column flex-sm-row-reverse align-items-sm-center justify-content-sm-between">
-                                                <div class="mb-0 mt-4 mt-sm-0">
+                            <div class="nk-block-head-between flex-wrap gap ">
+                                <div class="nk-block-head-content">
+                                    <h2 class="nk-block-title py-4">Welcome, {{ auth()->user()->name }}</h2>
+                                </div>
+                                <div
+                                    class="d-flex flex-column flex-sm-row-reverse align-items-sm-center justify-content-sm-between">
+                                    <div class="mb-0 mt-4 mt-sm-0">
 
-                                                    @if(empty(auth()->user()->todayAttendance()))
-                                                    <button class="btn btn-primary btn-checkIn">
-                                                        + Clock In
+                                        @if (empty(auth()->user()->todayAttendance()
+                                            ))
+                                            <button class="btn btn-primary btn-checkIn">
+                                                + Clock In
+                                            </button>
+                                        @else
+                                            <form
+                                                action="{{ route('hr.attendence.checkOut',auth()->user()->todayAttendance()->attendence_id) }}"
+                                                method="POST">
+                                                @csrf
+                                                <div class="form-group ">
+                                                    <input type="hidden" value="{{ auth()->user()->id }}">
+                                                    <button type="submit" class="btn btn-danger btn-checkOut">
+                                                        - Clock Out
                                                     </button>
-                                                    @else
-                                                    <form action="{{route('hr.attendence.checkOut',auth()->user()->todayAttendance()->attendence_id)}}" method="POST">
-                                                        @csrf
-                                                        <div class="form-group ">
-                                                            <input type="hidden" value="{{auth()->user()->id}}">
-                                                            <button type="submit" class="btn btn-danger btn-checkOut">
-                                                                - Clock Out
-                                                            </button>
-                                                        </div>
-                                                    </form>
-
-                                                    @endif
                                                 </div>
-                                                <div class="p-2">
-                                                   <div class="d-flex align-items-center">
-                                                       <div class="h4 mb-0">12:00 AM</div>
-                                                   </div>
-                                                   <div class="smaller">Tuesday</div>
-                                                
-                                               </div>
-
-                                            </div>
-                                         
-                                        </div>
+                                            </form>
+                                        @endif
                                     </div>
+                                    <div class="p-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="h4 mb-0">12:00 AM</div>
+                                        </div>
+                                        <div class="smaller">Tuesday</div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                     <div class="row g-gs">
                         <div class="col-sm-6 col-xl-6 col-xxl-3">
@@ -49,26 +52,26 @@
                             <div class="card h-100">
                                 <div class="card-body">
                                     <div class="card-title-group align-items-start row">
-                                    <div class="col-sm-7 col-xl-7 col-xxl-6">
-                                        <div class="card-title">
-                                            <h4 class="title">Total Clients</h4>
+                                        <div class="col-sm-7 col-xl-7 col-xxl-6">
+                                            <div class="card-title">
+                                                <h4 class="title">Total Clients</h4>
+                                            </div>
+                                            <div class="mt-2 ">
+                                                <div class="amount h1">2,765</div>
+
+                                            </div>
                                         </div>
-                                        <div class="mt-2 ">
-                                            <div class="amount h1">2,765</div>
-                                          
+                                        <div class="col-sm-6 col-xl-6 col-xxl-3">
+                                            <div class="media media-middle media-circle media-sm text-bg-primary-soft">
+                                                <em class="icon icon-md ni ni-bar-chart-fill"></em>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-xl-6 col-xxl-3">
-                                        <div
-                                        class="media media-middle media-circle media-sm text-bg-primary-soft">
-                                        <em class="icon icon-md ni ni-bar-chart-fill"></em></div>
-                                </div>
-                                    </div>
-                                    
-                                       
-                                      
-                                   
-                                  
+
+
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -79,15 +82,15 @@
                                         <div class="card-title">
                                             <h4 class="title">Total Employees</h4>
                                         </div>
-                                        <div
-                                            class="media media-middle media-circle media-sm text-bg-success-soft">
-                                            <em class="icon icon-md ni ni-user-alt-fill"></em></div>
+                                        <div class="media media-middle media-circle media-sm text-bg-success-soft">
+                                            <em class="icon icon-md ni ni-user-alt-fill"></em>
+                                        </div>
                                     </div>
                                     <div class="mt-2 ">
                                         <div class="amount h1">250</div>
-                                      
+
                                     </div>
-                                 
+
                                 </div>
                             </div>
                         </div>
@@ -98,15 +101,15 @@
                                         <div class="card-title">
                                             <h4 class="title">Today Attendance</h4>
                                         </div>
-                                        <div
-                                            class="media media-middle media-circle media-sm text-bg-info-soft">
-                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                        <div class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em>
+                                        </div>
                                     </div>
                                     <div class="mt-2">
                                         <div class="amount h1">2,153</div>
-                                     
+
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -117,15 +120,15 @@
                                         <div class="card-title">
                                             <h4 class="title">Today Leaves</h4>
                                         </div>
-                                        <div
-                                            class="media media-middle media-circle media-sm text-bg-info-soft">
-                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                        <div class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em>
+                                        </div>
                                     </div>
                                     <div class="mt-2">
                                         <div class="amount h1">2,153</div>
-                                     
+
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -136,15 +139,15 @@
                                         <div class="card-title">
                                             <h4 class="title">Total Projects</h4>
                                         </div>
-                                        <div
-                                            class="media media-middle media-circle media-sm text-bg-warning-soft">
-                                            <em class="icon icon-md ni ni-bar-chart-fill"></em></div>
+                                        <div class="media media-middle media-circle media-sm text-bg-warning-soft">
+                                            <em class="icon icon-md ni ni-bar-chart-fill"></em>
+                                        </div>
                                     </div>
                                     <div class="mt-2 ">
                                         <div class="amount h1">1,853</div>
-                                      
+
                                     </div>
-                              
+
                                 </div>
                             </div>
                         </div>
@@ -155,15 +158,15 @@
                                         <div class="card-title">
                                             <h4 class="title">Total Tasks</h4>
                                         </div>
-                                        <div
-                                            class="media media-middle media-circle media-sm text-bg-info-soft">
-                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                        <div class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em>
+                                        </div>
                                     </div>
                                     <div class="mt-2">
                                         <div class="amount h1">2,153</div>
-                                     
+
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -174,15 +177,15 @@
                                         <div class="card-title">
                                             <h4 class="title">Pending Tasks</h4>
                                         </div>
-                                        <div
-                                            class="media media-middle media-circle media-sm text-bg-info-soft">
-                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                        <div class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em>
+                                        </div>
                                     </div>
                                     <div class="mt-2">
                                         <div class="amount h1">2,153</div>
-                                     
+
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -193,20 +196,20 @@
                                         <div class="card-title">
                                             <h4 class="title">Total Leads</h4>
                                         </div>
-                                        <div
-                                            class="media media-middle media-circle media-sm text-bg-info-soft">
-                                            <em class="icon icon-md ni ni-tag-fill"></em></div>
+                                        <div class="media media-middle media-circle media-sm text-bg-info-soft">
+                                            <em class="icon icon-md ni ni-tag-fill"></em>
+                                        </div>
                                     </div>
                                     <div class="mt-2">
                                         <div class="amount h1">2,153</div>
-                                     
+
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
-                      
-                     
+
+
                         <div class="col-xxl-6">
                             <div class="card">
                                 <div class="card-body flex-grow-0 py-2">
@@ -241,38 +244,39 @@
                                     <table class="table table-middle mb-0">
                                         <thead class="table-light table-head-sm">
                                             <tr>
-                                                <th class="tb-col"><span
-                                                        class="overline-title">Name</span></th>
+                                                <th class="tb-col"><span class="overline-title">Name</span></th>
                                                 <th class="tb-col tb-col-end"><span
                                                         class="overline-title">Department</span></th>
                                                 <th class="tb-col tb-col-end"><span
                                                         class="overline-title">Designation</span></th>
-                                                <th class="tb-col tb-col-end"><span
-                                                        class="overline-title">Status</span></th>
-                                                                                            </tr>
+                                                <th class="tb-col tb-col-end"><span class="overline-title">Status</span>
+                                                </th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ( $employees as $employee )
-                                            {{-- {{ dd($employee) }} --}}
-                                            <tr>
-                                                <td class="tb-col">
-                                                    <div class="media-group">
-                                                    
-                                                        <div class="media-text"><span
-                                                                class="title">{{  $employee->firstName }} {{  $employee->middleName }} {{  $employee->lastName }}</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="tb-col tb-col-end"><span
-                                                        class="small">{{  $employee->department_id }} </span></td>
-                                                <td class="tb-col tb-col-end"><span
-                                                        class="change up small">{{  $employee->designation_id }}</span></td>
-                                                <td class="tb-col tb-col-end"><span class="small">267</span>
-                                                </td>
-                                               
-                                            </tr>
-                                            
+                                            @foreach ($employees as $employee)
+                                                {{-- {{ dd($employee) }} --}}
+                                                <tr>
+                                                    <td class="tb-col">
+                                                        <div class="media-group">
+
+                                                            <div class="media-text"><span
+                                                                    class="title">{{ $employee->firstName }}
+                                                                    {{ $employee->middleName }}
+                                                                    {{ $employee->lastName }}</span></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="tb-col tb-col-end"><span
+                                                            class="small">{{ $employee->department_id }} </span></td>
+                                                    <td class="tb-col tb-col-end"><span
+                                                            class="change up small">{{ $employee->designation_id }}</span>
+                                                    </td>
+                                                    <td class="tb-col tb-col-end"><span class="small">267</span>
+                                                    </td>
+
+                                                </tr>
                                             @endforeach
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -296,15 +300,14 @@
                                             <tr>
                                                 <th class="tb-col"><span class="overline-title">items</span>
                                                 </th>
-                                                
+
                                                 <th class="tb-col tb-col-center tb-col-sm"><span
                                                         class="overline-title">progress</span></th>
                                                 <th class="tb-col tb-col-center  tb-col-xxl"><span
                                                         class="overline-title">asign</span></th>
                                                 <th class="tb-col tb-col-center"><span
                                                         class="overline-title">status</span></th>
-                                                <th class="tb-col tb-col-center"><span
-                                                        class="overline-title"><span
+                                                <th class="tb-col tb-col-center"><span class="overline-title"><span
                                                             class="d-none d-sm-inline-blcok">due</span>
                                                         date</span></th>
                                             </tr>
@@ -313,22 +316,22 @@
                                             <tr>
                                                 <td class="tb-col">
                                                     <div class="media-group">
-                                                        <div
-                                                            class="media media-md media-middle media-circle">
-                                                            <img src="assets/images/product/a.jpg" alt=""></div>
-                                                        <div class="media-text"><a href="#"
-                                                                class="title">Create Wireframe</a><span
-                                                                class="text smaller">Esther Howard</span>
+                                                        <div class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/a.jpg" alt="">
+                                                        </div>
+                                                        <div class="media-text"><a href="#" class="title">Create
+                                                                Wireframe</a><span class="text smaller">Esther
+                                                                Howard</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                              
+
                                                 <td class="tb-col tb-col-center tb-col-sm">
                                                     <div class="d-flex align-items-center"><span
                                                             class="small me-1">63%</span>
                                                         <div class="progress progress-sm w-100">
-                                                            <div class="progress-bar bg-success"
-                                                                data-progress="63%"></div>
+                                                            <div class="progress-bar bg-success" data-progress="63%">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -348,8 +351,8 @@
                                                                 alt=""></div>
                                                     </div>
                                                 </td>
-                                                <td class="tb-col tb-col-center"><span
-                                                        class="badge text-bg-info-soft">In progress</span>
+                                                <td class="tb-col tb-col-center"><span class="badge text-bg-info-soft">In
+                                                        progress</span>
                                                 </td>
                                                 <td class="tb-col tb-col-center"><span class="small">07 Sep
                                                         2022</span></td>
@@ -357,22 +360,21 @@
                                             <tr>
                                                 <td class="tb-col">
                                                     <div class="media-group">
-                                                        <div
-                                                            class="media media-md media-middle media-circle">
-                                                            <img src="assets/images/product/b.jpg" alt=""></div>
-                                                        <div class="media-text"><a href="#"
-                                                                class="title">Divine Opulence</a><span
-                                                                class="text smaller">Jenny Wilson</span>
+                                                        <div class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/b.jpg" alt="">
+                                                        </div>
+                                                        <div class="media-text"><a href="#" class="title">Divine
+                                                                Opulence</a><span class="text smaller">Jenny Wilson</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                          
+
                                                 <td class="tb-col tb-col-center tb-col-sm">
                                                     <div class="d-flex align-items-center"><span
                                                             class="small me-1">100%</span>
                                                         <div class="progress progress-sm w-100">
-                                                            <div class="progress-bar bg-success"
-                                                                data-progress="100%"></div>
+                                                            <div class="progress-bar bg-success" data-progress="100%">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -380,16 +382,16 @@
                                                     <div class="media-group media-group-overlap">
                                                         <div class="media media-xs media-circle media-border border-white"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Alex Smith"><img
-                                                                src="assets/images/avatar/a.jpg" alt=""></div>
+                                                            title="Alex Smith"><img src="assets/images/avatar/a.jpg"
+                                                                alt=""></div>
                                                         <div class="media media-xs media-circle media-border border-white"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Alex Smith"><img
-                                                                src="assets/images/avatar/b.jpg" alt=""></div>
+                                                            title="Alex Smith"><img src="assets/images/avatar/b.jpg"
+                                                                alt=""></div>
                                                         <div class="media media-xs media-circle media-border border-white"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Alex Smith"><img
-                                                                src="assets/images/avatar/c.jpg" alt=""></div>
+                                                            title="Alex Smith"><img src="assets/images/avatar/c.jpg"
+                                                                alt=""></div>
                                                     </div>
                                                 </td>
                                                 <td class="tb-col tb-col-center"><span
@@ -401,22 +403,21 @@
                                             <tr>
                                                 <td class="tb-col">
                                                     <div class="media-group">
-                                                        <div
-                                                            class="media media-md media-middle media-circle">
-                                                            <img src="assets/images/product/c.jpg" alt=""></div>
-                                                        <div class="media-text"><a href="#"
-                                                                class="title">Charto CRM</a><span
-                                                                class="text smaller">Cody Fisher</span>
+                                                        <div class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/c.jpg" alt="">
+                                                        </div>
+                                                        <div class="media-text"><a href="#" class="title">Charto
+                                                                CRM</a><span class="text smaller">Cody Fisher</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                            
+
                                                 <td class="tb-col tb-col-center tb-col-sm">
                                                     <div class="d-flex align-items-center"><span
                                                             class="small me-1">30%</span>
                                                         <div class="progress progress-sm w-100">
-                                                            <div class="progress-bar bg-success"
-                                                                data-progress="30%"></div>
+                                                            <div class="progress-bar bg-success" data-progress="30%">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -424,16 +425,16 @@
                                                     <div class="media-group media-group-overlap">
                                                         <div class="media media-xs media-circle media-border border-white"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Alex Smith"><img
-                                                                src="assets/images/avatar/a.jpg" alt=""></div>
+                                                            title="Alex Smith"><img src="assets/images/avatar/a.jpg"
+                                                                alt=""></div>
                                                         <div class="media media-xs media-circle media-border border-white"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Alex Smith"><img
-                                                                src="assets/images/avatar/b.jpg" alt=""></div>
+                                                            title="Alex Smith"><img src="assets/images/avatar/b.jpg"
+                                                                alt=""></div>
                                                     </div>
                                                 </td>
-                                                <td class="tb-col tb-col-center"><span
-                                                        class="badge text-bg-info-soft">In progress</span>
+                                                <td class="tb-col tb-col-center"><span class="badge text-bg-info-soft">In
+                                                        progress</span>
                                                 </td>
                                                 <td class="tb-col tb-col-center"><span class="small">18 Oct
                                                         2022</span></td>
@@ -441,22 +442,21 @@
                                             <tr>
                                                 <td class="tb-col">
                                                     <div class="media-group">
-                                                        <div
-                                                            class="media media-md media-middle media-circle">
-                                                            <img src="assets/images/product/d.jpg" alt=""></div>
-                                                        <div class="media-text"><a href="#"
-                                                                class="title">Mountain Trip Kit </a><span
-                                                                class="text smaller">Savannah Nguyen</span>
+                                                        <div class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/d.jpg" alt="">
+                                                        </div>
+                                                        <div class="media-text"><a href="#" class="title">Mountain
+                                                                Trip Kit </a><span class="text smaller">Savannah
+                                                                Nguyen</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                               
+
                                                 <td class="tb-col tb-col-center tb-col-sm">
                                                     <div class="d-flex align-items-center"><span
                                                             class="small me-1">0%</span>
                                                         <div class="progress progress-sm w-100">
-                                                            <div class="progress-bar bg-success"
-                                                                data-progress="0%"></div>
+                                                            <div class="progress-bar bg-success" data-progress="0%"></div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -481,22 +481,22 @@
                                             <tr>
                                                 <td class="tb-col">
                                                     <div class="media-group">
-                                                        <div
-                                                            class="media media-md media-middle media-circle">
-                                                            <img src="assets/images/product/e.jpg" alt=""></div>
-                                                        <div class="media-text"><a href="#"
-                                                                class="title">Chat Application</a><span
-                                                                class="text smaller">Jane Cooper</span>
+                                                        <div class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/e.jpg" alt="">
+                                                        </div>
+                                                        <div class="media-text"><a href="#" class="title">Chat
+                                                                Application</a><span class="text smaller">Jane
+                                                                Cooper</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                             
+
                                                 <td class="tb-col tb-col-center tb-col-sm">
                                                     <div class="d-flex align-items-center"><span
                                                             class="small me-1">80%</span>
                                                         <div class="progress progress-sm w-100">
-                                                            <div class="progress-bar bg-success"
-                                                                data-progress="80%"></div>
+                                                            <div class="progress-bar bg-success" data-progress="80%">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -512,12 +512,12 @@
                                                                 alt=""></div>
                                                         <div class="media media-xs media-circle media-border border-white"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Alex Smith"><img
-                                                                src="assets/images/avatar/c.jpg" alt=""></div>
+                                                            title="Alex Smith"><img src="assets/images/avatar/c.jpg"
+                                                                alt=""></div>
                                                     </div>
                                                 </td>
-                                                <td class="tb-col tb-col-center"><span
-                                                        class="badge text-bg-info-soft">In progress</span>
+                                                <td class="tb-col tb-col-center"><span class="badge text-bg-info-soft">In
+                                                        progress</span>
                                                 </td>
                                                 <td class="tb-col tb-col-center"><span class="small">07 Sep
                                                         2022</span></td>
@@ -525,22 +525,21 @@
                                             <tr>
                                                 <td class="tb-col">
                                                     <div class="media-group">
-                                                        <div
-                                                            class="media media-md media-middle media-circle">
-                                                            <img src="assets/images/product/a.jpg" alt=""></div>
-                                                        <div class="media-text"><a href="#"
-                                                                class="title">Mountain Trip Kit </a><span
-                                                                class="text smaller">Jane Cooper</span>
+                                                        <div class="media media-md media-middle media-circle">
+                                                            <img src="assets/images/product/a.jpg" alt="">
+                                                        </div>
+                                                        <div class="media-text"><a href="#" class="title">Mountain
+                                                                Trip Kit </a><span class="text smaller">Jane Cooper</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                               
+
                                                 <td class="tb-col tb-col-center tb-col-sm">
                                                     <div class="d-flex align-items-center"><span
                                                             class="small me-1">36%</span>
                                                         <div class="progress progress-sm w-100">
-                                                            <div class="progress-bar bg-success"
-                                                                data-progress="36%"></div>
+                                                            <div class="progress-bar bg-success" data-progress="36%">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -548,16 +547,16 @@
                                                     <div class="media-group media-group-overlap">
                                                         <div class="media media-xs media-circle media-border border-white"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Jane Smith"><img
-                                                                src="assets/images/avatar/a.jpg" alt=""></div>
+                                                            title="Jane Smith"><img src="assets/images/avatar/a.jpg"
+                                                                alt=""></div>
                                                         <div class="media media-xs media-circle media-border border-white"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Alex Smith"><img
-                                                                src="assets/images/avatar/b.jpg" alt=""></div>
+                                                            title="Alex Smith"><img src="assets/images/avatar/b.jpg"
+                                                                alt=""></div>
                                                     </div>
                                                 </td>
-                                                <td class="tb-col tb-col-center"><span
-                                                        class="badge text-bg-info-soft">In progress</span>
+                                                <td class="tb-col tb-col-center"><span class="badge text-bg-info-soft">In
+                                                        progress</span>
                                                 </td>
                                                 <td class="tb-col tb-col-center "><span class="small">25 Jul
                                                         2022</span></td>
@@ -567,7 +566,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -587,10 +586,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('hr.attendence.checkIn')}}" method="POST">
+                    <form action="{{ route('hr.attendence.checkIn') }}" method="POST">
                         @csrf
                         <div class="form-group row">
-                            <input type="hidden" value="{{auth()->user()->id}}">
+                            <input type="hidden" value="{{ auth()->user()->id }}">
                             <div class="col-md-12">
                                 {{ createText('location', 'location', 'location') }}
                             </div>
@@ -601,7 +600,7 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <?php createButton("btn-primary","","Save"); ?>
+                                <?php createButton('btn-primary', '', 'Save'); ?>
                             </div>
                         </div>
                     </form>
@@ -609,17 +608,13 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
-
 @endsection
 
 @section('js')
-
     <script type="text/javascript">
-
         $(document).on('click', ".btn-checkIn", function() {
             $('.new_CheckIn').modal('show');
 
         })
     </script>
 @endsection
-

@@ -46,11 +46,24 @@ class PermissionSeeder extends Seeder
                     'master.district.update',
                     'master.district.destory',
                 ],
+                'employmentsizecategory' => [
+                    'master.employmentsizecategory.index',
+                    'master.employmentsizecategory.create',
+                    'master.employmentsizecategory.show',
+                    'master.employmentsizecategory.store',
+                    'master.employmentsizecategory.edit',
+                    'master.employmentsizecategory.update',
+                    'master.employmentsizecategory.destory',
+                ]
             ],
 
             'Hr' => [
+                'absentreason'=>[
 
-            ]
+
+                ]
+
+                ],
 
         ];
 

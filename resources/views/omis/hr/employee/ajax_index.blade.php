@@ -51,8 +51,8 @@
                                             <td class="tb-col">
                                                 <div class="media-group">
                                                     <div class="media media-md media-middle media-circle">
-                                                        <img src="{{ $item->profilePhoto }}"
-                                                        class="img-thumbnail" alt="">
+                                                        <img src="{{ $item->profilePhoto }}" class="img-thumbnail"
+                                                            alt="">
                                                     </div>
                                                     <div class="media-text"> <a
                                                             href="{{ route('hr.employee.show', [$item->employee_id]) }}">

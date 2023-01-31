@@ -31,9 +31,9 @@
                    <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span class="nk-menu-icon"><em class="icon ni ni-users"></em></span><span class="nk-menu-text">Work</span></a>
                         <ul class="nk-menu-sub">
 
-                            <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Projects</span></a></li>
+                            <li class="nk-menu-item"><a href="{{route('employee.projects.index')}}" class="nk-menu-link"><span class="nk-menu-text">Projects</span></a></li>
 
-                            <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Tasks</span></a></li>
+                            <li class="nk-menu-item"><a href="{{route('employee.tasks.index')}}" class="nk-menu-link"><span class="nk-menu-text">Tasks</span></a></li>
 
 
                             <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Time Logs</span></a></li>
@@ -42,7 +42,7 @@
 
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span class="nk-menu-icon"><em class="icon ni ni-coin-eur"></em></span><span class="nk-menu-text">Finance</span></a>
                         <ul class="nk-menu-sub">
-                            <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Expenses</span></a></li>
+                            <li class="nk-menu-item"><a href="{{route('employee.expenses.index')}}" class="nk-menu-link"><span class="nk-menu-text">Expenses</span></a></li>
                         </ul>
                     </li>
 
