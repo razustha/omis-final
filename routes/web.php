@@ -90,6 +90,7 @@ use App\Http\Controllers\Finance\CreditNotesController;
 use App\Http\Controllers\Finance\EstimatesController;
 use App\Http\Controllers\Finance\FinancePayController;
 use App\Http\Controllers\Crm\ClientsController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Eventsandmeetings\MeetingController;
 use App\Http\Controllers\Finance\CashrequestController;
 use App\Http\Controllers\Finance\ExpensesclaimController;
@@ -168,6 +169,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/calendar',[DashboardController::class, 'calendar'])->name('getcalendar');
+    Route::get('/full-calendar', [DashboardController::class,'getEvent'])->name('fetchcalendardata');
 
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();

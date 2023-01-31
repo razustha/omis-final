@@ -55,7 +55,7 @@
 </li>
 
 
-<li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-icon"><em
+<li class="nk-menu-item"><a href="{{route('getcalendar')}}" class="nk-menu-link"><span class="nk-menu-icon"><em
                 class="icon ni ni-calendar-alt"></em></span><span class="nk-menu-text">Calender</span></a>
 </li>
 
@@ -167,8 +167,8 @@
                     class="nk-menu-text">Job Interview</span></a></li>
         <li class="nk-menu-item"><a href="{{ Route('recruit.jobpost.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Job Post</span></a></li>
-       
-      
+
+
         <li class="nk-menu-item"><a href="{{route('recruit.jobapplication.index')}}" class="nk-menu-link"><span class="nk-menu-text">Job
                     Applications</span></a></li>
         <li class="nk-menu-item"><a href="{{route('recruit.interviewschedule.index')}}" class="nk-menu-link"><span class="nk-menu-text">Interview
@@ -177,7 +177,7 @@
                     Letter</span></a></li>
         <li class="nk-menu-item"><a href="{{route('recruit.experienceletter.index')}}" class="nk-menu-link"><span class="nk-menu-text">Experienced
                     Letter</span></a></li>
-        
+
         <li class="nk-menu-item"><a href="{{route('recruit.recuritreports.index')}}" class="nk-menu-link"><span
                     class="nk-menu-text">Reports</span></a></li>
     </ul>

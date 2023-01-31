@@ -3,6 +3,7 @@
         <tr>
         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">companyName_id</span></th>
+<th class="tb-col"><span class="overline-title">Title</span></th>
 <th class="tb-col"><span class="overline-title">eventStartDate</span></th>
 <th class="tb-col"><span class="overline-title">eventEndDate</span></th>
 <th class="tb-col"><span class="overline-title">holidayDescription</span></th>
@@ -19,6 +20,7 @@
         @foreach ($data as $item)
         <tr>
             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->companyName_id }}</td>
+<td class="tb-col">{{ $item->title }}</td>
 <td class="tb-col">{{ $item->eventStartDate }}</td>
 <td class="tb-col">{{ $item->eventEndDate }}</td>
 <td class="tb-col">{{ $item->holidayDescription }}</td>
