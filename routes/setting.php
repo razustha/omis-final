@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Setting\PermissionController;
+use App\Http\Controllers\Setting\RoleController;
 use App\Http\Controllers\Setting\UsersController;
 use App\Http\Controllers\Test\TestController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,18 @@ Route::middleware('auth')->prefix("setting")->group(function () {
         Route::get('/edit/{id}', [UsersController::class, 'edit'])->name('setting.permission.edit');
         Route::put('/update/{id}', [UsersController::class, 'update'])->name('setting.permission.update');
         Route::delete('/destroy/{id}', [UsersController::class, 'destroy'])->name('setting.permission.destroy');
+    });
+});
+
+Route::middleware('auth')->prefix("setting")->group(function () {
+    Route::prefix("role")->group(function () {
+        Route::get('/', [RoleController::class, 'index'])->name('setting.role.index');
+        Route::get('/create', [RoleController::class, 'create'])->name('setting.role.create');
+        Route::post('/store', [RoleController::class, 'store'])->name('setting.role.store');
+        Route::get('/show/{id}', [RoleController::class, 'show'])->name('setting.role.show');
+        Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('setting.role.edit');
+        Route::put('/update/{id}', [RoleController::class, 'update'])->name('setting.role.update');
+        Route::delete('/destroy/{id}', [RoleController::class, 'destroy'])->name('setting.role.destroy');
     });
 });
 
