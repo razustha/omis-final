@@ -1,5 +1,9 @@
+<li class="nk-menu-item"><a href="{{ route('master.module.index') }}"
+    class="nk-menu-link"><span class="nk-menu-text">Module </span></a>
+</li>
 <li class="nk-menu-item"><a href="{{ route('master.country.index') }}"
-    class="nk-menu-link"><span class="nk-menu-text">Countries </span></a></li>
+    class="nk-menu-link"><span class="nk-menu-text">Countries </span></a>
+</li>
 <li class="nk-menu-item"><a href="{{ route('master.state.index') }}"
     class="nk-menu-link"><span class="nk-menu-text">State </span></a></li>
 <li class="nk-menu-item"><a href="{{ route('master.district.index') }}"

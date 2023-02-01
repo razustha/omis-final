@@ -104,7 +104,7 @@ use App\Http\Controllers\Hr\EmployeementtimelineController;
 use App\Http\Controllers\Eventsandmeetings\EventController;
 use App\Http\Controllers\Hr\ShiftrosterController;
 use App\Http\Controllers\Hr\LatereasonsController;
-
+use App\Http\Controllers\Master\ModuleController;
 use App\Http\Controllers\Notice\AnnouncementController;
 use App\Http\Controllers\Notice\DetailsviewController;
 use App\Http\Controllers\Officemanagement\PurchaseserviceController;
@@ -136,7 +136,8 @@ use App\Models\User;
 // });
 
 Route::get('/usermanagement/permission', function () {
-    return view('omis\usermanagement\permission\index');})->name('usermanagement.index');
+    return view('omis\usermanagement\permission\index');
+})->name('usermanagement.index');
 
 
 Route::get('/', function () {
@@ -184,14 +185,14 @@ Route::get('/organization/dashboard', function () {
 // });
 
 Route::get('/dashboard', function () {
-    $employees = Employee::where('status','<>',-1)->orderBy('created_at','desc')->get();
-    return view('omis\welcome',compact('employees'));
+    $employees = Employee::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
+    return view('omis\welcome', compact('employees'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/calendar',[DashboardController::class, 'calendar'])->name('getcalendar');
-    Route::get('/full-calendar', [DashboardController::class,'getEvent'])->name('fetchcalendardata');
+    Route::get('/calendar', [DashboardController::class, 'calendar'])->name('getcalendar');
+    Route::get('/full-calendar', [DashboardController::class, 'getEvent'])->name('fetchcalendardata');
 
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
@@ -213,16 +214,15 @@ Route::middleware('auth')->group(function () {
     Route::prefix("master")->group(
         function () {
 
-            Route::prefix("test")->group(function () {
-                Route::get('/', [TestController::class, 'index'])->name('test.test.index');
-                Route::get('/create', [TestController::class, 'create'])->name('test.test.create');
-                Route::post('/store', [TestController::class, 'store'])->name('test.test.store');
-                Route::get('/show/{id}', [TestController::class, 'show'])->name('test.test.show');
-                Route::get('/edit/{id}', [TestController::class, 'edit'])->name('test.test.edit');
-                Route::put('/update/{id}', [TestController::class, 'update'])->name('test.test.update');
-                Route::delete('/destroy/{id}', [TestController::class, 'destroy'])->name('test.test.destroy');
+            Route::prefix("module")->group(function () {
+                Route::get('/', [ModuleController::class, 'index'])->name('master.module.index');
+                Route::get('/create', [ModuleController::class, 'create'])->name('master.module.create');
+                Route::post('/store', [ModuleController::class, 'store'])->name('master.module.store');
+                Route::get('/show/{id}', [ModuleController::class, 'show'])->name('master.module.show');
+                Route::get('/edit/{id}', [ModuleController::class, 'edit'])->name('master.module.edit');
+                Route::put('/update/{id}', [ModuleController::class, 'update'])->name('master.module.update');
+                Route::delete('/destroy/{id}', [ModuleController::class, 'destroy'])->name('master.module.destroy');
             });
-
 
             Route::prefix("country")->group(function () {
                 Route::get('/', [CountryController::class, 'index'])->name('master.country.index');
