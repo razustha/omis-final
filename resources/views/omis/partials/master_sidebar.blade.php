@@ -33,4 +33,4 @@
 <li class="nk-menu-item"><a href="{{ route('master.attendancefrom.index') }}"
     class="nk-menu-link"><span class="nk-menu-text">Attendance Form</span></a></li>
 <li class="nk-menu-item"><a href="{{ route('master.jobtitle.index') }}"
-    class="nk-menu-link"><span class="nk-menu-text">Designation</span></a></li>
+    class="nk-menu-link"><span class="nk-menu-text">Designation Type</span></a></li>
