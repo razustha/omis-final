@@ -152,6 +152,12 @@ Route::get('/user/dashboard', function () {
     return view('employee\dashboard');
 })->middleware(['auth'])->name('employee.dashboard');
 
+//orginization dashboard
+Route::get('/organization/welcome', function () {
+    return view('organization\welcome');
+})->middleware(['auth'])->name('organization.welcome');
+
+
 Route::get('/user/projects', function () {
     return view('employee\projects\index');
 })->name('employee.projects.index');

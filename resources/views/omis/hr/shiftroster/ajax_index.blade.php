@@ -51,8 +51,16 @@
 <td class="tb-col">{{ $item->shiftToDate }}</td>
 <td class="tb-col">{{ $item->shift }}</td>
 <!-- <td class="tb-col">{{ $item->alias }}</td> -->
-<td class="tb-col">{!! $item->status_name !!}</td>
-<td class="tb-col">
+  <td class="tb-col">
+                                              <!--   @if ($item->shiftroster_status == null)
+                                                    <span class="badge text-bg-warning">Pending</span>
+                                                @elseif($item->shiftroster == 'approved')
+                                                    <span class="badge text-bg-success">Approved</span>
+                                                @else
+                                                    <span class="badge text-bg-danger">Rejected</span>
+                                                @endif -->
+                                            </td>
+                                                    <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'hr.shiftroster.show',$item->shiftRoster_id) !!}
@@ -61,7 +69,30 @@
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'hr.shiftroster.edit',$item->shiftRoster_id) !!}
                                                 </li>
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'hr.shiftroster.destroy',$item->shiftRoster_id) !!}</li>
-                                               </ul> </td>
+                                                               <!--  <button type="button"
+                                                                class="btn btn-color-info btn-hover-info btn-icon btn-soft btn-approve "
+                                                                onclick="approvedthis({{ $item->rosterName_id }})"
+                                                                value="1" data-bs-toggle="tooltip"
+                                                                data-bs-placement="top"
+                                                                data-bs-custom-class="custom-tooltip" title="Approved"> <em
+                                                                    class="icon ni ni-check-circle"></em></button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button"
+                                                                class="btn btn-color-danger btn-hover-danger btn-icon btn-soft btn-approve "
+                                                                onclick="rejectthis({{ $item->rosterName_id }})"
+                                                                value="0" data-bs-toggle="tooltip"
+                                                                data-bs-placement="top"
+                                                                data-bs-custom-class="custom-tooltip" title="Rejected"> <em
+                                                                    class="icon ni ni-cross-circle"></em></button>
+                                                        </li>
+                                                 -->
+                                           
+                                               </ul> 
+
+
+                                           </td>
+
                                                </tr>
 
                                         @endforeach
