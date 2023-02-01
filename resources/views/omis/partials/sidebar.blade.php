@@ -36,11 +36,11 @@
                             <span class="nk-menu-icon"><em class="icon ni ni-list-index-fill"></em></span>
                             <span class="nk-menu-text">User Management</span></a>
                         <ul class="nk-menu-sub">
-                            <li class="nk-menu-item"><a href="employeeview" class="nk-menu-link"><span
+                            <li class="nk-menu-item"><a href="{{route('setting.users.index')}}" class="nk-menu-link"><span
                                         class="nk-menu-text">User</span></a></li>
                             <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span
                                         class="nk-menu-text">Role</span></a></li>
-                            <li class="nk-menu-item"><a href="{{route('usermanagement.index')}}" class="nk-menu-link"><span
+                            <li class="nk-menu-item"><a href="{{route('setting.permission.index')}}" class="nk-menu-link"><span
                                         class="nk-menu-text">Permissions</span></a></li>
                         </ul>
                     </li>
