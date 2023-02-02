@@ -82,7 +82,9 @@
                                         <div class="col-lg-6">
                                             {{ createText('temproryAddress', 'temproryAddress', 'Temporary Address') }}
                                         </div>
-
+                                        <div class="col-lg-6">
+                                            {!! getSelectForForeignColumn('roles','role_id', 'name', '','','Organization Role') !!}
+                                        </div>
                                         <div class="col-lg-6">
                                             {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department') !!}
                                         </div>
