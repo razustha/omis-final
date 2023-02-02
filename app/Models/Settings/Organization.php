@@ -21,6 +21,7 @@
 'phoneNumber',
 'landLineNumber',
 'emailAddress',
+'password',
 'faxAddress',
 'country_id',
 'state_id',
