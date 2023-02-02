@@ -20,6 +20,7 @@
                 <ul class="nk-menu">
                     <li class="nk-menu-item">
                         <a href="#" class="nk-menu-link ">
+
                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
                             <span class="nk-menu-text">Organization Dashboard</span>
                         </a>

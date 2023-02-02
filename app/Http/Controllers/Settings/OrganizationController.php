@@ -3,8 +3,10 @@
         use App\Http\Controllers\Controller;
         use Illuminate\Http\Request;
         use App\Models\Settings\Organization;
-        use Illuminate\Support\Facades\DB;
-        use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
         class OrganizationController extends Controller
         {
@@ -29,7 +31,15 @@
 
             public function store(Request $request)
             {
+
                 $request->request->add(['alias' => slugify($request->organizationName)]);
+                $users = [
+                    'name' => $request->organizationName,
+                    'email' => $request->emailAddress,
+                    'password' => Hash::make($request->password),
+                    'user_type' => 'COMPANY'
+                ];
+                User::create($users);
                 Organization::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Organization Created Successfully.'], 200);

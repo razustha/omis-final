@@ -36,6 +36,8 @@ class AuthenticatedSessionController extends Controller
         // return redirect()->intended(RouteServiceProvider::HOME);
         if (auth()->user()->user_type == 'EMPLOYEE') {
             return redirect(RouteServiceProvider::USER);
+        } elseif(auth()->user()->user_type == 'COMPANY') {
+            return redirect(RouteServiceProvider::ORGANIZATION);
         } else {
             return redirect(RouteServiceProvider::HOME); //->intended(RouteServiceProvider::HOME);
 
