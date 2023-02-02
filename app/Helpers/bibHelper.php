@@ -200,14 +200,14 @@
                 ?>
 
                     <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
-                    
+                    <div class="input-group">
                         <select class="form-select <?php echo $class ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" aria-label="Default select example">
                             <?php foreach ($values as $key => $value) { ?>
                                 <option value="<?= $key ?>" <?php echo $keyValue == $key ? 'selected' : '' ?>><?= $value ?></option>
                             <?php } ?>
                         </select>
                         
-                
+                    </div>
 
 
                     <!-- <div class="input-group">  
