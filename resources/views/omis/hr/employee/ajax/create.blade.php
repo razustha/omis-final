@@ -107,7 +107,8 @@
 
 
                                         <div class="col-lg-12">
-                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
+                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
+                                            {{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
                                         </div>
 
 
