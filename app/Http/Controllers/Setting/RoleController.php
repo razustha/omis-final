@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Permission;
 use App\Models\Role;
+use App\Models\RolePermission;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -17,6 +18,9 @@ class RoleController extends Controller
         // $data = Permission::join('tbl_module','permissions.module_id','tbl_module.module_id')
         //                     ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
         //                     ->select('moduleName','permissions.*')->get();
+        $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
+            ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
+            ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
         $data = Role::where('roles.status', '<>', -1)->get();
         // dd($data);
         if ($request->ajax()) {
@@ -28,8 +32,12 @@ class RoleController extends Controller
 
     public function create(Request $request)
     {
+        $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
+            ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
+            ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
+        // $groupPermissions = $this->permission->getPermissionByGroupWise()->groupBy('group_name')->chunk(3);
         if ($request->ajax()) {
-            $html = view("omis.setting.role.ajax.create")->render();
+            $html = view("omis.setting.role.ajax.create", ['groupPermissions' => $groupPermissions])->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
         return view("omis.setting.permission.create");
@@ -37,12 +45,20 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
-        $request->request->add(['alias' => slugify($request->permissionName)]);
-        User::create($request->all());
-        if ($request->ajax()) {
-            return response()->json(['status' => true, 'message' => 'The permission Created Successfully.'], 200);
+        // dd($request->all());
+        $role = Role::create(['name' => $request->input('name'), 'remarks' => $request->remarks, 'slug' => slugify($request->name)]);
+        /**
+         * Remove all current permissions and set the given ones.
+         */
+        foreach ($request->permissions as $prId) {
+            RolePermission::create(['role_id' => $role->id, 'permission_id' => $prId]);
         }
-        return redirect()->route('setting.permission.index')->with('success', 'The permission created Successfully.');
+        // $role->syncPermissions($request->input('permissions'));
+
+        if ($request->ajax()) {
+            return response()->json(['status' => true, 'message' => 'The Role Created Successfully.'], 200);
+        }
+        return redirect()->route('setting.role.index')->with('success', 'The Role created Successfully.');
     }
 
     public function show(Request $request, $id)
@@ -58,24 +74,36 @@ class RoleController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $data = User::findOrFail($id);
+        $role = Role::findOrFail($id);
+        $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
+            ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
+            ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
         if ($request->ajax()) {
-            $html = view("omis.setting.permission.ajax.edit", compact('data'))->render();
+            $html = view("omis.setting.role.ajax.edit", ['groupPermissions' => $groupPermissions, 'role' => $role])->render();
+
             return response()->json(['status' => true, 'content' => $html], 200);
         }
-        return view("omis.setting.permission.edit", compact('data'));
+        return view("omis.setting.role.edit", compact('data'));
     }
 
 
     public function update(Request $request, $id)
     {
-        $data = User::findOrFail($id);
-        $request->request->add(['alias' => slugify($request->permissionName)]);
-        $data->update($request->all());
-        if ($request->ajax()) {
-            return response()->json(['status' => true, 'message' => 'The permission updated Successfully.'], 200);
+        $role = Role::findOrFail($id);
+        // dd($request->all());
+        $role->update(['name' => $request->input('name'), 'remarks' => $request->remarks, 'slug' => slugify($request->name)]);
+        /**
+         * Remove all current permissions and set the given ones.
+         */
+        RolePermission::where('role_id', $role->id)->delete();
+        foreach ($request->permissions as $prId) {
+            RolePermission::create(['role_id' => $role->id, 'permission_id' => $prId]);
         }
-        return redirect()->route('setting.permission.index')->with('success', 'The permission updated Successfully.');
+
+        if ($request->ajax()) {
+            return response()->json(['status' => true, 'message' => 'The Role updated Successfully.'], 200);
+        }
+        return redirect()->route('setting.permission.index')->with('success', 'The Role updated Successfully.');
     }
 
     public function destroy(Request $request, $id)

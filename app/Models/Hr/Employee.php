@@ -34,6 +34,7 @@ class Employee extends Model
         'district_id',
         'permanentAddress',
         'postalCode',
+        'role_id',
         'organization_id',
         'department_id',
         'designation_id',
@@ -93,6 +94,12 @@ class Employee extends Model
     {
         return Attribute::make(
             get: fn ($value) =>  Designation::find($value) ? Designation::find($value)->designationName : '',
+        );
+    }
+    protected function roleId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  Role::find($value) ? Role::find($value)->name : '',
         );
     }
 }

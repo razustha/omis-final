@@ -32,7 +32,8 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
                                         <th class="tb-col"><span class="overline-title">Employee Id</span></th>
                                         <th class="tb-col"><span class="overline-title">Employee Name</span></th>
-                                        <th class="tb-col"><span class="overline-title">phone Number</span></th>
+                                        <th class="tb-col"><span class="overline-title">Phone Number</span></th>
+                                        <th class="tb-col"><span class="overline-title">Role</span></th>
                                         <th class="tb-col"><span class="overline-title">Department</span></th>
                                         <th class="tb-col"><span class="overline-title">designation</span></th>
                                         <th class="tb-col"><span class="overline-title">status</span></th>
@@ -62,6 +63,7 @@
                                                 </div>
                                             </td>
                                             <td class="tb-col">{{ $item->phoneNumber }}</td>
+                                            <td class="tb-col">{{ $item->role }}</td>
                                             <td class="tb-col">{{ $item->department_id }}</td>
                                             <td class="tb-col">{{ $item->designation_id }}</td>
                                             <td class="tb-col">{!! $item->status_name !!}</td>
