@@ -1,4 +1,4 @@
-@extends('organization.partials.layouts')
+@extends('organization.layouts.organization.organization')
 @section('content')
     <div class="nk-content">
         <div class="container-fluid">
@@ -75,11 +75,6 @@
                               <span class="text-light">From last 2 Weeks</span>
                             </div>
                                     </div>
-
-
-
-
-
                                 </div>
                             </div>
                         </div>

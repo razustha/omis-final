@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Models\Hr;
-
 use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +9,6 @@ use App\Traits\CreatedUpdatedBy;
 class Employee extends Model
 {
     use HasFactory, CreatedUpdatedBy;
-
     protected $table = 'tbl_employee';
     protected $primaryKey = 'employee_id';
     public $timestamps = true;
