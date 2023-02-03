@@ -161,38 +161,38 @@
         </div>
     </div>
     </div>
-    
+
 <div class="modal fade" id="leaveTypeModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scrollableLabel"
 aria-hidden="true">
-<div class="modal-dialog modal-lg modal-dialog-top">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="scrollableLabel">Leave Type</h5> <button type="button" class="btn-close"
-                data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-lg modal-dialog-top">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="scrollableLabel">Leave Type</h5> <button type="button" class="btn-close"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('master.leavetype.store')}}" id="storeCustomForm" method="POST">
+                @csrf
+                <div class="modal-body">
+
+
+                    <div class="row"><div class="col-lg-6">{{createText("leaveType","leaveType","Leave Type")}}
+                    </div><div class="col-lg-6">{{customCreateSelect("leavePaidStatus","leavePaidStatus",'',"Leave Paid Status",['Paid','Unpaid'])}}
+                    </div><div class="col-lg-6">{{createText("numberOfLeave","numberOfLeave","Number Of Leave")}}
+                    </div><div class="col-lg-6">{{createText("monthlyLimit","monthlyLimit","Monthly Limit")}}
+                    </div><div class="col-lg-6">{{createText("colorCode","colorCode","Color Code")}}
+                    </div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
+                    </div><div class="col-lg-12">{{createLabel('remarks','form-label col-from-label','Remarks')}}{{createTextArea("remarks",'',"remarks",'',"")}}
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+
+                    <?php createButton(" btn-sm btn-add","","+Add"); ?>
+
+                </div>
+            </form>
         </div>
-        <form action="{{route('master.leavetype.store')}}" id="storeCustomForm">
-            @csrf 
-        <div class="modal-body"> 
-            
-         
-               <div class="row"><div class="col-lg-6">{{createText("leaveType","leaveType","Leave Type")}}
-               </div><div class="col-lg-6">{{customCreateSelect("leavePaidStatus","leavePaidStatus",'',"Leave Paid Status",['Paid','Unpaid'])}}
-               </div><div class="col-lg-6">{{createText("numberOfLeave","numberOfLeave","Number Of Leave")}}
-               </div><div class="col-lg-6">{{createText("monthlyLimit","monthlyLimit","Monthly Limit")}}
-               </div><div class="col-lg-6">{{createText("colorCode","colorCode","Color Code")}}
-               </div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
-               </div><div class="col-lg-12">{{createLabel('remarks','form-label col-from-label','Remarks')}}{{createTextArea("remarks",'',"remarks",'',"")}}
-               </div>
-            
-        </div>
-        <div class="modal-footer"> 
-            
-            <?php createButton(" btn-sm btn-store","","Submit"); ?>
-            
-        </div>
-    </form>
     </div>
-</div>
 </div>
 
 @endsection
