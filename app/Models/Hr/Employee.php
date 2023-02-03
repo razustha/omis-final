@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Models\Hr;
-
 use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +9,6 @@ use App\Traits\CreatedUpdatedBy;
 class Employee extends Model
 {
     use HasFactory, CreatedUpdatedBy;
-
     protected $table = 'tbl_employee';
     protected $primaryKey = 'employee_id';
     public $timestamps = true;
@@ -34,6 +31,7 @@ class Employee extends Model
         'district_id',
         'permanentAddress',
         'postalCode',
+        'role_id',
         'organization_id',
         'department_id',
         'designation_id',
@@ -63,7 +61,7 @@ class Employee extends Model
 
     ];
 
-    protected $appends = ['status_name'];
+    protected $appends = ['status_name','full_name'];
 
     protected function getStatusNameAttribute()
     {
@@ -94,5 +92,16 @@ class Employee extends Model
         return Attribute::make(
             get: fn ($value) =>  Designation::find($value) ? Designation::find($value)->designationName : '',
         );
+    }
+    protected function roleId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  Role::find($value) ? Role::find($value)->name : '',
+        );
+    }
+
+    public function getFullnameAttribute()
+    {
+        return "{$this->firstName} {$this->middleName} {$this->lastName}";
     }
 }

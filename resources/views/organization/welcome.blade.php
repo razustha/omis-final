@@ -1,4 +1,4 @@
-@extends('organization.partials.layouts')
+@extends('organization.layouts.organization.organization')
 @section('content')
     <div class="nk-content">
         <div class="container-fluid">
@@ -8,7 +8,7 @@
                         <div class="col-xxl-12">
                             <div class="nk-block-head-between flex-wrap gap ">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title py-4">Welcome, Orginization Name</h2>
+                                    <h2 class="nk-block-title py-4">Welcome, {{auth()->user()->name}}</h2>
                                 </div>
                                 <div
                                     class="d-flex flex-column flex-sm-row-reverse align-items-sm-center justify-content-sm-between">
@@ -33,7 +33,7 @@
                                             </form>
                                         @endif
                                     </div> -->
-                    
+
                                     <div class="p-2">
                                         <div class="d-flex align-items-center">
                                             <div class="h4 mb-0"><h2 class="title"> 12:00 AM</h2></div>
@@ -75,11 +75,6 @@
                               <span class="text-light">From last 2 Weeks</span>
                             </div>
                                     </div>
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -162,7 +157,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6 col-xxl-6">
                       <div class="card h-100">
                         <div class="card-body">
@@ -495,7 +490,7 @@
                             </div>
                         </div>
 
-                        
+
 
 <div class="col-xxl-6">
                             <div class="card">
@@ -542,7 +537,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          
+
 
                                         </tbody>
                                     </table>
@@ -594,22 +589,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          
+
 
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-xxl-6">
                       <div class="card h-100">
                         <div class="card-body">
                      <h2 card="title">Latest Notices </h2>
                      <span class="small">Notice Board</span>
-                            <div class="accordion mt-3" id="accordionExample">    <div class="accordion-item">      <h2 class="accordion-header">        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">         Notice Title #1        </button>      </h2>      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">        <div class="accordion-body">          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.        </div>      </div>    </div>    <div class="accordion-item">      <h2 class="accordion-header">        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">          Notice Title #2        </button>      </h2>      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">        <div class="accordion-body">          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.        </div>      </div>    </div>    <div class="accordion-item">      <h2 class="accordion-header">        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">         Notice 
+                            <div class="accordion mt-3" id="accordionExample">    <div class="accordion-item">      <h2 class="accordion-header">        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">         Notice Title #1        </button>      </h2>      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">        <div class="accordion-body">          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.        </div>      </div>    </div>    <div class="accordion-item">      <h2 class="accordion-header">        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">          Notice Title #2        </button>      </h2>      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">        <div class="accordion-body">          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.        </div>      </div>    </div>    <div class="accordion-item">      <h2 class="accordion-header">        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">         Notice
                             Title #3        </button>      </h2>      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">        <div class="accordion-body">          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.        </div>      </div>    </div></div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -623,15 +618,15 @@
                                         <ul class="nav nav-tabs mb-3">  <li class="nav-item">    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button">Events List</button>  </li>  <li class="nav-item">    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button">Meetings List</button>  </li>
                                         </ul>
 
-                                                <div class="tab-content">  
-                                                    <div class="tab-pane fade show active" id="home-tab-pane">   
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade show active" id="home-tab-pane">
                                 <table class="table">  <thead>    <tr>      <th scope="col">S.No.</th>      <th scope="col">Event Time</th>      <th scope="col">Event Title</th>      <th scope="col">Event Date</th>    </tr>  </thead>  <tbody>    <tr>      <th scope="row">1</th>      <td>12:00 AM</td>      <td>bibhuti Solutions</td>      <td>31-02-2000</td>    </tr>  </tbody></table>
-                                                    </div> 
+                                                    </div>
 
-                                     <div class="tab-pane fade" id="profile-tab-pane">    
+                                     <div class="tab-pane fade" id="profile-tab-pane">
                                    <table class="table">  <thead>    <tr>      <th scope="col">S.No.</th>      <th scope="col"> Time</th>      <th scope="col"> Title</th>      <th scope="col"> Date</th>  <th scope="col">Department</th>    </tr>  </thead>  <tbody>    <tr>      <th scope="row">1</th>      <td>12:00 AM</td>      <td>bibhuti Solutions</td>      <td>31-02-2000</td>   <td>Develpoment</td> </tr>  </tbody></table>
-                                 </div> 
-                
+                                 </div>
+
 
                                       </div>
 

@@ -148,52 +148,7 @@ Route::get('calander', function () {
     return view('omis.calander.index');
 });
 
-Route::get('/user/dashboard', function () {
-    return view('employee\dashboard');
-})->middleware(['auth'])->name('employee.dashboard');
 
-//orginization dashboard
-Route::get('/organization/welcome', function () {
-    return view('organization\welcome');
-})->middleware(['auth'])->name('organization.welcome');
-
-
-Route::get('/user/projects', function () {
-    return view('employee\projects\index');
-})->name('employee.projects.index');
-
-Route::get('/user/tasks', function () {
-    return view('employee\tasks\index');
-})->name('employee.tasks.index');
-
-Route::get('/user/expenses', function () {
-    return view('employee\expenses\index');
-})->name('employee.expenses.index');
-
-Route::get('/user/attandance', function () {
-    $users = User::where('id', auth()->user()->id)->get();
-    return view('employee\attandance\index', compact('users'));
-})->name('employee.attandance.index');
-
-Route::get('/user/leaves', function () {
-    $data = Leaveapplication::where('status', '<>', -1)->where('employee_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
-    return view('employee\leaves\ajax_index', compact('data'));
-})->name('employee.leaves.index');
-
-Route::get('/organization/dashboard', function () {
-    return view('organization\dashboard');
-})->middleware(['auth'])->name('organization.dashboard');
-
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/dashboard', function () {
-    $employees = Employee::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
-    return view('omis\welcome', compact('employees'));
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 

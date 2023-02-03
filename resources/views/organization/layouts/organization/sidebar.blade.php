@@ -10,8 +10,7 @@
                         class="icon off ni ni-chevrons-left"></em><em class="icon on ni ni-chevrons-right"></em></button>
             </div>
             <div class="nk-sidebar-toggle me-n1"><button
-                    class="btn btn-md btn-icon text-light btn-no-hover sidebar-toggle"><em
-                        class="icon ni ni-arrow-left"></em></button></div>
+                    class="btn btn-md btn-icon text-light btn-no-hover sidebar-toggle"><em class="icon ni ni-arrow-left"></em></button></div>
         </div>
     </div>
     <div class="nk-sidebar-element nk-sidebar-body">
@@ -20,12 +19,11 @@
                 <ul class="nk-menu">
                     <li class="nk-menu-item">
                         <a href="#" class="nk-menu-link ">
-
                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
                             <span class="nk-menu-text">Dashboard</span>
                         </a>
                     </li>
-                       @include('organization.partials.hr_sidebar')
+                       @include('organization.layouts.organization.hr-sidebar')
                 </ul>
 
             </div>

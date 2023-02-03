@@ -1,21 +1,22 @@
         <?php
 
         use App\Models\Country\Country;
+        use App\Models\Hr\Employee;
         use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
         use App\Models\Master\State;
-use App\Models\Role;
-use App\Models\Settings\OrganizationSettings;
-use App\Models\Setting\Setting;
-use App\Models\Settings\NotificationSettings;
+        use App\Models\Role;
+        use App\Models\Settings\OrganizationSettings;
+        use App\Models\Setting\Setting;
+        use App\Models\Settings\NotificationSettings;
         use App\Models\Settings\UserSettings;
-
+        use Illuminate\Support\Facades\DB;
 
         function label($text)
-            //here we will write translator code
-            //below is only example, we have to use session to check current language setting to use or not using the following dictonary
-            //this dictonary must be fetched from settings in main application
-{
+        //here we will write translator code
+        //below is only example, we have to use session to check current language setting to use or not using the following dictonary
+        //this dictonary must be fetched from settings in main application
+        {
             $dictonary = array(
                 "Command" => "प्रयोग",
                 "Industry Name" => "उद्योगको नाम",
@@ -198,23 +199,36 @@ use App\Models\Settings\NotificationSettings;
                 }
                 function customCreateSelect($name, $id, $class = "form-control", $display, $values = array(), $keyValue = '')
                 {
-
-
-
                 ?>
 
                     <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
-                    <div class="form-control-wrap">
+                    <div class="input-group">
                         <select class="form-select <?php echo $class ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" aria-label="Default select example">
                             <?php foreach ($values as $key => $value) { ?>
                                 <option value="<?= $key ?>" <?php echo $keyValue == $key ? 'selected' : '' ?>><?= $value ?></option>
                             <?php } ?>
                         </select>
+
                     </div>
+
+
+                    <!-- <div class="input-group">  
+                        <button class="btn btn-outline-primary" type="button">Button</button>  
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">   
+                             <option selected>Choose...</option>    
+                             <option value="1">One</option>    
+                             <option value="2">Two</option>    
+                             <option value="3">Three</option>  
+                            </select>
+                        </div> -->
+
+
 
                 <?php            }
                 //End of Select
                 ?>
+
+
 
                 <?php
                 //Create Checkbox
@@ -302,9 +316,14 @@ use App\Models\Settings\NotificationSettings;
                 function createTextArea($name, $class = "", $id = "", $row = "", $display = "")
                 {
                 ?>
-                    <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
-                    <?php echo $display; ?>
+                    <div class="form-group">
+                        <div class="form-control-wrap">
+                            <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
+                     <?php echo $display; ?>
                     </textarea>
+                        </div>
+                    </div>
+
                 <?php
                 }
                 ?>
@@ -495,8 +514,13 @@ use App\Models\Settings\NotificationSettings;
                     return $text;
                 }
 
-                function getRoles(){
+                function getRoles()
+                {
                     return Role::all();
+                }
+                function getEmployees()
+                {
+                    return Employee::where('status', '<>', '-1')->get();
                 }
 
                 ?>

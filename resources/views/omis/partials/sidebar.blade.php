@@ -2,7 +2,8 @@
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand"><a href="#" class="logo-link">
                 <div class="logo-wrap">
-                    <img src="assets/images/logo/logo1.png">
+                    <!-- <img src="assets/images/logo/logo1.png"> -->
+                    <img src="{{url('assets/images/logo/logo1.png')}}" alt="Image"/>
                 </div>
             </a>
             <div class="nk-compact-toggle me-n1"><button

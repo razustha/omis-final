@@ -82,21 +82,20 @@
                                         <div class="col-lg-6">
                                             {{ createText('temproryAddress', 'temproryAddress', 'Temporary Address') }}
                                         </div>
-
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
+                                            <h2 class="mt-3">Organization Role</h2>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            {!! getSelectForForeignColumn('roles','id', 'name', '','','User Role') !!}
+                                        </div>
+                                        <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department') !!}
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
                                         </div>
-
-
-                                        <div class="col-lg-6">
-                                            {{ createText('panNo', 'panNo', 'PanNo') }}
-                                        </div>
-                                        <div class="col-lg-6">
-                                            {{ createText('skills', 'skills', 'Skills') }}
-                                        </div>
+                                    
+                                       
                                         <div class="col-lg-6">
                                             {{ createDate('joinDate', 'joinDate', 'Join Date') }}
                                         </div>
@@ -105,7 +104,9 @@
                                             {!! getSelectForForeignColumn('tbl_employeelist', 'employee_id', 'employeeFullName', '','','Reporting To') !!}
                                         </div>
 
-
+                                        <div class="col-lg-12">
+                                            {{ createText('skills', 'skills', 'Skills') }}
+                                        </div>
                                         <div class="col-lg-12">
                                             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
                                             {{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
@@ -144,6 +145,9 @@
                                 for="flexSwitchSizeLg"> Status</label>
                         </div> -->
                             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
+                        </div>
+                        <div class="col-lg-12">
+                            {{ createText('panNo', 'panNo', 'Govt. Pan No') }}
                         </div>
                         <hr>
                         <div class="col-12">

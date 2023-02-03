@@ -1,4 +1,4 @@
-<div class="nk-header nk-header-fixed">
+<div class="nk-header nk-header-fixed" id="top-nav">
     <div class="container-fluid">
         <div class="nk-header-wrap">
             <div class="nk-header-logo ms-n1">
@@ -44,23 +44,30 @@
             <nav class="nk-header-menu nk-navbar">
                 <ul class="nk-nav">
                     <li class="nk-nav-item "><a href="#" class="nk-nav-link "><span
-                                class="nk-nav-text">Organization Dashboard</span></a>
+                                class="nk-nav-text">Dashboards</span></a>
+
+                    </li>
+                    <li class="nk-nav-item "><a href="#" class="nk-nav-link "><span
+                                class="nk-nav-text">Home</span></a>
+
+                    </li>
+                    <li class="nk-nav-item "><a href="#" class="nk-nav-link "><span
+                                class="nk-nav-text">Dashboard</span></a>
 
                     </li>
 
-                    </li>
-                   
+
                 </ul>
             </nav>
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav ms-2">
-                  
+
                     <li>
-                       
+
                         <button class="btn btn-icon btn-sm btn-zoom " onclick="openFullscreen();"><em class="icon ni ni-maximize"></em></button>
-                        
+
                     </li>
-                 
+
                     <li class="dropdown"><button class="btn btn-icon btn-sm btn-zoom d-sm-none"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside"><em
                                 class="icon ni ni-search"></em></button><button
@@ -109,7 +116,7 @@
                                     <li>
                                         <div class="media-group">
                                             <div class="media media-md media-middle media-circle text-bg-light"><img
-                                                    src="#" alt="">
+                                                    src="{{ auth()->user()->employee->profilePhoto }}" alt="">
                                             </div>
                                             <div class="media-text">
                                                 <div class="lead-text">Sharon Walker</div><span
@@ -147,7 +154,7 @@
                     </li>
 
                     <li><button class="btn btn-icon btn-sm btn-zoom d-sm-none" data-bs-toggle="offcanvas"
-                            data-bs-target="#notificationOffcanvas"><em class="icon ni ni-bell"></em></button><button
+                            data-bs-target="#notificationOffcanvas"><em class="icon ni ni-bell"> </em></button> <button
                             class="btn btn-icon btn-md btn-zoom d-none d-sm-inline-flex" data-bs-toggle="offcanvas"
                             data-bs-target="#notificationOffcanvas"><em class="icon ni ni-bell"></em></button></li>
 
@@ -160,30 +167,36 @@
                     </li>
                     <li class="dropdown"><a href="#" data-bs-toggle="dropdown">
                             <div class="d-sm-none">
-                                <div class="media media-md media-circle"><img
-                                        src="#" alt=""
+                                @if(!empty(auth()->user()->employee->profilePhoto))
+                                    <div class="media media-md media-circle"><img
+                                        src="{{ auth()->user()->employee->profilePhoto }}" alt=""
                                         class="img-thumbnail"></div>
+                                @endif
                             </div>
                             <div class="d-none d-sm-block">
-                                <div class="media media-circle"><img src="#"
+                                @if(!empty(auth()->user()->employee->profilePhoto))
+                                    <div class="media media-circle"><img src="{{ auth()->user()->employee->profilePhoto }}"
                                         alt="" class="img-thumbnail"></div>
+                                @endif
                             </div>
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-md">
                             <div class="dropdown-content dropdown-content-x-lg py-3 border-bottom border-light">
                                 <div class="media-group">
+                                    @if(!empty(auth()->user()->employee->profilePhoto))
                                     <div class="media media-xl media-middle media-circle"><img
-                                            src="#" alt=""
-                                            class="img-thumbnail"></div>
+                                            src="{{ auth()->user()->employee->profilePhoto }}" alt=""
+                                            class="img-thumbnail">
+                                    </div>
+                                    @endif
                                     <div class="media-text">
                                         <div class="lead-text">{{ auth()->user()->name }}</div><span class="sub-text">{{ auth()->user()->user_type }}</span>
                                     </div>
-                                </div>
                             </div>
                             <div class="dropdown-content dropdown-content-x-lg py-3 border-bottom border-light">
                                 <ul class="link-list">
-                                    <li><a href="profile.html"><em class="icon ni ni-user"></em> <span>My
-                                                Profile</span></a></li>
+                                    <li><a href="profile.html"><em class="icon ni ni-user"></em> <span>My Profile</span></a></li>
                                     <li><a href="profile-edit.html"><em class="icon ni ni-setting-alt"></em>
                                             <span>Account Settings</span></a></li>
                                     <li><a href="profile-edit.html"><em class="icon ni ni-menu-circled"></em>
