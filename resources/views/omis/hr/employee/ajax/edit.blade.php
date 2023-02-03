@@ -79,45 +79,40 @@
                                         <div class="col-lg-3">
                                             {!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', $data, 'City Name') !!}
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address', '', $data->permanentAddress) }}
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address') }}
                                         </div>
-
-                                        <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn(
-                                                'tbl_department',
-                                                'department_id',
-                                                'departmentName',
-                                                '',
-                                                $data,
-                                                'Deapartment ',
-                                            ) !!}
+                                        <div class="col-lg-12">
+                                            <h2 class="mt-3">Organization Role</h2>
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn(
-                                                'tbl_designation',
-                                                'designation_id',
-                                                'designationName',
-                                                '',
-                                                $data,
-                                                'Designation ',
-                                            ) !!}
+                                            {!! getSelectForForeignColumn('roles','id', 'name', '','','User Role') !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{-- {{ createText('reportingTo', 'reportingTo', 'ReportingTo', '','', $data->reportingTo,'Reporting To') }} --}}
-                                            {!! getSelectForForeignColumn('tbl_employeelist', 'employee_id', 'employeeFullName', '',$data->reportingTo,'Reporting To') !!}
-
+                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department') !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('panNo', 'panNo', 'PanNo', '', $data->panNo) }}
+                                            {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
                                         </div>
-
+                                    
+                                       
+                                        <div class="col-lg-6">
+                                            {{ createDate('joinDate', 'joinDate', 'Join Date') }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
+                                            {!! getSelectForForeignColumn('tbl_employeelist', 'employee_id', 'employeeFullName', '','','Reporting To') !!}
+                                        </div>
 
                                         <div class="col-lg-12">
-                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks','', $data->remarks) }}
+                                            {{ createText('skills', 'skills', 'Skills') }}
+                                        </div>
+                                        <div class="col-lg-12">
+                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
+                                            {{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
                                         </div>
 
 
@@ -153,6 +148,9 @@
                                         for="flexSwitchSizeLg"> Status</label>
                                 </div> -->
                             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
+                        </div>
+                        <div class="col-lg-12">
+                            {{ createText('panNo', 'panNo', 'Govt. Pan No') }}
                         </div>
                         <hr>
                         <div class="col-12">

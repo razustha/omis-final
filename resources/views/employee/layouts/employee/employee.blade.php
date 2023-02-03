@@ -24,7 +24,7 @@
   					<!-- Popup Messages -->	
 
 					<!-- @section('content')-->
-  					  @yield('content')
+  					@yield('content')
 					<!-- @section('content')-->
 
   					<!--footer -->
