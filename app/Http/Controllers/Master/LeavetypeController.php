@@ -29,6 +29,7 @@
 
             public function store(Request $request)
             {
+
                 $request->request->add(['alias' => slugify($request->leavetypeName)]);
                 Leavetype::create($request->all());
                 if ($request->ajax()) {
@@ -137,4 +138,3 @@
                 }
             }
         }
-        

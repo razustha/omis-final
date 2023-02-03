@@ -6,13 +6,13 @@
 
         {{ createHidden('employee_id', 'employee_id', '', 'employee_id', auth()->user()->id) }}
         <div class="col-lg-4">
-            <label  class="form-label">Leave Type</label> 
+            <label  class="form-label">Leave Type</label>
             <div class="input-group">
             {{ customCreateSelect('leaveType', 'leaveType', '', '', ['sick' => 'Sick', 'paid' => 'Paid']) }}
             <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" data-bs-target="#leaveTypeModal">
                 Add</button>
             </div>
-        
+
     </div>
     <div class="col-lg-4">{{ createDate('leaveStart', 'leaveStart', 'Leave Start Date') }}
     </div>
