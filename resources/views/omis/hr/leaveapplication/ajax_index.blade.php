@@ -173,8 +173,7 @@ aria-hidden="true">
         <form action="{{route('master.leavetype.store')}}" id="storeCustomForm">
             @csrf 
         <div class="modal-body"> 
-            
-         
+                    
                <div class="row"><div class="col-lg-6">{{createText("leaveType","leaveType","Leave Type")}}
                </div><div class="col-lg-6">{{customCreateSelect("leavePaidStatus","leavePaidStatus",'',"Leave Paid Status",['Paid','Unpaid'])}}
                </div><div class="col-lg-6">{{createText("numberOfLeave","numberOfLeave","Number Of Leave")}}

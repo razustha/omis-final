@@ -10,9 +10,9 @@
                                 <h2 class="nk-block-title">Employee Onboarding</h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                            <li class="breadcrumb-item"><a href="#">Employeeonboarding</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Employeeonboarding Manage</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Employeeonboarding
+                                            <li class="breadcrumb-item"><a href="#">Employee Onboarding</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Employee Onboarding Manage</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Employee Onboarding
                                             </li>
                                         </ol>
                                     </nav>
@@ -31,9 +31,9 @@
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
                                         <th class="tb-col"><span class="overline-title">employee</span></th>
-                                        <th class="tb-col"><span class="overline-title">workingShift</span></th>
+                                        <th class="tb-col"><span class="overline-title">working Shift</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">workingHour</span></th> -->
-                                        <th class="tb-col"><span class="overline-title">workingMode</span></th>
+                                        <th class="tb-col"><span class="overline-title">working Mode</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
                                         </th>
                                     </tr>
