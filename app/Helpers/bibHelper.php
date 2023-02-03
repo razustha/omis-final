@@ -4,7 +4,8 @@
         use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
         use App\Models\Master\State;
-        use App\Models\Settings\OrganizationSettings;
+use App\Models\Role;
+use App\Models\Settings\OrganizationSettings;
 use App\Models\Setting\Setting;
 use App\Models\Settings\NotificationSettings;
         use App\Models\Settings\UserSettings;
@@ -492,6 +493,10 @@ use App\Models\Settings\NotificationSettings;
                     }
 
                     return $text;
+                }
+
+                function getRoles(){
+                    return Role::all();
                 }
 
                 ?>

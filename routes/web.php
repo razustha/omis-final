@@ -221,23 +221,23 @@ Route::middleware('auth')->group(function () {
         function () {
 
             Route::prefix("module")->group(function () {
-                Route::get('/', [ModuleController::class, 'index'])->name('master.module.index');//->middleware('permission:master-module-index');
-                Route::get('/create', [ModuleController::class, 'create'])->name('master.module.create');//->middleware('permission:master-module-index');
-                Route::post('/store', [ModuleController::class, 'store'])->name('master.module.store');//->middleware('permission:master-module-index');
-                Route::get('/show/{id}', [ModuleController::class, 'show'])->name('master.module.show');//->middleware('permission:master-module-index');
-                Route::get('/edit/{id}', [ModuleController::class, 'edit'])->name('master.module.edit');//->middleware('permission:master-module-index');
-                Route::put('/update/{id}', [ModuleController::class, 'update'])->name('master.module.update');//->middleware('permission:master-module-index');
-                Route::delete('/destroy/{id}', [ModuleController::class, 'destroy'])->name('master.module.destroy');//->middleware('permission:master-module-index');
+                Route::get('/', [ModuleController::class, 'index'])->name('master.module.index')->middleware('role:super');
+                Route::get('/create', [ModuleController::class, 'create'])->name('master.module.create')->middleware('permission:master-module-index');
+                Route::post('/store', [ModuleController::class, 'store'])->name('master.module.store')->middleware('permission:master-module-index');
+                Route::get('/show/{id}', [ModuleController::class, 'show'])->name('master.module.show')->middleware('permission:master-module-index');
+                Route::get('/edit/{id}', [ModuleController::class, 'edit'])->name('master.module.edit')->middleware('permission:master-module-index');
+                Route::put('/update/{id}', [ModuleController::class, 'update'])->name('master.module.update')->middleware('permission:master-module-index');
+                Route::delete('/destroy/{id}', [ModuleController::class, 'destroy'])->name('master.module.destroy')->middleware('permission:master-module-index');
             });
 
             Route::prefix("country")->group(function () {
-                Route::get('/', [CountryController::class, 'index'])->name('master.country.index');//->middleware('permission:master-country-index');
-                Route::get('/create', [CountryController::class, 'create'])->name('master.country.create');//->middleware('permission:master-country-create');
-                Route::post('/store', [CountryController::class, 'store'])->name('master.country.store');//->middleware('permission:master-country-store');
-                Route::get('/show/{id}', [CountryController::class, 'show'])->name('master.country.show');//->middleware('permission:master-country-show');
-                Route::get('/edit/{id}', [CountryController::class, 'edit'])->name('master.country.edit');//->middleware('permission:master-country-edit');
-                Route::put('/update/{id}', [CountryController::class, 'update'])->name('master.country.update');//->middleware('permission:master-country-update');
-                Route::delete('/destroy/{id}', [CountryController::class, 'destroy'])->name('master.country.destroy');//->middleware('permission:master-country-destroy');
+                Route::get('/', [CountryController::class, 'index'])->name('master.country.index')->middleware('role:super');
+                Route::get('/create', [CountryController::class, 'create'])->name('master.country.create')->middleware('permission:master-country-create');
+                Route::post('/store', [CountryController::class, 'store'])->name('master.country.store')->middleware('permission:master-country-store');
+                Route::get('/show/{id}', [CountryController::class, 'show'])->name('master.country.show')->middleware('permission:master-country-show');
+                Route::get('/edit/{id}', [CountryController::class, 'edit'])->name('master.country.edit')->middleware('permission:master-country-edit');
+                Route::put('/update/{id}', [CountryController::class, 'update'])->name('master.country.update')->middleware('permission:master-country-update');
+                Route::delete('/destroy/{id}', [CountryController::class, 'destroy'])->name('master.country.destroy')->middleware('permission:master-country-destroy');
             });
 
             Route::prefix("leavetype")->group(function () {

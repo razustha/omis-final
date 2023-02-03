@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Setting;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\Setting\Users;
 use App\Models\User;
@@ -13,7 +14,8 @@ class UsersController extends Controller
 {
     public function index(Request $request)
     {
-        $data = User::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
+        $data = User::with('roles')->where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
+        // dd($data);
         if ($request->ajax()) {
             $html = view("omis.setting.users.ajax.index", compact('data'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
@@ -32,8 +34,10 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        $request->request->add(['alias' => slugify($request->usersName)]);
-        User::create($request->all());
+        // dd($request->all());
+        $user = User::create($request->all());
+        $user_role = Role::findOrFail($request->role_id);
+        $user->roles()->attach($user_role);
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Users Created Successfully.'], 200);
         }
