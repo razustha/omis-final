@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
-                                            {!! getSelectForForeignColumn('tbl_employeelist', 'employee_id', 'employeeFullName', '','','Reporting To') !!}
+                                            {{  customCreateSelect('employee_id', 'employee_id', '','Reporting To', getEmployees()->pluck('full_name','employee_id')->toArray())  }}
                                         </div>
 
                                         <div class="col-lg-12">
