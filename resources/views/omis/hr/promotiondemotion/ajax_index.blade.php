@@ -30,8 +30,8 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">company_id</span></th>
-                                        <th class="tb-col"><span class="overline-title">employee_id</span></th>
+                                        {{-- <th class="tb-col"><span class="overline-title">company_id</span></th> --}}
+                                        <th class="tb-col"><span class="overline-title">employee</span></th>
                                         <th class="tb-col"><span class="overline-title">Title</span></th>
                                         <th class="tb-col"><span class="overline-title">promotion Date</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">description</span></th>
@@ -48,7 +48,7 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td>
-                                            <td class="tb-col">{{ $item->company_id }}</td>
+                                            {{-- <td class="tb-col">{{ $item->company_id }}</td> --}}
                                             <td class="tb-col">{{ $item->employee_id }}</td>
                                             <td class="tb-col">{{ $item->promotionTitle }}</td>
                                             <td class="tb-col">{{ $item->promotionDate }}</td>

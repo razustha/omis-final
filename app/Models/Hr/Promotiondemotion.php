@@ -51,4 +51,10 @@
             get: fn ($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
+    protected function EmployeeId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  Employee::find($value) ? Employee::find($value)->full_name : '',
+        );
+    }
         }
