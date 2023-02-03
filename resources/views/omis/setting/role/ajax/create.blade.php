@@ -8,14 +8,14 @@
         <div class="col-lg-6">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'],$role->status ?? '') }}
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
             {{ createTextArea('remarks', 'remarks', 'remarks', '', $role->remarks?? '') }}
         </div>
-        <div class="col-lg-6"><?php createButton('btn-primary btn-store', '', 'Submit'); ?>
+        <div class="col-lg-6"><?php createButton('btn-primary btn-store', '', 'Add'); ?>
         </div>
         @foreach ($groupPermissions as $chunk)
-            <div class="row">
+            <div class="row mt-3 g-3">
                 @foreach ($chunk as $title => $group)
                     <div class="col-xs-6 col-sm-4 col-md-4">
                         <div class="form-group form-check">

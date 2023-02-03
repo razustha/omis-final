@@ -79,13 +79,12 @@
                                         <div class="col-lg-3">
                                             {!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', $data, 'City Name') !!}
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address', '', $data->permanentAddress) }}
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address') }}
                                         </div>
-
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Organization Role</h2>
                                         </div>
@@ -112,7 +111,16 @@
 
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ createText('panNo', 'panNo', 'PanNo', '', $data->panNo) }}
+                                            {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
+                                        </div>
+
+
+                                        <div class="col-lg-6">
+                                            {{ createDate('joinDate', 'joinDate', 'Join Date') }}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
+                                            {!! getSelectForForeignColumn('tbl_employeelist', 'employee_id', 'employeeFullName', '','','Reporting To') !!}
                                         </div>
 
                                         <div class="col-lg-12">
@@ -164,6 +172,9 @@
                                         for="flexSwitchSizeLg"> Status</label>
                                 </div> -->
                             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
+                        </div>
+                        <div class="col-lg-12">
+                            {{ createText('panNo', 'panNo', 'Govt. Pan No') }}
                         </div>
                         <hr>
                         <div class="col-12">
@@ -249,9 +260,71 @@
         </div>
     </div>
 </form>
-
 <script>
-    // select2 tags
+    // Fetch state according to country
+    $('#country_id').on('change',function(e){
+        e.preventDefault();
+        var country_id = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: "{{route('master.state.getState')}}",
+                data: {
+                    'country_id': country_id
+                },
+                dataType: "json",
+                success: function(response){
+                    // console.log(response);
+                    $('#state_id').html('<option value="#" selected disabled>Choose State</option>');
+                    $.each(response.message, function(key,value){
+                        $('#state_id').append('<option value='+value.state_id+'>'+value.stateName+'</option>');
+                    });
+                }
+            });
+    });
+
+    // Fetch District according to state
+    $('#state_id').on('change',function(e){
+        e.preventDefault();
+        var state_id = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: "{{route('master.state.getDistrict')}}",
+                data: {
+                    'state_id': state_id
+                },
+                dataType: "json",
+                success: function(response){
+                    // console.log(response);
+                    $('#district_id').html('<option value="#" selected disabled>Choose District</option>');
+                    $.each(response.message, function(key,value){
+                        $('#district_id').append('<option value='+value.district_id+'>'+value.districtName+'</option>');
+                    });
+                }
+            });
+    });
+
+    // Fetch City according to district
+    $('#district_id').on('change',function(e){
+        e.preventDefault();
+        var district_id = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: "{{route('master.state.getCity')}}",
+                data: {
+                    'district_id': district_id
+                },
+                dataType: "json",
+                success: function(response){
+                    // console.log(response);
+                    $('#city_id').html('<option value="#" selected disabled>Choose City</option>');
+                    $.each(response.message, function(key,value){
+                        $('#city_id').append('<option value='+value.city_id+'>'+value.cityName+'</option>');
+                    });
+                }
+            });
+    });
+
+    // Skill tag
     $('.skills').select2({
         tags: true
     });
