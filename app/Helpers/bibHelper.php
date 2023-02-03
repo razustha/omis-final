@@ -1,14 +1,15 @@
         <?php
 
         use App\Models\Country\Country;
-        use App\Models\Master\Country as MasterCountry;
+use App\Models\Hr\Employee;
+use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
         use App\Models\Master\State;
         use App\Models\Settings\OrganizationSettings;
         use App\Models\Setting\Setting;
         use App\Models\Settings\NotificationSettings;
         use App\Models\Settings\UserSettings;
-
+use Illuminate\Support\Facades\DB;
 
         function label($text)
         //here we will write translator code
@@ -510,6 +511,11 @@
                     }
 
                     return $text;
+                }
+
+                function getEmployees()
+                {
+                    return Employee::where('status','<>','-1')->get();
                 }
 
                 ?>

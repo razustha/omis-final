@@ -61,7 +61,7 @@ class Employee extends Model
 
     ];
 
-    protected $appends = ['status_name'];
+    protected $appends = ['status_name','full_name'];
 
     protected function getStatusNameAttribute()
     {
@@ -98,5 +98,10 @@ class Employee extends Model
         return Attribute::make(
             get: fn ($value) =>  Role::find($value) ? Role::find($value)->name : '',
         );
+    }
+
+    public function getFullnameAttribute()
+    {
+        return "{$this->firstName} {$this->middleName} {$this->lastName}";
     }
 }
