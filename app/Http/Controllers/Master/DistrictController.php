@@ -134,5 +134,11 @@
                 } else {
                 }
             }
+
+            public function getDistrict(Request $request)
+            {
+                $state_id = $request->state_id;
+                $districts = District::where('state_id',$state_id)->get();
+                return response()->json(['status'=>200, 'message'=>$districts]);
+            }
         }
-        

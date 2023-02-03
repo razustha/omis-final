@@ -136,5 +136,11 @@
                 } else {
                 }
             }
+
+            public function getCity(Request $request)
+            {
+                $district_id = $request->district_id;
+                $cities = City::where('district_id',$district_id)->get();
+                return response()->json(['status'=>200, 'message'=>$cities]);
+            }
         }
-        

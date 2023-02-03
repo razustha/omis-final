@@ -89,10 +89,26 @@
                                             <h2 class="mt-3">Organization Role</h2>
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('roles','id', 'name', '','','User Role') !!}
+                                            {{ customCreateSelect('role_id','role_id','','User Role',getRoles()->pluck('name', 'id')->toArray()) }}
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Deapartment ') !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department') !!}
+                                            {!! getSelectForForeignColumn('tbl_designation', 'designation_id', 'designationName', '', $data, 'Designation ') !!}
+                                        </div>
+                                        <div class="col-lg-4">
+                                            {{-- {{ createText('reportingTo', 'reportingTo', 'ReportingTo', '','', $data->reportingTo,'Reporting To') }} --}}
+                                            {!! getSelectForForeignColumn(
+                                                'tbl_employeelist',
+                                                'employee_id',
+                                                'employeeFullName',
+                                                '',
+                                                $data->reportingTo,
+                                                'Reporting To',
+                                            ) !!}
+
                                         </div>
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
@@ -108,11 +124,7 @@
                                         </div>
 
                                         <div class="col-lg-12">
-                                            {{ createText('skills', 'skills', 'Skills') }}
-                                        </div>
-                                        <div class="col-lg-12">
-                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
-                                            {{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
+                                            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', $data->remarks) }}
                                         </div>
 
 
@@ -207,15 +219,15 @@
                                         <li>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio"
-                                                    name="is_email_notification" id="inlineRadio1"
-                                                    value="1" {{ $data->is_email_notification == 1 ? 'checked' : '' }} ><label class="form-check-label"
-                                                    for="inlineRadio1">Yes</label>
+                                                    name="is_email_notification" id="inlineRadio1" value="1"
+                                                    {{ $data->is_email_notification == 1 ? 'checked' : '' }}><label
+                                                    class="form-check-label" for="inlineRadio1">Yes</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio"
                                                     name="is_email_notification" id="inlineRadio2" value="0"
-                                                    {{ $data->is_email_notification == 0 ? 'checked' : '' }}><label class="form-check-label"
-                                                    for="inlineRadio2">No</label>
+                                                    {{ $data->is_email_notification == 0 ? 'checked' : '' }}><label
+                                                    class="form-check-label" for="inlineRadio2">No</label>
                                             </div>
 
                                         </li>
