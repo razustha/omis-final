@@ -55,7 +55,7 @@
 </li>
 
 
-<li class="nk-menu-item"><a href="{{route('getcalendar')}}" class="nk-menu-link"><span class="nk-menu-icon"><em
+<li class="nk-menu-item"><a href="{{ route('getcalendar') }}" class="nk-menu-link"><span class="nk-menu-icon"><em
                 class="icon ni ni-calendar-alt"></em></span><span class="nk-menu-text">Calender</span></a>
 </li>
 
@@ -75,8 +75,8 @@
     </ul>
 </li>
 
-<li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span class="nk-menu-icon"><em
-                class="icon ni ni-users"></em></span><span class="nk-menu-text">Work</span></a>
+<li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
+            class="nk-menu-icon"><em class="icon ni ni-users"></em></span><span class="nk-menu-text">Work</span></a>
     <ul class="nk-menu-sub">
 
         <li class="nk-menu-item"><a href="{{ route('work.workprojects.index') }}" class="nk-menu-link"><span
@@ -127,7 +127,7 @@
 
         <li class="nk-menu-item"><a href="{{ route('notice.detailsview.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Details View</span></a></li>
-        <li class="nk-menu-item"><a href="{{route('notice.overview.index')}}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('notice.overview.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Overview</span></a>
         </li>
     </ul>
@@ -142,7 +142,7 @@
         </li>
         <li class="nk-menu-item"><a href="{{ route('assets.equipmentdemand.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Equipment Demand</span></a></li>
-        <li class="nk-menu-item"><a href="{{route('assets.fixedassets.index')}}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('assets.fixedassets.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Fixed Assets</span></a></li>
     </ul>
 
@@ -169,16 +169,20 @@
                     class="nk-menu-text">Job Post</span></a></li>
 
 
-        <li class="nk-menu-item"><a href="{{route('recruit.jobapplication.index')}}" class="nk-menu-link"><span class="nk-menu-text">Job
+        <li class="nk-menu-item"><a href="{{ route('recruit.jobapplication.index') }}" class="nk-menu-link"><span
+                    class="nk-menu-text">Job
                     Applications</span></a></li>
-        <li class="nk-menu-item"><a href="{{route('recruit.interviewschedule.index')}}" class="nk-menu-link"><span class="nk-menu-text">Interview
+        <li class="nk-menu-item"><a href="{{ route('recruit.interviewschedule.index') }}" class="nk-menu-link"><span
+                    class="nk-menu-text">Interview
                     Schedule</span></a></li>
-        <li class="nk-menu-item"><a href="{{route('recruit.offerletter.index')}}" class="nk-menu-link"><span class="nk-menu-text">Offer
+        <li class="nk-menu-item"><a href="{{ route('recruit.offerletter.index') }}" class="nk-menu-link"><span
+                    class="nk-menu-text">Offer
                     Letter</span></a></li>
-        <li class="nk-menu-item"><a href="{{route('recruit.experienceletter.index')}}" class="nk-menu-link"><span class="nk-menu-text">Experienced
+        <li class="nk-menu-item"><a href="{{ route('recruit.experienceletter.index') }}" class="nk-menu-link"><span
+                    class="nk-menu-text">Experienced
                     Letter</span></a></li>
 
-        <li class="nk-menu-item"><a href="{{route('recruit.recuritreports.index')}}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('recruit.recuritreports.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Reports</span></a></li>
     </ul>
 </li>
@@ -250,8 +254,8 @@
                     class="nk-menu-text">Contract </span></a></li>
         <li class="nk-menu-item"><a href="{{ route('officemanagement.purchaseservice.index') }}"
                 class="nk-menu-link"><span class="nk-menu-text">Purchase Service </span></a></li>
-        <li class="nk-menu-item"><a href="{{ route('officemanagement.cashdeposite.index') }}" class="nk-menu-link"><span
-                    class="nk-menu-text">Cash Deposit</span></a></li>
+        <li class="nk-menu-item"><a href="{{ route('officemanagement.cashdeposite.index') }}"
+                class="nk-menu-link"><span class="nk-menu-text">Cash Deposit</span></a></li>
     </ul>
 </li>
 
@@ -318,7 +322,7 @@
         <li class="nk-menu-item"><a href="{{ route('eventsandmeetings.meeting.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Meetings</span></a></li>
 
-        <li class="nk-menu-item"><a href="{{route('eventsandmeetings.event.index')}}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('eventsandmeetings.event.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Events </span></a></li>
 
     </ul>
@@ -334,7 +338,7 @@
         <li class="nk-menu-item"><a href="{{ route('supplier.suppliercategory.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Category </span></a></li>
 
-        <li class="nk-menu-item"><a href="{{route('supplier.addsupplier.index')}}" class="nk-menu-link"><span
+        <li class="nk-menu-item"><a href="{{ route('supplier.addsupplier.index') }}" class="nk-menu-link"><span
                     class="nk-menu-text">Add Supplier</span></a></li>
     </ul>
 </li>
@@ -347,6 +351,6 @@
                     Classic</span></a></li>
         <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">504
                     Classic</span></a></li>
-    </ul> 
-</li> 
+    </ul>
+</li>
 -->
