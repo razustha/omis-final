@@ -113,8 +113,8 @@
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
                                         </div>
-                                    
-                                       
+
+
                                         <div class="col-lg-6">
                                             {{ createDate('joinDate', 'joinDate', 'Join Date') }}
                                         </div>
@@ -122,6 +122,18 @@
                                             {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
                                             {!! getSelectForForeignColumn('tbl_employeelist', 'employee_id', 'employeeFullName', '','','Reporting To') !!}
                                         </div>
+
+                                        <div class="col-lg-12">
+                                            {{ createLabel('Skills', 'form-label col-form-label', 'Skills') }}
+                                            <select name="skills[]" class="form-control skills" multiple>
+                                                @if(isset($skills) )
+                                                    @foreach ($skills as $skill)
+                                                        <option value="{{$skill}}" selected>{{$skill}}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+
 
                                         <div class="col-lg-12">
                                             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', $data->remarks) }}
@@ -310,5 +322,10 @@
                     });
                 }
             });
+    });
+
+    // Skill tag
+    $('.skills').select2({
+        tags: true
     });
 </script>
