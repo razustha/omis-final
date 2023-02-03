@@ -212,13 +212,13 @@
                     </div>
 
 
-                    <!-- <div class="input-group">  
-                        <button class="btn btn-outline-primary" type="button">Button</button>  
-                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">   
-                             <option selected>Choose...</option>    
-                             <option value="1">One</option>    
-                             <option value="2">Two</option>    
-                             <option value="3">Three</option>  
+                    <!-- <div class="input-group">
+                        <button class="btn btn-outline-primary" type="button">Button</button>
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                             <option selected>Choose...</option>
+                             <option value="1">One</option>
+                             <option value="2">Two</option>
+                             <option value="3">Three</option>
                             </select>
                         </div> -->
 
@@ -318,9 +318,7 @@
                 ?>
                     <div class="form-group">
                         <div class="form-control-wrap">
-                            <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
-                     <?php echo $display; ?>
-                    </textarea>
+                            <textarea class="form-control text-area" name="<?php echo $name;?>" id="<?php echo $id;?>" rows="<?php echo $row;?>"><?php if(isset($display)){echo strip_tags($display);} ?></textarea>
                         </div>
                     </div>
 

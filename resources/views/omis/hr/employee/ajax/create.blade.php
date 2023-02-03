@@ -94,8 +94,8 @@
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
                                         </div>
-                                    
-                                       
+
+
                                         <div class="col-lg-6">
                                             {{ createDate('joinDate', 'joinDate', 'Join Date') }}
                                         </div>
