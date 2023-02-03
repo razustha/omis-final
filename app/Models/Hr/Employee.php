@@ -42,6 +42,7 @@ class Employee extends Model
         'profilePhoto',
         'aboutMe',
         'sign',
+        'skills',
         'fatherName',
         'motherName',
         'grandFatherName',

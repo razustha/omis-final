@@ -63,6 +63,14 @@ class EmployeeController extends Controller
             ];
             $user = User::create($users);
             $user_role = Role::findOrFail($request->role_id);
+            if($request->skills) {
+                $skills = collect($request->skills);
+            }
+
+            if(isset($skills)) {
+                $request['skills'] = $skills->implode(',');
+            }
+
             $user->roles()->attach($user_role);
             Employee::create($request->all());
         }
@@ -89,18 +97,27 @@ class EmployeeController extends Controller
     public function edit(Request $request, $id)
     {
         $data = Employee::findOrFail($id);
+        $skills = explode(',', $data->skills);
+
         if ($request->ajax()) {
-            $html = view("omis.hr.employee.ajax.edit", compact('data'))->render();
+            $html = view("omis.hr.employee.ajax.edit", compact('data','skills'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
-        return view("omis.hr.employee.edit", compact('data'));
+        return view("omis.hr.employee.edit", compact('data','skills'));
     }
 
 
     public function update(Request $request, $id)
     {
         $data = Employee::findOrFail($id);
+        $data->skills = null;
+        if($request->skills) {
+            $skills = collect($request->skills);
+        }
 
+        if(isset($skills)) {
+            $request['skills'] = $skills->implode(',');
+        }
         $employee = $data->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
 
         $imagePath = [];

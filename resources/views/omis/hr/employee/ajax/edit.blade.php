@@ -115,6 +115,17 @@
                                             {{ createText('panNo', 'panNo', 'PanNo', '', $data->panNo) }}
                                         </div>
 
+                                        <div class="col-lg-12">
+                                            {{ createLabel('Skills', 'form-label col-form-label', 'Skills') }}
+                                            <select name="skills[]" class="form-control skills" multiple>
+                                                @if(isset($skills) )
+                                                    @foreach ($skills as $skill)
+                                                        <option value="{{$skill}}" selected>{{$skill}}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+
 
                                         <div class="col-lg-12">
                                             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', $data->remarks) }}
@@ -238,3 +249,10 @@
         </div>
     </div>
 </form>
+
+<script>
+    // select2 tags
+    $('.skills').select2({
+        tags: true
+    });
+</script>
