@@ -22,12 +22,26 @@
         <div class="nk-sidebar-content">
             <div class="nk-sidebar-menu" data-simplebar>
                 <ul class="nk-menu">
+                    @role('super')
+
+
+                    this is for testing data
+
                     <li class="nk-menu-item">
                         <a href="{{ route('dashboard') }}" class="nk-menu-link ">
                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
                             <span class="nk-menu-text">Dashboard</span>
                         </a>
                     </li>
+                    @endrole
+                    @if(auth()->user()->can('master-country-index'))
+                    <li class="nk-menu-item">
+                        <a href="{{ route('dashboard') }}" class="nk-menu-link ">
+                            <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
+                            <span class="nk-menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    @endif
 
                     <li class="nk-menu-heading">
                         <h6 class="overline-title">Settings</h6>

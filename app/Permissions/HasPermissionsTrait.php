@@ -38,7 +38,6 @@ trait HasPermissionsTrait
     public function hasPermissionTo($permission)
     {
 
-        $this->hasPermission($permission);
         return $this->hasPermissionThroughRole($permission) || $this->hasPermission($permission);
     }
 
@@ -55,7 +54,7 @@ trait HasPermissionsTrait
 
     public function hasRole(...$roles)
     {
-
+        // dd($this);
         foreach ($roles as $role) {
             if ($this->roles->contains('slug', $role)) {
                 return true;

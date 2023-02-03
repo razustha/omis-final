@@ -1,15 +1,16 @@
         <?php
 
         use App\Models\Country\Country;
-use App\Models\Hr\Employee;
-use App\Models\Master\Country as MasterCountry;
+        use App\Models\Hr\Employee;
+        use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
         use App\Models\Master\State;
+        use App\Models\Role;
         use App\Models\Settings\OrganizationSettings;
         use App\Models\Setting\Setting;
         use App\Models\Settings\NotificationSettings;
         use App\Models\Settings\UserSettings;
-use Illuminate\Support\Facades\DB;
+        use Illuminate\Support\Facades\DB;
 
         function label($text)
         //here we will write translator code
@@ -207,7 +208,7 @@ use Illuminate\Support\Facades\DB;
                                 <option value="<?= $key ?>" <?php echo $keyValue == $key ? 'selected' : '' ?>><?= $value ?></option>
                             <?php } ?>
                         </select>
-                        
+
                     </div>
 
 
@@ -221,7 +222,7 @@ use Illuminate\Support\Facades\DB;
                             </select>
                         </div> -->
 
-              
+
 
                 <?php            }
                 //End of Select
@@ -315,14 +316,14 @@ use Illuminate\Support\Facades\DB;
                 function createTextArea($name, $class = "", $id = "", $row = "", $display = "")
                 {
                 ?>
-                 <div class="form-group">  
-                   <div class="form-control-wrap">        
-                     <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
+                    <div class="form-group">
+                        <div class="form-control-wrap">
+                            <textarea class="form-control" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
                      <?php echo $display; ?>
-                    </textarea>  
-                 </div>
-                </div>
-                    
+                    </textarea>
+                        </div>
+                    </div>
+
                 <?php
                 }
                 ?>
@@ -513,9 +514,13 @@ use Illuminate\Support\Facades\DB;
                     return $text;
                 }
 
+                function getRoles()
+                {
+                    return Role::all();
+                }
                 function getEmployees()
                 {
-                    return Employee::where('status','<>','-1')->get();
+                    return Employee::where('status', '<>', '-1')->get();
                 }
 
                 ?>

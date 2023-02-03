@@ -16,10 +16,12 @@ class PermissionMiddleware
      */
     public function handle($request, Closure $next, $permission)
     {
-        if (!$request->user()->hasPermissionTo($permission)) {
+        // dd($request->user());
+        // dd($permission);
+        // if (!$request->user()->hasPermissionTo($permission)) {
 
-            abort(404);
-        }
+        //     abort(404);
+        // }
 
         if ($permission !== null && !$request->user()->can($permission)) {
 

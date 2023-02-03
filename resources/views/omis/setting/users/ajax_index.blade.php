@@ -50,7 +50,12 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->user_type }}</td>
-                                            <td class="tb-col">{{ $item->company_id }}</td>
+                                            {{-- <td class="tb-col">{{ $item->company_id }}</td> --}}
+                                            <td class="tb-col">
+                                                @foreach($item->roles as $role)
+                                                {{ $role->name}},
+                                                @endforeach
+                                            </td>
                                             <td class="tb-col">{{ $item->name }}</td>
                                             <td class="tb-col">{{ $item->mobile }}</td>
                                             <td class="tb-col">{{ $item->email }}</td>
