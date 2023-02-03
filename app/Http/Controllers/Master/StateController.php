@@ -136,5 +136,11 @@
                 } else {
                 }
             }
+
+            public function getState(Request $request)
+            {
+                $country_id = $request->country_id;
+                $states = State::where('country_id',$country_id)->get();
+                return response()->json(['status'=>200, 'message'=>$states]);
+            }
         }
-        

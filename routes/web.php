@@ -216,6 +216,9 @@ Route::middleware('auth')->group(function () {
                     Route::delete('/destroy/{id}', [CityController::class, 'destroy'])->name('master.city.destroy');
 
                     Route::get('/checkvalidation', [CityController::class, 'checkValidation'])->name('master.city.checkValidation');
+
+                    Route::get('get-districts', [CityController::class, 'getCity'])->name('master.state.getCity');
+
                 }
             );
 
@@ -228,6 +231,8 @@ Route::middleware('auth')->group(function () {
                     Route::get('/edit/{id}', [DistrictController::class, 'edit'])->name('master.district.edit');
                     Route::put('/update/{id}', [DistrictController::class, 'update'])->name('master.district.update');
                     Route::delete('/destroy/{id}', [DistrictController::class, 'destroy'])->name('master.district.destroy');
+                    Route::get('get-districts', [DistrictController::class, 'getDistrict'])->name('master.state.getDistrict');
+
                 }
             );
             Route::prefix("nationality")->group(
@@ -262,6 +267,7 @@ Route::middleware('auth')->group(function () {
                     Route::get('/edit/{id}', [StateController::class, 'edit'])->name('master.state.edit');
                     Route::put('/update/{id}', [StateController::class, 'update'])->name('master.state.update');
                     Route::delete('/destroy/{id}', [StateController::class, 'destroy'])->name('master.state.destroy');
+                    Route::get('get-states', [StateController::class, 'getState'])->name('master.state.getState');
                 }
             );
 
