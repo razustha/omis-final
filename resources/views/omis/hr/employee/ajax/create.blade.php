@@ -107,11 +107,7 @@
                                         <div class="col-lg-12">
                                             {{ createLabel('Skills', 'form-label col-form-label', 'Skills') }}
                                             <select name="skills[]" class="form-control skills" multiple>
-                                                @if(isset($campaign_course) )
-                                                    @foreach ($campaign_course as $course)
-                                                        <option value="{{$course}}" selected>{{$course}}</option>
-                                                    @endforeach
-                                                @endif
+
                                             </select>
                                         </div>
                                         <div class="col-lg-12">
