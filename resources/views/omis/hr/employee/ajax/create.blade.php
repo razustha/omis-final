@@ -86,7 +86,7 @@
                                             <h2 class="mt-3">Organization Role</h2>
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('roles','id', 'name', '','','User Role') !!}
+                                            {{customCreateSelect('role_id', 'role_id', '', 'User Role', getRoles()->pluck('name','id')->toArray())}}
                                         </div>
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department') !!}

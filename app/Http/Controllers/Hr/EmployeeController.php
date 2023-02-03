@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Hr\Employee;
 use App\Models\Master\Document;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -45,6 +46,7 @@ class EmployeeController extends Controller
             'emailAddress' => 'required|email:unique:users',
         ]);
 
+
         if ($validator->fails()) {
             return response()->json([
                 'error' => $validator->errors()->all(),
@@ -58,7 +60,9 @@ class EmployeeController extends Controller
                 'password' => Hash::make($request->password),
                 'user_type' => 'EMPLOYEE'
             ];
-            User::create($users);
+            $user = User::create($users);
+            $user_role = Role::findOrFail($request->role_id);
+            $user->roles()->attach($user_role);
             Employee::create($request->all());
         }
         $request->request->add(['alias' => slugify($request->employeeName)]);
@@ -77,7 +81,7 @@ class EmployeeController extends Controller
             $html = view("omis.hr.employee.ajax.show", compact('data'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
-        return view("omis.hr.employee.show", compact('data','documents'));
+        return view("omis.hr.employee.show", compact('data', 'documents'));
     }
 
 
@@ -96,16 +100,16 @@ class EmployeeController extends Controller
     {
         $data = Employee::findOrFail($id);
 
-        $employee = $data->update($request->except('image_name','image_path','temp','inlineRadioOptions'));
+        $employee = $data->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
 
         $imagePath = [];
         $data = $request->all();
 
-        if(!empty($data['image_path'])) {
+        if (!empty($data['image_path'])) {
             foreach ($data['image_path'] as $key => $value) {
-                if(!empty($data['checklist_id'][$key])){
+                if (!empty($data['checklist_id'][$key])) {
                     $existingDocs = Document::find($data['checklist_id'][$key]);
-                    if($existingDocs){
+                    if ($existingDocs) {
                         $imagePath[] = $existingDocs->image_path;
                     }
                 }
@@ -114,7 +118,7 @@ class EmployeeController extends Controller
         }
         if (!empty($data['image_name'])) {
             foreach ($data['image_name'] as  $key => $value) {
-                if($value != null) {
+                if ($value != null) {
                     $files = [
                         'image_path' => $request->image_path[$key],
                         'imageable_type' => Employee::class,
@@ -122,19 +126,18 @@ class EmployeeController extends Controller
                         'image_name' => $data['image_name'][$key]
                     ];
 
-                    if(isset($imagePath[$key])){
+                    if (isset($imagePath[$key])) {
                         $files['image_path'] = $imagePath[$key];
                     }
-                    if(!empty($data['checklist_id'][$key])){
+                    if (!empty($data['checklist_id'][$key])) {
                         $existingQuli = Document::find($data['checklist_id'][$key]);
-                        if($existingQuli){
+                        if ($existingQuli) {
                             $existingQuli->update($files);
                         }
-                    }else{
+                    } else {
                         Document::create($files);
                     }
                 }
-
             }
         }
         if ($request->ajax()) {
