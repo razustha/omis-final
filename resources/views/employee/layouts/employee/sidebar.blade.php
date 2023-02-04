@@ -1,3 +1,4 @@
+
 <div class="nk-sidebar nk-sidebar-fixed is-theme" id="sidebar">
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand"><a href="index-2.html" class="logo-link">
@@ -23,7 +24,8 @@
                             <li class="nk-menu-item"><a href="{{route('employee.attandance.index')}}" class="nk-menu-link"><span class="nk-menu-text">Attandance</span></a></li>
                             <li class="nk-menu-item"><a href="{{route('employee.leaves.index')}}" class="nk-menu-link"><span class="nk-menu-text">Request Leave</span></a></li>
                             <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Holiday</span></a></li>
-                            @if(auth()->user()->employee->is_head == "manager")
+
+                            @if(auth()->user()->employee->is_head == "manager" || auth()->user()->hasRole("hr"))
                                 <li class="nk-menu-item"><a href="{{route('hr.leaveapplication.index')}}" class="nk-menu-link"><span class="nk-menu-text">Approve Leave</span></a></li>
                             @endif
 

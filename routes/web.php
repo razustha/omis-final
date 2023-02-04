@@ -588,8 +588,6 @@ Route::middleware('auth')->group(function () {
             });
 
 
-
-
             Route::prefix("appreciation")->group(function () {
                 Route::get('/', [AppreciationController::class, 'index'])->name('hr.appreciation.index')->middleware('permission:hr-appreciation-index');
                 Route::get('/create', [AppreciationController::class, 'create'])->name('hr.appreciation.create')->middleware('permission:hr-appreciation-create');
