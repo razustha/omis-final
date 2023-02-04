@@ -18,17 +18,7 @@ class PermissionSeeder extends Seeder
         $permissions = [
             //module_id = 1
             'Master' => [
-                'absentreason' => [
-                    'master.absentreason.index',
-                    'master.absentreason.create',
-                    'master.absentreason.show',
-                    'master.absentreason.store',
-                    'master.absentreason.edit ',
-                    'master.absentreason.update',
-                    'master.absentreason.destory',
-
-                ],
-                'attendanceform' => [
+                    'attendanceform' => [
                     'master.attendancefrom.index',
                     'master.attendancefrom.create',
                     'master.attendancefrom.show',
