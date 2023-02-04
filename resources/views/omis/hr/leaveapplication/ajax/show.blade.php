@@ -22,12 +22,14 @@
                     <p><b>LeaveType :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveType }}</span></p>
                     <p><b>LeaveStart :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveStart }}</span></p>
                     <p><b>LeaveEnd :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveEnd }}</span></p>
-                    <p><b>Leave Approved/Rejected By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveApprovalBy }}</span></p>
-                    <p><b>Leave Approved/Rejected Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveApprovedDate }}</span>
+                    <p><b>Leave Approved/Rejected By :&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                        <span>{{ $data->leaveApprovalBy }}</span></p>
+                    <p><b>Leave Approved/Rejected Date :&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                        <span>{{ $data->leaveApprovedDate }}</span>
                     </p>
 
                     <p><b>Leave Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
-                            class="{{ $data->status == 1 ? 'text-success' : 'text-danger' }}">{{ $data->leaveApplication_status}}</span>
+                            class="{{ $data->status == 1 ? 'text-success' : 'text-danger' }}">{{ $data->leaveApplication_status }}</span>
                     </p>
                     <p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->remarks }}</span></p>
                     <div class="d-flex justify-content-between">
