@@ -10,7 +10,8 @@
         {
            public function index(Request $request)
             {
-                $data = Leaveapplication::where('status','<>',-1)->orderBy('created_at','desc')->get();
+
+                $data = Leaveapplication::orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
                     $html = view("omis.hr.leaveapplication.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
@@ -137,6 +138,18 @@
                 }
             }
 
+            public function toForward(Request $request) {
+
+                $data = Leaveapplication::findOrFail($request->approved_id);
+                $dat['leaveApprovalBy'] = auth()->user()->id;
+                $dat['leaveApprovedDate'] = date('Y-m-d');
+                $dat['leaveApplication_status'] = "forwarded";
+                $request->request->add(['alias' => slugify($request->leaveapplicationName)]);
+                $data->update($dat);
+                return redirect()->route('hr.leaveapplication.index')->with('success','The Leaveapplication has been approved.');
+
+            }
+
             public function toApprove(Request $request) {
 
                 $data = Leaveapplication::findOrFail($request->approved_id);
@@ -148,6 +161,9 @@
                 return redirect()->route('hr.leaveapplication.index')->with('success','The Leaveapplication has been approved.');
 
             }
+
+
+
 
             public function toReject(Request $request) {
 
@@ -161,4 +177,3 @@
 
             }
         }
-        

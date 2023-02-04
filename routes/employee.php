@@ -30,7 +30,7 @@ Route::get('/user/attandance', function () {
 })->name('employee.attandance.index');
 
 Route::get('/user/leaves', function () {
-    $data = Leaveapplication::where('status', '<>', -1)->where('employee_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+    $data = Leaveapplication::where('employee_id', auth()->user()->employee->employee_id)->orderBy('created_at', 'desc')->get();
     return view('employee\leaves\ajax_index', compact('data'));
 })->name('employee.leaves.index');
 

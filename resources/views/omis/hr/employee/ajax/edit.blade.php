@@ -171,7 +171,10 @@
                                     <label class="form-check-label"
                                         for="flexSwitchSizeLg"> Status</label>
                                 </div> -->
-                            {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
+
+                            {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
+                            {{ customCreateSelect('is_head', 'is_head', '', 'Is Head', ['manager' => 'Manager', 'team_lead' => 'Team Lead','project_manager' => 'Project Manager','employee' => 'Employee'], $data->is_head) }}
+
                         </div>
                         <div class="col-lg-12">
                             {{ createText('panNo', 'panNo', 'Govt. Pan No') }}

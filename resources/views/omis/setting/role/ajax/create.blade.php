@@ -6,15 +6,40 @@
 
 
         <div class="col-lg-6">
-            {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'],$role->status ?? '') }}
+            {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $role->status ?? '') }}
         </div>
         <div class="col-lg-12">
             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
-            {{ createTextArea('remarks', 'remarks', 'remarks', '', $role->remarks?? '') }}
+            {{ createTextArea('remarks', 'remarks', 'remarks', '', $role->remarks ?? '') }}
         </div>
         <div class="col-lg-6"><?php createButton('btn-primary btn-store', '', 'Add'); ?>
         </div>
+        @php
+            $moduleName = '';
+            $moduleId = [];
+            $counter = 0;
+        @endphp
         @foreach ($groupPermissions as $chunk)
+            <?php
+            $chunkk = $chunk;
+            foreach ($chunkk as $titlee => $groupp) {
+                foreach ($groupp as $permission) {
+                    if (empty($moduleId)) {
+                        $moduleId[] = $permission->module_id;
+                        echo "<h2 class='text-primary custom-module'>$permission->moduleName</h2>";
+                        break;
+                    }
+                    // echo "<h4>$permission->moduleName</h4>";
+                    // print_r($moduleId);
+                    if (!in_array($permission->module_id, $moduleId)) {
+                        $moduleId[] = $permission->module_id;
+                        echo "<h2 class='text-primary custom-module'>$permission->moduleName</h2>";
+                        break;
+                    }
+                }
+                break;
+            }
+            ?>
             <div class="row mt-3 g-3">
                 @foreach ($chunk as $title => $group)
                     <div class="col-xs-6 col-sm-4 col-md-4">
@@ -89,3 +114,10 @@
         $("[data-checkbox-group][data-role=select]").trigger('change');
     });
 </script>
+<style>
+    .custom-module {
+        margin-top: 1rem;
+        padding: 1rem;
+        background-color: antiquewhite;
+    }
+</style>

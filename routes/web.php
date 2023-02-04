@@ -182,7 +182,7 @@ Route::middleware('auth')->group(function () {
         Route::put('/update/{id}', [PackageController::class, 'update'])->name('superadmin.package.update');
         Route::delete('/destroy/{id}', [PackageController::class, 'destroy'])->name('superadmin.package.destroy');
     });
-                                    
+
 
     Route::prefix("master")->group(
         function () {
@@ -466,13 +466,16 @@ Route::middleware('auth')->group(function () {
             });
 
             Route::prefix("employee")->group(function () {
-                Route::get('/', [EmployeeController::class, 'index'])->name('hr.employee.index')->middleware('permission:hr-employee-index');
-                Route::get('/create', [EmployeeController::class, 'create'])->name('hr.employee.create')->middleware('permission:hr-employee-create');
-                Route::post('/store', [EmployeeController::class, 'store'])->name('hr.employee.store')->middleware('permission:hr-employee-store');
-                Route::get('/show/{id}', [EmployeeController::class, 'show'])->name('hr.employee.show')->middleware('permission:hr-employee-show');
-                Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name('hr.employee.edit')->middleware('permission:hr-employee-edit');
-                Route::put('/update/{id}', [EmployeeController::class, 'update'])->name('hr.employee.update')->middleware('permission:hr-employee-update');
-                Route::delete('/destroy/{id}', [EmployeeController::class, 'destroy'])->name('hr.employee.destroy')->middleware('permission:hr-employee-destroy');
+                Route::get('/', [EmployeeController::class, 'index'])->name('hr.employee.index');
+                Route::get('/create', [EmployeeController::class, 'create'])->name('hr.employee.create');
+                Route::post('/store', [EmployeeController::class, 'store'])->name('hr.employee.store');
+                Route::get('/show/{id}', [EmployeeController::class, 'show'])->name('hr.employee.show');
+                Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name('hr.employee.edit');
+                Route::put('/update/{id}', [EmployeeController::class, 'update'])->name('hr.employee.update');
+                Route::delete('/destroy/{id}', [EmployeeController::class, 'destroy'])->name('hr.employee.destroy');
+                Route::get('get-department', [EmployeeController::class, 'getHeadOfDepartment'])->name('hr.employee.getHeadOfDepartment');
+
+
             });
 
 
@@ -561,15 +564,16 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/destroy/{id}', [DesignationController::class, 'destroy'])->name('hr.designation.destroy')->middleware('permission:hr-designation-destroy');
             });
             Route::prefix("leaveApplication")->group(function () {
-                Route::get('/', [LeaveApplicationController::class, 'index'])->name('hr.leaveapplication.index')->middleware('permission:hr-leaveApplication-index');
-                Route::get('/create', [LeaveApplicationController::class, 'create'])->name('hr.leaveapplication.create')->middleware('permission:hr-leaveApplication-create');
-                Route::post('/store', [LeaveApplicationController::class, 'store'])->name('hr.leaveapplication.store')->middleware('permission:hr-leaveApplication-store');
-                Route::get('/show/{id}', [LeaveApplicationController::class, 'show'])->name('hr.leaveapplication.show')->middleware('permission:hr-leaveApplication-show');
-                Route::get('/edit/{id}', [LeaveApplicationController::class, 'edit'])->name('hr.leaveapplication.edit')->middleware('permission:hr-leaveApplication-edit');
-                Route::put('/update/{id}', [LeaveApplicationController::class, 'update'])->name('hr.leaveapplication.update')->middleware('permission:hr-leaveApplication-update');
-                Route::delete('/destroy/{id}', [LeaveApplicationController::class, 'destroy'])->name('hr.leaveapplication.destroy')->middleware('permission:hr-leaveApplication-destroy');
-                Route::get('tobeapprove', [LeaveApplicationController::class, 'toApprove'])->name('hr.leaveapplication.tobeapprove')->middleware('permission:hr-leaveApplication-toApprove');
-                Route::get('tobereject', [LeaveApplicationController::class, 'toReject'])->name('hr.leaveapplication.tobereject')->middleware('permission:hr-leaveApplication-toReject');
+                Route::get('/', [LeaveApplicationController::class, 'index'])->name('hr.leaveapplication.index');
+                Route::get('/create', [LeaveApplicationController::class, 'create'])->name('hr.leaveapplication.create');
+                Route::post('/store', [LeaveApplicationController::class, 'store'])->name('hr.leaveapplication.store');
+                Route::get('/show/{id}', [LeaveApplicationController::class, 'show'])->name('hr.leaveapplication.show');
+                Route::get('/edit/{id}', [LeaveApplicationController::class, 'edit'])->name('hr.leaveapplication.edit');
+                Route::put('/update/{id}', [LeaveApplicationController::class, 'update'])->name('hr.leaveapplication.update');
+                Route::delete('/destroy/{id}', [LeaveApplicationController::class, 'destroy'])->name('hr.leaveapplication.destroy');
+                Route::get('tobeapprove', [LeaveApplicationController::class, 'toApprove'])->name('hr.leaveapplication.tobeapprove');
+                Route::get('tobereject', [LeaveApplicationController::class, 'toReject'])->name('hr.leaveapplication.tobereject');
+                Route::get('tobeforward', [LeaveApplicationController::class, 'toForward'])->name('hr.leaveapplication.tobeforward');
             });
 
 

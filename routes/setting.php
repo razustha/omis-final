@@ -21,12 +21,12 @@ Route::middleware('auth')->prefix("setting")->group(function () {
 Route::middleware('auth')->prefix("setting")->group(function () {
     Route::prefix("permission")->group(function () {
         Route::get('/', [PermissionController::class, 'index'])->name('setting.permission.index');
-        Route::get('/create', [UsersController::class, 'create'])->name('setting.permission.create');
-        Route::post('/store', [UsersController::class, 'store'])->name('setting.permission.store');
-        Route::get('/show/{id}', [UsersController::class, 'show'])->name('setting.permission.show');
-        Route::get('/edit/{id}', [UsersController::class, 'edit'])->name('setting.permission.edit');
-        Route::put('/update/{id}', [UsersController::class, 'update'])->name('setting.permission.update');
-        Route::delete('/destroy/{id}', [UsersController::class, 'destroy'])->name('setting.permission.destroy');
+        Route::get('/create', [PermissionController::class, 'create'])->name('setting.permission.create');
+        Route::post('/store', [PermissionController::class, 'store'])->name('setting.permission.store');
+        Route::get('/show/{id}', [PermissionController::class, 'show'])->name('setting.permission.show');
+        Route::get('/edit/{id}', [PermissionController::class, 'edit'])->name('setting.permission.edit');
+        Route::put('/update/{id}', [PermissionController::class, 'update'])->name('setting.permission.update');
+        Route::delete('/destroy/{id}', [PermissionController::class, 'destroy'])->name('setting.permission.destroy');
     });
 });
 

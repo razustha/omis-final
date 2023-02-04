@@ -16,7 +16,8 @@ class EmployeeController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Employee::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
+        $organization_id = auth()->user()->id;
+        $data = Employee::where('status', '<>', -1)->where('organization_id',$organization_id)->orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             $html = view("omis.hr.employee.ajax.index", compact('data'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
@@ -26,6 +27,7 @@ class EmployeeController extends Controller
 
     public function create(Request $request)
     {
+
         if ($request->ajax()) {
             $employeeID = Employee::get()->last();
             $emp_id = '';
@@ -40,7 +42,6 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
             'password' => 'required',
@@ -70,8 +71,8 @@ class EmployeeController extends Controller
             if(isset($skills)) {
                 $request['skills'] = $skills->implode(',');
             }
-
             $user->roles()->attach($user_role);
+            $request['organization_id'] = auth()->user()->id;
             Employee::create($request->all());
         }
         $request->request->add(['alias' => slugify($request->employeeName)]);
@@ -118,6 +119,7 @@ class EmployeeController extends Controller
         if(isset($skills)) {
             $request['skills'] = $skills->implode(',');
         }
+        $request['organization_id'] = auth()->user()->id;
         $employee = $data->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
 
         $imagePath = [];
@@ -170,6 +172,13 @@ class EmployeeController extends Controller
         $data->status = -1;
         $data->save();
         return response()->json(['status' => true, 'message' => 'The Employee Deleted Successfully.'], 200);
+    }
+
+    public function getHeadOfDepartment(Request $request)
+    {
+        $department_id = $request->department_id;
+        $data = Employee::where('status', '<>', -1)->where('organization_id',auth()->user()->id)->where('department_id',$department_id)->where('is_head','manager')->orderBy('created_at', 'desc')->get();
+        return response()->json(['status'=>200, 'message'=>$data]);
     }
 
     public static function getAjaxContent($type, $id = '', $option = '')

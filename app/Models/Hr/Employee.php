@@ -1,5 +1,7 @@
 <?php
 namespace App\Models\Hr;
+
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -43,6 +45,7 @@ class Employee extends Model
         'aboutMe',
         'sign',
         'skills',
+        'reportingTo',
         'fatherName',
         'motherName',
         'grandFatherName',
@@ -50,6 +53,7 @@ class Employee extends Model
         'spouse',
         'emergencyContact',
         'is_login',
+        'is_head',
         'is_email_notification',
         'createdOn',
         'createdBy',
