@@ -50,7 +50,7 @@
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->name }}</td>
 <td class="tb-col">{{ $item->price }}</td>
 <!-- <td class="tb-col">{{ $item->description }}</td> -->
-<td class="tb-col">{{ $item->feature }}</td>
+<td class="tb-col">{{ $item->module_name }}</td>
 <td class="tb-col">{{ $item->duration }}</td>
 <!-- <td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
