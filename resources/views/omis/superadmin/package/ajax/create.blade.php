@@ -17,25 +17,33 @@
         </div>
          <br>
          <br>
+         
 <div class="col-lg-12 mt-4 mb-1">
     <h3>Features</h3>
 </div>
-<div class="col-lg-4">
+<div class="col-lg-12 mt-1 mb-3">
+   <h7>{{createCheck('','','Check All','','')}}</h7>
+</div>
+
+<div class="col-lg-6">
  <?php 
  $count=1;
  $totalModulle = count(getModules());
  ?>   
 @foreach(getModules() as $module)
     
-    {{createCheck($module->moduleName,$module->moduleName,$module->moduleName,"","","")}}
+<div class="form-check">
+    <input type="checkbox" id="{{$module->moduleName}}" placeholder="" name="module[]" class="form-check-input " value="{{$module->module_id}}">
+    <label for="{{$module->moduleName}}" class="form-check-label"> {{$module->moduleName}} </label>
+</div>
 
     @if($count%5 == 0 && $totalModulle > 5)
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-6">
     @endif
     <?php $count++ ?>
 
-    @endforeach    
+@endforeach    
 </div>
 
 

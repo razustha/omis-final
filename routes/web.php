@@ -1127,124 +1127,126 @@ Route::middleware('auth')->group(function () {
 
 
             Route::prefix("traininglist")->group(function () {
-                Route::get('/', [TraininglistController::class, 'index'])->name('training.traininglist.index');
-                Route::get('/create', [TraininglistController::class, 'create'])->name('training.traininglist.create');
-                Route::post('/store', [TraininglistController::class, 'store'])->name('training.traininglist.store');
-                Route::get('/show/{id}', [TraininglistController::class, 'show'])->name('training.traininglist.show');
-                Route::get('/edit/{id}', [TraininglistController::class, 'edit'])->name('training.traininglist.edit');
-                Route::put('/update/{id}', [TraininglistController::class, 'update'])->name('training.traininglist.update');
-                Route::delete('/destroy/{id}', [TraininglistController::class, 'destroy'])->name('training.traininglist.destroy');
+                Route::get('/', [TraininglistController::class, 'index'])->name('training.traininglist.index')->middleware('permission:Training-traininglist-index');
+                Route::get('/create', [TraininglistController::class, 'create'])->name('training.traininglist.create')->middleware('permission:Training-traininglist-create');
+                Route::post('/store', [TraininglistController::class, 'store'])->name('training.traininglist.store')->middleware('permission:Training-traininglist-store');
+                Route::get('/show/{id}', [TraininglistController::class, 'show'])->name('training.traininglist.show')->middleware('permission:Training-traininglist-show');
+                Route::get('/edit/{id}', [TraininglistController::class, 'edit'])->name('training.traininglist.edit')->middleware('permission:Training-traininglist-edit');
+                Route::put('/update/{id}', [TraininglistController::class, 'update'])->name('training.traininglist.update')->middleware('permission:Training-traininglist-update');
+                Route::delete('/destroy/{id}', [TraininglistController::class, 'destroy'])->name('training.traininglist.destroy')->middleware('permission:Training-traininglist-destroy');
             });
             Route::prefix("trainer")->group(function () {
-                Route::get('/', [TrainerController::class, 'index'])->name('training.trainer.index');
-                Route::get('/create', [TrainerController::class, 'create'])->name('training.trainer.create');
-                Route::post('/store', [TrainerController::class, 'store'])->name('training.trainer.store');
-                Route::get('/show/{id}', [TrainerController::class, 'show'])->name('training.trainer.show');
-                Route::get('/edit/{id}', [TrainerController::class, 'edit'])->name('training.trainer.edit');
-                Route::put('/update/{id}', [TrainerController::class, 'update'])->name('training.trainer.update');
-                Route::delete('/destroy/{id}', [TrainerController::class, 'destroy'])->name('training.trainer.destroy');
+                Route::get('/', [TrainerController::class, 'index'])->name('training.trainer.index')->middleware('permission:Training-trainer-index');
+                Route::get('/create', [TrainerController::class, 'create'])->name('training.trainer.create')->middleware('permission:Training-trainer-create');
+                Route::post('/store', [TrainerController::class, 'store'])->name('training.trainer.store')->middleware('permission:Training-trainer-store');
+                Route::get('/show/{id}', [TrainerController::class, 'show'])->name('training.trainer.show')->middleware('permission:Training-trainer-show');
+                Route::get('/edit/{id}', [TrainerController::class, 'edit'])->name('training.trainer.edit')->middleware('permission:Training-trainer-edit');
+                Route::put('/update/{id}', [TrainerController::class, 'update'])->name('training.trainer.update')->middleware('permission:Training-trainer-update');
+                Route::delete('/destroy/{id}', [TrainerController::class, 'destroy'])->name('training.trainer.destroy')->middleware('permission:Training-trainer-destroy');
             });
         }
     );
     Route::prefix("travelfleet")->group(
         function () {
             Route::prefix("fleetrequest")->group(function () {
-                Route::get('/', [FleetrequestController::class, 'index'])->name('travelfleet.fleetrequest.index');
-                Route::get('/create', [FleetrequestController::class, 'create'])->name('travelfleet.fleetrequest.create');
-                Route::post('/store', [FleetrequestController::class, 'store'])->name('travelfleet.fleetrequest.store');
-                Route::get('/show/{id}', [FleetrequestController::class, 'show'])->name('travelfleet.fleetrequest.show');
-                Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('travelfleet.fleetrequest.edit');
-                Route::put('/update/{id}', [FleetrequestController::class, 'update'])->name('travelfleet.fleetrequest.update');
-                Route::delete('/destroy/{id}', [FleetrequestController::class, 'destroy'])->name('travelfleet.fleetrequest.destroy');
+                Route::get('/', [FleetrequestController::class, 'index'])->name('travelfleet.fleetrequest.index')->middleware('permission:travelfleet-fleetrequest-index');
+                Route::get('/create', [FleetrequestController::class, 'create'])->name('travelfleet.fleetrequest.create')->middleware('permission:travelfleet-fleetrequest-create');
+                Route::post('/store', [FleetrequestController::class, 'store'])->name('travelfleet.fleetrequest.store')->middleware('permission:travelfleet-fleetrequest-store');
+                Route::get('/show/{id}', [FleetrequestController::class, 'show'])->name('travelfleet.fleetrequest.show')->middleware('permission:travelfleet-fleetrequest-show');
+                Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('travelfleet.fleetrequest.edit')->middleware('permission:travelfleet-fleetrequest-edit');
+                Route::put('/update/{id}', [FleetrequestController::class, 'update'])->name('travelfleet.fleetrequest.update')->middleware('permission:travelfleet-fleetrequest-update');
+                Route::delete('/destroy/{id}', [FleetrequestController::class, 'destroy'])->name('travelfleet.fleetrequest.destroy')->middleware('permission:travelfleet-fleetrequest-destroy');
             });
 
             Route::prefix("fleetroster")->group(function () {
-                Route::get('/', [FleetrosterController::class, 'index'])->name('travelfleet.fleetroster.index');
-                Route::get('/create', [FleetrosterController::class, 'create'])->name('travelfleet.fleetroster.create');
-                Route::post('/store', [FleetrosterController::class, 'store'])->name('travelfleet.fleetroster.store');
-                Route::get('/show/{id}', [FleetrosterController::class, 'show'])->name('travelfleet.fleetroster.show');
-                Route::get('/edit/{id}', [FleetrosterController::class, 'edit'])->name('travelfleet.fleetroster.edit');
-                Route::put('/update/{id}', [FleetrosterController::class, 'update'])->name('travelfleet.fleetroster.update');
-                Route::delete('/destroy/{id}', [FleetrosterController::class, 'destroy'])->name('travelfleet.fleetroster.destroy');
+                Route::get('/', [FleetrosterController::class, 'index'])->name('travelfleet.fleetroster.index')->middleware('permission:travelfleet-fleetroster-index');
+                Route::get('/create', [FleetrosterController::class, 'create'])->name('travelfleet.fleetroster.create')->middleware('permission:travelfleet-fleetroster-create');
+                Route::post('/store', [FleetrosterController::class, 'store'])->name('travelfleet.fleetroster.store')->middleware('permission:travelfleet-fleetroster-store');
+                Route::get('/show/{id}', [FleetrosterController::class, 'show'])->name('travelfleet.fleetroster.show')->middleware('permission:travelfleet-fleetroster-show');
+                Route::get('/edit/{id}', [FleetrosterController::class, 'edit'])->name('travelfleet.fleetroster.edit')->middleware('permission:travelfleet-fleetroster-edit');
+                Route::put('/update/{id}', [FleetrosterController::class, 'update'])->name('travelfleet.fleetroster.update')->middleware('permission:travelfleet-fleetroster-update');
+                Route::delete('/destroy/{id}', [FleetrosterController::class, 'destroy'])->name('travelfleet.fleetroster.destroy')->middleware('permission:travelfleet-fleetroster-destroy');
             });
+
+
             Route::prefix("travelslog")->group(function () {
-                Route::get('/', [TravelslogController::class, 'index'])->name('travelfleet.travelslog.index');
-                Route::get('/create', [TravelslogController::class, 'create'])->name('travelfleet.travelslog.create');
-                Route::post('/store', [TravelslogController::class, 'store'])->name('travelfleet.travelslog.store');
-                Route::get('/show/{id}', [TravelslogController::class, 'show'])->name('travelfleet.travelslog.show');
-                Route::get('/edit/{id}', [TravelslogController::class, 'edit'])->name('travelfleet.travelslog.edit');
-                Route::put('/update/{id}', [TravelslogController::class, 'update'])->name('travelfleet.travelslog.update');
-                Route::delete('/destroy/{id}', [TravelslogController::class, 'destroy'])->name('travelfleet.travelslog.destroy');
+                Route::get('/', [TravelslogController::class, 'index'])->name('travelfleet.travelslog.index')->middleware('permission:travelfleet-travelslog-index');
+                Route::get('/create', [TravelslogController::class, 'create'])->name('travelfleet.travelslog.create')->middleware('permission:travelfleet-travelslog-create');
+                Route::post('/store', [TravelslogController::class, 'store'])->name('travelfleet.travelslog.store')->middleware('permission:travelfleet-travelslog-store');
+                Route::get('/show/{id}', [TravelslogController::class, 'show'])->name('travelfleet.travelslog.show')->middleware('permission:travelfleet-travelslog-show');
+                Route::get('/edit/{id}', [TravelslogController::class, 'edit'])->name('travelfleet.travelslog.edit')->middleware('permission:travelfleet-travelslog-edit');
+                Route::put('/update/{id}', [TravelslogController::class, 'update'])->name('travelfleet.travelslog.update')->middleware('permission:travelfleet-travelslog-update');
+                Route::delete('/destroy/{id}', [TravelslogController::class, 'destroy'])->name('travelfleet.travelslog.destroy')->middleware('permission:travelfleet-travelslog-destroy');
             });
 
             Route::prefix("vehiclelog")->group(function () {
-                Route::get('/', [VehiclelogController::class, 'index'])->name('travelfleet.vehiclelog.index');
-                Route::get('/create', [VehiclelogController::class, 'create'])->name('travelfleet.vehiclelog.create');
-                Route::post('/store', [VehiclelogController::class, 'store'])->name('travelfleet.vehiclelog.store');
-                Route::get('/show/{id}', [VehiclelogController::class, 'show'])->name('travelfleet.vehiclelog.show');
-                Route::get('/edit/{id}', [VehiclelogController::class, 'edit'])->name('travelfleet.vehiclelog.edit');
-                Route::put('/update/{id}', [VehiclelogController::class, 'update'])->name('travelfleet.vehiclelog.update');
-                Route::delete('/destroy/{id}', [VehiclelogController::class, 'destroy'])->name('travelfleet.vehiclelog.destroy');
+                Route::get('/', [VehiclelogController::class, 'index'])->name('travelfleet.vehiclelog.index')->middleware('permission:travelfleet-vehiclelog-index');
+                Route::get('/create', [VehiclelogController::class, 'create'])->name('travelfleet.vehiclelog.create')->middleware('permission:travelfleet-vehiclelog-create');
+                Route::post('/store', [VehiclelogController::class, 'store'])->name('travelfleet.vehiclelog.store')->middleware('permission:travelfleet-vehiclelog-store');
+                Route::get('/show/{id}', [VehiclelogController::class, 'show'])->name('travelfleet.vehiclelog.show')->middleware('permission:travelfleet-vehiclelog-show');
+                Route::get('/edit/{id}', [VehiclelogController::class, 'edit'])->name('travelfleet.vehiclelog.edit')->middleware('permission:travelfleet-vehiclelog-edit');
+                Route::put('/update/{id}', [VehiclelogController::class, 'update'])->name('travelfleet.vehiclelog.update')->middleware('permission:travelfleet-vehiclelog-update');
+                Route::delete('/destroy/{id}', [VehiclelogController::class, 'destroy'])->name('travelfleet.vehiclelog.destroy')->middleware('permission:travelfleet-vehiclelog-destroy');
             });
             Route::prefix("travelcategory")->group(function () {
-                Route::get('/', [TravelcategoryController::class, 'index'])->name('travelfleet.travelcategory.index');
-                Route::get('/create', [TravelcategoryController::class, 'create'])->name('travelfleet.travelcategory.create');
-                Route::post('/store', [TravelcategoryController::class, 'store'])->name('travelfleet.travelcategory.store');
-                Route::get('/show/{id}', [TravelcategoryController::class, 'show'])->name('travelfleet.travelcategory.show');
-                Route::get('/edit/{id}', [TravelcategoryController::class, 'edit'])->name('travelfleet.travelcategory.edit');
-                Route::put('/update/{id}', [TravelcategoryController::class, 'update'])->name('travelfleet.travelcategory.update');
-                Route::delete('/destroy/{id}', [TravelcategoryController::class, 'destroy'])->name('travelfleet.travelcategory.destroy');
+                Route::get('/', [TravelcategoryController::class, 'index'])->name('travelfleet.travelcategory.index')->middleware('permission:travelfleet-travelcategory-index');
+                Route::get('/create', [TravelcategoryController::class, 'create'])->name('travelfleet.travelcategory.create')->middleware('permission:travelfleet-travelcategory-create');
+                Route::post('/store', [TravelcategoryController::class, 'store'])->name('travelfleet.travelcategory.store')->middleware('permission:travelfleet-travelcategory-store');
+                Route::get('/show/{id}', [TravelcategoryController::class, 'show'])->name('travelfleet.travelcategory.show')->middleware('permission:travelfleet-travelcategory-show');
+                Route::get('/edit/{id}', [TravelcategoryController::class, 'edit'])->name('travelfleet.travelcategory.edit')->middleware('permission:travelfleet-travelcategory-edit');
+                Route::put('/update/{id}', [TravelcategoryController::class, 'update'])->name('travelfleet.travelcategory.update')->middleware('permission:travelfleet-travelcategory-update');
+                Route::delete('/destroy/{id}', [TravelcategoryController::class, 'destroy'])->name('travelfleet.travelcategory.destroy')->middleware('permission:travelfleet-travelcategory-destroy');
             });
             Route::prefix("travelapproval")->group(function () {
-                Route::get('/', [TravelapprovalController::class, 'index'])->name('travelfleet.travelapproval.index');
-                Route::get('/create', [TravelapprovalController::class, 'create'])->name('travelfleet.travelapproval.create');
-                Route::post('/store', [TravelapprovalController::class, 'store'])->name('travelfleet.travelapproval.store');
-                Route::get('/show/{id}', [TravelapprovalController::class, 'show'])->name('travelfleet.travelapproval.show');
-                Route::get('/edit/{id}', [TravelapprovalController::class, 'edit'])->name('travelfleet.travelapproval.edit');
-                Route::put('/update/{id}', [TravelapprovalController::class, 'update'])->name('travelfleet.travelapproval.update');
-                Route::delete('/destroy/{id}', [TravelapprovalController::class, 'destroy'])->name('travelfleet.travelapproval.destroy');
+                Route::get('/', [TravelapprovalController::class, 'index'])->name('travelfleet.travelapproval.index')->middleware('permission:travelfleet-travelapproval-index');
+                Route::get('/create', [TravelapprovalController::class, 'create'])->name('travelfleet.travelapproval.create')->middleware('permission:travelfleet-travelapproval-create');
+                Route::post('/store', [TravelapprovalController::class, 'store'])->name('travelfleet.travelapproval.store')->middleware('permission:travelfleet-travelapproval-store');
+                Route::get('/show/{id}', [TravelapprovalController::class, 'show'])->name('travelfleet.travelapproval.show')->middleware('permission:travelfleet-travelapproval-show');
+                Route::get('/edit/{id}', [TravelapprovalController::class, 'edit'])->name('travelfleet.travelapproval.edit')->middleware('permission:travelfleet-travelapproval-edit');
+                Route::put('/update/{id}', [TravelapprovalController::class, 'update'])->name('travelfleet.travelapproval.update')->middleware('permission:travelfleet-travelapproval-update');
+                Route::delete('/destroy/{id}', [TravelapprovalController::class, 'destroy'])->name('travelfleet.travelapproval.destroy')->middleware('permission:travelfleet-travelapproval-destroy');
             });
 
 
             Route::prefix("travelrequest")->group(function () {
-                Route::get('/', [TravelrequestController::class, 'index'])->name('travelfleet.travelrequest.index');
-                Route::get('/create', [TravelrequestController::class, 'create'])->name('travelfleet.travelrequest.create');
-                Route::post('/store', [TravelrequestController::class, 'store'])->name('travelfleet.travelrequest.store');
-                Route::get('/show/{id}', [TravelrequestController::class, 'show'])->name('travelfleet.travelrequest.show');
-                Route::get('/edit/{id}', [TravelrequestController::class, 'edit'])->name('travelfleet.travelrequest.edit');
-                Route::put('/update/{id}', [TravelrequestController::class, 'update'])->name('travelfleet.travelrequest.update');
-                Route::delete('/destroy/{id}', [TravelrequestController::class, 'destroy'])->name('travelfleet.travelrequest.destroy');
+                Route::get('/', [TravelrequestController::class, 'index'])->name('travelfleet.travelrequest.index')->middleware('permission:travelfleet-travelrequest-index');
+                Route::get('/create', [TravelrequestController::class, 'create'])->name('travelfleet.travelrequest.create')->middleware('permission:travelfleet-travelrequest-create');
+                Route::post('/store', [TravelrequestController::class, 'store'])->name('travelfleet.travelrequest.store')->middleware('permission:travelfleet-travelrequest-store');
+                Route::get('/show/{id}', [TravelrequestController::class, 'show'])->name('travelfleet.travelrequest.show')->middleware('permission:travelfleet-travelrequest-show');
+                Route::get('/edit/{id}', [TravelrequestController::class, 'edit'])->name('travelfleet.travelrequest.edit')->middleware('permission:travelfleet-travelrequest-edit');
+                Route::put('/update/{id}', [TravelrequestController::class, 'update'])->name('travelfleet.travelrequest.update')->middleware('permission:travelfleet-travelrequest-update');
+                Route::delete('/destroy/{id}', [TravelrequestController::class, 'destroy'])->name('travelfleet.travelrequest.destroy')->middleware('permission:travelfleet-travelrequest-destroy');
             });
 
 
             Route::prefix("maintenancelog")->group(function () {
-                Route::get('/', [MaintenancelogController::class, 'index'])->name('travelfleet.maintenancelog.index');
-                Route::get('/create', [MaintenancelogController::class, 'create'])->name('travelfleet.maintenancelog.create');
-                Route::post('/store', [MaintenancelogController::class, 'store'])->name('travelfleet.maintenancelog.store');
-                Route::get('/show/{id}', [MaintenancelogController::class, 'show'])->name('travelfleet.maintenancelog.show');
-                Route::get('/edit/{id}', [MaintenancelogController::class, 'edit'])->name('travelfleet.maintenancelog.edit');
-                Route::put('/update/{id}', [MaintenancelogController::class, 'update'])->name('travelfleet.maintenancelog.update');
-                Route::delete('/destroy/{id}', [MaintenancelogController::class, 'destroy'])->name('travelfleet.maintenancelog.destroy');
+                Route::get('/', [MaintenancelogController::class, 'index'])->name('travelfleet.maintenancelog.index')->middleware('permission:travelfleet-maintenancelog-index');
+                Route::get('/create', [MaintenancelogController::class, 'create'])->name('travelfleet.maintenancelog.create')->middleware('permission:travelfleet-maintenancelog-create');
+                Route::post('/store', [MaintenancelogController::class, 'store'])->name('travelfleet.maintenancelog.store')->middleware('permission:travelfleet-maintenancelog-store');
+                Route::get('/show/{id}', [MaintenancelogController::class, 'show'])->name('travelfleet.maintenancelog.show')->middleware('permission:travelfleet-maintenancelog-show');
+                Route::get('/edit/{id}', [MaintenancelogController::class, 'edit'])->name('travelfleet.maintenancelog.edit')->middleware('permission:travelfleet-maintenancelog-edit');
+                Route::put('/update/{id}', [MaintenancelogController::class, 'update'])->name('travelfleet.maintenancelog.update')->middleware('permission:travelfleet-maintenancelog-update');
+                Route::delete('/destroy/{id}', [MaintenancelogController::class, 'destroy'])->name('travelfleet.maintenancelog.destroy')->middleware('permission:travelfleet-maintenancelog-destroy');
             });
 
             Route::prefix("fleetmanagement")->group(function () {
-                Route::get('/', [FleetmanagementController::class, 'index'])->name('travelfleet.fleetmanagement.index');
-                Route::get('/create', [FleetmanagementController::class, 'create'])->name('travelfleet.fleetmanagement.create');
-                Route::post('/store', [FleetmanagementController::class, 'store'])->name('travelfleet.fleetmanagement.store');
-                Route::get('/show/{id}', [FleetmanagementController::class, 'show'])->name('travelfleet.fleetmanagement.show');
-                Route::get('/edit/{id}', [FleetmanagementController::class, 'edit'])->name('travelfleet.fleetmanagement.edit');
-                Route::put('/update/{id}', [FleetmanagementController::class, 'update'])->name('travelfleet.fleetmanagement.update');
-                Route::delete('/destroy/{id}', [FleetmanagementController::class, 'destroy'])->name('travelfleet.fleetmanagement.destroy');
+                Route::get('/', [FleetmanagementController::class, 'index'])->name('travelfleet.fleetmanagement.index')->middleware('permission:travelfleet-fleetmanagement-index');
+                Route::get('/create', [FleetmanagementController::class, 'create'])->name('travelfleet.fleetmanagement.create')->middleware('permission:travelfleet-fleetmanagement-create');
+                Route::post('/store', [FleetmanagementController::class, 'store'])->name('travelfleet.fleetmanagement.store')->middleware('permission:travelfleet-fleetmanagement-store');
+                Route::get('/show/{id}', [FleetmanagementController::class, 'show'])->name('travelfleet.fleetmanagement.show')->middleware('permission:travelfleet-fleetmanagement-show');
+                Route::get('/edit/{id}', [FleetmanagementController::class, 'edit'])->name('travelfleet.fleetmanagement.edit')->middleware('permission:travelfleet-fleetmanagement-edit');
+                Route::put('/update/{id}', [FleetmanagementController::class, 'update'])->name('travelfleet.fleetmanagement.update')->middleware('permission:travelfleet-fleetmanagement-update');
+                Route::delete('/destroy/{id}', [FleetmanagementController::class, 'destroy'])->name('travelfleet.fleetmanagement.destroy')->middleware('permission:travelfleet-fleetmanagement-destroy');
             });
 
             Route::prefix("driverroster")->group(function () {
-                Route::get('/', [DriverrosterController::class, 'index'])->name('travelfleet.driverroster.index');
-                Route::get('/create', [DriverrosterController::class, 'create'])->name('travelfleet.driverroster.create');
-                Route::post('/store', [DriverrosterController::class, 'store'])->name('travelfleet.driverroster.store');
-                Route::get('/show/{id}', [DriverrosterController::class, 'show'])->name('travelfleet.driverroster.show');
-                Route::get('/edit/{id}', [DriverrosterController::class, 'edit'])->name('travelfleet.driverroster.edit');
-                Route::put('/update/{id}', [DriverrosterController::class, 'update'])->name('travelfleet.driverroster.update');
-                Route::delete('/destroy/{id}', [DriverrosterController::class, 'destroy'])->name('travelfleet.driverroster.destroy');
+                Route::get('/', [DriverrosterController::class, 'index'])->name('travelfleet.driverroster.index')->middleware('permission:travelfleet-driverroster-index');
+                Route::get('/create', [DriverrosterController::class, 'create'])->name('travelfleet.driverroster.create')->middleware('permission:travelfleet-driverroster-create');
+                Route::post('/store', [DriverrosterController::class, 'store'])->name('travelfleet.driverroster.store')->middleware('permission:travelfleet-driverroster-store');
+                Route::get('/show/{id}', [DriverrosterController::class, 'show'])->name('travelfleet.driverroster.show')->middleware('permission:travelfleet-driverroster-show');
+                Route::get('/edit/{id}', [DriverrosterController::class, 'edit'])->name('travelfleet.driverroster.edit')->middleware('permission:travelfleet-driverroster-edit');
+                Route::put('/update/{id}', [DriverrosterController::class, 'update'])->name('travelfleet.driverroster.update')->middleware('permission:travelfleet-driverroster-update');
+                Route::delete('/destroy/{id}', [DriverrosterController::class, 'destroy'])->name('travelfleet.driverroster.destroy')->middleware('permission:travelfleet-driverroster-destroy');
             });
         }
     );
@@ -1252,95 +1254,102 @@ Route::middleware('auth')->group(function () {
     Route::prefix("Finance")->group(
         function () {
             Route::prefix("creditNotes")->group(function () {
-                Route::get('/', [CreditNotesController::class, 'index'])->name('finance.creditnotes.index');
-                Route::get('/create', [CreditNotesController::class, 'create'])->name('finance.creditnotes.create');
-                Route::post('/store', [CreditNotesController::class, 'store'])->name('finance.creditnotes.store');
-                Route::get('/show/{id}', [CreditNotesController::class, 'show'])->name('finance.creditnotes.show');
-                Route::get('/edit/{id}', [CreditNotesController::class, 'edit'])->name('finance.creditnotes.edit');
-                Route::put('/update/{id}', [CreditNotesController::class, 'update'])->name('finance.creditnotes.update');
-                Route::delete('/destroy/{id}', [CreditNotesController::class, 'destroy'])->name('finance.creditnotes.destroy');
+                Route::get('/', [CreditNotesController::class, 'index'])->name('finance.creditnotes.index')->middleware('permission:Finance-creditNotes-index');
+                Route::get('/create', [CreditNotesController::class, 'create'])->name('finance.creditnotes.create')->middleware('permission:Finance-creditNotes-create');
+                Route::post('/store', [CreditNotesController::class, 'store'])->name('finance.creditnotes.store')->middleware('permission:Finance-creditNotes-store');
+                Route::get('/show/{id}', [CreditNotesController::class, 'show'])->name('finance.creditnotes.show')->middleware('permission:Finance-creditNotes-show');
+                Route::get('/edit/{id}', [CreditNotesController::class, 'edit'])->name('finance.creditnotes.edit')->middleware('permission:Finance-creditNotes-edit');
+                Route::put('/update/{id}', [CreditNotesController::class, 'update'])->name('finance.creditnotes.update')->middleware('permission:Finance-creditNotes-update');
+                Route::delete('/destroy/{id}', [CreditNotesController::class, 'destroy'])->name('finance.creditnotes.destroy')->middleware('permission:Finance-creditNotes-destroy');
             });
+
+
             Route::prefix("invoices")->group(function () {
-                Route::get('/', [InvoicesController::class, 'index'])->name('finance.invoices.index');
-                Route::get('/create', [InvoicesController::class, 'create'])->name('finance.invoices.create');
-                Route::post('/store', [InvoicesController::class, 'store'])->name('finance.invoices.store');
-                Route::get('/show/{id}', [InvoicesController::class, 'show'])->name('finance.invoices.show');
-                Route::get('/edit/{id}', [InvoicesController::class, 'edit'])->name('finance.invoices.edit');
-                Route::put('/update/{id}', [InvoicesController::class, 'update'])->name('finance.invoices.update');
-                Route::delete('/destroy/{id}', [InvoicesController::class, 'destroy'])->name('finance.invoices.destroy');
+                Route::get('/', [InvoicesController::class, 'index'])->name('finance.invoices.index')->middleware('permission:Finance-invoices-index');
+                Route::get('/create', [InvoicesController::class, 'create'])->name('finance.invoices.create')->middleware('permission:Finance-invoices-create');
+                Route::post('/store', [InvoicesController::class, 'store'])->name('finance.invoices.store')->middleware('permission:Finance-invoices-store');
+                Route::get('/show/{id}', [InvoicesController::class, 'show'])->name('finance.invoices.show')->middleware('permission:Finance-invoices-show');
+                Route::get('/edit/{id}', [InvoicesController::class, 'edit'])->name('finance.invoices.edit')->middleware('permission:Finance-invoices-edit');
+                Route::put('/update/{id}', [InvoicesController::class, 'update'])->name('finance.invoices.update')->middleware('permission:Finance-invoices-update');
+                Route::delete('/destroy/{id}', [InvoicesController::class, 'destroy'])->name('finance.invoices.destroy')->middleware('permission:Finance-invoices-destroy');
             });
 
             Route::prefix("estimates")->group(function () {
-                Route::get('/', [EstimatesController::class, 'index'])->name('finance.estimates.index');
-                Route::get('/create', [EstimatesController::class, 'create'])->name('finance.estimates.create');
-                Route::post('/store', [EstimatesController::class, 'store'])->name('finance.estimates.store');
-                Route::get('/show/{id}', [EstimatesController::class, 'show'])->name('finance.estimates.show');
-                Route::get('/edit/{id}', [EstimatesController::class, 'edit'])->name('finance.estimates.edit');
-                Route::put('/update/{id}', [EstimatesController::class, 'update'])->name('finance.estimates.update');
-                Route::delete('/destroy/{id}', [EstimatesController::class, 'destroy'])->name('finance.estimates.destroy');
+                Route::get('/', [EstimatesController::class, 'index'])->name('finance.estimates.index')->middleware('permission:Finance-estimates-index');
+                Route::get('/create', [EstimatesController::class, 'create'])->name('finance.estimates.create')->middleware('permission:Finance-estimates-create');
+                Route::post('/store', [EstimatesController::class, 'store'])->name('finance.estimates.store')->middleware('permission:Finance-estimates-store');
+                Route::get('/show/{id}', [EstimatesController::class, 'show'])->name('finance.estimates.show')->middleware('permission:Finance-estimates-show');
+                Route::get('/edit/{id}', [EstimatesController::class, 'edit'])->name('finance.estimates.edit')->middleware('permission:Finance-estimates-edit');
+                Route::put('/update/{id}', [EstimatesController::class, 'update'])->name('finance.estimates.update')->middleware('permission:Finance-estimates-update');
+                Route::delete('/destroy/{id}', [EstimatesController::class, 'destroy'])->name('finance.estimates.destroy')->middleware('permission:Finance-estimates-destroy');
             });
 
 
 
             Route::prefix("proposal")->group(function () {
-                Route::get('/', [ProposalController::class, 'index'])->name('finance.proposal.index');
-                Route::get('/create', [ProposalController::class, 'create'])->name('finance.proposal.create');
-                Route::post('/store', [ProposalController::class, 'store'])->name('finance.proposal.store');
-                Route::get('/show/{id}', [ProposalController::class, 'show'])->name('finance.proposal.show');
-                Route::get('/edit/{id}', [ProposalController::class, 'edit'])->name('finance.proposal.edit');
-                Route::put('/update/{id}', [ProposalController::class, 'update'])->name('finance.proposal.update');
-                Route::delete('/destroy/{id}', [ProposalController::class, 'destroy'])->name('finance.proposal.destroy');
+                Route::get('/', [ProposalController::class, 'index'])->name('finance.proposal.index')->middleware('permission:Finance-proposal-index');
+                Route::get('/create', [ProposalController::class, 'create'])->name('finance.proposal.create')->middleware('permission:Finance-proposal-create');
+                Route::post('/store', [ProposalController::class, 'store'])->name('finance.proposal.store')->middleware('permission:Finance-proposal-store');
+                Route::get('/show/{id}', [ProposalController::class, 'show'])->name('finance.proposal.show')->middleware('permission:Finance-proposal-show');
+                Route::get('/edit/{id}', [ProposalController::class, 'edit'])->name('finance.proposal.edit')->middleware('permission:Finance-proposal-edit');
+                Route::put('/update/{id}', [ProposalController::class, 'update'])->name('finance.proposal.update')->middleware('permission:Finance-proposal-update');
+                Route::delete('/destroy/{id}', [ProposalController::class, 'destroy'])->name('finance.proposal.destroy')->middleware('permission:Finance-proposal-destroy');
             });
 
 
             Route::prefix("financeExpenses")->group(function () {
-                Route::get('/', [FinanceExpensesController::class, 'index'])->name('finance.financeexpenses.index');
-                Route::get('/create', [FinanceExpensesController::class, 'create'])->name('finance.financeexpenses.create');
-                Route::post('/store', [FinanceExpensesController::class, 'store'])->name('finance.financeexpenses.store');
-                Route::get('/show/{id}', [FinanceExpensesController::class, 'show'])->name('finance.financeexpenses.show');
-                Route::get('/edit/{id}', [FinanceExpensesController::class, 'edit'])->name('finance.financeexpenses.edit');
-                Route::put('/update/{id}', [FinanceExpensesController::class, 'update'])->name('finance.financeexpenses.update');
-                Route::delete('/destroy/{id}', [FinanceExpensesController::class, 'destroy'])->name('finance.financeexpenses.destroy');
-            });
-            Route::prefix("financePay")->group(function () {
-                Route::get('/', [FinancePayController::class, 'index'])->name('finance.financepay.index');
-                Route::get('/create', [FinancePayController::class, 'create'])->name('finance.financepay.create');
-                Route::post('/store', [FinancePayController::class, 'store'])->name('finance.financepay.store');
-                Route::get('/show/{id}', [FinancePayController::class, 'show'])->name('finance.financepay.show');
-                Route::get('/edit/{id}', [FinancePayController::class, 'edit'])->name('finance.financepay.edit');
-                Route::put('/update/{id}', [FinancePayController::class, 'update'])->name('finance.financepay.update');
-                Route::delete('/destroy/{id}', [FinancePayController::class, 'destroy'])->name('finance.financepay.destroy');
+                Route::get('/', [FinanceExpensesController::class, 'index'])->name('finance.financeexpenses.index')->middleware('permission:Finance-financeExpenses-index');
+                Route::get('/create', [FinanceExpensesController::class, 'create'])->name('finance.financeexpenses.create')->middleware('permission:Finance-financeExpenses-create');
+                Route::post('/store', [FinanceExpensesController::class, 'store'])->name('finance.financeexpenses.store')->middleware('permission:Finance-financeExpenses-store');
+                Route::get('/show/{id}', [FinanceExpensesController::class, 'show'])->name('finance.financeexpenses.show')->middleware('permission:Finance-financeExpenses-show');
+                Route::get('/edit/{id}', [FinanceExpensesController::class, 'edit'])->name('finance.financeexpenses.edit')->middleware('permission:Finance-financeExpenses-edit');
+                Route::put('/update/{id}', [FinanceExpensesController::class, 'update'])->name('finance.financeexpenses.update')->middleware('permission:Finance-financeExpenses-update');
+                Route::delete('/destroy/{id}', [FinanceExpensesController::class, 'destroy'])->name('finance.financeexpenses.destroy')->middleware('permission:Finance-financeExpenses-destroy');
             });
 
+
+            Route::prefix("financePay")->group(function () {
+                Route::get('/', [FinancePayController::class, 'index'])->name('finance.financepay.index')->middleware('permission:Finance-financePay-index');
+                Route::get('/create', [FinancePayController::class, 'create'])->name('finance.financepay.create')->middleware('permission:Finance-financePay-create');
+                Route::post('/store', [FinancePayController::class, 'store'])->name('finance.financepay.store')->middleware('permission:Finance-financePay-store');
+                Route::get('/show/{id}', [FinancePayController::class, 'show'])->name('finance.financepay.show')->middleware('permission:Finance-financePay-show');
+                Route::get('/edit/{id}', [FinancePayController::class, 'edit'])->name('finance.financepay.edit')->middleware('permission:Finance-financePay-edit');
+                Route::put('/update/{id}', [FinancePayController::class, 'update'])->name('finance.financepay.update')->middleware('permission:Finance-financePay-update');
+                Route::delete('/destroy/{id}', [FinancePayController::class, 'destroy'])->name('finance.financepay.destroy')->middleware('permission:Finance-financePay-destroy');
+            });
+
+
             Route::prefix("advancerequest")->group(function () {
-                Route::get('/', [AdvancerequestController::class, 'index'])->name('finance.advancerequest.index');
-                Route::get('/create', [AdvancerequestController::class, 'create'])->name('finance.advancerequest.create');
-                Route::post('/store', [AdvancerequestController::class, 'store'])->name('finance.advancerequest.store');
-                Route::get('/show/{id}', [AdvancerequestController::class, 'show'])->name('finance.advancerequest.show');
-                Route::get('/edit/{id}', [AdvancerequestController::class, 'edit'])->name('finance.advancerequest.edit');
-                Route::put('/update/{id}', [AdvancerequestController::class, 'update'])->name('finance.advancerequest.update');
-                Route::delete('/destroy/{id}', [AdvancerequestController::class, 'destroy'])->name('finance.advancerequest.destroy');
+                Route::get('/', [AdvancerequestController::class, 'index'])->name('finance.advancerequest.index')->middleware('permission:Finance-advancerequest-index');
+                Route::get('/create', [AdvancerequestController::class, 'create'])->name('finance.advancerequest.create')->middleware('permission:Finance-advancerequest-create');
+                Route::post('/store', [AdvancerequestController::class, 'store'])->name('finance.advancerequest.store')->middleware('permission:Finance-advancerequest-store');
+                Route::get('/show/{id}', [AdvancerequestController::class, 'show'])->name('finance.advancerequest.show')->middleware('permission:Finance-advancerequest-show');
+                Route::get('/edit/{id}', [AdvancerequestController::class, 'edit'])->name('finance.advancerequest.edit')->middleware('permission:Finance-advancerequest-edit');
+                Route::put('/update/{id}', [AdvancerequestController::class, 'update'])->name('finance.advancerequest.update')->middleware('permission:Finance-advancerequest-update');
+                Route::delete('/destroy/{id}', [AdvancerequestController::class, 'destroy'])->name('finance.advancerequest.destroy')->middleware('permission:Finance-advancerequest-destroy');
             });
 
 
 
             Route::prefix("cashrequest")->group(function () {
-                Route::get('/', [CashrequestController::class, 'index'])->name('finance.cashrequest.index');
-                Route::get('/create', [CashrequestController::class, 'create'])->name('finance.cashrequest.create');
-                Route::post('/store', [CashrequestController::class, 'store'])->name('finance.cashrequest.store');
-                Route::get('/show/{id}', [CashrequestController::class, 'show'])->name('finance.cashrequest.show');
-                Route::get('/edit/{id}', [CashrequestController::class, 'edit'])->name('finance.cashrequest.edit');
-                Route::put('/update/{id}', [CashrequestController::class, 'update'])->name('finance.cashrequest.update');
-                Route::delete('/destroy/{id}', [CashrequestController::class, 'destroy'])->name('finance.cashrequest.destroy');
+                Route::get('/', [CashrequestController::class, 'index'])->name('finance.cashrequest.index')->middleware('permission:Finance-cashrequest-index');
+                Route::get('/create', [CashrequestController::class, 'create'])->name('finance.cashrequest.create')->middleware('permission:Finance-cashrequest-create');
+                Route::post('/store', [CashrequestController::class, 'store'])->name('finance.cashrequest.store')->middleware('permission:Finance-cashrequest-store');
+                Route::get('/show/{id}', [CashrequestController::class, 'show'])->name('finance.cashrequest.show')->middleware('permission:Finance-cashrequest-show');
+                Route::get('/edit/{id}', [CashrequestController::class, 'edit'])->name('finance.cashrequest.edit')->middleware('permission:Finance-cashrequest-edit');
+                Route::put('/update/{id}', [CashrequestController::class, 'update'])->name('finance.cashrequest.update')->middleware('permission:Finance-cashrequest-update');
+                Route::delete('/destroy/{id}', [CashrequestController::class, 'destroy'])->name('finance.cashrequest.destroy')->middleware('permission:Finance-cashrequest-destroy');
             });
+
+
             Route::prefix("expensesclaim")->group(function () {
-                Route::get('/', [ExpensesclaimController::class, 'index'])->name('finance.expensesclaim.index');
-                Route::get('/create', [ExpensesclaimController::class, 'create'])->name('finance.expensesclaim.create');
-                Route::post('/store', [ExpensesclaimController::class, 'store'])->name('finance.expensesclaim.store');
-                Route::get('/show/{id}', [ExpensesclaimController::class, 'show'])->name('finance.expensesclaim.show');
-                Route::get('/edit/{id}', [ExpensesclaimController::class, 'edit'])->name('finance.expensesclaim.edit');
-                Route::put('/update/{id}', [ExpensesclaimController::class, 'update'])->name('finance.expensesclaim.update');
-                Route::delete('/destroy/{id}', [ExpensesclaimController::class, 'destroy'])->name('finance.expensesclaim.destroy');
+                Route::get('/', [ExpensesclaimController::class, 'index'])->name('finance.expensesclaim.index')->middleware('permission:Finance-expensesclaim-index');
+                Route::get('/create', [ExpensesclaimController::class, 'create'])->name('finance.expensesclaim.create')->middleware('permission:Finance-expensesclaim-create');
+                Route::post('/store', [ExpensesclaimController::class, 'store'])->name('finance.expensesclaim.store')->middleware('permission:Finance-expensesclaim-store');
+                Route::get('/show/{id}', [ExpensesclaimController::class, 'show'])->name('finance.expensesclaim.show')->middleware('permission:Finance-expensesclaim-show');
+                Route::get('/edit/{id}', [ExpensesclaimController::class, 'edit'])->name('finance.expensesclaim.edit')->middleware('permission:Finance-expensesclaim-edit');
+                Route::put('/update/{id}', [ExpensesclaimController::class, 'update'])->name('finance.expensesclaim.update')->middleware('permission:Finance-expensesclaim-update');
+                Route::delete('/destroy/{id}', [ExpensesclaimController::class, 'destroy'])->name('finance.expensesclaim.destroy')->middleware('permission:Finance-expensesclaim-destroy');
             });
         }
 
@@ -1351,47 +1360,47 @@ Route::middleware('auth')->group(function () {
         function () {
             Route::prefix("workProjects")->group(
                 function () {
-                    Route::get('/', [WorkProjectsController::class, 'index'])->name('work.workprojects.index');
-                    Route::get('/create', [WorkProjectsController::class, 'create'])->name('work.workprojects.create');
-                    Route::post('/store', [WorkProjectsController::class, 'store'])->name('work.workprojects.store');
-                    Route::get('/show/{id}', [WorkProjectsController::class, 'show'])->name('work.workprojects.show');
-                    Route::get('/edit/{id}', [WorkProjectsController::class, 'edit'])->name('work.workprojects.edit');
-                    Route::put('/update/{id}', [WorkProjectsController::class, 'update'])->name('work.workprojects.update');
-                    Route::delete('/destroy/{id}', [WorkProjectsController::class, 'destroy'])->name('work.workprojects.destroy');
+                    Route::get('/', [WorkProjectsController::class, 'index'])->name('work.workprojects.index')->middleware('permission:work-workProjects-index');
+                    Route::get('/create', [WorkProjectsController::class, 'create'])->name('work.workprojects.create')->middleware('permission:work-workProjects-create');
+                    Route::post('/store', [WorkProjectsController::class, 'store'])->name('work.workprojects.store')->middleware('permission:work-workProjects-store');
+                    Route::get('/show/{id}', [WorkProjectsController::class, 'show'])->name('work.workprojects.show')->middleware('permission:work-workProjects-show');
+                    Route::get('/edit/{id}', [WorkProjectsController::class, 'edit'])->name('work.workprojects.edit')->middleware('permission:work-workProjects-edit');
+                    Route::put('/update/{id}', [WorkProjectsController::class, 'update'])->name('work.workprojects.update')->middleware('permission:work-workProjects-update');
+                    Route::delete('/destroy/{id}', [WorkProjectsController::class, 'destroy'])->name('work.workprojects.destroy')->middleware('permission:work-workProjects-destroy');
                 }
             );
 
             Route::prefix("tasks")->group(function () {
-                Route::get('/', [TasksController::class, 'index'])->name('work.tasks.index');
-                Route::get('/create', [TasksController::class, 'create'])->name('work.tasks.create');
-                Route::post('/store', [TasksController::class, 'store'])->name('work.tasks.store');
-                Route::get('/show/{id}', [TasksController::class, 'show'])->name('work.tasks.show');
-                Route::get('/edit/{id}', [TasksController::class, 'edit'])->name('work.tasks.edit');
-                Route::put('/update/{id}', [TasksController::class, 'update'])->name('work.tasks.update');
-                Route::delete('/destroy/{id}', [TasksController::class, 'destroy'])->name('work.tasks.destroy');
+                Route::get('/', [TasksController::class, 'index'])->name('work.tasks.index')->middleware('permission:work-tasks-index');
+                Route::get('/create', [TasksController::class, 'create'])->name('work.tasks.create')->middleware('permission:work-tasks-create');
+                Route::post('/store', [TasksController::class, 'store'])->name('work.tasks.store')->middleware('permission:work-tasks-store');
+                Route::get('/show/{id}', [TasksController::class, 'show'])->name('work.tasks.show')->middleware('permission:work-tasks-show');
+                Route::get('/edit/{id}', [TasksController::class, 'edit'])->name('work.tasks.edit')->middleware('permission:work-tasks-edit');
+                Route::put('/update/{id}', [TasksController::class, 'update'])->name('work.tasks.update')->middleware('permission:work-tasks-update');
+                Route::delete('/destroy/{id}', [TasksController::class, 'destroy'])->name('work.tasks.destroy')->middleware('permission:work-tasks-destroy');
             });
 
             Route::prefix("timelog")->group(function () {
-                Route::get('/', [TimelogController::class, 'index'])->name('work.timelog.index');
-                Route::get('/create', [TimelogController::class, 'create'])->name('work.timelog.create');
-                Route::post('/store', [TimelogController::class, 'store'])->name('work.timelog.store');
-                Route::get('/show/{id}', [TimelogController::class, 'show'])->name('work.timelog.show');
-                Route::get('/edit/{id}', [TimelogController::class, 'edit'])->name('work.timelog.edit');
-                Route::put('/update/{id}', [TimelogController::class, 'update'])->name('work.timelog.update');
-                Route::delete('/destroy/{id}', [TimelogController::class, 'destroy'])->name('work.timelog.destroy');
+                Route::get('/', [TimelogController::class, 'index'])->name('work.timelog.index')->middleware('permission:work-timelog-index');
+                Route::get('/create', [TimelogController::class, 'create'])->name('work.timelog.create')->middleware('permission:work-timelog-create');
+                Route::post('/store', [TimelogController::class, 'store'])->name('work.timelog.store')->middleware('permission:work-timelog-store');
+                Route::get('/show/{id}', [TimelogController::class, 'show'])->name('work.timelog.show')->middleware('permission:work-timelog-show');
+                Route::get('/edit/{id}', [TimelogController::class, 'edit'])->name('work.timelog.edit')->middleware('permission:work-timelog-edit');
+                Route::put('/update/{id}', [TimelogController::class, 'update'])->name('work.timelog.update')->middleware('permission:work-timelog-update');
+                Route::delete('/destroy/{id}', [TimelogController::class, 'destroy'])->name('work.timelog.destroy')->middleware('permission:work-tasks-destroy');
             });
         }
     );
     Route::prefix("project")->group(
         function () {
             Route::prefix("workfromhome")->group(function () {
-                Route::get('/', [WorkfromhomeController::class, 'index'])->name('project.workfromhome.index');
-                Route::get('/create', [WorkfromhomeController::class, 'create'])->name('project.workfromhome.create');
-                Route::post('/store', [WorkfromhomeController::class, 'store'])->name('project.workfromhome.store');
-                Route::get('/show/{id}', [WorkfromhomeController::class, 'show'])->name('project.workfromhome.show');
-                Route::get('/edit/{id}', [WorkfromhomeController::class, 'edit'])->name('project.workfromhome.edit');
-                Route::put('/update/{id}', [WorkfromhomeController::class, 'update'])->name('project.workfromhome.update');
-                Route::delete('/destroy/{id}', [WorkfromhomeController::class, 'destroy'])->name('project.workfromhome.destroy');
+                Route::get('/', [WorkfromhomeController::class, 'index'])->name('project.workfromhome.index')->middleware('permission:project-workfromhome-index');
+                Route::get('/create', [WorkfromhomeController::class, 'create'])->name('project.workfromhome.create')->middleware('permission:project-workfromhome-create');
+                Route::post('/store', [WorkfromhomeController::class, 'store'])->name('project.workfromhome.store')->middleware('permission:project-workfromhome-store');
+                Route::get('/show/{id}', [WorkfromhomeController::class, 'show'])->name('project.workfromhome.show')->middleware('permission:project-workfromhome-show');
+                Route::get('/edit/{id}', [WorkfromhomeController::class, 'edit'])->name('project.workfromhome.edit')->middleware('permission:project-workfromhome-edit');
+                Route::put('/update/{id}', [WorkfromhomeController::class, 'update'])->name('project.workfromhome.update')->middleware('permission:project-workfromhome-update');
+                Route::delete('/destroy/{id}', [WorkfromhomeController::class, 'destroy'])->name('project.workfromhome.destroy')->middleware('permission:project-workfromhome-destroy');
             });
         }
     );
@@ -1399,23 +1408,23 @@ Route::middleware('auth')->group(function () {
     Route::prefix("rostermanagement")->group(
         function () {
             Route::prefix("rostercategory")->group(function () {
-                Route::get('/', [RostercategoryController::class, 'index'])->name('rostermanagement.rostercategory.index');
-                Route::get('/create', [RostercategoryController::class, 'create'])->name('rostermanagement.rostercategory.create');
-                Route::post('/store', [RostercategoryController::class, 'store'])->name('rostermanagement.rostercategory.store');
-                Route::get('/show/{id}', [RostercategoryController::class, 'show'])->name('rostermanagement.rostercategory.show');
-                Route::get('/edit/{id}', [RostercategoryController::class, 'edit'])->name('rostermanagement.rostercategory.edit');
-                Route::put('/update/{id}', [RostercategoryController::class, 'update'])->name('rostermanagement.rostercategory.update');
-                Route::delete('/destroy/{id}', [RostercategoryController::class, 'destroy'])->name('rostermanagement.rostercategory.destroy');
+                Route::get('/', [RostercategoryController::class, 'index'])->name('rostermanagement.rostercategory.index')->middleware('permission:rostermanagement-rostercategory-index');
+                Route::get('/create', [RostercategoryController::class, 'create'])->name('rostermanagement.rostercategory.create')->middleware('permission:rostermanagement-rostercategory-create');
+                Route::post('/store', [RostercategoryController::class, 'store'])->name('rostermanagement.rostercategory.store')->middleware('permission:rostermanagement-rostercategory-store');
+                Route::get('/show/{id}', [RostercategoryController::class, 'show'])->name('rostermanagement.rostercategory.show')->middleware('permission:rostermanagement-rostercategory-show');
+                Route::get('/edit/{id}', [RostercategoryController::class, 'edit'])->name('rostermanagement.rostercategory.edit')->middleware('permission:rostermanagement-rostercategory-edit');
+                Route::put('/update/{id}', [RostercategoryController::class, 'update'])->name('rostermanagement.rostercategory.update')->middleware('permission:rostermanagement-rostercategory-update');
+                Route::delete('/destroy/{id}', [RostercategoryController::class, 'destroy'])->name('rostermanagement.rostercategory.destroy')->middleware('permission:rostermanagement-rostercategory-destroy');
             });
 
             Route::prefix("rosterentries")->group(function () {
-                Route::get('/', [RosterentriesController::class, 'index'])->name('rostermanagement.rosterentries.index');
-                Route::get('/create', [RosterentriesController::class, 'create'])->name('rostermanagement.rosterentries.create');
-                Route::post('/store', [RosterentriesController::class, 'store'])->name('rostermanagement.rosterentries.store');
-                Route::get('/show/{id}', [RosterentriesController::class, 'show'])->name('rostermanagement.rosterentries.show');
-                Route::get('/edit/{id}', [RosterentriesController::class, 'edit'])->name('rostermanagement.rosterentries.edit');
-                Route::put('/update/{id}', [RosterentriesController::class, 'update'])->name('rostermanagement.rosterentries.update');
-                Route::delete('/destroy/{id}', [RosterentriesController::class, 'destroy'])->name('rostermanagement.rosterentries.destroy');
+                Route::get('/', [RosterentriesController::class, 'index'])->name('rostermanagement.rosterentries.index')->middleware('permission:rostermanagement-rosterentries-index');
+                Route::get('/create', [RosterentriesController::class, 'create'])->name('rostermanagement.rosterentries.create')->middleware('permission:rostermanagement-rosterentries-create');
+                Route::post('/store', [RosterentriesController::class, 'store'])->name('rostermanagement.rosterentries.store')->middleware('permission:rostermanagement-rosterentries-store');
+                Route::get('/show/{id}', [RosterentriesController::class, 'show'])->name('rostermanagement.rosterentries.show')->middleware('permission:rostermanagement-rosterentries-show');
+                Route::get('/edit/{id}', [RosterentriesController::class, 'edit'])->name('rostermanagement.rosterentries.edit')->middleware('permission:rostermanagement-rosterentries-edit');
+                Route::put('/update/{id}', [RosterentriesController::class, 'update'])->name('rostermanagement.rosterentries.update')->middleware('permission:rostermanagement-rosterentries-update');
+                Route::delete('/destroy/{id}', [RosterentriesController::class, 'destroy'])->name('rostermanagement.rosterentries.destroy')->middleware('permission:rostermanagement-rosterentries-destroy');
             });
         }
     );
@@ -1425,24 +1434,24 @@ Route::middleware('auth')->group(function () {
     Route::prefix("eventsandmeetings")->group(
         function () {
             Route::prefix("event")->group(function () {
-                Route::get('/', [EventController::class, 'index'])->name('eventsandmeetings.event.index');
-                Route::get('/create', [EventController::class, 'create'])->name('eventsandmeetings.event.create');
-                Route::post('/store', [EventController::class, 'store'])->name('eventsandmeetings.event.store');
-                Route::get('/show/{id}', [EventController::class, 'show'])->name('eventsandmeetings.event.show');
-                Route::get('/edit/{id}', [EventController::class, 'edit'])->name('eventsandmeetings.event.edit');
-                Route::put('/update/{id}', [EventController::class, 'update'])->name('eventsandmeetings.event.update');
-                Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('eventsandmeetings.event.destroy');
+                Route::get('/', [EventController::class, 'index'])->name('eventsandmeetings.event.index')->middleware('permission:eventsandmeetings-event-index');
+                Route::get('/create', [EventController::class, 'create'])->name('eventsandmeetings.event.create')->middleware('permission:eventsandmeetings-event-create');
+                Route::post('/store', [EventController::class, 'store'])->name('eventsandmeetings.event.store')->middleware('permission:eventsandmeetings-event-store');
+                Route::get('/show/{id}', [EventController::class, 'show'])->name('eventsandmeetings.event.show')->middleware('permission:eventsandmeetings-event-show');
+                Route::get('/edit/{id}', [EventController::class, 'edit'])->name('eventsandmeetings.event.edit')->middleware('permission:eventsandmeetings-event-edit');
+                Route::put('/update/{id}', [EventController::class, 'update'])->name('eventsandmeetings.event.update')->middleware('permission:eventsandmeetings-event-update');
+                Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('eventsandmeetings.event.destroy')->middleware('permission:eventsandmeetings-event-destroy');
             });
 
             Route::prefix("meeting")->group(
                 function () {
-                    Route::get('/', [MeetingController::class, 'index'])->name('eventsandmeetings.meeting.index');
-                    Route::get('/create', [MeetingController::class, 'create'])->name('eventsandmeetings.meeting.create');
-                    Route::post('/store', [MeetingController::class, 'store'])->name('eventsandmeetings.meeting.store');
-                    Route::get('/show/{id}', [MeetingController::class, 'show'])->name('eventsandmeetings.meeting.show');
-                    Route::get('/edit/{id}', [MeetingController::class, 'edit'])->name('eventsandmeetings.meeting.edit');
-                    Route::put('/update/{id}', [MeetingController::class, 'update'])->name('eventsandmeetings.meeting.update');
-                    Route::delete('/destroy/{id}', [MeetingController::class, 'destroy'])->name('eventsandmeetings.meeting.destroy');
+                    Route::get('/', [MeetingController::class, 'index'])->name('eventsandmeetings.meeting.index')->middleware('permission:eventsandmeetings-meeting-index');
+                    Route::get('/create', [MeetingController::class, 'create'])->name('eventsandmeetings.meeting.create')->middleware('permission:eventsandmeetings-meeting-create');
+                    Route::post('/store', [MeetingController::class, 'store'])->name('eventsandmeetings.meeting.store')->middleware('permission:eventsandmeetings-meeting-store');
+                    Route::get('/show/{id}', [MeetingController::class, 'show'])->name('eventsandmeetings.meeting.show')->middleware('permission:eventsandmeetings-meeting-show');
+                    Route::get('/edit/{id}', [MeetingController::class, 'edit'])->name('eventsandmeetings.meeting.edit')->middleware('permission:eventsandmeetings-meeting-edit');
+                    Route::put('/update/{id}', [MeetingController::class, 'update'])->name('eventsandmeetings.meeting.update')->middleware('permission:eventsandmeetings-meeting-update');
+                    Route::delete('/destroy/{id}', [MeetingController::class, 'destroy'])->name('eventsandmeetings.meeting.destroy')->middleware('permission:eventsandmeetings-meeting-destroy');
                 }
             );
         }
@@ -1453,64 +1462,64 @@ Route::middleware('auth')->group(function () {
     Route::prefix("reports")->group(
         function () {
             Route::prefix("travelreports")->group(function () {
-                Route::get('/', [TravelreportsController::class, 'index'])->name('reports.travelreports.index');
-                Route::get('/create', [TravelreportsController::class, 'create'])->name('reports.travelreports.create');
-                Route::post('/store', [TravelreportsController::class, 'store'])->name('reports.travelreports.store');
-                Route::get('/show/{id}', [TravelreportsController::class, 'show'])->name('reports.travelreports.show');
-                Route::get('/edit/{id}', [TravelreportsController::class, 'edit'])->name('reports.travelreports.edit');
-                Route::put('/update/{id}', [TravelreportsController::class, 'update'])->name('reports.travelreports.update');
-                Route::delete('/destroy/{id}', [TravelreportsController::class, 'destroy'])->name('reports.travelreports.destroy');
+                Route::get('/', [TravelreportsController::class, 'index'])->name('reports.travelreports.index')->middleware('permission:reports-travelreports-index');
+                Route::get('/create', [TravelreportsController::class, 'create'])->name('reports.travelreports.create')->middleware('permission:reports-travelreports-create');
+                Route::post('/store', [TravelreportsController::class, 'store'])->name('reports.travelreports.store')->middleware('permission:reports-travelreports-store');
+                Route::get('/show/{id}', [TravelreportsController::class, 'show'])->name('reports.travelreports.show')->middleware('permission:reports-travelreports-show');
+                Route::get('/edit/{id}', [TravelreportsController::class, 'edit'])->name('reports.travelreports.edit')->middleware('permission:reports-travelreports-edit');
+                Route::put('/update/{id}', [TravelreportsController::class, 'update'])->name('reports.travelreports.update')->middleware('permission:reports-travelreports-update');
+                Route::delete('/destroy/{id}', [TravelreportsController::class, 'destroy'])->name('reports.travelreports.destroy')->middleware('permission:reports-travelreports-destroy');
             });
 
             Route::prefix("taskreports")->group(function () {
-                Route::get('/', [TaskreportsController::class, 'index'])->name('reports.taskreports.index');
-                Route::get('/create', [TaskreportsController::class, 'create'])->name('reports.taskreports.create');
-                Route::post('/store', [TaskreportsController::class, 'store'])->name('reports.taskreports.store');
-                Route::get('/show/{id}', [TaskreportsController::class, 'show'])->name('reports.taskreports.show');
-                Route::get('/edit/{id}', [TaskreportsController::class, 'edit'])->name('reports.taskreports.edit');
-                Route::put('/update/{id}', [TaskreportsController::class, 'update'])->name('reports.taskreports.update');
-                Route::delete('/destroy/{id}', [TaskreportsController::class, 'destroy'])->name('reports.taskreports.destroy');
+                Route::get('/', [TaskreportsController::class, 'index'])->name('reports.taskreports.index')->middleware('permission:reports-taskreports-index');
+                Route::get('/create', [TaskreportsController::class, 'create'])->name('reports.taskreports.create')->middleware('permission:reports-taskreports-create');
+                Route::post('/store', [TaskreportsController::class, 'store'])->name('reports.taskreports.store')->middleware('permission:reports-taskreports-store');
+                Route::get('/show/{id}', [TaskreportsController::class, 'show'])->name('reports.taskreports.show')->middleware('permission:reports-taskreports-show');
+                Route::get('/edit/{id}', [TaskreportsController::class, 'edit'])->name('reports.taskreports.edit')->middleware('permission:reports-taskreports-edit');
+                Route::put('/update/{id}', [TaskreportsController::class, 'update'])->name('reports.taskreports.update')->middleware('permission:reports-taskreports-update');
+                Route::delete('/destroy/{id}', [TaskreportsController::class, 'destroy'])->name('reports.taskreports.destroy')->middleware('permission:reports-taskreports-destroy');
             });
 
 
             Route::prefix("financereports")->group(function () {
-                Route::get('/', [FinancereportsController::class, 'index'])->name('reports.financereports.index');
-                Route::get('/create', [FinancereportsController::class, 'create'])->name('reports.financereports.create');
-                Route::post('/store', [FinancereportsController::class, 'store'])->name('reports.financereports.store');
-                Route::get('/show/{id}', [FinancereportsController::class, 'show'])->name('reports.financereports.show');
-                Route::get('/edit/{id}', [FinancereportsController::class, 'edit'])->name('reports.financereports.edit');
-                Route::put('/update/{id}', [FinancereportsController::class, 'update'])->name('reports.financereports.update');
-                Route::delete('/destroy/{id}', [FinancereportsController::class, 'destroy'])->name('reports.financereports.destroy');
+                Route::get('/', [FinancereportsController::class, 'index'])->name('reports.financereports.index')->middleware('permission:reports-financereports-index');
+                Route::get('/create', [FinancereportsController::class, 'create'])->name('reports.financereports.create')->middleware('permission:reports-financereports-create');
+                Route::post('/store', [FinancereportsController::class, 'store'])->name('reports.financereports.store')->middleware('permission:reports-financereports-store');
+                Route::get('/show/{id}', [FinancereportsController::class, 'show'])->name('reports.financereports.show')->middleware('permission:reports-financereports-show');
+                Route::get('/edit/{id}', [FinancereportsController::class, 'edit'])->name('reports.financereports.edit')->middleware('permission:reports-financereports-edit');
+                Route::put('/update/{id}', [FinancereportsController::class, 'update'])->name('reports.financereports.update')->middleware('permission:reports-financereports-update');
+                Route::delete('/destroy/{id}', [FinancereportsController::class, 'destroy'])->name('reports.financereports.destroy')->middleware('permission:reports-financereports-destroy');
             });
 
             Route::prefix("leavereports")->group(function () {
-                Route::get('/', [LeavereportsController::class, 'index'])->name('reports.leavereports.index');
-                Route::get('/create', [LeavereportsController::class, 'create'])->name('reports.leavereports.create');
-                Route::post('/store', [LeavereportsController::class, 'store'])->name('reports.leavereports.store');
-                Route::get('/show/{id}', [LeavereportsController::class, 'show'])->name('reports.leavereports.show');
-                Route::get('/edit/{id}', [LeavereportsController::class, 'edit'])->name('reports.leavereports.edit');
-                Route::put('/update/{id}', [LeavereportsController::class, 'update'])->name('reports.leavereports.update');
-                Route::delete('/destroy/{id}', [LeavereportsController::class, 'destroy'])->name('reports.leavereports.destroy');
+                Route::get('/', [LeavereportsController::class, 'index'])->name('reports.leavereports.index')->middleware('permission:reports-leavereports-index');
+                Route::get('/create', [LeavereportsController::class, 'create'])->name('reports.leavereports.create')->middleware('permission:reports-leavereports-create');
+                Route::post('/store', [LeavereportsController::class, 'store'])->name('reports.leavereports.store')->middleware('permission:reports-leavereports-store');
+                Route::get('/show/{id}', [LeavereportsController::class, 'show'])->name('reports.leavereports.show')->middleware('permission:reports-leavereports-show');
+                Route::get('/edit/{id}', [LeavereportsController::class, 'edit'])->name('reports.leavereports.edit')->middleware('permission:reports-leavereports-edit');
+                Route::put('/update/{id}', [LeavereportsController::class, 'update'])->name('reports.leavereports.update')->middleware('permission:reports-leavereports-update');
+                Route::delete('/destroy/{id}', [LeavereportsController::class, 'destroy'])->name('reports.leavereports.destroy')->middleware('permission:reports-leavereports-destroy');
             });
 
             Route::prefix("expensesreports")->group(function () {
-                Route::get('/', [ExpensesreportsController::class, 'index'])->name('reports.expensesreports.index');
-                Route::get('/create', [ExpensesreportsController::class, 'create'])->name('reports.expensesreports.create');
-                Route::post('/store', [ExpensesreportsController::class, 'store'])->name('reports.expensesreports.store');
-                Route::get('/show/{id}', [ExpensesreportsController::class, 'show'])->name('reports.expensesreports.show');
-                Route::get('/edit/{id}', [ExpensesreportsController::class, 'edit'])->name('reports.expensesreports.edit');
-                Route::put('/update/{id}', [ExpensesreportsController::class, 'update'])->name('reports.expensesreports.update');
-                Route::delete('/destroy/{id}', [ExpensesreportsController::class, 'destroy'])->name('reports.expensesreports.destroy');
+                Route::get('/', [ExpensesreportsController::class, 'index'])->name('reports.expensesreports.index')->middleware('permission:reports-expensesreports-index');
+                Route::get('/create', [ExpensesreportsController::class, 'create'])->name('reports.expensesreports.create')->middleware('permission:reports-expensesreports-create');
+                Route::post('/store', [ExpensesreportsController::class, 'store'])->name('reports.expensesreports.store')->middleware('permission:reports-expensesreports-store');
+                Route::get('/show/{id}', [ExpensesreportsController::class, 'show'])->name('reports.expensesreports.show')->middleware('permission:reports-expensesreports-show');
+                Route::get('/edit/{id}', [ExpensesreportsController::class, 'edit'])->name('reports.expensesreports.edit')->middleware('permission:reports-expensesreports-edit');
+                Route::put('/update/{id}', [ExpensesreportsController::class, 'update'])->name('reports.expensesreports.update')->middleware('permission:reports-expensesreports-update');
+                Route::delete('/destroy/{id}', [ExpensesreportsController::class, 'destroy'])->name('reports.expensesreports.destroy')->middleware('permission:reports-expensesreports-destroy');
             });
 
             Route::prefix("attendancereports")->group(function () {
-                Route::get('/', [AttendancereportsController::class, 'index'])->name('reports.attendancereports.index');
-                Route::get('/create', [AttendancereportsController::class, 'create'])->name('reports.attendancereports.create');
-                Route::post('/store', [AttendancereportsController::class, 'store'])->name('reports.attendancereports.store');
-                Route::get('/show/{id}', [AttendancereportsController::class, 'show'])->name('reports.attendancereports.show');
-                Route::get('/edit/{id}', [AttendancereportsController::class, 'edit'])->name('reports.attendancereports.edit');
-                Route::put('/update/{id}', [AttendancereportsController::class, 'update'])->name('reports.attendancereports.update');
-                Route::delete('/destroy/{id}', [AttendancereportsController::class, 'destroy'])->name('reports.attendancereports.destroy');
+                Route::get('/', [AttendancereportsController::class, 'index'])->name('reports.attendancereports.index')->middleware('permission:reports-attendancereports-index');
+                Route::get('/create', [AttendancereportsController::class, 'create'])->name('reports.attendancereports.create')->middleware('permission:reports-attendancereports-create');
+                Route::post('/store', [AttendancereportsController::class, 'store'])->name('reports.attendancereports.store')->middleware('permission:reports-attendancereports-store');
+                Route::get('/show/{id}', [AttendancereportsController::class, 'show'])->name('reports.attendancereports.show')->middleware('permission:reports-attendancereports-show');
+                Route::get('/edit/{id}', [AttendancereportsController::class, 'edit'])->name('reports.attendancereports.edit')->middleware('permission:reports-attendancereports-edit');
+                Route::put('/update/{id}', [AttendancereportsController::class, 'update'])->name('reports.attendancereports.update')->middleware('permission:reports-attendancereports-update');
+                Route::delete('/destroy/{id}', [AttendancereportsController::class, 'destroy'])->name('reports.attendancereports.destroy')->middleware('permission:reports-attendancereports-destroy');
             });
         }
     );
