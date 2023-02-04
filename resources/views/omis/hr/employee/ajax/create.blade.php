@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
-                                            {{  customCreateSelect('employee_id', 'employee_id', '','Reporting To', getEmployees()->pluck('full_name','employee_id')->toArray())  }}
+                                            {{  customCreateSelect('reportingTo', 'reportingTo', '','Reporting To', getEmployees()->pluck('full_name','employee_id')->toArray())  }}
                                         </div>
 
                                         <div class="col-lg-12">
@@ -148,9 +148,10 @@
                                 for="flexSwitchSizeLg"> Status</label>
                         </div> -->
                             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
+                            {{ customCreateSelect('is_head', 'is_head', '', 'Is Head', ['manager' => 'Manager', 'team_lead' => 'Team Lead','project_manager' => 'Project Manager','employee' => 'Employee']) }}
                         </div>
                         <div class="col-lg-12">
-                            {{ createText('panNo', 'panNo', 'Govt. Pan No') }}
+                            {{ createNumber('panNo', 'panNo', 'Govt. Pan No') }}
                         </div>
                         <hr>
                         <div class="col-12">
@@ -290,6 +291,28 @@
                     $('#city_id').html('<option value="#" selected disabled>Choose City</option>');
                     $.each(response.message, function(key,value){
                         $('#city_id').append('<option value='+value.city_id+'>'+value.cityName+'</option>');
+                    });
+                }
+            });
+    });
+
+    // Fetch Manager according to department
+    // Fetch District according to state
+    $('#department_id').on('change',function(e){
+        e.preventDefault();
+        var department_id = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: "{{route('hr.employee.getHeadOfDepartment')}}",
+                data: {
+                    'department_id': department_id
+                },
+                dataType: "json",
+                success: function(response){
+                    // console.log(response);
+                    $('#reportingTo').html('<option value="#" selected disabled>Select Reporting To</option>');
+                    $.each(response.message, function(key,value){
+                        $('#reportingTo').append('<option value='+value.employee_id+'>'+value.firstName+''+value.middleName+''+value.lastName+'</option>');
                     });
                 }
             });

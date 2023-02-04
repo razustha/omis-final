@@ -461,6 +461,9 @@ Route::middleware('auth')->group(function () {
                 Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name('hr.employee.edit');
                 Route::put('/update/{id}', [EmployeeController::class, 'update'])->name('hr.employee.update');
                 Route::delete('/destroy/{id}', [EmployeeController::class, 'destroy'])->name('hr.employee.destroy');
+                Route::get('get-department', [EmployeeController::class, 'getHeadOfDepartment'])->name('hr.employee.getHeadOfDepartment');
+
+
             });
 
 
@@ -558,6 +561,7 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/destroy/{id}', [LeaveApplicationController::class, 'destroy'])->name('hr.leaveapplication.destroy');
                 Route::get('tobeapprove', [LeaveApplicationController::class, 'toApprove'])->name('hr.leaveapplication.tobeapprove');
                 Route::get('tobereject', [LeaveApplicationController::class, 'toReject'])->name('hr.leaveapplication.tobereject');
+                Route::get('tobeforward', [LeaveApplicationController::class, 'toForward'])->name('hr.leaveapplication.tobeforward');
             });
 
 

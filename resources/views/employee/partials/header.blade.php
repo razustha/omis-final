@@ -165,7 +165,8 @@
                             data-bs-toggle="offcanvas" data-bs-target="#dashboardOffcanvas"><em
                                 class="icon ni ni-menu-circled"></em></button>
                     </li>
-                    <li class="dropdown"><a href="#" data-bs-toggle="dropdown">
+                    <li class="dropdown">
+                        <a href="#" data-bs-toggle="dropdown">
                             <div class="d-sm-none">
                                 @if(!empty(auth()->user()->employee->profilePhoto))
                                     <div class="media media-md media-circle"><img
