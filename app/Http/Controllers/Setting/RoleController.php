@@ -15,9 +15,9 @@ class RoleController extends Controller
 {
     public function index(Request $request)
     {
-        // $data = Permission::join('tbl_module','permissions.module_id','tbl_module.module_id')
-        //                     ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
-        //                     ->select('moduleName','permissions.*')->get();
+        $data = Permission::join('tbl_module','permissions.module_id','tbl_module.module_id')
+                            ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
+                            ->select('moduleName','permissions.*')->get();
         $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
             ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
             ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
@@ -34,13 +34,13 @@ class RoleController extends Controller
     {
         $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
             ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
-            ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
+            ->select('moduleName','tbl_module.module_id', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
         // $groupPermissions = $this->permission->getPermissionByGroupWise()->groupBy('group_name')->chunk(3);
         if ($request->ajax()) {
             $html = view("omis.setting.role.ajax.create", ['groupPermissions' => $groupPermissions])->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
-        return view("omis.setting.permission.create");
+        return view("omis.setting.role.create",['groupPermissions' => $groupPermissions]);
     }
 
     public function store(Request $request)
@@ -68,7 +68,7 @@ class RoleController extends Controller
             $html = view("omis.setting.permission.ajax.show", compact('data'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
-        return view("omis.setting.permission.show", compact('data'));
+        return view("omis.setting.role.show", compact('data'));
     }
 
 
