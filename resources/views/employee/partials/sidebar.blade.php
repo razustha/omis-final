@@ -24,7 +24,8 @@
                             <li class="nk-menu-item"><a href="{{route('employee.attandance.index')}}" class="nk-menu-link"><span class="nk-menu-text">Attandance</span></a></li>
                             <li class="nk-menu-item"><a href="{{route('employee.leaves.index')}}" class="nk-menu-link"><span class="nk-menu-text">Request Leave</span></a></li>
                             <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">Holiday</span></a></li>
-                            
+
+
                         </ul>
                     </li>
 

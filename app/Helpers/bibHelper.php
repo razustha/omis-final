@@ -4,6 +4,7 @@
         use App\Models\Hr\Employee;
         use App\Models\Master\Country as MasterCountry;
         use App\Models\Master\District;
+        use App\Models\Master\Module;
         use App\Models\Master\State;
         use App\Models\Role;
         use App\Models\Settings\OrganizationSettings;
@@ -521,6 +522,11 @@
                 function getEmployees()
                 {
                     return Employee::where('status', '<>', '-1')->get();
+                }
+
+                function getModules()
+                {
+                    return Module::where('status', '<>', '-1')->get();
                 }
 
                 ?>

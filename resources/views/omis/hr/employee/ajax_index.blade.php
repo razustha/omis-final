@@ -30,12 +30,12 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">Employee Id</span></th>
+                                        <th class="tb-col"><span class="overline-title">EMP. Id</span></th>
                                         <th class="tb-col"><span class="overline-title">Employee Name</span></th>
-                                        <th class="tb-col"><span class="overline-title">Phone Number</span></th>
+                                        <th class="tb-col"><span class="overline-title">Contact</span></th>
                                         <th class="tb-col"><span class="overline-title">Role</span></th>
                                         <th class="tb-col"><span class="overline-title">Department</span></th>
-                                        <th class="tb-col"><span class="overline-title">designation</span></th>
+                                        {{-- <th class="tb-col"><span class="overline-title">designation</span></th> --}}
                                         <th class="tb-col"><span class="overline-title">status</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
                                         </th>
@@ -65,7 +65,7 @@
                                             <td class="tb-col">{{ $item->phoneNumber }}</td>
                                             <td class="tb-col">{{ $item->role }}</td>
                                             <td class="tb-col">{{ $item->department_id }}</td>
-                                            <td class="tb-col">{{ $item->designation_id }}</td>
+                                            {{-- <td class="tb-col">{{ $item->designation_id }}</td> --}}
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
@@ -136,5 +136,5 @@
             </div>
         </div>
     </div>
-    </div>
+    
 @endsection

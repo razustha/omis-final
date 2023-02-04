@@ -4,7 +4,7 @@
 
         <h4>{{ auth()->user()->name }}</h4>
 
-        {{ createHidden('employee_id', 'employee_id', '', 'employee_id', auth()->user()->id) }}
+        {{ createHidden('employee_id', 'employee_id', '', 'employee_id', auth()->user()->employee->employee_id) }}
         <div class="col-lg-4">
             <label class="form-label">Leave Type</label>
             <div class="input-group">

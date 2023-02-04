@@ -46,6 +46,24 @@
                     <li class="nk-menu-heading">
                         <h6 class="overline-title">Settings</h6>
                     </li>
+
+<li class="nk-menu-item has-sub">
+    <a href="#" class="nk-menu-link nk-menu-toggle">
+        <span class="nk-menu-icon"><em class="icon ni ni-package"></em></span>
+        <span class="nk-menu-text">Super Admin</span></a>
+    <ul class="nk-menu-sub">
+        <li class="nk-menu-item"><a href="{{route('superadmin.package.index')}}" class="nk-menu-link"><span
+                    class="nk-menu-text">Packages</span></a></li>
+                    <li class="nk-menu-item"><a href="{{ route('settings.organization.index') }}" class="nk-menu-link"><span
+                        class="nk-menu-text">Organization</span></a></li>
+        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span
+                    class="nk-menu-text">Invoices</span></a></li>
+        <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span
+                    class="nk-menu-text">Companies</span></a></li>
+    </ul>
+</li>     
+
+
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-list-index-fill"></em></span>
@@ -65,8 +83,7 @@
                             <span class="nk-menu-text">Settings</span></a>
                         <ul class="nk-menu-sub">
 
-                            <li class="nk-menu-item"><a href="{{ route('settings.organization.index') }}" class="nk-menu-link"><span
-                                        class="nk-menu-text">Organization</span></a></li>
+                           
                             <li class="nk-menu-item"><a href="{{ route('settings.organizationsettings.index') }}" class="nk-menu-link"><span
                                             class="nk-menu-text">Organization Setting</span></a></li>
 

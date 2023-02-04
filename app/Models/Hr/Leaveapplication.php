@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\CreatedUpdatedBy;
+use Illuminate\Support\Facades\DB;
 
 class Leaveapplication extends Model
 {
@@ -58,6 +59,19 @@ class Leaveapplication extends Model
     }
     public function employee()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Employee::class,'employee_id','employee_id');
     }
+
+    public function attendence()
+    {
+        $auth = auth()->user()->id;
+        $attendance = DB::table('tbl_employee')
+            ->join('tbl_leaveapplication', 'tbl_leaveapplication.employee_id', 'tbl_attendence.employee_id')
+            ->select('users.id as user_id', 'users.name', 'tbl_attendence.attendence_id')
+            ->where('tbl_attendence.todayDate', date('Y-m-d'))
+            ->where('tbl_attendence.employee_id', $auth)
+            ->first();
+        return $attendance;
+    }
+
 }
