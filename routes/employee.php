@@ -44,3 +44,5 @@ Route::get('/dashboard', function () {
     $employees = Employee::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
     return view('omis\welcome', compact('employees'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
