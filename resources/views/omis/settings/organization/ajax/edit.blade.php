@@ -14,7 +14,7 @@
 </div><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_city","city_id","cityName",'',$data) !!}
 </div><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_district","district_id","districtName",'',$data) !!}
 </div><div class="col-lg-6">{{createText("geoMapLocation","geoMapLocation","GeoMapLocation",'',$data->geoMapLocation)}}
-</div><div class="col-lg-6">{{createText("budgetSize","budgetSize","BudgetSize",'',$data->budgetSize)}}
+</div><div class="col-lg-6">{{createNumber("budgetSize","budgetSize","BudgetSize",'',$data->budgetSize)}}
 </div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'],$data->status)}}
 </div><div class="col-lg-6">{{createText("remarks","remarks","Remarks",'',$data->remarks)}}
 </div>

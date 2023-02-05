@@ -29,7 +29,7 @@
         <div class="col-lg-4">{{ createText('geoMapLocation', 'geoMapLocation', 'GeoMapLocation') }}
         </div>
 
-        <div class="col-lg-4">{{ createText('budgetSize', 'budgetSize', 'Budget Size') }}
+        <div class="col-lg-4">{{ createNumber('budgetSize', 'budgetSize', 'Budget Size') }}
         </div>
         <div class="col-lg-4">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>
