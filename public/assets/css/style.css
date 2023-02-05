@@ -27566,6 +27566,13 @@ img {
     }
 }
 
+.overrole-title {
+    font-size: 12px;
+    letter-spacing: .1em;
+    color: #787c9e;
+    text-transform: uppercase;
+    font-weight: 700
+}
 .overline-title {
     font-size: 11px;
     line-height: 1.2;

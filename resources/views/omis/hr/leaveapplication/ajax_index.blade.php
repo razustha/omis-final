@@ -45,8 +45,8 @@
                                     @endphp
                                     @foreach ($data as $item)
                                         @if(auth()->user()->employee != null)
-
-                                            @if($item->employee->reportingTo == auth()->user()->employee->employee_id)
+                                        
+                                            @if(($item->employee->reportingTo) == (auth()->user()->employee->employee_id))
                                                 @if(auth()->user()->employee->is_head == "manager")
                                                     <tr>
                                                         <td class="tb-col">{{ $i++ }}</td>

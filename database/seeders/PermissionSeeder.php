@@ -19,7 +19,15 @@ class PermissionSeeder extends Seeder
             //module_id = 1
             'Master' => [
 
-
+                'module' => [
+                    'master.module.index',
+                    'master.module.create',
+                    'master.module.show',
+                    'master.module.store',
+                    'master.module.edit',
+                    'master.module.update',
+                    'master.module.destory',
+                ],
                 'country' => [
                     'master.country.index',
                     'master.country.create',
@@ -1102,7 +1110,21 @@ class PermissionSeeder extends Seeder
                     'supplier.suppliercategory.update',
                     'supplier.suppliercategory.destory',
 
-                ]
+                ],
+            ],
+
+            'settings' => [
+                'organization' => [
+                    'settings-organization-index',
+                    'settings-organization-create',
+                    'settings-organization-store',
+                    'settings-organization-show',
+                    'settings-organization-edit ',
+                    'settings-organization-update',
+                    'settings-organization-destroy',
+
+                ],
+            
             ]
 
 
