@@ -22,6 +22,7 @@
         @foreach ($groupPermissions as $chunk)
             <?php
             $chunkk = $chunk;
+
             foreach ($chunkk as $titlee => $groupp) {
                 foreach ($groupp as $permission) {
                     if (empty($moduleId)) {
@@ -52,7 +53,6 @@
                         </div>
                         @foreach ($group as $permission)
                             <div class="form-group form-check">
-
                                 <input type="checkbox" class="form-check-input"
                                     name="permissions[{{ $permission->slug }}]" value="{{ $permission->id }}"
                                     {{ isset($role) &&$role->permissions()->whereSlug($permission->slug)->first()? 'checked': '' }}

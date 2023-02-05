@@ -16,6 +16,7 @@ class Organization extends Model
     protected $primaryKey = 'organization_id';
     public $timestamps = true;
     protected $fillable = [
+        'user_id',
         'organizationName',
         'organizatoinCategory',
         'ownerName',

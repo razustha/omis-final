@@ -3,11 +3,19 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Mail\CommonMail;
+use App\Models\Permission;
+use App\Models\Role;
+use App\Models\RolePermission;
 use Illuminate\Http\Request;
 use App\Models\Settings\Organization;
+use App\Models\Superadmin\Package;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class OrganizationController extends Controller
@@ -33,16 +41,59 @@ class OrganizationController extends Controller
 
     public function store(Request $request)
     {
-
         $request->request->add(['alias' => slugify($request->organizationName)]);
         $users = [
-            'name' => $request->organizationName,
+            'name' => $request->ownerName,
             'email' => $request->emailAddress,
             'password' => Hash::make($request->password),
             'user_type' => 'COMPANY'
         ];
-        User::create($users);
-        Organization::create($request->all());
+        try {
+            DB::beginTransaction();
+            $user = User::create($users);
+            $orgData = $request->all();
+            $orgData['user_id'] = $user->id;
+            $organization = Organization::create($request->all());
+            $package = Package::where('package_id', $organization->package_id)->first();
+
+            $permissions = Permission::whereIn('module_id', explode(',', $package->feature))->get();
+            $role = Role::where('id', 2)->first();
+            if (!$role) {
+                $role = Role::create([
+                    'name' => 'Super Admin', 'slug' => 'super-admin',
+                    'createdOn' => now(),
+                    'createdBy' => '1',
+                    'updatedBy' => '1',
+                ]);
+            }
+            RolePermission::where('role_id', 2)->delete();
+            foreach ($permissions as $permission) {
+                RolePermission::create(['role_id' => 2, 'permission_id' => $permission->id]);
+            }
+
+            $user->roles()->attach($role);
+
+            if (!empty($user->email)) {
+                try {
+                    $mail_data = [
+                        'name' => $user->name,
+                        'subject' => 'User Login Credentials',
+                        'message' => 'your Login credentials are:',
+                        'password' => $request->password,
+                        'view' => 'omis.emails.credentials'
+                    ];
+                    Mail::to($user->email)->send(new CommonMail($mail_data, $user));
+                } catch (Exception $e) {
+                    Log::info($e->getMessage());
+                }
+            }
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+        }
+
+        DB::commit();
+
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Organization Created Successfully.'], 200);
         }

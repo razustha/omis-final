@@ -8,6 +8,9 @@
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
                                 <h2 class="nk-block-title">Leave Application List</h1>
+                                    @can('officemanagement-generatorlogbook-edit')
+
+                                    @endcan
 
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
@@ -45,7 +48,7 @@
                                     @endphp
                                     @foreach ($data as $item)
                                         @if(auth()->user()->employee != null)
-                                        
+
                                             @if(($item->employee->reportingTo) == (auth()->user()->employee->employee_id))
                                                 @if(auth()->user()->employee->is_head == "manager")
                                                     <tr>
