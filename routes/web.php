@@ -905,13 +905,14 @@ Route::middleware('auth')->group(function () {
         function () {
             Route::prefix("workProjects")->group(
                 function () {
-                    Route::get('/', [WorkProjectsController::class, 'index'])->name('work.workprojects.index')->middleware('permission:work-workProjects-index');
-                    Route::get('/create', [WorkProjectsController::class, 'create'])->name('work.workprojects.create')->middleware('permission:work-workProjects-create');
-                    Route::post('/store', [WorkProjectsController::class, 'store'])->name('work.workprojects.store')->middleware('permission:work-workProjects-store');
-                    Route::get('/show/{id}', [WorkProjectsController::class, 'show'])->name('work.workprojects.show')->middleware('permission:work-workProjects-show');
-                    Route::get('/edit/{id}', [WorkProjectsController::class, 'edit'])->name('work.workprojects.edit')->middleware('permission:work-workProjects-edit');
-                    Route::put('/update/{id}', [WorkProjectsController::class, 'update'])->name('work.workprojects.update')->middleware('permission:work-workProjects-update');
-                    Route::delete('/destroy/{id}', [WorkProjectsController::class, 'destroy'])->name('work.workprojects.destroy')->middleware('permission:work-workProjects-destroy');
+                    Route::get('/', [WorkProjectsController::class, 'index'])->name('work.workprojects.index'); // ->middleware('permission:work-workProjects-index');
+                    Route::get('/create', [WorkProjectsController::class, 'create'])->name('work.workprojects.create'); //->middleware('permission:work-workProjects-create');
+                    Route::post('/store', [WorkProjectsController::class, 'store'])->name('work.workprojects.store'); //->middleware('permission:work-workProjects-store');
+                    Route::get('/show/{id}', [WorkProjectsController::class, 'show'])->name('work.workprojects.show'); //->middleware('permission:work-workProjects-show');
+                    Route::get('/edit/{id}', [WorkProjectsController::class, 'edit'])->name('work.workprojects.edit'); //->middleware('permission:work-workProjects-edit');
+                    Route::put('/update/{id}', [WorkProjectsController::class, 'update'])->name('work.workprojects.update'); //->middleware('permission:work-workProjects-update');
+                    Route::delete('/destroy/{id}', [WorkProjectsController::class, 'destroy'])->name('work.workprojects.destroy'); //->middleware('permission:work-workProjects-destroy');
+                    Route::delete('/destroy/ProjectEmployee/{id}', [WorkProjectsController::class, 'destroyProjectEmployee'])->name('work.workprojects.destroyProjectEmployee'); //->middleware('permission:work-workProjects-destroy');
                 }
             );
 

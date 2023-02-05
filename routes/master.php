@@ -162,7 +162,7 @@ Route::prefix("master")->group(
                 Route::get('/edit/{id}', [StateController::class, 'edit'])->name('master.state.edit')->middleware('permission:master-state-edit');
                 Route::put('/update/{id}', [StateController::class, 'update'])->name('master.state.update')->middleware('permission:master-state-update');
                 Route::delete('/destroy/{id}', [StateController::class, 'destroy'])->name('master.state.destroy')->middleware('permission:master-state-destroy');
-                Route::get('get-states', [StateController::class, 'getState'])->name('master.state.getState')->middleware('permission:master-state-getState');
+                Route::get('get-states', [StateController::class, 'getState'])->name('master.state.getState')->middleware('permission:master-state-getstate');
             }
         );
 
@@ -175,7 +175,7 @@ Route::prefix("master")->group(
                 Route::get('/edit/{id}', [DistrictController::class, 'edit'])->name('master.district.edit')->middleware('permission:master-district-edit');
                 Route::put('/update/{id}', [DistrictController::class, 'update'])->name('master.district.update')->middleware('permission:master-district-update');
                 Route::delete('/destroy/{id}', [DistrictController::class, 'destroy'])->name('master.district.destroy')->middleware('permission:master-district-destroy');
-                Route::get('get-districts', [DistrictController::class, 'getDistrict'])->name('master.state.getDistrict')->middleware('permission:master-district-getDistrict');
+                Route::get('get-districts', [DistrictController::class, 'getDistrict'])->name('master.state.getDistrict')->middleware('permission:master-district-getdistrict');
             }
         );
 
@@ -191,7 +191,7 @@ Route::prefix("master")->group(
 
                 Route::get('/checkvalidation', [CityController::class, 'checkValidation'])->name('master.city.checkValidation')->middleware('permission:master-city-checkValidation');
 
-                Route::get('get-districts', [CityController::class, 'getCity'])->name('master.state.getCity')->middleware('permission:master-city-getCity');
+                Route::get('get-city', [CityController::class, 'getCity'])->name('master.state.getCity')->middleware('permission:master-city-getCity');
             }
         );
 

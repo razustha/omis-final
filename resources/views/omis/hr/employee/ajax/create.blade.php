@@ -297,7 +297,6 @@
     });
 
     // Fetch Manager according to department
-    // Fetch District according to state
     $('#department_id').on('change',function(e){
         e.preventDefault();
         var department_id = $(this).val();
