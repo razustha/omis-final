@@ -1,6 +1,8 @@
 <form action="{{ route('settings.organization.store') }}" id="storeCustomForm">
     @csrf
     <div class="row">
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_package', 'package_id', 'name', '', '', 'Package') !!}
+        </div>
         <div class="col-lg-4">{{ createText('organizationName', 'organizationName', 'Organization Name') }}
         </div>
         <div class="col-lg-4">{{ createText('organizatoinCategory', 'organizatoinCategory', 'Organizatoin Category') }}
@@ -31,7 +33,8 @@
 
         <div class="col-lg-4">{{ createNumber('budgetSize', 'budgetSize', 'Budget Size') }}
         </div>
-        <div class="col-lg-4">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
+        <div class="col-lg-4">
+            {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>
         <div class="col-lg-4">{{ createText('remarks', 'remarks', 'Remarks') }}
         </div>
@@ -54,65 +57,69 @@
 
 <script>
     // Fetch state according to country
-    $('#country_id').on('change',function(e){
+    $('#country_id').on('change', function(e) {
         e.preventDefault();
         var country_id = $(this).val();
-            $.ajax({
-                type: "GET",
-                url: "{{route('master.state.getState')}}",
-                data: {
-                    'country_id': country_id
-                },
-                dataType: "json",
-                success: function(response){
-                    // console.log(response);
-                    $('#state_id').html('<option value="#" selected disabled>Choose State</option>');
-                    $.each(response.message, function(key,value){
-                        $('#state_id').append('<option value='+value.state_id+'>'+value.stateName+'</option>');
-                    });
-                }
-            });
+        $.ajax({
+            type: "GET",
+            url: "{{ route('master.state.getState') }}",
+            data: {
+                'country_id': country_id
+            },
+            dataType: "json",
+            success: function(response) {
+                // console.log(response);
+                $('#state_id').html('<option value="#" selected disabled>Choose State</option>');
+                $.each(response.message, function(key, value) {
+                    $('#state_id').append('<option value=' + value.state_id + '>' + value
+                        .stateName + '</option>');
+                });
+            }
+        });
     });
 
     // Fetch District according to state
-    $('#state_id').on('change',function(e){
+    $('#state_id').on('change', function(e) {
         e.preventDefault();
         var state_id = $(this).val();
-            $.ajax({
-                type: "GET",
-                url: "{{route('master.state.getDistrict')}}",
-                data: {
-                    'state_id': state_id
-                },
-                dataType: "json",
-                success: function(response){
-                    // console.log(response);
-                    $('#district_id').html('<option value="#" selected disabled>Choose District</option>');
-                    $.each(response.message, function(key,value){
-                        $('#district_id').append('<option value='+value.district_id+'>'+value.districtName+'</option>');
-                    });
-                }
-            });
+        $.ajax({
+            type: "GET",
+            url: "{{ route('master.state.getDistrict') }}",
+            data: {
+                'state_id': state_id
+            },
+            dataType: "json",
+            success: function(response) {
+                // console.log(response);
+                $('#district_id').html(
+                    '<option value="#" selected disabled>Choose District</option>');
+                $.each(response.message, function(key, value) {
+                    $('#district_id').append('<option value=' + value.district_id + '>' +
+                        value.districtName + '</option>');
+                });
+            }
+        });
     });
 
     // Fetch City according to district
-    $('#district_id').on('change',function(e){
+    $('#district_id').on('change', function(e) {
         e.preventDefault();
         var district_id = $(this).val();
-            $.ajax({
-                type: "GET",
-                url: "{{route('master.state.getCity')}}",
-                data: {
-                    'district_id': district_id
-                },
-                dataType: "json",
-                success: function(response){
-                    // console.log(response);
-                    $('#city_id').html('<option value="#" selected disabled>Choose City</option>');
-                    $.each(response.message, function(key,value){
-                        $('#city_id').append('<option value='+value.city_id+'>'+value.cityName+'</option>');
-                    });
-                }
-            });
+        $.ajax({
+            type: "GET",
+            url: "{{ route('master.state.getCity') }}",
+            data: {
+                'district_id': district_id
+            },
+            dataType: "json",
+            success: function(response) {
+                // console.log(response);
+                $('#city_id').html('<option value="#" selected disabled>Choose City</option>');
+                $.each(response.message, function(key, value) {
+                    $('#city_id').append('<option value=' + value.city_id + '>' + value
+                        .cityName + '</option>');
+                });
+            }
+        });
     });
 </script>

@@ -50,9 +50,9 @@
                                            
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                    <!-- <li>
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'setting.role.show', $item->id) !!}
-                                                    </li>
+                                                    </li> -->
                                                     <li>
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'setting.role.edit', $item->id) !!}
                                                     </li>

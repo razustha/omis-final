@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Hr\Employee;
 use App\Models\Master\Document;
 use App\Models\Role;
+use Exception;
+use Illuminate\Support\Facades\Log;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CommonMail;
+
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -73,8 +79,24 @@ class EmployeeController extends Controller
             }
             $user->roles()->attach($user_role);
             $request['organization_id'] = auth()->user()->id;
-            Employee::create($request->all());
+            $employee = Employee::create($request->all());
         }
+        if (!empty($user->email)) {
+            try {
+                $mail_data = [
+                    'name' => $employee->full_name,
+                    'subject' => 'User Login Credentials',
+                    'message' => 'your Login credentials are:',
+                    'password' => $request->password,
+                    'logo'=>$employee->logo,
+                    'view' => 'omis.emails.credentials'
+                ];
+                Mail::to($user->email)->send(new CommonMail($mail_data, $user));
+            } catch (Exception $e) {
+                Log::info($e->getMessage());
+            }
+        }
+
         $request->request->add(['alias' => slugify($request->employeeName)]);
 
         if ($request->ajax()) {

@@ -26,7 +26,7 @@ class PermissionSeeder extends Seeder
                     'master.module.store',
                     'master.module.edit',
                     'master.module.update',
-                    'master.module.destory',
+                    'master.module.destroy',
                 ],
                 'country' => [
                     'master.country.index',
@@ -35,7 +35,7 @@ class PermissionSeeder extends Seeder
                     'master.country.store',
                     'master.country.edit ',
                     'master.country.update',
-                    'master.country.destory',
+                    'master.country.destroy',
                 ],
                 'state' => [
                     'master.state.index',
@@ -44,7 +44,8 @@ class PermissionSeeder extends Seeder
                     'master.state.store',
                     'master.state.edit ',
                     'master.state.update',
-                    'master.state.destory',
+                    'master.state.destroy',
+                    'master.state.getState'
                 ],
                 'district' => [
                     'master.district.index',
@@ -53,7 +54,8 @@ class PermissionSeeder extends Seeder
                     'master.district.store',
                     'master.district.edit ',
                     'master.district.update',
-                    'master.district.destory',
+                    'master.district.destroy',
+                    'master.district.getDistrict',
                 ],
                 'city' => [
                     'master.city.index',
@@ -62,7 +64,8 @@ class PermissionSeeder extends Seeder
                     'master.city.store',
                     'master.city.edit ',
                     'master.city.update',
-                    'master.city.destory',
+                    'master.city.destroy',
+                    'master.city.getCity',
                 ],
                 'departmenttype' => [
                     'master.departmenttype.index',
@@ -71,7 +74,7 @@ class PermissionSeeder extends Seeder
                     'master.departmenttype.store',
                     'master.departmenttype.edit ',
                     'master.departmenttype.update',
-                    'master.departmenttype.destory',
+                    'master.departmenttype.destroy',
                 ],
 
                 'employmentsizecategory' => [
@@ -81,7 +84,7 @@ class PermissionSeeder extends Seeder
                     'master.employmentsizecategory.store',
                     'master.employmentsizecategory.edit ',
                     'master.employmentsizecategory.update',
-                    'master.employmentsizecategory.destory',
+                    'master.employmentsizecategory.destroy',
                 ],
                 'fleet' => [
                     'master.fleet.index',
@@ -90,7 +93,7 @@ class PermissionSeeder extends Seeder
                     'master.fleet.store',
                     'master.fleet.edit ',
                     'master.fleet.update',
-                    'master.fleet.destory',
+                    'master.fleet.destroy',
                 ],
                 'holidaytypes' => [
                     'master.holidaytypes.index',
@@ -99,7 +102,7 @@ class PermissionSeeder extends Seeder
                     'master.holidaytypes.store',
                     'master.holidaytypes.edit ',
                     'master.holidaytypes.update',
-                    'master.holidaytypes.destory',
+                    'master.holidaytypes.destroy',
                 ],
                 // 'jobtitle' => [
                 //     'master.jobtitle.index',
@@ -108,7 +111,7 @@ class PermissionSeeder extends Seeder
                 //     'master.jobtitle.store',
                 //     'master.jobtitle.edit ',
                 //     'master.jobtitle.update',
-                //     'master.jobtitle.destory',
+                //     'master.jobtitle.destroy',
                 // ],
                 'leavetype' => [
                     'master.leavetype.index',
@@ -117,7 +120,7 @@ class PermissionSeeder extends Seeder
                     'master.leavetype.store',
                     'master.leavetype.edit ',
                     'master.leavetype.update',
-                    'master.leavetype.destory',
+                    'master.leavetype.destroy',
                 ],
                 'nationality' => [
                     'master.nationality.index',
@@ -126,7 +129,7 @@ class PermissionSeeder extends Seeder
                     'master.nationality.store',
                     'master.nationality.edit ',
                     'master.nationality.update',
-                    'master.nationality.destory',
+                    'master.nationality.destroy',
                 ],
                 'orginizationcategory' => [
                     'master.organizationcategory.index',
@@ -135,7 +138,7 @@ class PermissionSeeder extends Seeder
                     'master.organizationcategory.store',
                     'master.organizationcategory.edit ',
                     'master.organizationcategory.update',
-                    'master.organizationcategory.destory',
+                    'master.organizationcategory.destroy',
                 ],
                 'organizationtype' => [
                     'master.organizationtype.index',
@@ -144,7 +147,7 @@ class PermissionSeeder extends Seeder
                     'master.organizationtype.store',
                     'master.organizationtype.edit ',
                     'master.organizationtype.update',
-                    'master.organizationtype.destory',
+                    'master.organizationtype.destroy',
                 ],
                 'policy' => [
                     'master.policy.index',
@@ -153,7 +156,7 @@ class PermissionSeeder extends Seeder
                     'master.policy.store',
                     'master.policy.edit ',
                     'master.policy.update',
-                    'master.policy.destory',
+                    'master.policy.destroy',
                 ],
 
                 'traveltype' => [
@@ -163,7 +166,7 @@ class PermissionSeeder extends Seeder
                     'master.traveltype.store',
                     'master.traveltype.edit ',
                     'master.traveltype.update',
-                    'master.traveltype.destory',
+                    'master.traveltype.destroy',
                 ],
 
             ], //hr start
@@ -176,7 +179,7 @@ class PermissionSeeder extends Seeder
                     'hr.department.store',
                     'hr.department.edit ',
                     'hr.department.update',
-                    'hr.department.destory',
+                    'hr.department.destroy',
 
                 ],
                 'designation' => [
@@ -186,7 +189,7 @@ class PermissionSeeder extends Seeder
                     'hr.designation.store',
                     'hr.designation.edit ',
                     'hr.designation.update',
-                    'hr.designation.destory',
+                    'hr.designation.destroy',
 
                 ],
                 'employee' => [
@@ -196,7 +199,7 @@ class PermissionSeeder extends Seeder
                     'hr.employee.store',
                     'hr.employee.edit ',
                     'hr.employee.update',
-                    'hr.employee.destory',
+                    'hr.employee.destroy',
 
                 ],
                 'absentreason' => [
@@ -206,7 +209,7 @@ class PermissionSeeder extends Seeder
                     'hr.absentreason.store',
                     'hr.absentreason.edit ',
                     'hr.absentreason.update',
-                    'hr.absentreason.destory',
+                    'hr.absentreason.destroy',
                 ],
                 'appreciation' => [
                     'hr.appreciation.index',
@@ -215,7 +218,7 @@ class PermissionSeeder extends Seeder
                     'hr.appreciation.store',
                     'hr.appreciation.edit ',
                     'hr.appreciation.update',
-                    'hr.appreciation.destory',
+                    'hr.appreciation.destroy',
                 ],
                 'attendence' => [
                     'hr.attendence.index',
@@ -224,7 +227,9 @@ class PermissionSeeder extends Seeder
                     'hr.attendence.store',
                     'hr.attendence.edit ',
                     'hr.attendence.update',
-                    'hr.attendence.destory',
+                    'hr.attendence.destroy',
+                    'hr.attendence.checkin',
+                    'hr.attendence.checkout',
                 ],
                 'complaints' => [
                     'hr.complaints.index',
@@ -233,7 +238,7 @@ class PermissionSeeder extends Seeder
                     'hr.complaints.store',
                     'hr.complaints.edit ',
                     'hr.complaints.update',
-                    'hr.complaints.destory',
+                    'hr.complaints.destroy',
 
                 ],
 
@@ -244,7 +249,7 @@ class PermissionSeeder extends Seeder
                     'hr.employeementtimeline.store',
                     'hr.employeementtimeline.edit ',
                     'hr.employeementtimeline.update',
-                    'hr.employeementtimeline.destory',
+                    'hr.employeementtimeline.destroy',
 
                 ],
                 'employeeonboarding' => [
@@ -254,7 +259,7 @@ class PermissionSeeder extends Seeder
                     'hr.employeeonboarding.store',
                     'hr.employeeonboarding.edit ',
                     'hr.employeeonboarding.update',
-                    'hr.employeeonboarding.destory',
+                    'hr.employeeonboarding.destroy',
 
                 ],
                 'latereasons' => [
@@ -264,7 +269,7 @@ class PermissionSeeder extends Seeder
                     'hr.latereasons.store',
                     'hr.latereasons.edit ',
                     'hr.latereasons.update',
-                    'hr.latereasons.destory',
+                    'hr.latereasons.destroy',
                     'hr.attendence.checkIn',
                     'hr.attendence.checkOut',
                 ],
@@ -275,7 +280,10 @@ class PermissionSeeder extends Seeder
                     'hr.leaveapplication.store',
                     'hr.leaveapplication.edit ',
                     'hr.leaveapplication.update',
-                    'hr.leaveapplication.destory',
+                    'hr.leaveapplication.destroy',
+                    'hr.leaveapplication.tobeapprove',
+                    'hr.leaveapplication.tobereject',
+                    'hr.leaveapplication.tobeforward',
 
                 ],
                 'manageholiday' => [
@@ -285,7 +293,7 @@ class PermissionSeeder extends Seeder
                     'hr.mangeholiday.store',
                     'hr.mangeholiday.edit ',
                     'hr.mangeholiday.update',
-                    'hr.mangeholiday.destory',
+                    'hr.mangeholiday.destroy',
 
                 ],
                 'promotiondemotion' => [
@@ -295,7 +303,7 @@ class PermissionSeeder extends Seeder
                     'hr.promotiondemotion.store',
                     'hr.promotiondemotion.edit ',
                     'hr.promotiondemotion.update',
-                    'hr.promotiondemotion.destory',
+                    'hr.promotiondemotion.destroy',
 
                 ],
                 'resignation' => [
@@ -305,7 +313,7 @@ class PermissionSeeder extends Seeder
                     'hr.resignation.store',
                     'hr.resignation.edit ',
                     'hr.resignation.update',
-                    'hr.resignation.destory',
+                    'hr.resignation.destroy',
 
                 ],
                 'shiftroster' => [
@@ -315,7 +323,7 @@ class PermissionSeeder extends Seeder
                     'hr.shiftroster.store',
                     'hr.shiftroster.edit ',
                     'hr.shiftroster.update',
-                    'hr.shiftroster.destory',
+                    'hr.shiftroster.destroy',
 
                 ],
                 'transfer' => [
@@ -325,7 +333,7 @@ class PermissionSeeder extends Seeder
                     'hr.transfer.store',
                     'hr.transfer.edit ',
                     'hr.transfer.update',
-                    'hr.transfer.destory',
+                    'hr.transfer.destroy',
 
                 ],
                 'warnings' => [
@@ -335,7 +343,7 @@ class PermissionSeeder extends Seeder
                     'hr.warnings.store',
                     'hr.warnings.edit ',
                     'hr.warnings.update',
-                    'hr.warnings.destory',
+                    'hr.warnings.destroy',
 
                 ],
 
@@ -348,7 +356,7 @@ class PermissionSeeder extends Seeder
                     'crm.clients.store',
                     'crm.clients.edit ',
                     'crm.clients.update',
-                    'crm.clients.destory',
+                    'crm.clients.destroy',
 
                 ],
                 'leads' => [
@@ -358,7 +366,7 @@ class PermissionSeeder extends Seeder
                     'crm.leads.store',
                     'crm.leads.edit ',
                     'crm.leads.update',
-                    'crm.leads.destory',
+                    'crm.leads.destroy',
                 ],
             ],
 
@@ -381,7 +389,7 @@ class PermissionSeeder extends Seeder
                     'work.tasks.store',
                     'work.tasks.edit ',
                     'work.tasks.update',
-                    'work.tasks.destory',
+                    'work.tasks.destroy',
 
                 ],
                 'timelog' => [
@@ -391,7 +399,7 @@ class PermissionSeeder extends Seeder
                     'work.timelog.store',
                     'work.timelog.edit ',
                     'work.timelog.update',
-                    'work.timelog.destory',
+                    'work.timelog.destroy',
 
                 ],
                 'workProjects' => [
@@ -401,7 +409,7 @@ class PermissionSeeder extends Seeder
                     'work.workProjects.store',
                     'work.workProjects.edit ',
                     'work.workProjects.update',
-                    'work.workProjects.destory',
+                    'work.workProjects.destroy',
                 ]
             ],
 
@@ -413,7 +421,7 @@ class PermissionSeeder extends Seeder
                     'Finance.advancerequest.store',
                     'Finance.advancerequest.edit ',
                     'Finance.advancerequest.update',
-                    'Finance.advancerequest.destory',
+                    'Finance.advancerequest.destroy',
 
                 ],
                 'cashdeposit' => [
@@ -423,7 +431,7 @@ class PermissionSeeder extends Seeder
                     'Finance.cashdeposite.store',
                     'Finance.cashdeposite.edit ',
                     'Finance.cashdeposite.update',
-                    'Finance.cashdeposite.destory',
+                    'Finance.cashdeposite.destroy',
 
                 ],
                 'cashrequest' => [
@@ -433,7 +441,7 @@ class PermissionSeeder extends Seeder
                     'Finance. cashrequest.store',
                     'Finance. cashrequest.edit ',
                     'Finance. cashrequest.update',
-                    'Finance. cashrequest.destory',
+                    'Finance. cashrequest.destroy',
 
                 ],
                 'creditnotes' => [
@@ -443,7 +451,7 @@ class PermissionSeeder extends Seeder
                     'Finance. creditnotes.store',
                     'Finance. creditnotes.edit ',
                     'Finance. creditnotes.update',
-                    'Finance. creditnotes.destory',
+                    'Finance. creditnotes.destroy',
 
                 ],
                 'estimates' => [
@@ -453,7 +461,7 @@ class PermissionSeeder extends Seeder
                     'Finance. estimates.store',
                     'Finance. estimates.edit ',
                     'Finance. estimates.update',
-                    'Finance. estimates.destory',
+                    'Finance. estimates.destroy',
 
                 ],
                 'expensesclaim' => [
@@ -463,7 +471,7 @@ class PermissionSeeder extends Seeder
                     'Finance.expensesclaim.store',
                     'Finance.expensesclaim.edit ',
                     'Finance.expensesclaim.update',
-                    'Finance.expensesclaim.destory',
+                    'Finance.expensesclaim.destroy',
 
                 ],
                 'financeExpenses' => [
@@ -473,7 +481,7 @@ class PermissionSeeder extends Seeder
                     'Finance.financeExpenses.store',
                     'Finance.financeExpenses.edit ',
                     'Finance.financeExpenses.update',
-                    'Finance.financeExpenses.destory',
+                    'Finance.financeExpenses.destroy',
 
                 ],
                 'finanacePay' => [
@@ -483,7 +491,7 @@ class PermissionSeeder extends Seeder
                     'Finance.financePay.store',
                     'Finance.financePay.edit ',
                     'Finance.financePay.update',
-                    'Finance.financePay.destory',
+                    'Finance.financePay.destroy',
 
                 ],
                 'invoices' => [
@@ -493,7 +501,7 @@ class PermissionSeeder extends Seeder
                     'Finance.invoices.store',
                     'Finance.invoices.edit ',
                     'Finance.invoices.update',
-                    'Finance.invoices.destory',
+                    'Finance.invoices.destroy',
 
                 ],
                 'proposal' => [
@@ -503,7 +511,7 @@ class PermissionSeeder extends Seeder
                     'Finance.proposal.store',
                     'Finance.proposal.edit ',
                     'Finance.proposal.update',
-                    'Finance.proposal.destory',
+                    'Finance.proposal.destroy',
 
                 ]
             ],
@@ -516,7 +524,7 @@ class PermissionSeeder extends Seeder
                     'notice.announcement.store',
                     'notice.announcement.edit ',
                     'notice.announcement.update',
-                    'notice.announcement.destory',
+                    'notice.announcement.destroy',
 
                 ],
                 'detailsview' => [
@@ -526,7 +534,7 @@ class PermissionSeeder extends Seeder
                     'notice.detailsview.store',
                     'notice.detailsview.edit ',
                     'notice.detailsview.update',
-                    'notice.detailsview.destory',
+                    'notice.detailsview.destroy',
 
                 ],
                 'equipmentdemand' => [
@@ -536,7 +544,7 @@ class PermissionSeeder extends Seeder
                     'notice.equipmentdemand.store',
                     'notice.equipmentdemand.edit ',
                     'notice.equipmentdemand.update',
-                    'notice.equipmentdemand.destory',
+                    'notice.equipmentdemand.destroy',
 
                 ],
                 'overview' => [
@@ -546,7 +554,7 @@ class PermissionSeeder extends Seeder
                     'notice.overview.store',
                     'notice.overview.edit ',
                     'notice.overview.update',
-                    'notice.overview.destory',
+                    'notice.overview.destroy',
                 ]
             ],
 
@@ -558,7 +566,7 @@ class PermissionSeeder extends Seeder
                     'assets.assestCategory.store',
                     'assets.assestCategory.edit ',
                     'assets.assestCategory.update',
-                    'assets.assestCategory.destory',
+                    'assets.assestCategory.destroy',
                 ],
                 'equipmentdemand' => [
                     'assets.equipmentdemand.index',
@@ -567,7 +575,7 @@ class PermissionSeeder extends Seeder
                     'assets.equipmentdemand.store',
                     'assets.equipmentdemand.edit ',
                     'assets.equipmentdemand.update',
-                    'assets.equipmentdemand.destory',
+                    'assets.equipmentdemand.destroy',
                 ],
                 'fixedassets' => [
                     'assets.fixedassets.index',
@@ -576,7 +584,7 @@ class PermissionSeeder extends Seeder
                     'assets.fixedassets.store',
                     'assets.fixedassets.edit ',
                     'assets.fixedassets.update',
-                    'assets.fixedassets.destory',
+                    'assets.fixedassets.destroy',
                 ]
             ],
 
@@ -599,7 +607,7 @@ class PermissionSeeder extends Seeder
                     'recruit.experienceletter.store',
                     'recruit.experienceletter.edit ',
                     'recruit.experienceletter.update',
-                    'recruit.experienceletter.destory',
+                    'recruit.experienceletter.destroy',
 
                 ],
                 'interviewschedule' => [
@@ -609,7 +617,7 @@ class PermissionSeeder extends Seeder
                     'recruit.interviewschedule.store',
                     'recruit.interviewschedule.edit ',
                     'recruit.interviewschedule.update',
-                    'recruit.interviewschedule.destory',
+                    'recruit.interviewschedule.destroy',
 
                 ],
                 'jobapplication' => [
@@ -619,7 +627,7 @@ class PermissionSeeder extends Seeder
                     'recruit.jobapplication.store',
                     'recruit.jobapplication.edit ',
                     'recruit.jobapplication.update',
-                    'recruit.jobapplication.destory',
+                    'recruit.jobapplication.destroy',
 
                 ],
                 'jobinterview' => [
@@ -629,7 +637,7 @@ class PermissionSeeder extends Seeder
                     'recruit.jobinterview.store',
                     'recruit.jobinterview.edit ',
                     'recruit.jobinterview.update',
-                    'recruit.jobinterview.destory',
+                    'recruit.jobinterview.destroy',
 
                 ],
                 'jobpost' => [
@@ -639,7 +647,7 @@ class PermissionSeeder extends Seeder
                     'recruit.jobpost.store',
                     'recruit.jobpost.edit ',
                     'recruit.jobpost.update',
-                    'recruit.jobpost.destory',
+                    'recruit.jobpost.destroy',
 
                 ],
                 'offerletter' => [
@@ -649,7 +657,7 @@ class PermissionSeeder extends Seeder
                     'recruit.offerletter.store',
                     'recruit.offerletter.edit ',
                     'recruit.offerletter.update',
-                    'recruit.offerletter.destory',
+                    'recruit.offerletter.destroy',
 
                 ],
                 'recuritreports' => [
@@ -659,7 +667,7 @@ class PermissionSeeder extends Seeder
                     'recruit.recuritreports.store',
                     'recruit.recuritreports.edit ',
                     'recruit.recuritreports.update',
-                    'recruit.recuritreports.destory',
+                    'recruit.recuritreports.destroy',
                 ]
 
             ],
@@ -671,7 +679,7 @@ class PermissionSeeder extends Seeder
                     'requisition.compensatoryLeave.store',
                     'requisition.compensatoryLeave.edit ',
                     'requisition.compensatoryLeave.update',
-                    'requisition.compensatoryLeave.destory',
+                    'requisition.compensatoryLeave.destroy',
 
                 ],
                 'convinceRequest' => [
@@ -681,7 +689,7 @@ class PermissionSeeder extends Seeder
                     'requisition.convinceRequest.store',
                     'requisition.convinceRequest.edit ',
                     'requisition.convinceRequest.update',
-                    'requisition.convinceRequest.destory',
+                    'requisition.convinceRequest.destroy',
 
                 ],
                 'fleetRequest' => [
@@ -691,7 +699,7 @@ class PermissionSeeder extends Seeder
                     'requisition.fleetrequest.store',
                     'requisition.fleetrequest.edit ',
                     'requisition.fleetrequest.update',
-                    'requisition.fleetrequest.destory',
+                    'requisition.fleetrequest.destroy',
 
                 ],
                 'leaverequest' => [
@@ -701,7 +709,7 @@ class PermissionSeeder extends Seeder
                     'requisition.leaverequest.store',
                     'requisition.leaverequest.edit ',
                     'requisition.leaverequest.update',
-                    'requisition.leaverequest.destory',
+                    'requisition.leaverequest.destroy',
 
                 ],
                 'requisitiontravel' => [
@@ -711,7 +719,7 @@ class PermissionSeeder extends Seeder
                     'requisition.requisitiontravel.store',
                     'requisition.requisitiontravel.edit ',
                     'requisition.requisitiontravel.update',
-                    'requisition.requisitiontravel.destory',
+                    'requisition.requisitiontravel.destroy',
 
                 ],
                 'travel' => [
@@ -721,7 +729,7 @@ class PermissionSeeder extends Seeder
                     'requisition.travel.store',
                     'requisition.travel.edit ',
                     'requisition.travel.update',
-                    'requisition.travel.destory',
+                    'requisition.travel.destroy',
 
                 ]
 
@@ -735,7 +743,7 @@ class PermissionSeeder extends Seeder
                     'training.trainer.store',
                     'training.trainer.edit ',
                     'training.trainer.update',
-                    'training.trainer.destory',
+                    'training.trainer.destroy',
 
                 ],
                 'traininglist' => [
@@ -745,7 +753,7 @@ class PermissionSeeder extends Seeder
                     'training.traininglist.store',
                     'training.traininglist.edit ',
                     'training.traininglist.update',
-                    'training.traininglist.destory',
+                    'training.traininglist.destroy',
 
                 ],
                 'trainingtype' => [
@@ -755,7 +763,7 @@ class PermissionSeeder extends Seeder
                     'training.trainingtype.store',
                     'training.trainingtype.edit ',
                     'training.trainingtype.update',
-                    'training.trainingtype.destory',
+                    'training.trainingtype.destroy',
 
                 ]
             ],
@@ -768,7 +776,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.driverroster.store',
                     'travelfleet.driverroster.edit ',
                     'travelfleet.driverroster.update',
-                    'travelfleet.driverroster.destory',
+                    'travelfleet.driverroster.destroy',
 
                 ],
                 'fleetmanagement' => [
@@ -778,7 +786,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.fleetmanagement.store',
                     'travelfleet.fleetmanagement.edit ',
                     'travelfleet.fleetmanagement.update',
-                    'travelfleet.fleetmanagement.destory',
+                    'travelfleet.fleetmanagement.destroy',
 
                 ],
                 'fleetrequest' => [
@@ -788,7 +796,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.fleetrequest.store',
                     'travelfleet.fleetrequest.edit ',
                     'travelfleet.fleetrequest.update',
-                    'travelfleet.fleetrequest.destory',
+                    'travelfleet.fleetrequest.destroy',
 
                 ],
                 'fleetroster' => [
@@ -798,7 +806,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.fleetroster.store',
                     'travelfleet.fleetroster.edit ',
                     'travelfleet.fleetroster.update',
-                    'travelfleet.fleetroster.destory',
+                    'travelfleet.fleetroster.destroy',
 
                 ],
                 'maintenancelog' => [
@@ -808,7 +816,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.maintenancelog.store',
                     'travelfleet.maintenancelog.edit ',
                     'travelfleet.maintenancelog.update',
-                    'travelfleet.maintenancelog.destory',
+                    'travelfleet.maintenancelog.destroy',
 
                 ],
                 'travelapproval' => [
@@ -818,7 +826,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.travelapproval.store',
                     'travelfleet.travelapproval.edit ',
                     'travelfleet.travelapproval.update',
-                    'travelfleet.travelapproval.destory',
+                    'travelfleet.travelapproval.destroy',
 
                 ],
                 'travelcategory' => [
@@ -828,7 +836,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.travelcategory.store',
                     'travelfleet.travelcategory.edit ',
                     'travelfleet.travelcategory.update',
-                    'travelfleet.travelcategory.destory',
+                    'travelfleet.travelcategory.destroy',
 
                 ],
                 'travelrequest' => [
@@ -838,7 +846,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.travelrequest.store',
                     'travelfleet.travelrequest.edit ',
                     'travelfleet.travelrequest.update',
-                    'travelfleet.travelrequest.destory',
+                    'travelfleet.travelrequest.destroy',
 
                 ],
                 'travelslog' => [
@@ -848,7 +856,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.travelslog.store',
                     'travelfleet.travelslog.edit ',
                     'travelfleet.travelslog.update',
-                    'travelfleet.travelslog.destory',
+                    'travelfleet.travelslog.destroy',
 
                 ],
                 'vehiclelog' => [
@@ -858,7 +866,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.vehiclelog.store',
                     'travelfleet.vehiclelog.edit ',
                     'travelfleet.vehiclelog.update',
-                    'travelfleet.vehiclelog.destory',
+                    'travelfleet.vehiclelog.destroy',
 
                 ]
             ],
@@ -871,7 +879,7 @@ class PermissionSeeder extends Seeder
                     'officemanagement.cashdeposite.store',
                     'officemanagement.cashdeposite.edit ',
                     'officemanagement.cashdeposite.update',
-                    'officemanagement.cashdeposite.destory',
+                    'officemanagement.cashdeposite.destroy',
 
                 ],
                 'contract' => [
@@ -881,7 +889,7 @@ class PermissionSeeder extends Seeder
                     'officemanagement.contract.store',
                     'officemanagement.contract.edit ',
                     'officemanagement.contract.update',
-                    'officemanagement.contract.destory',
+                    'officemanagement.contract.destroy',
 
                 ],
                 'generatorlogbook' => [
@@ -891,7 +899,7 @@ class PermissionSeeder extends Seeder
                     'officemanagement.generatorlogbook.store',
                     'officemanagement.generatorlogbook.edit ',
                     'officemanagement.generatorlogbook.update',
-                    'officemanagement.generatorlogbook.destory',
+                    'officemanagement.generatorlogbook.destroy',
 
                 ],
                 'purchaseservice' => [
@@ -901,7 +909,7 @@ class PermissionSeeder extends Seeder
                     'officemanagement.purchaseservice.store',
                     'officemanagement.purchaseservice.edit ',
                     'officemanagement.purchaseservice.update',
-                    'officemanagement.purchaseservice.destory',
+                    'officemanagement.purchaseservice.destroy',
 
                 ]
             ],
@@ -913,7 +921,7 @@ class PermissionSeeder extends Seeder
                     'rostermanagement.rostercategory.store',
                     'rostermanagement.rostercategory.edit ',
                     'rostermanagement.rostercategory.update',
-                    'rostermanagement.rostercategory.destory',
+                    'rostermanagement.rostercategory.destroy',
 
                 ],
                 'rosterentries' => [
@@ -923,7 +931,7 @@ class PermissionSeeder extends Seeder
                     'rostermanagement.rosterentries.store',
                     'rostermanagement.rosterentries.edit ',
                     'rostermanagement.rosterentries.update',
-                    'rostermanagement.rosterentries.destory',
+                    'rostermanagement.rosterentries.destroy',
 
                 ]
             ],
@@ -935,7 +943,7 @@ class PermissionSeeder extends Seeder
                     'inventory.barcodemanagement.store',
                     'inventory.barcodemanagement.edit ',
                     'inventory.barcodemanagement.update',
-                    'inventory.barcodemanagement.destory',
+                    'inventory.barcodemanagement.destroy',
                 ],
                 'goodreceivedreconcile' => [
                     'inventory.goodreceivedreconcile.index',
@@ -944,7 +952,7 @@ class PermissionSeeder extends Seeder
                     'inventory.goodreceivedreconcile.store',
                     'inventory.goodreceivedreconcile.edit ',
                     'inventory.goodreceivedreconcile.update',
-                    'inventory.goodreceivedreconcile.destory',
+                    'inventory.goodreceivedreconcile.destroy',
 
                 ],
                 'product' => [
@@ -954,7 +962,7 @@ class PermissionSeeder extends Seeder
                     'inventory.product.store',
                     'inventory.product.edit ',
                     'inventory.product.update',
-                    'inventory.product.destory',
+                    'inventory.product.destroy',
 
                 ],
                 'purchaseentry' => [
@@ -964,7 +972,7 @@ class PermissionSeeder extends Seeder
                     'inventory.purchaseentry.store',
                     'inventory.purchaseentry.edit ',
                     'inventory.purchaseentry.update',
-                    'inventory.purchaseentry.destory',
+                    'inventory.purchaseentry.destroy',
 
                 ],
                 'purchaseorder' => [
@@ -974,7 +982,7 @@ class PermissionSeeder extends Seeder
                     'inventory.purchaseorder.store',
                     'inventory.purchaseorder.edit ',
                     'inventory.purchaseorder.update',
-                    'inventory.purchaseorder.destory',
+                    'inventory.purchaseorder.destroy',
 
                 ],
                 'service' => [
@@ -984,7 +992,7 @@ class PermissionSeeder extends Seeder
                     'inventory.service.store',
                     'inventory.service.edit ',
                     'inventory.service.update',
-                    'inventory.service.destory',
+                    'inventory.service.destroy',
 
                 ],
                 'servicelog' => [
@@ -994,7 +1002,7 @@ class PermissionSeeder extends Seeder
                     'inventory.servicelog.store',
                     'inventory.servicelog.edit ',
                     'inventory.servicelog.update',
-                    'inventory.servicelog.destory',
+                    'inventory.servicelog.destroy',
 
                 ],
                 'stockreconcile' => [
@@ -1004,7 +1012,7 @@ class PermissionSeeder extends Seeder
                     'inventory.stockreconcile.store',
                     'inventory.stockreconcile.edit ',
                     'inventory.stockreconcile.update',
-                    'inventory.stockreconcile.destory',
+                    'inventory.stockreconcile.destroy',
 
                 ]
             ],
@@ -1016,7 +1024,7 @@ class PermissionSeeder extends Seeder
                     'reports.attendancereports.store',
                     'reports.attendancereports.edit ',
                     'reports.attendancereports.update',
-                    'reports.attendancereports.destory',
+                    'reports.attendancereports.destroy',
 
                 ],
                 'expensesreports' => [
@@ -1026,7 +1034,7 @@ class PermissionSeeder extends Seeder
                     'reports.expensesreports.store',
                     'reports.expensesreports.edit ',
                     'reports.expensesreports.update',
-                    'reports.expensesreports.destory',
+                    'reports.expensesreports.destroy',
 
                 ],
                 'financereports' => [
@@ -1036,7 +1044,7 @@ class PermissionSeeder extends Seeder
                     'reports.financereports.store',
                     'reports.financereports.edit ',
                     'reports.financereports.update',
-                    'reports.financereports.destory',
+                    'reports.financereports.destroy',
 
                 ],
                 'leavereports' => [
@@ -1046,7 +1054,7 @@ class PermissionSeeder extends Seeder
                     'reports.leavereports.store',
                     'reports.leavereports.edit ',
                     'reports.leavereports.update',
-                    'reports.leavereports.destory',
+                    'reports.leavereports.destroy',
 
                 ],
                 'taskreports' => [
@@ -1056,7 +1064,7 @@ class PermissionSeeder extends Seeder
                     'reports.taskreports.store',
                     'reports.taskreports.edit ',
                     'reports.taskreports.update',
-                    'reports.taskreports.destory',
+                    'reports.taskreports.destroy',
 
                 ],
                 'travelreports' => [
@@ -1066,7 +1074,7 @@ class PermissionSeeder extends Seeder
                     'reports.travelreports.store',
                     'reports.travelreports.edit ',
                     'reports.travelreports.update',
-                    'reports.travelreports.destory',
+                    'reports.travelreports.destroy',
 
                 ]
             ],
@@ -1078,7 +1086,7 @@ class PermissionSeeder extends Seeder
                     'eventsandmeetings.event.store',
                     'eventsandmeetings.event.edit ',
                     'eventsandmeetings.event.update',
-                    'eventsandmeetings.event.destory',
+                    'eventsandmeetings.event.destroy',
                 ],
                 'meeting' => [
                     'eventsandmeetings.meeting.index',
@@ -1087,7 +1095,7 @@ class PermissionSeeder extends Seeder
                     'eventsandmeetings.meeting.store',
                     'eventsandmeetings.meeting.edit ',
                     'eventsandmeetings.meeting.update',
-                    'eventsandmeetings.meeting.destory',
+                    'eventsandmeetings.meeting.destroy',
                 ]
             ],
             'supplier' => [
@@ -1098,7 +1106,7 @@ class PermissionSeeder extends Seeder
                     'supplier.addsupplier.store',
                     'supplier.addsupplier.edit ',
                     'supplier.addsupplier.update',
-                    'supplier.addsupplier.destory',
+                    'supplier.addsupplier.destroy',
 
                 ],
                 'suppliercategory' => [
@@ -1108,7 +1116,7 @@ class PermissionSeeder extends Seeder
                     'supplier.suppliercategory.store',
                     'supplier.suppliercategory.edit ',
                     'supplier.suppliercategory.update',
-                    'supplier.suppliercategory.destory',
+                    'supplier.suppliercategory.destroy',
 
                 ],
             ],

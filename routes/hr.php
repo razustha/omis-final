@@ -122,7 +122,6 @@ use App\Http\Controllers\Rostermanagement\RosterentriesController;
 use App\Http\Controllers\Settings\NotificationSettingsController;
 use App\Http\Controllers\Settings\OrganizationController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Settings\SettingController;
 use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\Travelfleet\DriverrosterController;
 use App\Http\Controllers\Work\TimelogController;
