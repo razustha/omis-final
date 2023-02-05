@@ -19,7 +19,15 @@ class PermissionSeeder extends Seeder
             //module_id = 1
             'Master' => [
 
-
+                'module' => [
+                    'master.module.index',
+                    'master.module.create',
+                    'master.module.show',
+                    'master.module.store',
+                    'master.module.edit',
+                    'master.module.update',
+                    'master.module.destory',
+                ],
                 'country' => [
                     'master.country.index',
                     'master.country.create',
