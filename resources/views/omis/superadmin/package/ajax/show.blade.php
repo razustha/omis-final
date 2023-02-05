@@ -25,7 +25,7 @@
                         
                                 <p><b>Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->name }}</span></p>
                                 <p><b>Price :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->price }}</span></p>
-                                <p><b>Feature :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->feature }}</span></p>
+                                <p><b>Feature :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->module_name }}</span></p>
                                 <p><b>Duration :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->duration }}</span></p>
                                 <p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->alias }}</span></p>
                                 <p><b>Description :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->description }}</span></p>

@@ -1110,7 +1110,21 @@ class PermissionSeeder extends Seeder
                     'supplier.suppliercategory.update',
                     'supplier.suppliercategory.destory',
 
-                ]
+                ],
+            ],
+
+            'settings' => [
+                'organization' => [
+                    'settings-organization-index',
+                    'settings-organization-create',
+                    'settings-organization-store',
+                    'settings-organization-show',
+                    'settings-organization-edit ',
+                    'settings-organization-update',
+                    'settings-organization-destroy',
+
+                ],
+            
             ]
 
 
