@@ -423,9 +423,9 @@ Route::middleware('auth')->group(function () {
     Route::prefix("settings")->group(
         function () {
             Route::prefix("organization")->group(function () {
-                Route::get('/', [OrganizationController::class, 'index'])->name('settings.organization.index')->middleware('permission:settings-organization-index');
-                Route::get('/create', [OrganizationController::class, 'create'])->name('settings.organization.create')->middleware('permission:settings-organization-create');
-                Route::post('/store', [OrganizationController::class, 'store'])->name('settings.organization.store')->middleware('permission:master-organization-store');
+                Route::get('/', [OrganizationController::class, 'index'])->name('settings.organization.index');//->middleware('permission:settings-organization-index');
+                Route::get('/create', [OrganizationController::class, 'create'])->name('settings.organization.create');//->middleware('permission:settings-organization-create');
+                Route::post('/store', [OrganizationController::class, 'store'])->name('settings.organization.store');//->middleware('permission:settings-organization-store');
                 Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('settings.organization.show')->middleware('permission:settings-organization-show');
                 Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('settings.organization.edit')->middleware('permission:settings-organization-edit');
                 Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('settings.organization.update')->middleware('permission:settings-organization-update');
@@ -605,8 +605,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit');
                 Route::put('/update/{id}', [AttendenceController::class, 'update'])->name('hr.attendence.update')->middleware('permission:hr-attendence-update');
                 Route::delete('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy')->middleware('permission:hr-attendence-destroy');
-                Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn')->middleware('permission:hr-attendence-checkIn');
-                Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut')->middleware('permission:hr-attendence-checkOut');
+                Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn');
+                Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut');
             });
 
             Route::prefix("complaints")->group(function () {

@@ -18,7 +18,7 @@ class PermissionSeeder extends Seeder
         $permissions = [
             //module_id = 1
             'Master' => [
-                    'attendanceform' => [
+                'attendanceform' => [
                     'master.attendancefrom.index',
                     'master.attendancefrom.create',
                     'master.attendancefrom.show',
@@ -1109,7 +1109,21 @@ class PermissionSeeder extends Seeder
                     'supplier.suppliercategory.update',
                     'supplier.suppliercategory.destory',
 
-                ]
+                ],
+            ],
+
+            'settings' => [
+                'organization' => [
+                    'settings-organization-index',
+                    'settings-organization-create',
+                    'settings-organization-store',
+                    'settings-organization-show',
+                    'settings-organization-edit ',
+                    'settings-organization-update',
+                    'settings-organization-destroy',
+
+                ],
+            
             ]
 
 

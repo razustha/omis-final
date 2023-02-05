@@ -41,8 +41,7 @@
 
             protected function getModuleNameAttribute()
             {
-        $modules = Module::whereIn('module_id', $this->feature)->select('moduleName')->get();
-        dd($modules);
+        $modules = Module::whereIn('module_id', explode(',',$this->feature))->select('moduleName')->get()->pluck('moduleName')->toArray();
         $modules = implode(',', $modules);
                 return $modules;
             }

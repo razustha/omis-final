@@ -10,18 +10,12 @@
 </div>  
 <div class="col-lg-12">{{createLabel('description','form-label col-form-label','Description')}}{{createTextArea("description","description","Description",'',$data->description)}}
 </div>
-<div class="col-lg-12 mt-4 mb-1">
-    <h3>Features</h3>
-</div>
-<div class="col-lg-12 mt-1 mb-3">
-   <h7>{{createCheck('','','Check All','','')}}</h7>
-</div>
-   
+
 <div class="col-lg-12 mt-4 mb-1">
         <h3>Features</h3>
     </div>
     <div class="col-lg-12 mt-1 mb-3">
-       <h7>{{createCheck('','','Check All','','')}}</h7>
+       <h7><input type="checkbox" class="form-check-input" onclick="checkUncheck(this)">&nbsp; &nbsp;Check All</h7>
     </div>
     
     <div class="col-lg-6">
@@ -48,3 +42,14 @@
 <div class="col-md-12"><?php createButton("btn-primary btn-update","","Submit"); ?>
 </div> 
 </div></form>
+<script>
+           function checkUncheck(checkBox) {
+
+get = document.getElementsByName('module[]');
+
+for(var i=0; i<get.length; i++) {
+
+get[i].checked = checkBox.checked;}
+    }
+
+</script>

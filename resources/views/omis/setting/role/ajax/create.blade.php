@@ -42,11 +42,11 @@
             ?>
             <div class="row mt-3 g-3">
                 @foreach ($chunk as $title => $group)
-                    <div class="col-xs-6 col-sm-4 col-md-4">
+                    <div class="col-xs-6 col-sm-4 col-md-4 mb-3">
                         <div class="form-group form-check">
                             <input type="checkbox" class="form-check-input"
                                 data-checkbox-group="{{ Str::slug($title) }}" data-role="selectall">
-                            <label class="form-check-label h5 font-weight-bold text-danger"
+                            <label class="overrole-title form-check-label h5 font-weight-bold text-danger"
                                 for="permission">{{ ucfirst($title) }}</label>
 
                         </div>
