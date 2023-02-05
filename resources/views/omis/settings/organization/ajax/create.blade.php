@@ -28,18 +28,26 @@
         </div>
         <div class="col-lg-4">{{ createText('geoMapLocation', 'geoMapLocation', 'GeoMapLocation') }}
         </div>
-        <div class="col-lg-4">{{ createText('documentType', 'documentType', 'Document Type') }}
-        </div>
-        <div class="col-lg-4">{{ createText('documentName', 'documentName', 'Document Name') }}
-        </div>
-        <div class="col-lg-4">{{ createText('documentPath', 'documentPath', 'Document Path') }}
-        </div>
+
         <div class="col-lg-4">{{ createText('budgetSize', 'budgetSize', 'Budget Size') }}
         </div>
         <div class="col-lg-4">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>
         <div class="col-lg-4">{{ createText('remarks', 'remarks', 'Remarks') }}
-        </div> <br>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group mt-2"><label class="form-label">Logo</label>
+                <div class="form-control-wrap">
+                    <input id="thumbnail" class="form-control" type="text" name="logo"
+                        value="" readonly>
+                    <button id="lfm btn-image" data-input="thumbnail" data-preview="holder"
+                        class="lfm btn icon-left btn-primary mt-2 btn-image">
+                        <i class="fa fa-upload"></i> &nbsp;Choose
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br>
         <div class="col-md-12"><?php createButton('btn-primary btn-store', '', 'Submit'); ?>
         </div>
 </form>

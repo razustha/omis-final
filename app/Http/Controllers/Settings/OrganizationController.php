@@ -31,7 +31,6 @@ use Illuminate\Support\Facades\Validator;
 
             public function store(Request $request)
             {
-
                 $request->request->add(['alias' => slugify($request->organizationName)]);
                 $users = [
                     'name' => $request->organizationName,

@@ -28,6 +28,7 @@
 'city_id',
 'district_id',
 'geoMapLocation',
+'logo',
 'documentType',
 'documentName',
 'documentPath',
