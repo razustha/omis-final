@@ -1,6 +1,7 @@
 <?php
         namespace App\Models\Superadmin;
 
+        use App\Models\Master\Module;
         use App\Models\User;
         use Illuminate\Database\Eloquent\Casts\Attribute;
         use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -31,11 +32,19 @@
 
             ];
 
-            protected $appends = ['status_name'];
+            protected $appends = ['status_name','module_name'];
 
             protected function getStatusNameAttribute()
             {
                 return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
+            }
+
+            protected function getModuleNameAttribute()
+            {
+        $modules = Module::whereIn('module_id', $this->feature)->select('moduleName')->get();
+        dd($modules);
+        $modules = implode(',', $modules);
+                return $modules;
             }
 
     protected function createdBy(): Attribute

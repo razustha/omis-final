@@ -16,7 +16,7 @@
         </div>
         <div class="col-lg-4">{{ createText('email', 'email', 'Email', '', $data->email) }}
         </div>
-        
+
         <div class="col-md-12"><?php createButton('btn-primary btn-update', '', 'Submit'); ?>
         </div>
 </form>

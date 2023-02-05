@@ -18,26 +18,8 @@ class PermissionSeeder extends Seeder
         $permissions = [
             //module_id = 1
             'Master' => [
-                    'attendanceform' => [
-                    'master.attendancefrom.index',
-                    'master.attendancefrom.create',
-                    'master.attendancefrom.show',
-                    'master.attendancefrom.store',
-                    'master.attendancefrom.edit ',
-                    'master.attendancefrom.update',
-                    'master.attendancefrom.destory',
 
-                ],
-                'city' => [
-                    'master.city.index',
-                    'master.city.create',
-                    'master.city.show',
-                    'master.city.store',
-                    'master.city.edit ',
-                    'master.city.update',
-                    'master.city.destory',
 
-                ],
                 'country' => [
                     'master.country.index',
                     'master.country.create',
@@ -47,14 +29,14 @@ class PermissionSeeder extends Seeder
                     'master.country.update',
                     'master.country.destory',
                 ],
-                'departmenttype' => [
-                    'master.departmenttype.index',
-                    'master.departmenttype.create',
-                    'master.departmenttype.show',
-                    'master.departmenttype.store',
-                    'master.departmenttype.edit ',
-                    'master.departmenttype.update',
-                    'master.departmenttype.destory',
+                'state' => [
+                    'master.state.index',
+                    'master.state.create',
+                    'master.state.show',
+                    'master.state.store',
+                    'master.state.edit ',
+                    'master.state.update',
+                    'master.state.destory',
                 ],
                 'district' => [
                     'master.district.index',
@@ -65,6 +47,25 @@ class PermissionSeeder extends Seeder
                     'master.district.update',
                     'master.district.destory',
                 ],
+                'city' => [
+                    'master.city.index',
+                    'master.city.create',
+                    'master.city.show',
+                    'master.city.store',
+                    'master.city.edit ',
+                    'master.city.update',
+                    'master.city.destory',
+                ],
+                'departmenttype' => [
+                    'master.departmenttype.index',
+                    'master.departmenttype.create',
+                    'master.departmenttype.show',
+                    'master.departmenttype.store',
+                    'master.departmenttype.edit ',
+                    'master.departmenttype.update',
+                    'master.departmenttype.destory',
+                ],
+
                 'employmentsizecategory' => [
                     'master.employmentsizecategory.index',
                     'master.employmentsizecategory.create',
@@ -92,15 +93,15 @@ class PermissionSeeder extends Seeder
                     'master.holidaytypes.update',
                     'master.holidaytypes.destory',
                 ],
-                'jobtitle' => [
-                    'master.jobtitle.index',
-                    'master.jobtitle.create',
-                    'master.jobtitle.show',
-                    'master.jobtitle.store',
-                    'master.jobtitle.edit ',
-                    'master.jobtitle.update',
-                    'master.jobtitle.destory',
-                ],
+                // 'jobtitle' => [
+                //     'master.jobtitle.index',
+                //     'master.jobtitle.create',
+                //     'master.jobtitle.show',
+                //     'master.jobtitle.store',
+                //     'master.jobtitle.edit ',
+                //     'master.jobtitle.update',
+                //     'master.jobtitle.destory',
+                // ],
                 'leavetype' => [
                     'master.leavetype.index',
                     'master.leavetype.create',
@@ -146,15 +147,7 @@ class PermissionSeeder extends Seeder
                     'master.policy.update',
                     'master.policy.destory',
                 ],
-                'state' => [
-                    'master.state.index',
-                    'master.state.create',
-                    'master.state.show',
-                    'master.state.store',
-                    'master.state.edit ',
-                    'master.state.update',
-                    'master.state.destory',
-                ],
+
                 'traveltype' => [
                     'master.traveltype.index',
                     'master.traveltype.create',
@@ -165,48 +158,9 @@ class PermissionSeeder extends Seeder
                     'master.traveltype.destory',
                 ],
 
-
-            ],
+            ], //hr start
 
             'Hr' => [
-                'absentreason' => [
-                    'hr.absentreason.index',
-                    'hr.absentreason.create',
-                    'hr.absentreason.show',
-                    'hr.absentreason.store',
-                    'hr.absentreason.edit ',
-                    'hr.absentreason.update',
-                    'hr.absentreason.destory',
-                ],
-                'appreciation' => [
-                    'hr.appreciation.index',
-                    'hr.appreciation.create',
-                    'hr.appreciation.show',
-                    'hr.appreciation.store',
-                    'hr.appreciation.edit ',
-                    'hr.appreciation.update',
-                    'hr.appreciation.destory',
-                ],
-                'attendence' => [
-                    'hr.attendence.index',
-                    'hr.attendence.create',
-                    'hr.attendence.show',
-                    'hr.attendence.store',
-                    'hr.attendence.edit ',
-                    'hr.attendence.update',
-                    'hr.attendence.destory',
-
-                ],
-                'complaints' => [
-                    'hr.complaints.index',
-                    'hr.complaints.create',
-                    'hr.complaints.show',
-                    'hr.complaints.store',
-                    'hr.complaints.edit ',
-                    'hr.complaints.update',
-                    'hr.complaints.destory',
-
-                ],
                 'department' => [
                     'hr.department.index',
                     'hr.department.create',
@@ -237,6 +191,44 @@ class PermissionSeeder extends Seeder
                     'hr.employee.destory',
 
                 ],
+                'absentreason' => [
+                    'hr.absentreason.index',
+                    'hr.absentreason.create',
+                    'hr.absentreason.show',
+                    'hr.absentreason.store',
+                    'hr.absentreason.edit ',
+                    'hr.absentreason.update',
+                    'hr.absentreason.destory',
+                ],
+                'appreciation' => [
+                    'hr.appreciation.index',
+                    'hr.appreciation.create',
+                    'hr.appreciation.show',
+                    'hr.appreciation.store',
+                    'hr.appreciation.edit ',
+                    'hr.appreciation.update',
+                    'hr.appreciation.destory',
+                ],
+                'attendence' => [
+                    'hr.attendence.index',
+                    'hr.attendence.create',
+                    'hr.attendence.show',
+                    'hr.attendence.store',
+                    'hr.attendence.edit ',
+                    'hr.attendence.update',
+                    'hr.attendence.destory',
+                ],
+                'complaints' => [
+                    'hr.complaints.index',
+                    'hr.complaints.create',
+                    'hr.complaints.show',
+                    'hr.complaints.store',
+                    'hr.complaints.edit ',
+                    'hr.complaints.update',
+                    'hr.complaints.destory',
+
+                ],
+
                 'employeetimeline' => [
                     'hr.employeementtimeline.index',
                     'hr.employeementtimeline.create',
@@ -265,7 +257,8 @@ class PermissionSeeder extends Seeder
                     'hr.latereasons.edit ',
                     'hr.latereasons.update',
                     'hr.latereasons.destory',
-
+                    'hr.attendence.checkIn',
+                    'hr.attendence.checkOut',
                 ],
                 'leaveapplication' => [
                     'hr.leaveapplication.index',

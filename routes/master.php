@@ -133,7 +133,6 @@ use App\Models\User;
 
 Route::prefix("master")->group(
     function () {
-
         Route::prefix("module")->group(function () {
             Route::get('/', [ModuleController::class, 'index'])->name('master.module.index')->middleware('permission:master-module-index');
             Route::get('/create', [ModuleController::class, 'create'])->name('master.module.create')->middleware('permission:master-module-create');

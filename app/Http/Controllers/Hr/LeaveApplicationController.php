@@ -10,8 +10,15 @@
         {
            public function index(Request $request)
             {
+                if(auth()->user()->hasRole('hr'))
+                {
+                    $data = Leaveapplication::orderBy('created_at','desc')->where('leaveApplication_status','forwarded')->get();
 
-                $data = Leaveapplication::orderBy('created_at','desc')->get();
+                } else {
+                    $data = Leaveapplication::orderBy('created_at','desc')->get();
+
+                }
+
                 if ($request->ajax()) {
                     $html = view("omis.hr.leaveapplication.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);

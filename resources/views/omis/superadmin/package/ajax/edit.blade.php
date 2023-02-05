@@ -4,13 +4,47 @@
  @method('PUT')
 <div class="row"><div class="col-lg-6">{{createText("name","name","Name",'',$data->name)}}
 </div><div class="col-lg-6">{{createText("price","price","Price",'',$data->price)}}
-</div><div class="col-lg-4">{{createText("feature","feature","Feature",'',$data->feature)}}
-</div><div class="col-lg-4">{{createText("duration","duration","Duration",'',$data->duration)}}
-</div><div class="col-lg-4">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'],$data->status)}}
+</div><div class="col-lg-6">{{createText("duration","duration","Duration",'',$data->duration)}}
+</div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'],$data->status)}}
 <!-- </div><div class="col-lg-6">{{createText("remarks","remarks","Remarks",'',$data->remarks)}} -->
 </div>  
-</div><div class="col-lg-12">{{createLabel('description','form-label col-form-label','Description')}}{{createTextArea("description","description","Description",'',$data->description)}}
-
-
+<div class="col-lg-12">{{createLabel('description','form-label col-form-label','Description')}}{{createTextArea("description","description","Description",'',$data->description)}}
+</div>
+<div class="col-lg-12 mt-4 mb-1">
+    <h3>Features</h3>
+</div>
+<div class="col-lg-12 mt-1 mb-3">
+   <h7>{{createCheck('','','Check All','','')}}</h7>
+</div>
+   
+<div class="col-lg-12 mt-4 mb-1">
+        <h3>Features</h3>
+    </div>
+    <div class="col-lg-12 mt-1 mb-3">
+       <h7>{{createCheck('','','Check All','','')}}</h7>
+    </div>
+    
+    <div class="col-lg-6">
+     <?php 
+     $count=1;
+     $totalModulle = count(getModules());
+     ?>   
+    @foreach(getModules() as $module)
+        
+    <div class="form-check">
+        <input type="checkbox" id="{{$module->moduleName}}" placeholder="" name="module[]" class="form-check-input " value="{{$module->module_id}}" {{in_array($module->module_id,$feature) ? 'checked' : ''}}>
+        <label for="{{$module->moduleName}}" class="form-check-label"> {{$module->moduleName}} </label>
+    </div>
+    
+        @if($count%5 == 0 && $totalModulle > 5)
+        </div>
+        <div class="col-lg-6">
+        @endif
+        <?php $count++ ?>
+    
+    @endforeach    
+    </div>
+    
 <div class="col-md-12"><?php createButton("btn-primary btn-update","","Submit"); ?>
-</div> </form>
+</div> 
+</div></form>

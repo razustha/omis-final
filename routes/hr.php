@@ -217,18 +217,6 @@ Route::prefix('hr')->group(function () {
     });
 
 
-    Route::prefix("department")->group(
-        function () {
-            Route::get('/', [DepartmentController::class, 'index'])->name('hr.department.index')->middleware('permission:hr-department-destroy');
-            Route::get('/create', [DepartmentController::class, 'create'])->name('hr.department.create')->middleware('permission:hr-department-destroy');
-            Route::post('/store', [DepartmentController::class, 'store'])->name('hr.department.store')->middleware('permission:hr-department-destroy');
-            Route::get('/show/{id}', [DepartmentController::class, 'show'])->name('hr.department.show')->middleware('permission:hr-department-destroy');
-            Route::get('/edit/{id}', [DepartmentController::class, 'edit'])->name('hr.department.edit')->middleware('permission:hr-department-destroy');
-            Route::put('/update/{id}', [DepartmentController::class, 'update'])->name('hr.department.update')->middleware('permission:hr-department-destroy');
-            Route::delete('/destroy/{id}', [DepartmentController::class, 'destroy'])->name('hr.department.destroy')->middleware('permission:hr-department-destroy');
-        }
-    );
-
     Route::prefix("cms")->group(function () {
         Route::get('/', [CmsController::class, 'index'])->name('hr.cms.index')->middleware('permission:hr-cms-index');
         Route::get('/create', [CmsController::class, 'create'])->name('hr.cms.create')->middleware('permission:hr-cms-create');
@@ -239,7 +227,6 @@ Route::prefix('hr')->group(function () {
         Route::delete('/destroy/{id}', [CmsController::class, 'destroy'])->name('hr.cms.destroy')->middleware('permission:hr-cms-destroy');
     });
 
-
     Route::prefix("designation")->group(function () {
         Route::get('/', [DesignationController::class, 'index'])->name('hr.designation.index')->middleware('permission:hr-designation-index');
         Route::get('/create', [DesignationController::class, 'create'])->name('hr.designation.create')->middleware('permission:hr-designation-create');
@@ -249,6 +236,7 @@ Route::prefix('hr')->group(function () {
         Route::put('/update/{id}', [DesignationController::class, 'update'])->name('hr.designation.update')->middleware('permission:hr-designation-update');
         Route::delete('/destroy/{id}', [DesignationController::class, 'destroy'])->name('hr.designation.destroy')->middleware('permission:hr-designation-destroy');
     });
+
     Route::prefix("leaveApplication")->group(function () {
         Route::get('/', [LeaveApplicationController::class, 'index'])->name('hr.leaveapplication.index');
         Route::get('/create', [LeaveApplicationController::class, 'create'])->name('hr.leaveapplication.create');
@@ -290,11 +278,11 @@ Route::prefix('hr')->group(function () {
         Route::get('/create', [AttendenceController::class, 'create'])->name('hr.attendence.create')->middleware('permission:hr-attendence-create');
         Route::post('/store', [AttendenceController::class, 'store'])->name('hr.attendence.store')->middleware('permission:hr-attendence-store');
         Route::get('/show/{id}', [AttendenceController::class, 'show'])->name('hr.attendence.show')->middleware('permission:hr-attendence-show');
-        Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit');
+        Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit')->middleware('permission:hr-attendence-update');
         Route::put('/update/{id}', [AttendenceController::class, 'update'])->name('hr.attendence.update')->middleware('permission:hr-attendence-update');
         Route::delete('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy')->middleware('permission:hr-attendence-destroy');
-        Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn')->middleware('permission:hr-attendence-checkIn');
-        Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut')->middleware('permission:hr-attendence-checkOut');
+        Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn')->middleware('permission:hr-attendence-checkin');
+        Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut')->middleware('permission:hr-attendence-checkout');
     });
 
     Route::prefix("complaints")->group(function () {
