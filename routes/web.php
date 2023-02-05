@@ -527,7 +527,7 @@ Route::middleware('auth')->group(function () {
     // });
 
 
-    Route::get('/settings/{name?}', [SettingController::class, 'master'])->where('name', '(.*)');
+    // Route::get('/settings/{name?}', [SettingController::class, 'master'])->where('name', '(.*)');
 
 
     // End Settings Routes
