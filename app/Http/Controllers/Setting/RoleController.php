@@ -108,7 +108,7 @@ class RoleController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $data = User::findOrFail($id);
+        $data = Role::findOrFail($id);
         $data->status = -1;
         $data->save();
         return response()->json(['status' => true, 'message' => 'The permission Deleted Successfully.'], 200);
