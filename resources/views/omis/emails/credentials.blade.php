@@ -17,7 +17,7 @@
                 <table border="0" style="padding-bottom:15px ; width:90%; margin:auto">
                     <tr style=" padding-bottom:15px; width:80%; margin:auto">
                         <td><a href="#"><img
-                                    src="https://ibanking.kumaribank.com/images/login_header.png?KUMARI_V1"
+                                    src="https://omis.bibhuti.net/user-uploads/app-logo/8869fdc1cd2ad3158075f30f8e636c57.png"
                                     style="width:250px;"></a></td>
                     </tr>
                 </table>
