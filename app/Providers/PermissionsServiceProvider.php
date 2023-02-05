@@ -6,6 +6,7 @@ use App\Models\Permission;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class PermissionsServiceProvider extends ServiceProvider
 {
@@ -34,6 +35,7 @@ class PermissionsServiceProvider extends ServiceProvider
             });
         } catch (\Exception $e) {
             report($e);
+            Log::info('Errors in defining permisions');
             return false;
         }
 
