@@ -190,7 +190,7 @@ Route::prefix("master")->group(
 
                 Route::get('/checkvalidation', [CityController::class, 'checkValidation'])->name('master.city.checkValidation')->middleware('permission:master-city-checkValidation');
 
-                Route::get('get-districts', [CityController::class, 'getCity'])->name('master.state.getCity')->middleware('permission:master-city-getcity');
+                Route::get('get-city', [CityController::class, 'getCity'])->name('master.state.getCity')->middleware('permission:master-city-getCity');
             }
         );
 

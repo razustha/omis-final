@@ -1,7 +1,8 @@
 <?php
         namespace App\Http\Controllers\Work;
         use App\Http\Controllers\Controller;
-        use Illuminate\Http\Request;
+use App\Models\Work\ProjectEmployee;
+use Illuminate\Http\Request;
         use App\Models\Work\Workprojects;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
@@ -29,8 +30,15 @@
 
             public function store(Request $request)
             {
+
                 $request->request->add(['alias' => slugify($request->workprojectsName)]);
-                Workprojects::create($request->all());
+                $project = Workprojects::create($request->except('employee_id'));
+                foreach($request->employee_id as $employee)
+                {
+                    $data['employee_id'] = $employee;
+                    $data['workProject_id'] = $project->workProject_id;
+                    ProjectEmployee::create($data);
+                }
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Workprojects Created Successfully.'], 200);
                 }
@@ -61,9 +69,25 @@
 
             public function update(Request $request, $id)
             {
-                $data = Workprojects::findOrFail($id);
+
+                $workproject = Workprojects::findOrFail($id);
+                $projectEmployee = [];
+                $data = $request->all();
+                $FiredEmployee = ProjectEmployee::whereNotIn('employee_id',$data['employee_id'])->where('workProject_id', $id)->delete();
+                foreach ($data['employee_id'] as  $key => $value)  {
+                    $existingEmployee = ProjectEmployee::where('employee_id', $value)->where('workProject_id', $id)->first();
+                    if(!$existingEmployee)
+                    {
+                        $files = [
+                            'employee_id' => $value,
+                            'workProject_id' => $id,
+                        ];
+                        ProjectEmployee::create($files);
+                    }
+
+                }
                 $request->request->add(['alias' => slugify($request->workprojectsName)]);
-                $data->update($request->all());
+                $workproject->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Workprojects updated Successfully.'], 200);
                 }
@@ -76,6 +100,14 @@
                 $data->status = -1;
                 $data->save();
                 return response()->json(['status'=>true,'message'=>'The Workprojects Deleted Successfully.'],200);
+            }
+
+            public function destroyProjectEmployee(Request $request, $id)
+            {
+                $data = ProjectEmployee::findOrFail($id);
+                $data->delete();
+                return response()->json(['status'=>true,'message'=>'The Workprojects Deleted Successfully.'],200);
+
             }
 
             public static function getAjaxContent($type, $id = '', $option = '')
@@ -137,4 +169,3 @@
                 }
             }
         }
-        

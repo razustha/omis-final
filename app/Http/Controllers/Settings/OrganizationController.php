@@ -53,7 +53,7 @@ class OrganizationController extends Controller
             $user = User::create($users);
             $orgData = $request->all();
             $orgData['user_id'] = $user->id;
-            $organization = Organization::create($request->all());
+            $organization = Organization::create($orgData);
             $package = Package::where('package_id', $organization->package_id)->first();
 
             $permissions = Permission::whereIn('module_id', explode(',', $package->feature))->get();
@@ -80,6 +80,7 @@ class OrganizationController extends Controller
                         'subject' => 'User Login Credentials',
                         'message' => 'your Login credentials are:',
                         'password' => $request->password,
+                        'logo'=>$organization->logo,
                         'view' => 'omis.emails.credentials'
                     ];
                     Mail::to($user->email)->send(new CommonMail($mail_data, $user));

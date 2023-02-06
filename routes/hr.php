@@ -161,6 +161,7 @@ Route::prefix('hr')->group(function () {
         Route::put('/update/{id}', [EmployeeController::class, 'update'])->name('hr.employee.update');
         Route::delete('/destroy/{id}', [EmployeeController::class, 'destroy'])->name('hr.employee.destroy');
         Route::get('get-department', [EmployeeController::class, 'getHeadOfDepartment'])->name('hr.employee.getHeadOfDepartment');
+        Route::get('get-department-employee', [EmployeeController::class, 'getDepartmentEmployee'])->name('hr.employee.getDepartmentEmployee');
     });
 
 
