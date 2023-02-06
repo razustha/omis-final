@@ -64,7 +64,7 @@
                 dataType: "json",
                 success: function(response){
                     // console.log(response);
-                    $('.employee_id').html('<option value="#" disabled>Select Employee</option>');
+
                     $.each(response.message, function(key,value){
                         $('.employee_id').append('<option value='+value.employee_id+'>'+value.firstName+''+value.middleName+''+value.lastName+'</option>');
                     });

@@ -30,10 +30,10 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
+                                        <th class="tb-col"><span class="overline-title">Tasks Title</span></th>
 <th class="tb-col"><span class="overline-title">Start Date</span></th>
 <th class="tb-col"><span class="overline-title">End Date</span></th>
 <!-- <th class="tb-col"><span class="overline-title">department_id</span></th> -->
-<th class="tb-col"><span class="overline-title">Assigned To</span></th>
 <!-- <th class="tb-col"><span class="overline-title">companyName</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
@@ -47,19 +47,17 @@
                                         @endphp
                                         @foreach ($data as $item)
                                         <tr>
-                                            <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->tasksStartDate }}</td>
-<td class="tb-col">{{ $item->tasksEndDate }}</td>
-<!-- <td class="tb-col">{{ $item->department_id }}</td> -->
-<td class="tb-col">{{ $item->tasksAssignedTo }}</td>
-<!-- <td class="tb-col">{{ $item->companyName }}</td> -->
-<!-- <td class="tb-col">{{ $item->alias }}</td> -->
-<td class="tb-col">{!! $item->status_name !!}</td>
-<td class="tb-col">
+                                            <td class="tb-col">{{ $i++ }}</td>
+                                            <td class="tb-col">{{ $item->tasksName }}</td>
+                                            <td class="tb-col">{{ $item->tasksStartDate }}</td>
+                                            <td class="tb-col">{{ $item->tasksEndDate }}</td>
+                                            <td class="tb-col">{!! $item->status_name !!}</td>
+                                            <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'work.tasks.show',$item->tasks_id) !!}
                                                 </li>
-                                               <li> 
+                                               <li>
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'work.tasks.edit',$item->tasks_id) !!}
                                                 </li>
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'work.tasks.destroy',$item->tasks_id) !!}</li>
@@ -121,4 +119,3 @@
     </div>
 </div>
 @endsection
-    

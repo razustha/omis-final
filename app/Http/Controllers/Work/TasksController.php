@@ -1,7 +1,9 @@
 <?php
         namespace App\Http\Controllers\Work;
         use App\Http\Controllers\Controller;
-        use Illuminate\Http\Request;
+use App\Models\Work\ProjectEmployee;
+use App\Models\Work\TaskAssignedEmployee;
+use Illuminate\Http\Request;
         use App\Models\Work\Tasks;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
@@ -30,7 +32,15 @@
             public function store(Request $request)
             {
                 $request->request->add(['alias' => slugify($request->tasksName)]);
-                Tasks::create($request->all());
+
+                $tasks = Tasks::create($request->all());
+                foreach($request->employee_id as $employee)
+                {
+                    $data['employee_id'] = $employee;
+                    $data['workProject_id'] = $request->workProject_id;
+                    $data['tasks_id'] = $tasks->tasks_id;
+                    TaskAssignedEmployee::create($data);
+                }
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Tasks Created Successfully.'], 200);
                 }
@@ -61,9 +71,32 @@
 
             public function update(Request $request, $id)
             {
-                $data = Tasks::findOrFail($id);
+                $tasks = Tasks::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->tasksName)]);
-                $data->update($request->all());
+                $data = $request->all();
+
+                if(!empty($request->employee_id[0])) {
+                    $removedEmployee = TaskAssignedEmployee::whereNotIn('employee_id',$data['employee_id'])->where('workProject_id', $tasks->workProject_id)->delete();
+
+                    foreach ($data['employee_id'] as  $key => $value)  {
+                        $existingEmployee = TaskAssignedEmployee::where('employee_id', $value)->where('workProject_id', $tasks->workProject_id)->where('tasks_id', $tasks->tasks_id)->first();
+                        if(!$existingEmployee)
+                        {
+                            $files = [
+                                'employee_id' => $value,
+                                'workProject_id' => $tasks->workProject_id,
+                                'tasks_id' => $tasks->tasks_id,
+                            ];
+                            TaskAssignedEmployee::create($files);
+                        }
+
+                    }
+                } else {
+                    $removedEmployee = TaskAssignedEmployee::where('workProject_id', $tasks->workProject_id)->delete();
+
+                }
+
+                $tasks->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Tasks updated Successfully.'], 200);
                 }
@@ -76,6 +109,16 @@
                 $data->status = -1;
                 $data->save();
                 return response()->json(['status'=>true,'message'=>'The Tasks Deleted Successfully.'],200);
+            }
+
+            public function getAssignedEmployee(Request $request)
+            {
+                $project_id = $request->project_id;
+
+                $data = ProjectEmployee::where('status', '<>', -1)->where('workProject_id',$project_id)->orderBy('created_at', 'desc')->with(['employee'])->get();
+
+                return response()->json(['status'=>200, 'message'=>$data]);
+
             }
 
             public static function getAjaxContent($type, $id = '', $option = '')
@@ -137,4 +180,3 @@
                 }
             }
         }
-        

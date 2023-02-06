@@ -1,35 +1,29 @@
 <?php
         namespace App\Models\Work;
 
-        use App\Models\User;
+use App\Models\Hr\Employee;
+use App\Models\User;
         use Illuminate\Database\Eloquent\Casts\Attribute;
         use Illuminate\Database\Eloquent\Factories\HasFactory;
         use Illuminate\Database\Eloquent\Model;
         use App\Traits\CreatedUpdatedBy;
 
-        class Tasks extends Model
+        class TaskAssignedEmployee extends Model
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_tasks';
-            protected $primaryKey = 'tasks_id';
+            protected $table = 'tbl_taskassignedemployee';
+            protected $primaryKey = 'taskassignedemployee_id';
             public $timestamps = true;
             protected $fillable =[
-                'tasksStartDate',
-'tasksEndDate',
-'tasksName',
-'department_id',
-'tasksAssignedTo',
-'companyName',
+                'employee_id',
+'workProject_id',
+'tasks_id',
 'createdOn',
 'createdBy',
 'alias',
 'status',
 'remarks',
-'created_at',
-'updated_at',
-'updateBy',
-
             ];
 
             protected $appends = ['status_name'];
@@ -53,8 +47,8 @@
         );
     }
 
-    public function taskAssginedEmployee()
+    public function employee()
     {
-        return $this->hasMany(TaskAssignedEmployee::class,'tasks_id','tasks_id');
+        return $this->belongsTo(Employee::class, 'employee_id', 'employee_id');
     }
 }
