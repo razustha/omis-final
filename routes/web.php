@@ -921,8 +921,9 @@ Route::middleware('auth')->group(function () {
                 Route::post('/store', [TasksController::class, 'store'])->name('work.tasks.store')->middleware('permission:work-tasks-store');
                 Route::get('/show/{id}', [TasksController::class, 'show'])->name('work.tasks.show')->middleware('permission:work-tasks-show');
                 Route::get('/edit/{id}', [TasksController::class, 'edit'])->name('work.tasks.edit')->middleware('permission:work-tasks-edit');
-                Route::put('/update/{id}', [TasksController::class, 'update'])->name('work.tasks.update')->middleware('permission:work-tasks-update');
+                Route::put('/update/{id}', [TasksController::class, 'update'])->name('work.tasks.update');
                 Route::delete('/destroy/{id}', [TasksController::class, 'destroy'])->name('work.tasks.destroy')->middleware('permission:work-tasks-destroy');
+                Route::get('get-assigned-employee', [TasksController::class, 'getAssignedEmployee'])->name('work.tasks.getAssignedEmployee');
             });
 
             Route::prefix("timelog")->group(function () {

@@ -87,6 +87,7 @@ use Illuminate\Http\Request;
 
                 }
                 $request->request->add(['alias' => slugify($request->workprojectsName)]);
+                $request['department_id'] = $workproject->department_id;
                 $workproject->update($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Workprojects updated Successfully.'], 200);

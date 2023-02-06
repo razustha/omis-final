@@ -8,13 +8,10 @@
         {{-- <div class="col-lg-6">{{ createText('projectStartClient', 'projectStartClient', 'Project Client') }}
         </div> --}}
         <div class="col-lg-6">
-            
-                {{ createLabel('Assigned Employee', 'form-label col-form-label', 'Assigned Employee') }}
-                <select name="employee_id[]" class="form-control employee_id" multiple>
+            {{ createLabel('Assigned Employee', 'form-label col-form-label', 'Assigned Employee') }}
+            <select name="employee_id[]" class="form-control employee_id" multiple>
 
-                </select>
-            
-            
+            </select>
         </div>
         <div class="col-lg-3">{{ createDate('projectStartDate', 'projectStartDate', 'Start Date') }}
         </div>
@@ -25,13 +22,13 @@
         {{-- <div class="col-lg-6">{{ createText('companyName_id', 'companyName_id', 'Company Id') }}
         </div> --}}
 
-      
+
 
 
 
         <div class="col-lg-6">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>
-      
+
         <div class="col-lg-12">
             {{ createLabel('projectDescription', 'for-label col-form-label', 'Description') }}{{ createTextArea('projectDescription', 'projectDescription', 'ProjectDescription', '', '') }}
 
