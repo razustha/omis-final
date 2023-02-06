@@ -50,7 +50,7 @@
                                             <td class="tb-col">{{ $item->rosterName_id }}</td>
                                             <td class="tb-col">{{ $item->shiftFromDate }}</td>
                                             <td class="tb-col">{{ $item->shiftToDate }}</td>
-                                            <td class="tb-col">{{ $item->shift }}</td>
+                                            <td class="tb-col">{{ $item->shift}}</td>
                                             <!-- <td class="tb-col">{{ $item->alias }}</td> -->
                                             <td class="tb-col">
                                                   <!-- @if ($item->shiftroster_status == null)
@@ -83,7 +83,7 @@
                                                             $item->shiftRoster_id,
                                                         ) !!}
                                                     </li>
-                                                    <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.shiftroster.destroy', $item->shiftRoster_id) !!}</li>
+                                                    <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.shiftroster.destroy', $item->shiftRoster_id,) !!}</li>
                                                     <!--  <button type="button"
                                                                     class="btn btn-color-info btn-hover-info btn-icon btn-soft btn-approve "
                                                                     onclick="approvedthis({{ $item->rosterName_id }})"

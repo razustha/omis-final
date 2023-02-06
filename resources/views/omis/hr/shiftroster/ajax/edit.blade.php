@@ -6,7 +6,7 @@
                         Id",'',$data->rosterName_id)}}
                 </div>
                 <div class="col-lg-6">
-                {{customCreateSelect("shift","shift",'',"Shift",['Morning','Day','Evening'],$data->status)}}
+                {{customCreateSelect("shift","shift",'',"Shift",['Morning','Day','Evening'],$data->shift)}}
                 </div>
                 <div class="col-lg-4">
                         {{createDate("shiftFromDate","shiftFromDate","Shift From Date",'',$data->shiftFromDate)}}

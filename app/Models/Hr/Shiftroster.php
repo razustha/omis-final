@@ -29,8 +29,15 @@
 'updatedBy',
 
             ];
-
-            protected $appends = ['status_name'];
+            protected $appends = ['status_name','shift_name'];
+            // 
+            // protected function getShiftNameAttribute()
+            // {
+               
+            // return $this->shift== 0 ? '<span> Morning </span>':'<span> Day </span>';
+            // }
+            // 
+            
 
             protected function getStatusNameAttribute()
             {
