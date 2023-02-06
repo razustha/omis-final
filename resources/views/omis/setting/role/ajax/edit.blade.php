@@ -9,11 +9,11 @@
         <div class="col-lg-6">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $role->status ?? '') }}
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
             {{ createTextArea('remarks', 'remarks', 'remarks', '', $role->remarks ?? '') }}
         </div>
-        <div class="col-lg-6"><?php createButton('btn-primary btn-store', '', 'Submit'); ?>
+        <div class="col-lg-12"><?php createButton('btn-primary btn-store', '', 'Submit'); ?>
         </div>
         @php
             $moduleName = '';

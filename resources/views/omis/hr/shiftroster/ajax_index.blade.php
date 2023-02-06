@@ -53,7 +53,7 @@
                                             <td class="tb-col">{{ $item->shift }}</td>
                                             <!-- <td class="tb-col">{{ $item->alias }}</td> -->
                                             <td class="tb-col">
-                                                <!--   @if ($item->shiftroster_status == null)
+                                                  <!-- @if ($item->shiftroster_status == null)
                                                 <span class="badge text-bg-warning">Pending</span>
                                             @elseif($item->shiftroster == 'approved')
                                                 <span class="badge text-bg-success">Approved</span>

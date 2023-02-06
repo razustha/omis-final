@@ -2,38 +2,38 @@
     @csrf
     @method('PUT')
     <div class="row">
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_package', 'package_id', 'name', '', $data, 'Package' ) !!}
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_package', 'package_id', 'name', '', $data, 'Package') !!}
         </div>
         <div class="col-lg-4">
-            {{ createText('organizationName', 'organizationName', 'OrganizationName', '', $data->organizationName) }}
+            {{ createText('organizationName', 'organizationName', 'Organization Name', '', $data->organizationName) }}
         </div>
         <div class="col-lg-4">
-            {{ createText('organizatoinCategory', 'organizatoinCategory', 'OrganizatoinCategory', '', $data->organizatoinCategory) }}
+            {{ createText('organizatoinCategory', 'organizatoinCategory', 'Organizatoin Category', '', $data->organizatoinCategory) }}
         </div>
-        <div class="col-lg-4">{{ createText('ownerName', 'ownerName', 'OwnerName', '', $data->ownerName) }}
+        <div class="col-lg-4">{{ createText('ownerName', 'ownerName', 'Owner Name', '', $data->ownerName) }}
         </div>
-        <div class="col-lg-4">{{ createText('phoneNumber', 'phoneNumber', 'PhoneNumber', '', $data->phoneNumber) }}
-        </div>
-        <div class="col-lg-4">
-            {{ createText('landLineNumber', 'landLineNumber', 'LandLineNumber', '', $data->landLineNumber) }}
+        <div class="col-lg-4">{{ createText('phoneNumber', 'phoneNumber', 'Phone Number', '', $data->phoneNumber) }}
         </div>
         <div class="col-lg-4">
-            {{ createText('emailAddress', 'emailAddress', 'EmailAddress', '', $data->emailAddress) }}
-        </div>
-        <div class="col-lg-4">{{ createText('faxAddress', 'faxAddress', 'FaxAddress', '', $data->faxAddress) }}
-        </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '', $data) !!}
-        </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', $data) !!}
-        </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', $data) !!}
-        </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', $data) !!}
+            {{ createText('landLineNumber', 'landLineNumber', 'LandLine Number', '', $data->landLineNumber) }}
         </div>
         <div class="col-lg-4">
-            {{ createText('geoMapLocation', 'geoMapLocation', 'GeoMapLocation', '', $data->geoMapLocation) }}
+            {{ createText('emailAddress', 'emailAddress', 'Email Address', '', $data->emailAddress) }}
         </div>
-        <div class="col-lg-4">{{ createNumber('budgetSize', 'budgetSize', 'BudgetSize', '', $data->budgetSize) }}
+        <div class="col-lg-4">{{ createText('faxAddress', 'faxAddress', 'Fax Address', '', $data->faxAddress) }}
+        </div>
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '', $data, 'Country') !!}
+        </div>
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', $data, 'State') !!}
+        </div>
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', $data, 'City') !!}
+        </div>
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', $data, 'District') !!}
+        </div>
+        <div class="col-lg-4">
+            {{ createText('geoMapLocation', 'geoMapLocation', 'GeoMap Location', '', $data->geoMapLocation) }}
+        </div>
+        <div class="col-lg-4">{{ createNumber('budgetSize', 'budgetSize', 'Budget Size', '', $data->budgetSize) }}
         </div>
         <div class="col-lg-4">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}

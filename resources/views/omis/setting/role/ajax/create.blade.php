@@ -28,7 +28,7 @@
                     // print_r($permission->toArray());
                     if (empty($moduleId)) {
                         $moduleId[] = $permission->moduleName;
-                        echo "<h2 class='text-primary custom-module'>$permission->moduleName</h2>";
+                        echo "<h2 class='text-danger custom-module'>$permission->moduleName</h2>";
                         break;
                     }
                     // echo "<h4>$permission->moduleName</h4>";
@@ -42,7 +42,11 @@
                 break;
             }
             ?>
+           
+
             <div class="row mt-3 g-3">
+                
+                
                 @foreach ($chunk as $title => $group)
                     <div class="col-xs-6 col-sm-4 col-md-4 mb-3">
                         <div class="form-group form-check">
@@ -67,6 +71,7 @@
             </div>
         @endforeach
 </form>
+
 <script type="text/javascript">
     $(document).ready(function() {
 
