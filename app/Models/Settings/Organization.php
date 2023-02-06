@@ -2,6 +2,7 @@
 
 namespace App\Models\Settings;
 
+use App\Models\Superadmin\Package;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,11 +47,17 @@ class Organization extends Model
 
     ];
 
-    protected $appends = ['status_name'];
+    protected $appends = ['status_name','package_name'];
 
     protected function getStatusNameAttribute()
     {
         return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
+    }
+
+    protected function getPackageNameAttribute()
+    {
+        $package = Package::find($this->package_id);
+        return $package ? $package->name : '';
     }
 
     protected function createdBy(): Attribute

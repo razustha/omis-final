@@ -34,6 +34,7 @@
                                         <th class="tb-col"><span class="overline-title">price</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">description</span></th> -->
                                         <th class="tb-col"><span class="overline-title">feature</span></th>
+                                        <th class="tb-col"><span class="overline-title">User Login Limit</span></th>
                                         <th class="tb-col"><span class="overline-title">duration</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                         <th class="tb-col"><span class="overline-title">status</span></th>
@@ -52,6 +53,7 @@
                                             <td class="tb-col">{{ $item->price }}</td>
                                             <!-- <td class="tb-col">{{ $item->description }}</td> -->
                                             <td class="tb-col">{{ $item->module_name }}</td>
+                                            <td class="tb-col">{{ $item->loginLimitNo }}</td>
                                             <td class="tb-col">{{ $item->duration }}</td>
                                             <!-- <td class="tb-col">{{ $item->alias }}</td> -->
                                             <td class="tb-col">{!! $item->status_name !!}</td>
