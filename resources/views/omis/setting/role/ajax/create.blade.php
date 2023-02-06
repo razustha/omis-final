@@ -25,15 +25,16 @@
 
             foreach ($chunkk as $titlee => $groupp) {
                 foreach ($groupp as $permission) {
+                    // print_r($permission->toArray());
                     if (empty($moduleId)) {
-                        $moduleId[] = $permission->module_id;
+                        $moduleId[] = $permission->moduleName;
                         echo "<h2 class='text-primary custom-module'>$permission->moduleName</h2>";
                         break;
                     }
                     // echo "<h4>$permission->moduleName</h4>";
                     // print_r($moduleId);
-                    if (!in_array($permission->module_id, $moduleId)) {
-                        $moduleId[] = $permission->module_id;
+                    if (!in_array($permission->moduleName, $moduleId)) {
+                        $moduleId[] = $permission->moduleName;
                         echo "<h2 class='text-primary custom-module'>$permission->moduleName</h2>";
                         break;
                     }

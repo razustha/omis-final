@@ -32,9 +32,11 @@ class RoleController extends Controller
 
     public function create(Request $request)
     {
+        // DB::enableQueryLog();
         $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
             ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
-            ->select('moduleName','tbl_module.module_id', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
+            ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
+    //    dd(DB::getQueryLog());
         // $groupPermissions = $this->permission->getPermissionByGroupWise()->groupBy('group_name')->chunk(3);
         if ($request->ajax()) {
             $html = view("omis.setting.role.ajax.create", ['groupPermissions' => $groupPermissions])->render();

@@ -206,6 +206,7 @@
                     <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
                     
                         <select class="form-select <?php echo $class ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" aria-label="Default select example">
+                        <!-- <option value="">Select</option> -->
                             <?php foreach ($values as $key => $value) { ?>
                                 <option value="<?= $key ?>" <?php echo $keyValue == $key ? 'selected' : '' ?>><?= $value ?></option>
                             <?php } ?>

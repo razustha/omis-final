@@ -114,6 +114,7 @@ class OrganizationController extends Controller
     public function edit(Request $request, $id)
     {
         $data = Organization::findOrFail($id);
+        // dd($data);
         if ($request->ajax()) {
             $html = view("omis.settings.organization.ajax.edit", compact('data'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);

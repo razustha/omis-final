@@ -1132,7 +1132,6 @@ class PermissionSeeder extends Seeder
                     'settings-organization-destroy',
 
                 ],
-            
             ]
 
 

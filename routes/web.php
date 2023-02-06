@@ -195,10 +195,10 @@ Route::middleware('auth')->group(function () {
                 Route::get('/', [OrganizationController::class, 'index'])->name('settings.organization.index');//->middleware('permission:settings-organization-index');
                 Route::get('/create', [OrganizationController::class, 'create'])->name('settings.organization.create');//->middleware('permission:settings-organization-create');
                 Route::post('/store', [OrganizationController::class, 'store'])->name('settings.organization.store');//->middleware('permission:settings-organization-store');
-                Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('settings.organization.show')->middleware('permission:settings-organization-show');
-                Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('settings.organization.edit')->middleware('permission:settings-organization-edit');
-                Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('settings.organization.update')->middleware('permission:settings-organization-update');
-                Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('settings.organization.destroy')->middleware('permission:settings-organization-destroy');
+                Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('settings.organization.show');//->middleware('permission:settings-organization-show');
+                Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('settings.organization.edit');//->middleware('permission:settings-organization-edit');
+                Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('settings.organization.update');//->middleware('permission:settings-organization-update');
+                Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('settings.organization.destroy');//->middleware('permission:settings-organization-destroy');
             });
 
         Route::get('organizationsettings', [OrganizationSettingsController::class, 'index'])->name('settings.organizationsettings.index')->middleware('permission:settings-organizationsettings-index');
