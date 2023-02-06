@@ -33,7 +33,7 @@
                                         <th class="tb-col"><span class="overline-title">organization Name</span></th>
                                         <th class="tb-col"><span class="overline-title">Owner Name</span></th>
                                         <th class="tb-col"><span class="overline-title">Email Address</span></th>
-                                        <th class="tb-col"><span class="overline-title">Land Line Number</span></th>
+                                        <th class="tb-col"><span class="overline-title">Package</span></th>
                                         <th class="tb-col"><span class="overline-title">status</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span></th>
                                         </tr>
@@ -48,7 +48,7 @@
                                             <td class="tb-col">{{ $item->organizationName }}</td>
                                             <td class="tb-col">{{ $item->ownerName }}</td>
                                             <td class="tb-col">{{ $item->emailAddress }}</td>
-                                            <td class="tb-col">{{ $item->landLineNumber }}</td>
+                                            <td class="tb-col">{{ $item->package_name }}</td>
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">

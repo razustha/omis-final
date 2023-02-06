@@ -21,6 +21,7 @@ class Package extends Model
         'price',
         'description',
         'feature',
+        'loginLimitNo',
         'duration',
         'createdOn',
         'createdBy',
