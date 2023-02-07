@@ -15,16 +15,16 @@
         </div>
         <div class="col-lg-4">{{ createText('workingMode', 'workingMode', 'Working Mode', '', $data->workingMode) }}
         </div>
-        <div class="col-lg-4">{{ createDate('joinDate', 'joinDate', 'Join Date', '', $data->joinDate) }}
+        <div class="col-lg-6">{{ createDate('joinDate', 'joinDate', 'Join Date', '', $data->joinDate) }}
         </div>
-        <div class="col-lg-4">{{ createText('dayFrom', 'dayFrom', 'Day From', '', $data->dayFrom) }}
+        <div class="col-lg-6">{{ createText('dayFrom', 'dayFrom', 'Day From', '', $data->dayFrom) }}
         </div>
-        <div class="col-lg-4">{{ createText('dayTo', 'dayTo', 'Day To', '', $data->dayTo) }}
+        <div class="col-lg-6">{{ createText('dayTo', 'dayTo', 'Day To', '', $data->dayTo) }}
         </div>
         {{-- <div class="col-lg-4">
             {{ createText('departmentLogo', 'departmentLogo', 'Department Logo', '', $data->departmentLogo) }}
         </div> --}}
-        <div class="col-lg-4">
+        <div class="col-lg-6">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
         </div>
         <div class="col-lg-12">

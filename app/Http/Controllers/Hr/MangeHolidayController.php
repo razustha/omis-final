@@ -5,6 +5,11 @@
         use App\Models\Hr\Mangeholiday;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
+        use App\Mail\CommonMail;
+        use Exception;
+        use Illuminate\Support\Facades\Mail;
+        use Illuminate\Support\Facades\Log;
+
 
         class MangeholidayController extends Controller
         {
@@ -30,11 +35,32 @@
             public function store(Request $request)
             {
                 $request->request->add(['alias' => slugify($request->mangeholidayName)]);
-                Mangeholiday::create($request->all());
+        dd($request->all());
+                $holiday = Mangeholiday::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Mangeholiday Created Successfully.'], 200);
                 }
+                //start
+                // if (!empty($holiday->email)) {
+                //     try {
+                //         $mail_data = [
+                //             'name' => $user->name,
+                //             'subject' => 'User Login Credentials',
+                //             'message' => 'your Login credentials are:',
+                         
+                //             'view' => 'omis.emails.credentials'
+                //         ];
+                //         Mail::to($user->email)->send(new CommonMail($mail_data, $user));
+                //     } catch (Exception $e) {
+                //         Log::info($e->getMessage());
+                //     }
+                // } 
+
+
+// ends
                 return redirect()->route('hr.mangeholiday.index')->with('success','The Mangeholiday created Successfully.');
+
+
             }
 
             public function show(Request $request, $id)

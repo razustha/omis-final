@@ -13,13 +13,13 @@
         </div>
         <div class="col-lg-4">{{ createText('workingMode', 'workingMode', 'Working Mode') }}
         </div>
-        <div class="col-lg-4">{{ createDate('joinDate', 'joinDate', 'Join Date') }}
+        <div class="col-lg-6">{{ createDate('joinDate', 'joinDate', 'Join Date') }}
         </div>
-        <div class="col-lg-4">{{ createText('dayFrom', 'dayFrom', 'Day From') }}
+        <div class="col-lg-6">{{ createText('dayFrom', 'dayFrom', 'Day From') }}
         </div>
-        <div class="col-lg-4">{{ createText('dayTo', 'dayTo', 'Day To') }}
+        <div class="col-lg-6">{{ createText('dayTo', 'dayTo', 'Day To') }}
         </div>
-        <div class="col-lg-4">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
+        <div class="col-lg-6">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>
         <div class="col-lg-12">
             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'Remarks', '', '') }}

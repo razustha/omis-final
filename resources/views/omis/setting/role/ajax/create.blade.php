@@ -22,15 +22,20 @@
         @foreach ($groupPermissions as $chunk)
             <?php
             $chunkk = $chunk;
-
+           
             foreach ($chunkk as $titlee => $groupp) {
                 foreach ($groupp as $permission) {
                     // print_r($permission->toArray());
+                    
+                    
                     if (empty($moduleId)) {
                         $moduleId[] = $permission->moduleName;
                         echo "<h2 class='text-primary custom-module'>$permission->moduleName</h2>";
                         break;
                     }
+                 
+
+
                     // echo "<h4>$permission->moduleName</h4>";
                     // print_r($moduleId);
                     if (!in_array($permission->moduleName, $moduleId)) {
@@ -41,10 +46,17 @@
                 }
                 break;
             }
+           
             ?>
+           
+
             <div class="row mt-3 g-3">
+                
+                
                 @foreach ($chunk as $title => $group)
                     <div class="col-xs-6 col-sm-4 col-md-4 mb-3">
+                   
+                                
                         <div class="form-group form-check">
                             <input type="checkbox" class="form-check-input"
                                 data-checkbox-group="{{ Str::slug($title) }}" data-role="selectall">
@@ -52,6 +64,8 @@
                                 for="permission">{{ ucfirst($title) }}</label>
 
                         </div>
+                       
+                        
                         @foreach ($group as $permission)
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input"
@@ -67,6 +81,7 @@
             </div>
         @endforeach
 </form>
+
 <script type="text/javascript">
     $(document).ready(function() {
 

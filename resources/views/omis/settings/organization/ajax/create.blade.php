@@ -1,7 +1,7 @@
 <form action="{{ route('settings.organization.store') }}" id="storeCustomForm">
     @csrf
     <div class="row">
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_package', 'package_id', 'name', '', '', 'Package') !!}
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_package', 'package_id', 'name', '', '', 'Package Type') !!}
         </div>
         <div class="col-lg-4">{{ createText('organizationName', 'organizationName', 'Organization Name') }}
         </div>
@@ -28,7 +28,7 @@
         </div>
         <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', '', 'City') !!}
         </div>
-        <div class="col-lg-4">{{ createText('geoMapLocation', 'geoMapLocation', 'GeoMapLocation') }}
+        <div class="col-lg-4">{{ createText('geoMapLocation', 'geoMapLocation', 'GeoMap Location') }}
         </div>
 
         <div class="col-lg-4">{{ createNumber('budgetSize', 'budgetSize', 'Budget Size') }}
@@ -41,8 +41,7 @@
         <div class="col-lg-4">
             <div class="form-group mt-2"><label class="form-label">Logo</label>
                 <div class="form-control-wrap">
-                    <input id="thumbnail" class="form-control" type="text" name="logo"
-                        value="" readonly>
+                    <input id="thumbnail" class="form-control" type="text" name="logo" value="" readonly>
                     <button id="lfm btn-image" data-input="thumbnail" data-preview="holder"
                         class="lfm btn icon-left btn-primary mt-2 btn-image">
                         <i class="fa fa-upload"></i> &nbsp;Choose
