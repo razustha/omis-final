@@ -916,24 +916,30 @@ Route::middleware('auth')->group(function () {
             );
 
             Route::prefix("tasks")->group(function () {
-                Route::get('/', [TasksController::class, 'index'])->name('work.tasks.index')->middleware('permission:work-tasks-index');
-                Route::get('/create', [TasksController::class, 'create'])->name('work.tasks.create')->middleware('permission:work-tasks-create');
-                Route::post('/store', [TasksController::class, 'store'])->name('work.tasks.store')->middleware('permission:work-tasks-store');
-                Route::get('/show/{id}', [TasksController::class, 'show'])->name('work.tasks.show')->middleware('permission:work-tasks-show');
-                Route::get('/edit/{id}', [TasksController::class, 'edit'])->name('work.tasks.edit')->middleware('permission:work-tasks-edit');
+                Route::get('/', [TasksController::class, 'index'])->name('work.tasks.index'); //->middleware('permission:work-tasks-index');
+                Route::get('/create', [TasksController::class, 'create'])->name('work.tasks.create'); //->middleware('permission:work-tasks-create');
+                Route::post('/store', [TasksController::class, 'store'])->name('work.tasks.store'); //->middleware('permission:work-tasks-store');
+                Route::get('/show/{id}', [TasksController::class, 'show'])->name('work.tasks.show'); //->middleware('permission:work-tasks-show');
+                Route::get('/edit/{id}', [TasksController::class, 'edit'])->name('work.tasks.edit'); //->middleware('permission:work-tasks-edit');
                 Route::put('/update/{id}', [TasksController::class, 'update'])->name('work.tasks.update');
-                Route::delete('/destroy/{id}', [TasksController::class, 'destroy'])->name('work.tasks.destroy')->middleware('permission:work-tasks-destroy');
+                Route::delete('/destroy/{id}', [TasksController::class, 'destroy'])->name('work.tasks.destroy'); //->middleware('permission:work-tasks-destroy');
                 Route::get('get-assigned-employee', [TasksController::class, 'getAssignedEmployee'])->name('work.tasks.getAssignedEmployee');
+                Route::get('/updateTaskStatus', [TasksController::class, 'updateTaskStatus'])->name('work.tasks.updateTaskStatus'); //->middleware('permission:work-timelog-store');
+                Route::get('/all-task-lists', [TasksController::class, 'allTaskList'])->name('work.tasks.allTaskList'); //->middleware('permission:work-timelog-store');
+
             });
 
             Route::prefix("timelog")->group(function () {
-                Route::get('/', [TimelogController::class, 'index'])->name('work.timelog.index')->middleware('permission:work-timelog-index');
-                Route::get('/create', [TimelogController::class, 'create'])->name('work.timelog.create')->middleware('permission:work-timelog-create');
-                Route::post('/store', [TimelogController::class, 'store'])->name('work.timelog.store')->middleware('permission:work-timelog-store');
-                Route::get('/show/{id}', [TimelogController::class, 'show'])->name('work.timelog.show')->middleware('permission:work-timelog-show');
-                Route::get('/edit/{id}', [TimelogController::class, 'edit'])->name('work.timelog.edit')->middleware('permission:work-timelog-edit');
-                Route::put('/update/{id}', [TimelogController::class, 'update'])->name('work.timelog.update')->middleware('permission:work-timelog-update');
-                Route::delete('/destroy/{id}', [TimelogController::class, 'destroy'])->name('work.timelog.destroy')->middleware('permission:work-tasks-destroy');
+                Route::get('/', [TimelogController::class, 'index'])->name('work.timelog.index'); //->middleware('permission:work-timelog-index');
+                Route::get('/create', [TimelogController::class, 'create'])->name('work.timelog.create'); //->middleware('permission:work-timelog-create');
+                Route::post('/store', [TimelogController::class, 'store'])->name('work.timelog.store'); //->middleware('permission:work-timelog-store');
+                Route::get('/show/{id}', [TimelogController::class, 'show'])->name('work.timelog.show'); //->middleware('permission:work-timelog-show');
+                Route::get('/edit/{id}', [TimelogController::class, 'edit'])->name('work.timelog.edit'); //->middleware('permission:work-timelog-edit');
+                Route::put('/update/{id}', [TimelogController::class, 'update'])->name('work.timelog.update'); //->middleware('permission:work-timelog-update');
+                Route::delete('/destroy/{id}', [TimelogController::class, 'destroy'])->name('work.timelog.destroy'); //->middleware('permission:work-tasks-destroy');
+                Route::get('/startTimeLog', [TimelogController::class, 'startTimeLog'])->name('work.timelog.startTimeLog'); //->middleware('permission:work-timelog-store');
+                Route::get('/stopTimeLog', [TimelogController::class, 'stopTimeLog'])->name('work.timelog.stopTimeLog'); //->middleware('permission:work-timelog-store');
+
             });
         }
     );

@@ -50,4 +50,9 @@ use App\Models\User;
     {
         return $this->belongsTo(Employee::class, 'employee_id', 'employee_id');
     }
+
+    public function workProject()
+    {
+        return $this->belongsTo(WorkProjects::class, 'workProject_id', 'workProject_id');
+    }
 }

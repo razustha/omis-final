@@ -175,6 +175,7 @@
                                 @endif
                             </div>
                             <div class="d-none d-sm-block">
+
                                 @if(!empty(auth()->user()->employee->profilePhoto))
                                     <div class="media media-circle"><img src="{{ auth()->user()->employee->profilePhoto }}"
                                         alt="" class="img-thumbnail"></div>
@@ -217,3 +218,4 @@
         </div>
     </div>
 </div>
+

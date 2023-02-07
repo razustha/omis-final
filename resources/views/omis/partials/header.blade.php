@@ -89,28 +89,28 @@
                                     <li class="nk-nav-item"><a href="{{ route('master.jobtitle.index') }}"
                                             class="nk-nav-link"><span class="nk-nav-text">Job Title</span></a></li>
                                 </ul>
-                        
-                               
+
+
                     </li>
                     <li class="nk-nav-item has-sub"><a href="#" class="nk-nav-link nk-nav-toggle"><span
                                 class="nk-nav-text">Settings</span></a>
                                 <ul class="nk-nav-sub">
                                     {{ BibClass::createSidebarMenu(url('settings/dictonary'), 'Dictonary') }}
                                     {{ BibClass::createSidebarMenu(url('settings/curd/'), 'CURD Function') }}
-                                  
+
                                 </ul>
                     </li>
                 </ul>
             </nav>
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav ms-2">
-                  
+
                     <li>
-                       
+
                         <button class="btn btn-icon btn-sm btn-zoom " onclick="openFullscreen();"><em class="icon ni ni-maximize"></em></button>
-                        
+
                     </li>
-                 
+
                     <li class="dropdown"><button class="btn btn-icon btn-sm btn-zoom d-sm-none"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside"><em
                                 class="icon ni ni-search"></em></button><button
@@ -219,6 +219,7 @@
                                         alt="" class="img-thumbnail"></div>
                             </div>
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-md">
                             <div class="dropdown-content dropdown-content-x-lg py-3 border-bottom border-light">
                                 <div class="media-group">

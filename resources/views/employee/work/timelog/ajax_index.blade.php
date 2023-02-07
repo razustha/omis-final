@@ -1,4 +1,4 @@
-@extends('omis.partials.layouts')
+@extends('employee.layouts.employee.employee')
 @section('content')
     <div class="nk-content">
         <div class="container">
@@ -18,9 +18,9 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
-                                    {!! createCanvasButton('customBtnAdd', '', 'Timelog', 'work.timelog.create') !!}
-                                </ul>
+                                {{-- <ul class="d-flex">
+                                        {!!createCanvasButton("customBtnAdd","","Timelog","work.timelog.create") !!}
+                                    </ul> --}}
                             </div>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                                         <th class="tb-col"><span class="overline-title">Start Time</span></th>
                                         <th class="tb-col"><span class="overline-title">End Time</span></th>
                                         <th class="tb-col"><span class="overline-title">Taks status</span></th>
-                                        <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
-                                        </th>
+                                        {{-- <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
+                                        </th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,7 +60,7 @@
                                                     <span class="badge text-bg-success">Completed</span>
                                                 @endif
                                             </td>
-                                            <td class="tb-col">
+                                            {{-- <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                     <li>
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'work.timelog.show', $item->timelog_id) !!}
@@ -70,7 +70,7 @@
                                                     </li>
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'work.timelog.destroy', $item->timelog_id) !!}</li>
                                                 </ul>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
 

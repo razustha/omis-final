@@ -89,7 +89,7 @@
                                         @endforeach
                                         <th class="tb-col">
                                             <span class="overline-title">Total</span>
-                                            
+
                                         </th>
                                     </tr>
                                 </thead>
@@ -103,7 +103,7 @@
                                         <p class="smaller">Web Tech Department</p>
                                     </td>
                                     @foreach ($user->getAllAttendence($user->id) as $key => $attendence)
-                                        
+
                                         @if($key == $attendence)
                                         <th class="tb-col px-1">
                                             <span class="overline-title"> <em style="color: red">-</em></span>

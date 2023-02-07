@@ -1,4 +1,4 @@
-@extends('employee.partials.layouts')
+@extends('employee.layouts.employee.employee')
 
 @section('content')
     <div class="nk-content">

@@ -18,6 +18,7 @@
                 'tasksStartDate',
 'tasksEndDate',
 'tasksName',
+'workProject_id',
 'department_id',
 'tasksAssignedTo',
 'companyName',
@@ -56,5 +57,27 @@
     public function taskAssginedEmployee()
     {
         return $this->hasMany(TaskAssignedEmployee::class,'tasks_id','tasks_id');
+    }
+
+    public function workProject()
+    {
+        return $this->belongsTo(WorkProjects::class, 'workProject_id', 'workProject_id');
+    }
+
+    public function timeLog()
+    {
+        return $this->hasMany(Timelog::class, 'tasks_id', 'tasks_id');
+    }
+
+    public function latestTimeLog($tasks_id)
+    {
+        if(auth()->user()->user_type != "EMPLOYEE")
+        {
+            return Timelog::select('timelog_id')->where('tasks_id', $tasks_id)->where('tasks_endTime',null)->where('tasks_logDate',date('Y-m-d'))->orderBy('timelog_id','DESC')->first();
+        } else {
+            return Timelog::select('timelog_id')->where('tasks_id', $tasks_id)->where('employee_id', auth()->user()->employee->employee_id)->where('tasks_endTime',null)->where('tasks_logDate',date('Y-m-d'))->orderBy('timelog_id','DESC')->first();
+
+        }
+
     }
 }

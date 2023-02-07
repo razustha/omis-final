@@ -1,7 +1,8 @@
 <?php
         namespace App\Http\Controllers\Work;
         use App\Http\Controllers\Controller;
-        use Illuminate\Http\Request;
+use App\Models\Work\Tasks;
+use Illuminate\Http\Request;
         use App\Models\Work\Timelog;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
@@ -10,12 +11,23 @@
         {
            public function index(Request $request)
             {
-                $data = Timelog::where('status','<>',-1)->orderBy('created_at','desc')->get();
-                if ($request->ajax()) {
-                    $html = view("omis.work.timelog.ajax.index", compact('data'))->render();
-                    return response()->json(['status' => true, 'content' => $html], 200);
+                if(auth()->user()->user_type != "EMPLOYEE") {
+                    $data = Timelog::where('status','<>',-1)->orderBy('created_at','desc')->get();
+                    if ($request->ajax()) {
+                        $html = view("omis.work.timelog.ajax.index", compact('data'))->render();
+                        return response()->json(['status' => true, 'content' => $html], 200);
+                    }
+                    return view("omis.work.timelog.ajax_index", compact('data'));
+
+                } else {
+                    $data = Timelog::where('status','<>',-1)->where('employee_id', auth()->user()->employee->employee_id)->where('tasks_endTime','!=',null)->orderBy('created_at','desc')->get();
+                    if ($request->ajax()) {
+                        $html = view("employee.work.timelog.ajax.index", compact('data'))->render();
+                        return response()->json(['status' => true, 'content' => $html], 200);
+                    }
+                    return view("employee.work.timelog.ajax_index", compact('data'));
                 }
-                return view("omis.work.timelog.ajax_index", compact('data'));
+
             }
 
             public function create(Request $request)
@@ -78,6 +90,35 @@
                 return response()->json(['status'=>true,'message'=>'The Timelog Deleted Successfully.'],200);
             }
 
+            public function startTimeLog(Request $request)
+            {
+                $tasks = Tasks::findOrFail($request->tasks_id);
+                $data['workProject_id'] = $tasks->workProject_id;
+                $data['tasks_id'] = $tasks->tasks_id;
+                $data['employee_id'] = auth()->user()->employee->employee_id;
+                $data['tasks_logDate'] = date('Y-m-d');
+                $data['tasks_startTime'] = date('H:i:s');
+                if(Timelog::create($data)){
+                    return response()->json(['status'=>true, 'message'=>'The Timelog Added Successfully']);
+                } else {
+                    return response()->json(['status'=>false]);
+                }
+
+
+
+            }
+
+            public function stopTimeLog(Request $request)
+            {
+                $data = Timelog::findOrFail($request->timelog_id);
+                $data->tasks_endTime = date('H:i:s');
+                if($data->save()){
+                    return response()->json(['status'=>true, 'message'=>'The Timelog Updated Successfully']);
+                } else {
+                    return response()->json(['status'=>false]);
+                }
+            }
+
             public static function getAjaxContent($type, $id = '', $option = '')
             {
                 switch ($type) {
@@ -137,4 +178,3 @@
                 }
             }
         }
-        

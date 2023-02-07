@@ -5,7 +5,8 @@
 <!--head contents -->
 
 
-<body class="nk-body" data-sidebar-collapse="lg" data-navbar-collapse="lg" id="omisapp">
+<body class="nk-body" data-sidebar-collapse="lg" data-navbar-collapse="lg" id="">
+
     <div class="nk-app-root">
         <div class="nk-main">
 
@@ -15,13 +16,13 @@
 
   				<div class="nk-wrap">
 
-  					<!-- Nav Bar -->		
+  					<!-- Nav Bar -->
   					@include('employee.layouts.employee.header')
-  					<!-- Nav Bar -->	
+  					<!-- Nav Bar -->
 
-					<!-- Popup Messages -->	
+					<!-- Popup Messages -->
   					 @include('employee.layouts.employee.flash-message');
-  					<!-- Popup Messages -->	
+  					<!-- Popup Messages -->
 
 					<!-- @section('content')-->
   					@yield('content')
@@ -29,16 +30,16 @@
 
   					<!--footer -->
   					@include('employee.layouts.employee.footer')
-  					<!--footer -->  
-  				
+  					<!--footer -->
+
   				</div>
-        	
+
         </div>
-   			
+
    			<!--check in -->
-   			@include('employee.layouts.employee.clockIn') 
-   			<!--check in --> 
-	
+   			@include('employee.layouts.employee.clockIn')
+   			<!--check in -->
+
 	</div>
 
 	<div class="modal fade " id="startTimer" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scrollableLabel" aria-hidden="true">
@@ -47,12 +48,12 @@
 	            <div class="modal-header">
 	                <h5 class="modal-title" id="scrollableLabel"> <em class="icon ni ni-clock"></em> Start Timer</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	            </div>
-	            <div class="modal-body"> 
-	                
+	            <div class="modal-body">
+
 	                <div class="col-lg-12">
 	                    <div class="form-group">
 	                    <?php createLabel('project', 'form-label', 'Project'); ?>
-	                    
+
 	                    <?php createSelect('project', 'project', '', '', ['Select One', 'Male', 'Female', 'Other']); ?>
 	                    </div>
 	                </div>
@@ -60,7 +61,7 @@
 	                <div class="col-lg-12">
 	                    <div class="form-group">
 	                    <?php createLabel('task', 'form-label', 'Task'); ?>
-	                    
+
 	                    <?php createSelect('task', 'task', '', '', ['Select One', 'Male', 'Female', 'Other']); ?>
 	                    </div>
 	                </div>
@@ -68,7 +69,7 @@
 	                <br>
 	                <div class="col-lg-12">
 	                    <div class="form-group">
-	                       
+
 	                        <div class="form-control-wrap">
 	                            <?php createInput('text', 'memo', 'memo', 'Memo', 'form-label', '', '', 'Memo'); ?>
 	                        </div>

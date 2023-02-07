@@ -51,4 +51,9 @@ use App\Models\User;
     {
         return $this->belongsTo(Employee::class, 'employee_id', 'employee_id');
     }
+
+    public function task()
+    {
+        return $this->belongsTo(Tasks::class, 'tasks_id', 'tasks_id');
+    }
 }

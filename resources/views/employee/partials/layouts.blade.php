@@ -24,12 +24,12 @@
 <body class="nk-body" data-sidebar-collapse="lg" data-navbar-collapse="lg" id="omisapp">
     <div class="nk-app-root">
         <div class="nk-main">
-            @include('employee/partials/sidebar')
+            @include('employee.partials.sidebar')
             <div class="nk-wrap">
-                @include('employee/partials/header')
+                @include('employee.partials.header')
                 @include('employee.partials.flash-message');
                 @yield('content')
-                @include('employee/partials/footer')
+                @include('employee.partials.footer')
             </div>
         </div>
 

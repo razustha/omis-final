@@ -11,12 +11,26 @@ use Illuminate\Http\Request;
         {
            public function index(Request $request)
             {
-                $data = Workprojects::where('status','<>',-1)->orderBy('created_at','desc')->get();
-                if ($request->ajax()) {
-                    $html = view("omis.work.workprojects.ajax.index", compact('data'))->render();
-                    return response()->json(['status' => true, 'content' => $html], 200);
+                if(auth()->user()->user_type != "EMPLOYEE")
+                {
+                    $data = Workprojects::where('status','<>',-1)->orderBy('created_at','desc')->get();
+
+                    if ($request->ajax()) {
+                        $html = view("omis.work.workprojects.ajax.index", compact('data'))->render();
+                        return response()->json(['status' => true, 'content' => $html], 200);
+                    }
+                    return view("omis.work.workprojects.ajax_index", compact('data'));
+
+
+                } else {
+                    $data = ProjectEmployee::where('employee_id', auth()->user()->employee->employee_id)->get();
+                    if ($request->ajax()) {
+                        $html = view("employee.work.workprojects.ajax.index", compact('data'))->render();
+                        return response()->json(['status' => true, 'content' => $html], 200);
+                    }
+                    return view("employee.work.workprojects.ajax_index", compact('data'));
                 }
-                return view("omis.work.workprojects.ajax_index", compact('data'));
+
             }
 
             public function create(Request $request)

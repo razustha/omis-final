@@ -24484,7 +24484,8 @@ a.fc-event-darker-soft {
     transition: all .3s cubic-bezier(0.23, 1, 0.32, 1);
     border-radius: .375rem;
     margin-bottom: 1.25rem;
-    margin-right: 1.25rem !important
+    margin-right: 1.25rem !important;
+    width: 31%!important;
 }
 
 .kanban-board.disabled-board {
