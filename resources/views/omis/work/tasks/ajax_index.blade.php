@@ -20,7 +20,7 @@
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Tasks', 'work.tasks.create') !!}
-                                    <a class="btn btn-primary btn-sm" href="{{route('work.tasks.allTaskList')}}">
+                                    <a class="mt-2 btn btn-primary-outlined" href="{{route('work.tasks.allTaskList')}}">
                                         View Task Board
                                     </a>
                                 </ul>

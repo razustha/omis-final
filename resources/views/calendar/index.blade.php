@@ -17,7 +17,7 @@
                             </div>
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
-                                    {!! createCanvasButton('customBtnAdd', '', 'Manage Holiday', 'hr.mangeholiday.create') !!}
+                                    {!! createCanvasButton('customBtnAdd', '', 'Holiday', 'hr.mangeholiday.create') !!}
                                 </ul>
                             </div>
                             <div class="row mt-3">

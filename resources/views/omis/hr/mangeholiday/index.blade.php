@@ -24,7 +24,7 @@
                                                         class="icon ni ni-plus"></em><span>Add</span></a></li>
                                             <li><a href="{{route('hr.mangeholiday.create')}}"
                                                     class="btn btn-primary d-none d-md-inline-flex"><em
-                                                        class="icon ni ni-plus"></em><span>Add Mangeholiday</span></a></li>
+                                                        class="icon ni ni-plus"></em><span>Add holiday</span></a></li>
                                         </ul>
                                     </div>
                                 </div>
