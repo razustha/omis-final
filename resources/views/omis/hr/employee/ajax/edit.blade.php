@@ -83,7 +83,7 @@
                                             {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address', '', $data->permanentAddress) }}
                                         </div>
                                         <div class="col-lg-6">
-                                            {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address') }}
+                                            {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address','', $data->temproryAddress) }}
                                         </div>
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Organization Role</h2>
@@ -93,7 +93,7 @@
                                         </div>
 
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Deapartment ') !!}
+                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Department ') !!}
                                         </div>
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id', 'designationName', '', $data, 'Designation ') !!}
@@ -177,7 +177,7 @@
 
                         </div>
                         <div class="col-lg-12">
-                            {{ createText('panNo', 'panNo', 'Govt. Pan No') }}
+                            {{ createText('panNo', 'panNo', 'Govt. Pan No','', $data->panNo) }}
                         </div>
                         <hr>
                         <div class="col-12">
