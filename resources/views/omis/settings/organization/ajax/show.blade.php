@@ -1,40 +1,249 @@
 <div class="offcanvas-header border-bottom border-light">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Show Organization</h5><button type="button" class="btn-close"
-            data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body" data-simplebar>
-        <div class="nk-block-head-content w-100">
-            <div class="d-flex justify-content-between pb-4">
-    
-                <h2>Organization Details</h2>
-                <button class="btn btn-primary print_pdf">Print PDF</button>
-            </div>
-            <div class="card w-100">
-                <div class="p-5">
-    
-                    <div class="card-head text-center">
-                    @if ($data->logo)
-            <img id="holder" style="margin-top:15px;max-height:150px;" class="img img-fluid"
-                src="{{ $data->logo }}">
-        @endif    
-                    <h2>{{$data['organizationName']}}</h2>
+    <h5 class="offcanvas-title" id="offcanvasTopLabel">Organization Details </h5><button type="button" class="btn-close"
+        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body" data-simplebar>
+    <div class="nk-block-head-content w-100">
+
+
+
+        <div class="container">
+            <div class="nk-content-inner">
+                <div class="nk-content-body">
+                    <div class="nk-block-head">
+                        <div class="nk-block-head">
+                            <div class="nk-block-head-between flex-wrap gap g-2 align-items-start">
+                                <div class="nk-block-head-content">
+                                    <div class="d-flex flex-column flex-md-row align-items-md-center">
+                                        <div class="media media-huge media-circle">
+                                            @if ($data->logo)
+                                                <img id="holder" style="margin-top:15px;max-height:150px;"
+                                                    class="img img-fluid" src="{{ $data->logo }}">
+                                            @endif
+                                        </div>
+                                        <div class="mt-3 mt-md-0 ms-md-3">
+                                            <h2 class="title mb-1">{{ $data['organizationName'] }}</h2>
+                                            <h3 class="title mb-1"> {{ $data->organizatoinCategory }}</h3>
+                                            <span
+                                                class="{{ $data->status == 1 ? 'text-success' : 'text-danger' }}">{{ $data->status == 1 ? 'Active' : 'Inactive' }}</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nk-block-head-content">
+                                    <div class="d-flex gap g-3">
+
+                                        <div class="gap-col">
+                                            <div class="gap-col">
+                                                <ul class="d-flex gap g-2">
+                                                    <li class="d-none d-md-block"><a href="user-edit.html"
+                                                            class="btn btn-soft btn-primary"><em
+                                                                class="icon ni ni-edit"></em><span>Edit
+                                                                Profile</span></a></li>
+                                                    <li class="d-none d-md-block"><button
+                                                            class="btn btn-primary print_pdf">Print PDF</button></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nk-block-head-between gap g-2">
+
+
+                        </div>
+                    </div>
+                    <div class="nk-block">
+
+                        <div class="card card-gutter-md">
+                            <div class="card-row card-row-lg col-sep col-sep-lg">
+                                <div class="card-aside">
+                                    <div class="card-body">
+                                        <div class="bio-block">
+                                            <h4 class="bio-block-title">Package Details</h4>
+                                            <ul class="list-group list-group-borderless small">
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Organization
+                                                        ID:</span><span class="text">{{$data->organization_id}}</span></li>
+                                             
+
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Package
+                                                        Name:</span><span class="text">{{$data->package_name}}</span>
+                                                </li>
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Budget
+                                                        Size:</span><span class="text">{{ $data->budgetSize }}</span>
+                                                </li>
+                                                <!-- <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Employees
+                                                        Quota:</span><span class="text">wesley@gmail.com</span></li>
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Storage:</span><span
+                                                        class="text">California, United States</span></li> -->
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Joining
+                                                        Date</span><span class="text">2 Dec 2021</span></li>
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Expiring
+                                                        Date</span><span class="text">2 Dec 2021</span></li>
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Created
+                                                        Date</span><span class="text">{{ $data->created_at }}</span>
+                                                </li>
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Created By
+                                                    </span><span class="text">{{ $data->createdBy }}</span></li>
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Update At
+                                                    </span><span class="text">{{ $data->updated_at }}</span></li>
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Updated By
+                                                    </span><span class="text">{{ $data->updatedBy }}</span></li>
+
+                                                <li class="list-group-item"><span
+                                                        class="title fw-medium w-40 d-inline-block">Alias
+                                                    </span><span class="text">{{ $data->alias }}</span></li>
+
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="card-content ">
+                                    <div class="card-body">
+
+                                        <h2 class="bio-block-title"> {{ $data['organizationName'] }}</h2>
+                                        <hr class="border-light border-3 opacity-75">
+                                        <div class="col-xxl-12">
+                                            <div class="row">
+
+
+                                                <div class="col-xl-6">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Owner Name </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->ownerName }}</h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Email Address </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->emailAddress }}</h6>
+                                                    </div>
+                                                </div>
+                                                <hr class="border-light border-3 opacity-75">
+                                                <div class="col-xl-4">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Phone Number </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->phoneNumber }}</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Landline Number</h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->landLineNumber }}</h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-4">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Fax Number </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->faxAddress }}</h6>
+                                                    </div>
+                                                </div>
+
+                                                <hr class="border-light border-3 opacity-75">
+                                                <div class="col-xl-3">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Country </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{$data['country_id']}}</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">State </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{$data['state_id']}}</h6>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-xl-3">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">District </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{$data['district_id']}}</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">City </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{$data['city_id']}}</h6>
+                                                    </div>
+                                                </div>
+
+                                                <hr class="border-light border-3 opacity-75">
+                                                <div class="col-xl-6">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Document Name </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->documentName }}</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Document Type </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->documentType }}</h6>
+                                                    </div>
+                                                </div>
+
+                                                <hr class="border-light border-3 opacity-75">
+                                                <div class="col-xl-6">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Geo Map Location </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->geoMapLocation }}</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="p-3 mb-2 text-dark">
+                                                        <h3 class="card-title">Remarks </h3>
+                                                        <hr class="border-light border-4 opacity-75">
+                                                        <h6 class="card-title">{{ $data->remarks }}</h6>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-                    <div class="card-body">
-                <p><b>OrganizationName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->organizationName}}</span></p><p><b>OrganizatoinCategory :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->organizatoinCategory}}</span></p><p><b>OwnerName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->ownerName}}</span></p><p><b>PhoneNumber :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->phoneNumber}}</span></p><p><b>LandLineNumber :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->landLineNumber}}</span></p><p><b>EmailAddress :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->emailAddress}}</span></p><p><b>FaxAddress :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->faxAddress}}</span></p><p><b>Country Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->country_id}}</span></p><p><b>State Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->state_id}}</span></p><p><b>City Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->city_id}}</span></p><p><b>District Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->district_id}}</span></p><p><b>GeoMapLocation :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->geoMapLocation}}</span></p><p><b>DocumentType :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->documentType}}</span></p><p><b>DocumentName :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->documentName}}</span></p><p><b>DocumentPath :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->documentPath}}</span></p><p><b>BudgetSize :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->budgetSize}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
-                class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
-        <div>
-            <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>
-            <p><b>Created By :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->createdBy}}</span></p>
-        </div>
-        <div>
-            <p><b>Updated On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->updated_at}}</span></p>
-            <p><b>Updated By :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->updatedBy}}</span></p>
-
-        </div>
-    </div>
-    </div>
+                </div>
             </div>
         </div>
+
+
+
+
     </div>
 </div>

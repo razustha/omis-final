@@ -86,11 +86,15 @@ class OrganizationController extends Controller
                     Mail::to($user->email)->send(new CommonMail($mail_data, $user));
                 } catch (Exception $e) {
                     Log::info($e->getMessage());
+                    return $e->getMessage();
+
                 }
             }
         } catch (Exception $e) {
             DB::rollBack();
             Log::info($e->getMessage());
+            return $e->getMessage();
+
         }
 
         DB::commit();

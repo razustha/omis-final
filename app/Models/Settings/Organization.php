@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\CreatedUpdatedBy;
+use App\Models\Master\Country;
+use App\Models\Master\State;
+use App\Models\Master\City;
+use App\Models\Master\District;
 
 class Organization extends Model
 {
@@ -31,6 +35,7 @@ class Organization extends Model
         'city_id',
         'district_id',
         'geoMapLocation',
+        'logo',
         'documentType',
         'documentName',
         'documentPath',
@@ -53,6 +58,32 @@ class Organization extends Model
     {
         return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
     }
+    protected function countryId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  Country::find($value) ? Country::find($value)->countryName : '',
+        );
+    }
+    protected function stateId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  State::find($value) ? State::find($value)->stateName : '',
+        );
+    }
+    protected function cityId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  City::find($value) ? City::find($value)->cityName : '',
+        );
+    }
+
+    protected function districtId(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  District::find($value) ? District::find($value)->districtName : '',
+        );
+    }
+
 
     protected function getPackageNameAttribute()
     {

@@ -8,7 +8,7 @@
             {{ createText('organizationName', 'organizationName', 'Organization Name', '', $data->organizationName) }}
         </div>
         <div class="col-lg-4">
-            {{ createText('organizatoinCategory', 'organizatoinCategory', 'Organizatoin Category', '', $data->organizatoinCategory) }}
+            {{ createText('organizatoinCategory', 'organizatoinCategory', 'Organization Category', '', $data->organizatoinCategory) }}
         </div>
         <div class="col-lg-4">{{ createText('ownerName', 'ownerName', 'Owner Name', '', $data->ownerName) }}
         </div>
@@ -41,7 +41,8 @@
         <div class="col-lg-4">{{ createText('remarks', 'remarks', 'Remarks', '', $data->remarks) }}
         </div>
         <div class="col-lg-4">
-            <div class="form-group mt-2"><label class="form-label">Logo</label>
+            <div class="form-group mt-2">
+                <label class="form-label d-block">Logo</label>
                 @if ($data->logo)
                     <img id="holder" style="margin-top:15px;max-height:300px;" class="img img-fluid"
                         src="{{ $data->logo }}">

@@ -5,7 +5,7 @@
         </div>
         <div class="col-lg-4">{{ createText('organizationName', 'organizationName', 'Organization Name') }}
         </div>
-        <div class="col-lg-4">{{ createText('organizatoinCategory', 'organizatoinCategory', 'Organizatoin Category') }}
+        <div class="col-lg-4">{{ createText('organizatoinCategory', 'organizatoinCategory', 'Organization Category') }}
         </div>
         <div class="col-lg-4">{{ createText('ownerName', 'ownerName', 'Owner Name') }}
         </div>
@@ -39,7 +39,8 @@
         <div class="col-lg-4">{{ createText('remarks', 'remarks', 'Remarks') }}
         </div>
         <div class="col-lg-4">
-            <div class="form-group mt-2"><label class="form-label">Logo</label>
+            <div class="form-group mt-2">
+                <label class="form-label">Logo</label>
                 <div class="form-control-wrap">
                     <input id="thumbnail" class="form-control" type="text" name="logo" value="" readonly>
                     <button id="lfm btn-image" data-input="thumbnail" data-preview="holder"
