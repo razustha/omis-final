@@ -371,7 +371,7 @@ class PermissionSeeder extends Seeder
             ],
 
             'timesheet' => [
-                'absentreason' => [
+                'absentreason timesheet' => [
                     'timesheet.absentreason.index',
                     'timesheet.absentreason.create',
                     'timesheet.absentreason.show',
@@ -568,7 +568,7 @@ class PermissionSeeder extends Seeder
                     'assets.assestCategory.update',
                     'assets.assestCategory.destroy',
                 ],
-                'equipmentdemand' => [
+                'equipmentdemand assets' => [
                     'assets.equipmentdemand.index',
                     'assets.equipmentdemand.create',
                     'assets.equipmentdemand.show',
@@ -789,7 +789,7 @@ class PermissionSeeder extends Seeder
                     'travelfleet.fleetmanagement.destroy',
 
                 ],
-                'fleetrequest' => [
+                'fleetrequest travelfleet' => [
                     'travelfleet.fleetrequest.index',
                     'travelfleet.fleetrequest.create',
                     'travelfleet.fleetrequest.show',

@@ -38,6 +38,7 @@ class RoleController extends Controller
             ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
     //    dd(DB::getQueryLog());
         // $groupPermissions = $this->permission->getPermissionByGroupWise()->groupBy('group_name')->chunk(3);
+        // dd($groupPermissions->toarray());
         if ($request->ajax()) {
             $html = view("omis.setting.role.ajax.create", ['groupPermissions' => $groupPermissions])->render();
             return response()->json(['status' => true, 'content' => $html], 200);
