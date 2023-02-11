@@ -398,13 +398,13 @@ Route::middleware('auth')->group(function () {
     Route::prefix("Crm")->group(
         function () {
             Route::prefix("clients")->group(function () {
-                Route::get('/', [ClientsController::class, 'index'])->name('crm.clients.index')->middleware('permission:Crm-clients-index');
-                Route::get('/create', [ClientsController::class, 'create'])->name('crm.clients.create')->middleware('permission:Crm-clients-create');
-                Route::post('/store', [ClientsController::class, 'store'])->name('crm.clients.store')->middleware('permission:Crm-clients-store');
-                Route::get('/show/{id}', [ClientsController::class, 'show'])->name('crm.clients.show')->middleware('permission:Crm-clients-show');
-                Route::get('/edit/{id}', [ClientsController::class, 'edit'])->name('crm.clients.edit')->middleware('permission:Crm-clients-edit');
-                Route::put('/update/{id}', [ClientsController::class, 'update'])->name('crm.clients.update')->middleware('permission:Crm-clients-update');
-                Route::delete('/destroy/{id}', [ClientsController::class, 'destroy'])->name('crm.clients.destroy')->middleware('permission:Crm-clients-destroy');
+                Route::get('/', [ClientsController::class, 'index'])->name('crm.clients.index')->middleware('permission:crm-clients-index');
+                Route::get('/create', [ClientsController::class, 'create'])->name('crm.clients.create')->middleware('permission:crm-clients-create');
+                Route::post('/store', [ClientsController::class, 'store'])->name('crm.clients.store')->middleware('permission:crm-clients-store');
+                Route::get('/show/{id}', [ClientsController::class, 'show'])->name('crm.clients.show')->middleware('permission:crm-clients-show');
+                Route::get('/edit/{id}', [ClientsController::class, 'edit'])->name('crm.clients.edit')->middleware('permission:crm-clients-edit');
+                Route::put('/update/{id}', [ClientsController::class, 'update'])->name('crm.clients.update')->middleware('permission:crm-clients-update');
+                Route::delete('/destroy/{id}', [ClientsController::class, 'destroy'])->name('crm.clients.destroy')->middleware('permission:crm-clients-destroy');
             });
             Route::prefix("leads")->group(function () {
                 Route::get('/', [LeadsController::class, 'index'])->name('crm.leads.index')->middleware('permission:Crm-leads-index');
@@ -798,102 +798,102 @@ Route::middleware('auth')->group(function () {
     Route::prefix("Finance")->group(
         function () {
             Route::prefix("creditNotes")->group(function () {
-                Route::get('/', [CreditNotesController::class, 'index'])->name('finance.creditnotes.index')->middleware('permission:Finance-creditNotes-index');
-                Route::get('/create', [CreditNotesController::class, 'create'])->name('finance.creditnotes.create')->middleware('permission:Finance-creditNotes-create');
-                Route::post('/store', [CreditNotesController::class, 'store'])->name('finance.creditnotes.store')->middleware('permission:Finance-creditNotes-store');
-                Route::get('/show/{id}', [CreditNotesController::class, 'show'])->name('finance.creditnotes.show')->middleware('permission:Finance-creditNotes-show');
-                Route::get('/edit/{id}', [CreditNotesController::class, 'edit'])->name('finance.creditnotes.edit')->middleware('permission:Finance-creditNotes-edit');
-                Route::put('/update/{id}', [CreditNotesController::class, 'update'])->name('finance.creditnotes.update')->middleware('permission:Finance-creditNotes-update');
-                Route::delete('/destroy/{id}', [CreditNotesController::class, 'destroy'])->name('finance.creditnotes.destroy')->middleware('permission:Finance-creditNotes-destroy');
+                Route::get('/', [CreditNotesController::class, 'index'])->name('finance.creditnotes.index')->middleware('permission:finance-creditnotes-index');
+                Route::get('/create', [CreditNotesController::class, 'create'])->name('finance.creditnotes.create')->middleware('permission:finance-creditnotes-create');
+                Route::post('/store', [CreditNotesController::class, 'store'])->name('finance.creditnotes.store')->middleware('permission:finance-creditnotes-store');
+                Route::get('/show/{id}', [CreditNotesController::class, 'show'])->name('finance.creditnotes.show')->middleware('permission:finance-creditnotes-show');
+                Route::get('/edit/{id}', [CreditNotesController::class, 'edit'])->name('finance.creditnotes.edit')->middleware('permission:finance-creditnotes-edit');
+                Route::put('/update/{id}', [CreditNotesController::class, 'update'])->name('finance.creditnotes.update')->middleware('permission:finance-creditnotes-update');
+                Route::delete('/destroy/{id}', [CreditNotesController::class, 'destroy'])->name('finance.creditnotes.destroy')->middleware('permission:finance-creditnotes-destroy');
             });
 
 
             Route::prefix("invoices")->group(function () {
-                Route::get('/', [InvoicesController::class, 'index'])->name('finance.invoices.index')->middleware('permission:Finance-invoices-index');
-                Route::get('/create', [InvoicesController::class, 'create'])->name('finance.invoices.create')->middleware('permission:Finance-invoices-create');
-                Route::post('/store', [InvoicesController::class, 'store'])->name('finance.invoices.store')->middleware('permission:Finance-invoices-store');
-                Route::get('/show/{id}', [InvoicesController::class, 'show'])->name('finance.invoices.show')->middleware('permission:Finance-invoices-show');
-                Route::get('/edit/{id}', [InvoicesController::class, 'edit'])->name('finance.invoices.edit')->middleware('permission:Finance-invoices-edit');
-                Route::put('/update/{id}', [InvoicesController::class, 'update'])->name('finance.invoices.update')->middleware('permission:Finance-invoices-update');
-                Route::delete('/destroy/{id}', [InvoicesController::class, 'destroy'])->name('finance.invoices.destroy')->middleware('permission:Finance-invoices-destroy');
+                Route::get('/', [InvoicesController::class, 'index'])->name('finance.invoices.index')->middleware('permission:finance-invoices-index');
+                Route::get('/create', [InvoicesController::class, 'create'])->name('finance.invoices.create')->middleware('permission:finance-invoices-create');
+                Route::post('/store', [InvoicesController::class, 'store'])->name('finance.invoices.store')->middleware('permission:finance-invoices-store');
+                Route::get('/show/{id}', [InvoicesController::class, 'show'])->name('finance.invoices.show')->middleware('permission:finance-invoices-show');
+                Route::get('/edit/{id}', [InvoicesController::class, 'edit'])->name('finance.invoices.edit')->middleware('permission:finance-invoices-edit');
+                Route::put('/update/{id}', [InvoicesController::class, 'update'])->name('finance.invoices.update')->middleware('permission:finance-invoices-update');
+                Route::delete('/destroy/{id}', [InvoicesController::class, 'destroy'])->name('finance.invoices.destroy')->middleware('permission:finance-invoices-destroy');
             });
 
             Route::prefix("estimates")->group(function () {
-                Route::get('/', [EstimatesController::class, 'index'])->name('finance.estimates.index')->middleware('permission:Finance-estimates-index');
-                Route::get('/create', [EstimatesController::class, 'create'])->name('finance.estimates.create')->middleware('permission:Finance-estimates-create');
-                Route::post('/store', [EstimatesController::class, 'store'])->name('finance.estimates.store')->middleware('permission:Finance-estimates-store');
-                Route::get('/show/{id}', [EstimatesController::class, 'show'])->name('finance.estimates.show')->middleware('permission:Finance-estimates-show');
-                Route::get('/edit/{id}', [EstimatesController::class, 'edit'])->name('finance.estimates.edit')->middleware('permission:Finance-estimates-edit');
-                Route::put('/update/{id}', [EstimatesController::class, 'update'])->name('finance.estimates.update')->middleware('permission:Finance-estimates-update');
-                Route::delete('/destroy/{id}', [EstimatesController::class, 'destroy'])->name('finance.estimates.destroy')->middleware('permission:Finance-estimates-destroy');
+                Route::get('/', [EstimatesController::class, 'index'])->name('finance.estimates.index')->middleware('permission:finance-estimates-index');
+                Route::get('/create', [EstimatesController::class, 'create'])->name('finance.estimates.create')->middleware('permission:finance-estimates-create');
+                Route::post('/store', [EstimatesController::class, 'store'])->name('finance.estimates.store')->middleware('permission:finance-estimates-store');
+                Route::get('/show/{id}', [EstimatesController::class, 'show'])->name('finance.estimates.show')->middleware('permission:finance-estimates-show');
+                Route::get('/edit/{id}', [EstimatesController::class, 'edit'])->name('finance.estimates.edit')->middleware('permission:finance-estimates-edit');
+                Route::put('/update/{id}', [EstimatesController::class, 'update'])->name('finance.estimates.update')->middleware('permission:finance-estimates-update');
+                Route::delete('/destroy/{id}', [EstimatesController::class, 'destroy'])->name('finance.estimates.destroy')->middleware('permission:finance-estimates-destroy');
             });
 
 
 
             Route::prefix("proposal")->group(function () {
-                Route::get('/', [ProposalController::class, 'index'])->name('finance.proposal.index')->middleware('permission:Finance-proposal-index');
-                Route::get('/create', [ProposalController::class, 'create'])->name('finance.proposal.create')->middleware('permission:Finance-proposal-create');
-                Route::post('/store', [ProposalController::class, 'store'])->name('finance.proposal.store')->middleware('permission:Finance-proposal-store');
-                Route::get('/show/{id}', [ProposalController::class, 'show'])->name('finance.proposal.show')->middleware('permission:Finance-proposal-show');
-                Route::get('/edit/{id}', [ProposalController::class, 'edit'])->name('finance.proposal.edit')->middleware('permission:Finance-proposal-edit');
-                Route::put('/update/{id}', [ProposalController::class, 'update'])->name('finance.proposal.update')->middleware('permission:Finance-proposal-update');
-                Route::delete('/destroy/{id}', [ProposalController::class, 'destroy'])->name('finance.proposal.destroy')->middleware('permission:Finance-proposal-destroy');
+                Route::get('/', [ProposalController::class, 'index'])->name('finance.proposal.index')->middleware('permission:finance-proposal-index');
+                Route::get('/create', [ProposalController::class, 'create'])->name('finance.proposal.create')->middleware('permission:finance-proposal-create');
+                Route::post('/store', [ProposalController::class, 'store'])->name('finance.proposal.store')->middleware('permission:finance-proposal-store');
+                Route::get('/show/{id}', [ProposalController::class, 'show'])->name('finance.proposal.show')->middleware('permission:finance-proposal-show');
+                Route::get('/edit/{id}', [ProposalController::class, 'edit'])->name('finance.proposal.edit')->middleware('permission:finance-proposal-edit');
+                Route::put('/update/{id}', [ProposalController::class, 'update'])->name('finance.proposal.update')->middleware('permission:finance-proposal-update');
+                Route::delete('/destroy/{id}', [ProposalController::class, 'destroy'])->name('finance.proposal.destroy')->middleware('permission:finance-proposal-destroy');
             });
 
 
             Route::prefix("financeExpenses")->group(function () {
-                Route::get('/', [FinanceExpensesController::class, 'index'])->name('finance.financeexpenses.index')->middleware('permission:Finance-financeExpenses-index');
-                Route::get('/create', [FinanceExpensesController::class, 'create'])->name('finance.financeexpenses.create')->middleware('permission:Finance-financeExpenses-create');
-                Route::post('/store', [FinanceExpensesController::class, 'store'])->name('finance.financeexpenses.store')->middleware('permission:Finance-financeExpenses-store');
-                Route::get('/show/{id}', [FinanceExpensesController::class, 'show'])->name('finance.financeexpenses.show')->middleware('permission:Finance-financeExpenses-show');
-                Route::get('/edit/{id}', [FinanceExpensesController::class, 'edit'])->name('finance.financeexpenses.edit')->middleware('permission:Finance-financeExpenses-edit');
-                Route::put('/update/{id}', [FinanceExpensesController::class, 'update'])->name('finance.financeexpenses.update')->middleware('permission:Finance-financeExpenses-update');
-                Route::delete('/destroy/{id}', [FinanceExpensesController::class, 'destroy'])->name('finance.financeexpenses.destroy')->middleware('permission:Finance-financeExpenses-destroy');
+                Route::get('/', [FinanceExpensesController::class, 'index'])->name('finance.financeexpenses.index')->middleware('permission:finance-financeExpenses-index');
+                Route::get('/create', [FinanceExpensesController::class, 'create'])->name('finance.financeexpenses.create')->middleware('permission:finance-financeExpenses-create');
+                Route::post('/store', [FinanceExpensesController::class, 'store'])->name('finance.financeexpenses.store')->middleware('permission:finance-financeExpenses-store');
+                Route::get('/show/{id}', [FinanceExpensesController::class, 'show'])->name('finance.financeexpenses.show')->middleware('permission:finance-financeExpenses-show');
+                Route::get('/edit/{id}', [FinanceExpensesController::class, 'edit'])->name('finance.financeexpenses.edit')->middleware('permission:finance-financeExpenses-edit');
+                Route::put('/update/{id}', [FinanceExpensesController::class, 'update'])->name('finance.financeexpenses.update')->middleware('permission:finance-financeExpenses-update');
+                Route::delete('/destroy/{id}', [FinanceExpensesController::class, 'destroy'])->name('finance.financeexpenses.destroy')->middleware('permission:finance-financeExpenses-destroy');
             });
 
 
             Route::prefix("financePay")->group(function () {
-                Route::get('/', [FinancePayController::class, 'index'])->name('finance.financepay.index')->middleware('permission:Finance-financePay-index');
-                Route::get('/create', [FinancePayController::class, 'create'])->name('finance.financepay.create')->middleware('permission:Finance-financePay-create');
-                Route::post('/store', [FinancePayController::class, 'store'])->name('finance.financepay.store')->middleware('permission:Finance-financePay-store');
-                Route::get('/show/{id}', [FinancePayController::class, 'show'])->name('finance.financepay.show')->middleware('permission:Finance-financePay-show');
-                Route::get('/edit/{id}', [FinancePayController::class, 'edit'])->name('finance.financepay.edit')->middleware('permission:Finance-financePay-edit');
-                Route::put('/update/{id}', [FinancePayController::class, 'update'])->name('finance.financepay.update')->middleware('permission:Finance-financePay-update');
-                Route::delete('/destroy/{id}', [FinancePayController::class, 'destroy'])->name('finance.financepay.destroy')->middleware('permission:Finance-financePay-destroy');
+                Route::get('/', [FinancePayController::class, 'index'])->name('finance.financepay.index')->middleware('permission:finance-financePay-index');
+                Route::get('/create', [FinancePayController::class, 'create'])->name('finance.financepay.create')->middleware('permission:finance-financePay-create');
+                Route::post('/store', [FinancePayController::class, 'store'])->name('finance.financepay.store')->middleware('permission:finance-financePay-store');
+                Route::get('/show/{id}', [FinancePayController::class, 'show'])->name('finance.financepay.show')->middleware('permission:finance-financePay-show');
+                Route::get('/edit/{id}', [FinancePayController::class, 'edit'])->name('finance.financepay.edit')->middleware('permission:finance-financePay-edit');
+                Route::put('/update/{id}', [FinancePayController::class, 'update'])->name('finance.financepay.update')->middleware('permission:finance-financePay-update');
+                Route::delete('/destroy/{id}', [FinancePayController::class, 'destroy'])->name('finance.financepay.destroy')->middleware('permission:finance-financePay-destroy');
             });
 
 
             Route::prefix("advancerequest")->group(function () {
-                Route::get('/', [AdvancerequestController::class, 'index'])->name('finance.advancerequest.index')->middleware('permission:Finance-advancerequest-index');
-                Route::get('/create', [AdvancerequestController::class, 'create'])->name('finance.advancerequest.create')->middleware('permission:Finance-advancerequest-create');
-                Route::post('/store', [AdvancerequestController::class, 'store'])->name('finance.advancerequest.store')->middleware('permission:Finance-advancerequest-store');
-                Route::get('/show/{id}', [AdvancerequestController::class, 'show'])->name('finance.advancerequest.show')->middleware('permission:Finance-advancerequest-show');
-                Route::get('/edit/{id}', [AdvancerequestController::class, 'edit'])->name('finance.advancerequest.edit')->middleware('permission:Finance-advancerequest-edit');
-                Route::put('/update/{id}', [AdvancerequestController::class, 'update'])->name('finance.advancerequest.update')->middleware('permission:Finance-advancerequest-update');
-                Route::delete('/destroy/{id}', [AdvancerequestController::class, 'destroy'])->name('finance.advancerequest.destroy')->middleware('permission:Finance-advancerequest-destroy');
+                Route::get('/', [AdvancerequestController::class, 'index'])->name('finance.advancerequest.index')->middleware('permission:finance-advancerequest-index');
+                Route::get('/create', [AdvancerequestController::class, 'create'])->name('finance.advancerequest.create')->middleware('permission:finance-advancerequest-create');
+                Route::post('/store', [AdvancerequestController::class, 'store'])->name('finance.advancerequest.store')->middleware('permission:finance-advancerequest-store');
+                Route::get('/show/{id}', [AdvancerequestController::class, 'show'])->name('finance.advancerequest.show')->middleware('permission:finance-advancerequest-show');
+                Route::get('/edit/{id}', [AdvancerequestController::class, 'edit'])->name('finance.advancerequest.edit')->middleware('permission:finance-advancerequest-edit');
+                Route::put('/update/{id}', [AdvancerequestController::class, 'update'])->name('finance.advancerequest.update')->middleware('permission:finance-advancerequest-update');
+                Route::delete('/destroy/{id}', [AdvancerequestController::class, 'destroy'])->name('finance.advancerequest.destroy')->middleware('permission:finance-advancerequest-destroy');
             });
 
 
 
             Route::prefix("cashrequest")->group(function () {
-                Route::get('/', [CashrequestController::class, 'index'])->name('finance.cashrequest.index')->middleware('permission:Finance-cashrequest-index');
-                Route::get('/create', [CashrequestController::class, 'create'])->name('finance.cashrequest.create')->middleware('permission:Finance-cashrequest-create');
-                Route::post('/store', [CashrequestController::class, 'store'])->name('finance.cashrequest.store')->middleware('permission:Finance-cashrequest-store');
-                Route::get('/show/{id}', [CashrequestController::class, 'show'])->name('finance.cashrequest.show')->middleware('permission:Finance-cashrequest-show');
-                Route::get('/edit/{id}', [CashrequestController::class, 'edit'])->name('finance.cashrequest.edit')->middleware('permission:Finance-cashrequest-edit');
-                Route::put('/update/{id}', [CashrequestController::class, 'update'])->name('finance.cashrequest.update')->middleware('permission:Finance-cashrequest-update');
-                Route::delete('/destroy/{id}', [CashrequestController::class, 'destroy'])->name('finance.cashrequest.destroy')->middleware('permission:Finance-cashrequest-destroy');
+                Route::get('/', [CashrequestController::class, 'index'])->name('finance.cashrequest.index')->middleware('permission:finance-cashrequest-index');
+                Route::get('/create', [CashrequestController::class, 'create'])->name('finance.cashrequest.create')->middleware('permission:finance-cashrequest-create');
+                Route::post('/store', [CashrequestController::class, 'store'])->name('finance.cashrequest.store')->middleware('permission:finance-cashrequest-store');
+                Route::get('/show/{id}', [CashrequestController::class, 'show'])->name('finance.cashrequest.show')->middleware('permission:finance-cashrequest-show');
+                Route::get('/edit/{id}', [CashrequestController::class, 'edit'])->name('finance.cashrequest.edit')->middleware('permission:finance-cashrequest-edit');
+                Route::put('/update/{id}', [CashrequestController::class, 'update'])->name('finance.cashrequest.update')->middleware('permission:finance-cashrequest-update');
+                Route::delete('/destroy/{id}', [CashrequestController::class, 'destroy'])->name('finance.cashrequest.destroy')->middleware('permission:finance-cashrequest-destroy');
             });
 
 
             Route::prefix("expensesclaim")->group(function () {
-                Route::get('/', [ExpensesclaimController::class, 'index'])->name('finance.expensesclaim.index')->middleware('permission:Finance-expensesclaim-index');
-                Route::get('/create', [ExpensesclaimController::class, 'create'])->name('finance.expensesclaim.create')->middleware('permission:Finance-expensesclaim-create');
-                Route::post('/store', [ExpensesclaimController::class, 'store'])->name('finance.expensesclaim.store')->middleware('permission:Finance-expensesclaim-store');
-                Route::get('/show/{id}', [ExpensesclaimController::class, 'show'])->name('finance.expensesclaim.show')->middleware('permission:Finance-expensesclaim-show');
-                Route::get('/edit/{id}', [ExpensesclaimController::class, 'edit'])->name('finance.expensesclaim.edit')->middleware('permission:Finance-expensesclaim-edit');
-                Route::put('/update/{id}', [ExpensesclaimController::class, 'update'])->name('finance.expensesclaim.update')->middleware('permission:Finance-expensesclaim-update');
-                Route::delete('/destroy/{id}', [ExpensesclaimController::class, 'destroy'])->name('finance.expensesclaim.destroy')->middleware('permission:Finance-expensesclaim-destroy');
+                Route::get('/', [ExpensesclaimController::class, 'index'])->name('finance.expensesclaim.index')->middleware('permission:finance-expensesclaim-index');
+                Route::get('/create', [ExpensesclaimController::class, 'create'])->name('finance.expensesclaim.create')->middleware('permission:finance-expensesclaim-create');
+                Route::post('/store', [ExpensesclaimController::class, 'store'])->name('finance.expensesclaim.store')->middleware('permission:finance-expensesclaim-store');
+                Route::get('/show/{id}', [ExpensesclaimController::class, 'show'])->name('finance.expensesclaim.show')->middleware('permission:finance-expensesclaim-show');
+                Route::get('/edit/{id}', [ExpensesclaimController::class, 'edit'])->name('finance.expensesclaim.edit')->middleware('permission:finance-expensesclaim-edit');
+                Route::put('/update/{id}', [ExpensesclaimController::class, 'update'])->name('finance.expensesclaim.update')->middleware('permission:finance-expensesclaim-update');
+                Route::delete('/destroy/{id}', [ExpensesclaimController::class, 'destroy'])->name('finance.expensesclaim.destroy')->middleware('permission:finance-expensesclaim-destroy');
             });
         }
 

@@ -106,7 +106,7 @@
 
                                         <div class="col-lg-12">
                                             {{ createLabel('Skills', 'form-label col-form-label', 'Skills') }}
-                                            <select name="skills[]" class="form-select skills" multiple>
+                                            <select name="skills[]" class="form-select form-control skills" multiple>
 
                                             </select>
                                         </div>
