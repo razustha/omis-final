@@ -358,7 +358,8 @@ a[data-goto]:hover {
 
 .fc-event .fc-content {
     position: relative;
-    z-index: 2
+    z-index: 2;
+    text-align: center;
 }
 
 .fc-event .fc-resizer {

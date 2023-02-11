@@ -96,8 +96,9 @@
                                         </div>
 
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 mt-3">
                                             {{ createDate('joinDate', 'joinDate', 'Join Date') }}
+                                            {{-- <input type="text" id="nepali-datepicker" placeholder="Select Nepali Date" name="joinDate"/> --}}
                                         </div>
                                         <div class="col-lg-6">
                                             {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
@@ -233,6 +234,13 @@
 </form>
 
 <script>
+    $(document).ready(function(){
+        $(document).on('click', '#nepali-datepicker', function(e) {
+            var mainInput = document.getElementById("nepali-datepicker");
+            mainInput.nepaliDatePicker();
+        });
+    });
+
     // Fetch state according to country
     $('#country_id').on('change',function(e){
         e.preventDefault();

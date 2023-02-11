@@ -20,6 +20,8 @@
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Employee', 'hr.employee.create') !!}
+                                    {{-- <input type="text" id="nepali-datepicker" placeholder="Select Nepali Date" name="joinDate"/> --}}
+
                                 </ul>
                             </div>
                         </div>
@@ -138,3 +140,15 @@
     </div>
 
 @endsection
+
+@section('js')
+<script>
+
+    window.onload = function () {
+        var mainInput = document.getElementById("nepali-datepicker");
+        mainInput.nepaliDatePicker();
+    };
+
+</script>
+@endsection
+
