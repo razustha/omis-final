@@ -83,6 +83,7 @@
                     success: function(data) {
                         var availableTags = new Object();
                         var Holiday = new Object();
+                        var Leave = new Object();
                         // @if(isset($absentrequestleaveforcalender))
                         //     @foreach($absentrequestleaveforcalender as $data)
                         //         @if(isset($data->user->name))
@@ -103,6 +104,18 @@
                                 Holiday.end = moment("{{$data->eventEndDate}}").add(1, 'days');
                                 Holiday.color = '#f1556c';
                                 $('#calendar').fullCalendar('renderEvent', Holiday);
+                            @endforeach
+                        @endif
+
+                        @if(!empty($leaves))
+                            @foreach($leaves as $data)
+                                @if(!empty($data->employee))
+                                    Leave.title = "{{$data->employee->firstName}} (Leave)";
+                                @endif
+                                Leave.start = moment("{{$data->leaveStart}}").format();
+                                Leave.end = moment("{{$data->leaveEnd}}").add(1, 'days');
+                                Leave.color = '#f1556c';
+                                $('#calendar').fullCalendar('renderEvent', Leave);
                             @endforeach
                         @endif
 

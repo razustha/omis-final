@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.dataTables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/customdatatable.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/nepali.datepicker.v4.0.1.min.css') }}">
 
 
 
@@ -33,6 +34,7 @@
             </div>
         </div>
     </div>
+
 
     {{-- Update CheckIn --}}
     <!-- <div class="modal fade update_CheckIn" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
@@ -83,7 +85,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+    <script src="{{ asset('assets/js/nepali.datepicker.v4.0.1.min.js') }}"></script>
     <script>
+        $(document).on('click', '#nepali-datepicker', function(e) {
+            var mainInput = document.getElementById("nepali-datepicker");
+            mainInput.nepaliDatePicker();
+        });
+
+
         $(document).on('click', ".btn-hover-danger", function() {
             let _token = "{{ csrf_token() }}";
 
@@ -146,6 +155,8 @@
                 success: function(res) {
                     $("#addConvasByAjax").html(res.content);
                     $('.lfm').filemanager('image');
+                    let mainInput = document.getElementById("nepali-datepicker1");
+                    mainInput.nepaliDatePicker();
 
                 }
             })
@@ -256,6 +267,8 @@
 
 
     </script>
+
+
     @yield('js')
     @stack('js')
 </body>
