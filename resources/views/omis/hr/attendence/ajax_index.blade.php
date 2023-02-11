@@ -114,7 +114,7 @@
                                         @endif
                                     @endforeach
                                         <th class="tb-col">
-                                           <p> 12/31</p>
+                                           <!-- <p> 12/31</p> -->
                                         </th>
                                 </tr>
                             </tbody>

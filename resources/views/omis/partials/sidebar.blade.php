@@ -30,10 +30,11 @@
                             <span class="nk-menu-text">Dashboard</span>
                         </a>
                     </li>
-
+                    @can('settings-users-index')
                     <li class="nk-menu-heading">
                         <h6 class="overline-title">Settings</h6>
                     </li>
+                    @endcan
 
                     @role("super-super-admin")
                     <li class="nk-menu-item has-sub">
@@ -57,43 +58,56 @@
                     </li>
                     @endrole
 
-                      
+                    @if(Gate::check('settings-users-index') || Gate::check('settings-role-index')
+                    || Gate::check('settings-permission-index'))
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-list-index-fill"></em></span>
                             <span class="nk-menu-text">User Management</span></a>
                         <ul class="nk-menu-sub">
-                         
+                       @can('settings-users-index')
                             <li class="nk-menu-item"><a href="{{ route('setting.users.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">User</span></a>
                             </li>
-                         
+                            @endcan
+                         @can('settings-role-index')
                             <li class="nk-menu-item"><a href="{{ route('setting.role.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Role</span></a>
                             </li>
-                           
+                           @endcan
+                           @can('settings-permission-index')
                             <li class="nk-menu-item"><a href="{{ route('setting.permission.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Permissions</span></a>
                             </li>
+                            @endcan
                          
                         </ul>
                     </li>
+                    @endif
+                   
                  
                 
-
+                    @if(Gate::check('settings-organization-index'))
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
                             <span class="nk-menu-text">Settings</span></a>
                         <ul class="nk-menu-sub">
 
-
+                          @can('settings-organization-index')
                             <li class="nk-menu-item"><a href="{{ route('settings.organizationsettings.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Organization
                                         Setting</span></a></li>
+                                        @endcan
+                                  
+                                  
+                                        
 
                         </ul>
                     </li>
+                    @endif
+                   
+                   
                     {{-- <li class="nk-menu-item ">
                         <a href="#" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
