@@ -7,19 +7,19 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title">Promotion Demotion</h1>
+                                <h2 class="nk-block-title">Promotion / Demotion</h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                            <li class="breadcrumb-item"><a href="#">Promotiondemotion</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Promotiondemotion Manage</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Promotiondemotion
+                                            <li class="breadcrumb-item"><a href="#">Promotion / Demotion</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Promotion / Demotion Manage</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Promotion Demotion
                                             </li>
                                         </ol>
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
-                                    {!! createCanvasButton('customBtnAdd', '', 'Promotiondemotion', 'hr.promotiondemotion.create') !!}
+                                    {!! createCanvasButton('customBtnAdd', '', 'Promotion Demotion', 'hr.promotiondemotion.create') !!}
                                 </ul>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                                         {{-- <th class="tb-col"><span class="overline-title">company_id</span></th> --}}
                                         <th class="tb-col"><span class="overline-title">employee</span></th>
                                         <th class="tb-col"><span class="overline-title">Title</span></th>
-                                        <th class="tb-col"><span class="overline-title">promotion Date</span></th>
+                                        <th class="tb-col"><span class="overline-title">Date</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">description</span></th>
                                         <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                         <th class="tb-col"><span class="overline-title">status</span></th>

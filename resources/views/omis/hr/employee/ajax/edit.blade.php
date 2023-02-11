@@ -89,7 +89,7 @@
                                             <h2 class="mt-3">Organization Role</h2>
                                         </div>
                                         <div class="col-lg-4">
-                                            {{ customCreateSelect('role_id','role_id','','User Role',getRoles()->pluck('name', 'id')->toArray()) }}
+                                            {{ customCreateSelect('role_id','role_id','','User Role',getRoles()->pluck('name', 'id')->toArray(),$data->role_id) }}
                                         </div>
 
                                         <div class="col-lg-4">

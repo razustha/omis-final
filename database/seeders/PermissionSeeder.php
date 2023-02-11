@@ -1132,6 +1132,36 @@ class PermissionSeeder extends Seeder
                     'settings-organization-destroy',
 
                 ],
+                'users' => [
+                    'settings-users-index',
+                    'settings-users-create',
+                    'settings-users-store',
+                    'settings-users-show',
+                    'settings-users-edit ',
+                    'settings-users-update',
+                    'settings-users-destroy',
+
+                ],
+                'permission' => [
+                    'settings-permission-index',
+                    'settings-permission-create',
+                    'settings-permission-store',
+                    'settings-permission-show',
+                    'settings-permission-edit ',
+                    'settings-permission-update',
+                    'settings-permission-destroy',
+
+                ],
+                'role' => [
+                    'settings-role-index',
+                    'settings-role-create',
+                    'settings-role-store',
+                    'settings-role-show',
+                    'settings-role-edit ',
+                    'settings-role-update',
+                    'settings-role-destroy',
+
+                ],
             ]
 
 
