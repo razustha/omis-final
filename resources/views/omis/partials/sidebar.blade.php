@@ -30,11 +30,12 @@
                             <span class="nk-menu-text">Dashboard</span>
                         </a>
                     </li>
-
+                   
                     <li class="nk-menu-heading">
                         <h6 class="overline-title">Settings</h6>
                     </li>
 
+                    @role("super-super-admin")
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-package"></em></span>
@@ -54,8 +55,9 @@
                             </li>
                         </ul>
                     </li>
+                    @endrole
 
-
+                 
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-list-index-fill"></em></span>
@@ -72,6 +74,7 @@
                             </li>
                         </ul>
                     </li>
+                 
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
@@ -91,7 +94,7 @@
                                                                         class="icon ni ni-setting"></em></span>
                                                         <span class="nk-menu-text">Settings</span></a>
                                         </li> --}}
-
+                    @role("super-super-admin")
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-file-docs"></em></span><span
                                 class="nk-menu-text">forms</span></a>
@@ -101,6 +104,10 @@
                             </li>
                         </ul>
                     </li>
+                    @endrole
+                
+                    @can('master-country-index')
+
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-account-setting-fill"></em></span><span
                                 class="nk-menu-text">Master</span></a>
@@ -168,10 +175,11 @@
                                         Type</span></a></li>
                         </ul>
                     </li>
+                    @endcan
                     <li class="nk-menu-heading">
                         <h6 class="overline-title">Applications Forms</h6>
                     </li>
-
+                      @can('hr-employee-index') 
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-account-setting-fill"></em></span><span
                                 class="nk-menu-text">HR</span></a>
@@ -192,11 +200,7 @@
                                         class="nk-menu-link"><span class="nk-menu-text">Designation</span></a>
                                 </li>
                             @endcan
-                            @can('hr-leaveapplication-index')
-                                <li class="nk-menu-item"><a href="{{ route('hr.leaveapplication.index') }}"
-                                        class="nk-menu-link"><span class="nk-menu-text">Leaves </span></a>
-                                </li>
-                            @endcan
+                           
                             @can('hr-shiftroster-index')
                                 <li class="nk-menu-item"><a href="{{ route('hr.shiftroster.index') }}"
                                         class="nk-menu-link"><span class="nk-menu-text">Shift
@@ -257,8 +261,14 @@
 
                         </ul>
                     </li>
+                    @endcan
+                 
 
-
+<li class="nk-menu-item has-sub"><a href="{{ route('hr.leaveapplication.index') }}" class="nk-menu-link"><span
+    class="nk-menu-icon"><em class="icon ni ni-briefcase"></em></span><span
+    class="nk-menu-text">Leaves</span></a>
+    </li>
+                    @can('crm-clients-index')
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-centos"></em></span><span
                                 class="nk-menu-text">CRM</span></a>
@@ -275,6 +285,7 @@
                             @endcan
                         </ul>
                     </li>
+                    @endcan
 
 
                     <li class="nk-menu-item"><a href="{{ route('getcalendar') }}" class="nk-menu-link"><span
@@ -438,7 +449,7 @@
                     </li>
 
 
-
+                    @can('recruit-jobinterview-index')
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-signin"></em></span><span
                                 class="nk-menu-text">Recruit</span></a>
@@ -482,6 +493,7 @@
 
                         </ul>
                     </li>
+                    @endcan
 
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-user-check-fill"></em></span><span

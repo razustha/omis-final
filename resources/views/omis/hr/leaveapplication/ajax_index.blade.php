@@ -55,7 +55,7 @@
                                 <tr>
                                     <td class="tb-col">{{ $i++ }}</td>
                                     
-                                    <td class="tb-col">{{ $item->employee->firstName }}{{ $item->employee->middleName }}
+                                    <td class="tb-col">{{ $item->employee->firstName }}{{ $item->employee->middleName }} {{ $item->employee->lastName }}
                                     </td>
                                     <td class="tb-col">{{ $item->leaveType }}</td>
 
