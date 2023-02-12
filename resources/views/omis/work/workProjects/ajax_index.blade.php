@@ -17,7 +17,7 @@
                                         </ol>
                                     </nav>
                             </div>
-                            @if(empty(auth()->user()->hasRole('super-admin')))
+                            @if(empty(auth()->user()->hasRole('super-super-admin')))
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'projects', 'work.workprojects.create') !!}
@@ -83,6 +83,8 @@
                                             </li>
                                             <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'work.workprojects.destroy',
                                                 $item->workProject_id) !!}</li>
+
+                                            @if(empty($item->tasks[0]))
                                             <li>
                                                 <button
                                                     class="btn btn-primary rounded-pill btn-sm mt-1 btn-workprojectcomplete"
@@ -90,6 +92,7 @@
                                                     Complete Project
                                                 </button>
                                             </li>
+                                            @endif
                                         </ul>
                                         @endif
                                     </td>
