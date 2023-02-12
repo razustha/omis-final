@@ -51,16 +51,12 @@
                                                 'Nationality Name',
                                             ) !!}
                                         </div>
-                                        <div class="col-lg-4">
-                                            {{ createPassword('password', 'password', 'Password', '', $data->password) }}
-                                        </div>
+                                       
                                         <div class="col-lg-4">
                                             {{ createText('phoneNumber', 'phoneNumber', 'Phone Number', '', $data->phoneNumber) }}
                                         </div>
 
-                                        <div class="col-lg-4">
-                                            {{ createEmail('emailAddress', 'emailAddress', 'Email Address', '', $data->emailAddress) }}
-                                        </div>
+                                        
 
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Address Details</h2>
@@ -101,9 +97,9 @@
                                         <div class="col-lg-4">
                                             {{-- {{ createText('reportingTo', 'reportingTo', 'ReportingTo', '','', $data->reportingTo,'Reporting To') }} --}}
                                             {!! getSelectForForeignColumn(
-                                                'tbl_employeelist',
+                                                'tbl_employee',
                                                 'employee_id',
-                                                'employeeFullName',
+                                                'firstName',
                                                 '',
                                                 $data->reportingTo,
                                                 'Reporting To',

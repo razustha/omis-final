@@ -32,7 +32,6 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
                                         <th class="tb-col"><span class="overline-title">Designation</span></th>
 
-                                        <th class="tb-col"><span class="overline-title">Department</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                         <th class="tb-col"><span class="overline-title">status</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
@@ -48,7 +47,7 @@
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->designationName }}</td>
 
-                                            <td class="tb-col">{{ $item->department_id }}</td>
+                                           
                                             <!-- <td class="tb-col">{{ $item->alias }}</td> -->
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
