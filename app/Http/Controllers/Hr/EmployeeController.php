@@ -147,8 +147,8 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = Employee::findOrFail($id);
-        $data->skills = null;
+        $employee = Employee::findOrFail($id);
+        $employee->skills = null;
         if ($request->skills) {
             $skills = collect($request->skills);
         }
@@ -157,9 +157,9 @@ class EmployeeController extends Controller
             $request['skills'] = $skills->implode(',');
         }
         $request['organization_id'] = auth()->user()->id;
-        $employee = $data->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
+        $employee->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
         $user = User::find($employee->user_id);
-        if($user){
+        if ($user) {
             $user->roles()->sync([$request->role_id]);
         }
 
@@ -225,7 +225,7 @@ class EmployeeController extends Controller
     public function getDepartmentEmployee(Request $request)
     {
         $department_id = $request->department_id;
-        $data = Employee::where('organization_id',auth()->user()->employee->organization_id)->where('department_id',$department_id)->orderBy('created_at', 'desc')->get();
+        $data = Employee::where('organization_id', auth()->user()->employee->organization_id)->where('department_id', $department_id)->orderBy('created_at', 'desc')->get();
 
         return response()->json(['status' => 200, 'message' => $data]);
     }
