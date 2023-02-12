@@ -100,7 +100,7 @@
                                         <div class="d-flex align-items-center">
                                             <p>{{$user->name}}</p>
                                         </div>
-                                        <p class="smaller">Web Tech Department</p>
+                                        <p class="smaller">{{$user->email}}</p>
                                     </td>
                                     @foreach ($user->getAllAttendence($user->id) as $key => $attendence)
                                         @if($key == $attendence)
@@ -114,7 +114,7 @@
                                         @endif
                                     @endforeach
                                         <th class="tb-col">
-                                           <p> 12/31</p>
+                                           <p> 0/31</p>
                                         </th>
                                 </tr>
                             </tbody>

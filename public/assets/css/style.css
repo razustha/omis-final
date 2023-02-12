@@ -4659,7 +4659,7 @@ fieldset:disabled .btn {
 
     .navbar-expand-sm .offcanvas {
         position: static;
-        z-index: auto;
+        z-index: 999;
         flex-grow: 1;
         width: auto !important;
         height: auto !important;
@@ -27404,7 +27404,7 @@ a.fc-event-darker-soft {
     margin-top: 10px;
     border-top: 1px solid #e8e7ec;
     padding: .5rem .5rem;
-   
+
 
 }
 

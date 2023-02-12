@@ -30,10 +30,11 @@
                             <span class="nk-menu-text">Dashboard</span>
                         </a>
                     </li>
-
+                    @can('settings-users-index')
                     <li class="nk-menu-heading">
                         <h6 class="overline-title">Settings</h6>
                     </li>
+                    @endcan
 
                     @role("super-super-admin")
                     <li class="nk-menu-item has-sub">
@@ -57,42 +58,56 @@
                     </li>
                     @endrole
 
-                       @can('setting-users-index') 
+                    @if(Gate::check('settings-users-index') || Gate::check('settings-role-index')
+                    || Gate::check('settings-permission-index'))
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-list-index-fill"></em></span>
                             <span class="nk-menu-text">User Management</span></a>
                         <ul class="nk-menu-sub">
-                         
+                       @can('settings-users-index')
                             <li class="nk-menu-item"><a href="{{ route('setting.users.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">User</span></a>
                             </li>
-                         
+                            @endcan
+                         @can('settings-role-index')
                             <li class="nk-menu-item"><a href="{{ route('setting.role.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Role</span></a>
                             </li>
-                           
+                           @endcan
+                           @can('settings-permission-index')
                             <li class="nk-menu-item"><a href="{{ route('setting.permission.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Permissions</span></a>
                             </li>
+                            @endcan
                          
                         </ul>
                     </li>
-                    @endcan
-
+                    @endif
+                   
+                 
+                
+                    @if(Gate::check('settings-organization-index'))
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
                             <span class="nk-menu-text">Settings</span></a>
                         <ul class="nk-menu-sub">
 
-
+                          @can('settings-organization-index')
                             <li class="nk-menu-item"><a href="{{ route('settings.organizationsettings.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Organization
                                         Setting</span></a></li>
+                                        @endcan
+                                  
+                                  
+                                        
 
                         </ul>
                     </li>
+                    @endif
+                   
+                   
                     {{-- <li class="nk-menu-item ">
                         <a href="#" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
@@ -566,6 +581,10 @@
                         </ul>
                     </li>
                     @endif
+                    @if(Gate::check('training-trainingtype-index') || Gate::check('training-traininglist-index')
+                    || Gate::check('training-trainer-index'))
+                   
+
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-shield-half"></em></span><span
                                 class="nk-menu-text">Training</span></a>
@@ -587,6 +606,12 @@
                             @endcan
                         </ul>
                     </li>
+                    @endif
+                    @if(Gate::check('travelfleet-driverroster-index') || Gate::check('travelfleet-maintenancelog-index')
+                    || Gate::check('travelfleet-fleetroster-index') || Gate::check('travelfleet-fleetmanagement-index') 
+                    || Gate::check('travelfleet-travelslog-index') || Gate::check('travelfleet-vehiclelog-index')
+                    || Gate::check('travelfleet-travelrequest-index') || Gate::check('travelfleet-travelcategory-index') 
+                    || Gate::check('travelfleet-travelapproval-index') || Gate::check('travelfleet-fleetrequest-index')) 
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-map-pin-fill"></em></span><span
                                 class="nk-menu-text">Travel
@@ -644,7 +669,9 @@
                             @endcan
                         </ul>
                     </li>
-
+                    @endif
+                    @if(Gate::check('officemanagement-generatorlogbook-index') || Gate::check('officemanagement-contract-index')
+                    || Gate::check('officemanagement-purchaseservice-index') || Gate::check('officemanagement-cashdeposite-index'))
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-trend-up"></em></span><span
                                 class="nk-menu-text">Office
@@ -672,6 +699,7 @@
                             @endcan
                         </ul>
                     </li>
+                    @endif
 
 
                     <!-- <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
@@ -692,7 +720,10 @@
                         </ul>
                     </li> -->
 
-
+                    @if(Gate::check('inventory-barcodemanagement-index') || Gate::check('inventory-product-index')
+                    || Gate::check('inventory-goodreceivedreconcile-index') || Gate::check('inventory-purchaseorder-index')
+                    || Gate::check('inventory-servicelog-index') || Gate::check('inventory-purchaseentry-index')
+                    || Gate::check('inventory-stockreconcile-index') || Gate::check('inventory-service-index'))
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-bag"></em></span><span
                                 class="nk-menu-text">Inventory</span></a>
@@ -739,6 +770,10 @@
                             @endcan
                         </ul>
                     </li>
+                    @endif
+                    @if(Gate::check('reports-taskreports-index') || Gate::check('reports-financereports-index')
+                    || Gate::check('reports-leavereports-index') || Gate::check('reports-expensesreports-index')
+                    || Gate::check('reports-attendancereports-index'))
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-files"></em></span><span
                                 class="nk-menu-text">Reports</span></a>
@@ -771,6 +806,9 @@
 
                         </ul>
                     </li>
+                    @endif
+                    @if(Gate::check('eventsandmeetings-meeting-index') || Gate::check('eventsandmeetings-event-index'))
+                  
 
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-done"></em></span><span
@@ -791,9 +829,10 @@
 
                         </ul>
                     </li>
+                    @endif
 
 
-
+                    @if(Gate::check('supplier-suppliercategory-index') || Gate::check('supplier-addsupplier-index'))
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-plus-circle-fill"></em></span><span
                                 class="nk-menu-text">Supplier</span></a>
@@ -810,13 +849,14 @@
                             @endcan
                         </ul>
                     </li>
+                    @endif
 
 
 
 
 
 
-                    <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
+                    <!-- <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-files"></em></span><span
                                 class="nk-menu-text">Settings</span></a>
                         <ul class="nk-menu-sub">
@@ -831,7 +871,7 @@
                             <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span class="nk-menu-text">504
                                         Classic</span></a></li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

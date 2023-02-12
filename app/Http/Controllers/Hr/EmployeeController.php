@@ -214,7 +214,7 @@ class EmployeeController extends Controller
     public function getDepartmentEmployee(Request $request)
     {
         $department_id = $request->department_id;
-        $data = Employee::where('organization_id', auth()->user()->id)->where('department_id', $department_id)->orderBy('created_at', 'desc')->get();
+        $data = Employee::where('organization_id',auth()->user()->employee->organization_id)->where('department_id',$department_id)->orderBy('created_at', 'desc')->get();
 
         return response()->json(['status' => 200, 'message' => $data]);
     }

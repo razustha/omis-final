@@ -1,1 +1,0 @@
-@include('omis.partials.sidebar')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hr\Leaveapplication;
 use App\Models\Hr\Mangeholiday;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,16 @@ class DashboardController extends Controller
 {
     //
     public function calendar() {
+
         $allholidays = Mangeholiday::get();
-        return view('calendar.index',compact('allholidays'));
+        if(auth()->user()->user_type != "EMPLOYEE") {
+            $leaves = Leaveapplication::where('leaveApplication_status','approved')->get();
+
+        } else {
+            $leaves = Leaveapplication::where('employee_id', auth()->user()->employee->employee_id)->where('leaveApplication_status','approved')->get();
+
+        }
+        return view('calendar.index',compact('allholidays','leaves'));
 
     }
 
