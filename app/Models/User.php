@@ -14,6 +14,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Carbon\Carbon;
 use App\Permissions\HasPermissionsTrait;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Models\Settings\Organization;
 
 
 class User extends Authenticatable
@@ -116,5 +117,10 @@ class User extends Authenticatable
     public function employee()
     {
         return $this->belongsTo(Employee::class, 'email', 'emailAddress');
+    }
+
+    public function userOrganization()
+    {
+        return $this->hasOne(Organization::class,'user_id');
     }
 }

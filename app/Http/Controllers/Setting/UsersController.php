@@ -15,6 +15,8 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         $data = User::with('roles')->where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
+        if(!auth()->user()->user_type == 'SUPER ADMIN')
+            $data = User::with('roles')->where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
         // dd($data);
         if ($request->ajax()) {
             $html = view("omis.setting.users.ajax.index", compact('data'))->render();

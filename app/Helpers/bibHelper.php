@@ -527,7 +527,7 @@
 
                 function getModules()
                 {
-                    return Module::where('status', '<>', '-1')->get();
+                    return Module::where('status', '<>', '-1')->where('module_id','<>','1')->get();
                 }
 
                 ?>

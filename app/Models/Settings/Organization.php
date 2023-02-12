@@ -104,4 +104,9 @@ class Organization extends Model
             get: fn ($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
