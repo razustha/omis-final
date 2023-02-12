@@ -2,13 +2,12 @@
     @csrf
     @method('PUT')
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-6">
             {{ createText('designationName', 'designationName', 'Designation Title', '', $data->designationName) }}
             <!-- </div><div class="col-lg-6">{{ createText('compnayName_id', 'compnayName_id', 'CompnayName Id', '', $data->compnayName_id) }} -->
         </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, "Department") !!}
-        </div>
-        <div class="col-lg-4">
+       
+        <div class="col-lg-5">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
         </div>
         <div class="col-lg-12">

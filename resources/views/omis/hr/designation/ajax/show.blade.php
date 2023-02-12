@@ -23,7 +23,7 @@
 
                     <div class="d-flex justify-content-between">
                         <div class="col-xl-6">
-                            <p><b>Department:&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->department_id }}</span></p>
+                            
                             <p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                                     class="{{ $data->status == 1 ? 'text-success' : 'text-danger' }}">{{ $data->status == 1 ? 'Active' : 'Inactive' }}</span>
                             </p>

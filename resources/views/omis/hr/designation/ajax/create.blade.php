@@ -1,11 +1,10 @@
 <form action="{{ route('hr.designation.store') }}" id="storeCustomForm">
     @csrf
     <div class="row">
-        <div class="col-lg-4">{{ createText('designationName', 'designationName', 'Designation Title') }}
+        <div class="col-lg-6">{{ createText('designationName', 'designationName', 'Designation Title') }}
         </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_department', 'department_id', 'DepartmentName','','','Department') !!}
-        </div>
-        <div class="col-lg-4">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
+        
+        <div class="col-lg-6">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>
         <div class="col-lg-12">
             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}

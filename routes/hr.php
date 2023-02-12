@@ -281,8 +281,8 @@ Route::prefix('hr')->group(function () {
         Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit')->middleware('permission:hr-attendence-update');
         Route::put('/update/{id}', [AttendenceController::class, 'update'])->name('hr.attendence.update')->middleware('permission:hr-attendence-update');
         Route::delete('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy')->middleware('permission:hr-attendence-destroy');
-        Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn')->middleware('permission:hr-attendence-checkin');
-        Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut')->middleware('permission:hr-attendence-checkout');
+        Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn');//->middleware('permission:hr-attendence-checkin');
+        Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut');//->middleware('permission:hr-attendence-checkout');
     });
 
     Route::prefix("complaints")->group(function () {
