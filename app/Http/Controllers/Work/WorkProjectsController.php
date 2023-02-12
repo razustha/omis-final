@@ -119,7 +119,7 @@ use Illuminate\Http\Request;
             }
             public function updateProjectStatus(Request $request)
             {
-               
+
                 $data = WorkProjects::findOrFail($request->workProject_id);
                 $data->workProject_status = "completed";
                 if($data->save()){
@@ -133,7 +133,7 @@ use Illuminate\Http\Request;
             {
                 $department_id = $request->department_id;
                 $data = Employee::where('organization_id', auth()->user()->userOrganization->organization_id)->where('department_id', $department_id)->orderBy('created_at', 'desc')->get();
-                
+
                 return response()->json(['status' => 200, 'message' => $data]);
             }
 

@@ -531,4 +531,9 @@
                     return Module::where('status', '<>', '-1')->where('module_id','<>','1')->get();
                 }
 
+                function getReportingTo($department_id)
+                {
+                    return Employee::where('status', '<>', -1)->where('department_id', $department_id)->where('is_head', 'manager')->orderBy('created_at', 'desc')->get(); 
+                }
+
                 ?>

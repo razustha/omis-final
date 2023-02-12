@@ -1,26 +1,29 @@
 @extends('omis.partials.layouts')
 @section('content')
-<div class="nk-content">
-    <div class="container">
-        <div class="nk-content-inner">
-            <div class="nk-content-body">
-                <div class="nk-block-head">
-                    <div class="nk-block-head-between flex-wrap gap g-2">
-                        <div class="nk-block-head-content">
-                            <h2 class="nk-block-title">Projects List</h1>
-                                <nav>
-                                    <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                        <li class="breadcrumb-item"><a href="#">Projects</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Projects Manage</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Projects
-                                        </li>
-                                    </ol>
-                                </nav>
-                        </div>
-                        <div class="nk-block-head-content">
-                            <ul class="d-flex">
-                                {!! createCanvasButton('customBtnAdd', '', 'projects', 'work.workprojects.create') !!}
-                            </ul>
+    <div class="nk-content">
+        <div class="container">
+            <div class="nk-content-inner">
+                <div class="nk-content-body">
+                    <div class="nk-block-head">
+                        <div class="nk-block-head-between flex-wrap gap g-2">
+                            <div class="nk-block-head-content">
+                                <h2 class="nk-block-title">Projects List</h1>
+                                    <nav>
+                                        <ol class="breadcrumb breadcrumb-arrow mb-0">
+                                            <li class="breadcrumb-item"><a href="#">Projects</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Projects Manage</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Projects
+                                            </li>
+                                        </ol>
+                                    </nav>
+                            </div>
+                            @if(empty(auth()->user()->hasRole('super-super-admin')))
+                            <div class="nk-block-head-content">
+                                <ul class="d-flex">
+                                    {!! createCanvasButton('customBtnAdd', '', 'projects', 'work.workprojects.create') !!}
+                                </ul>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -80,6 +83,8 @@
                                             </li>
                                             <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'work.workprojects.destroy',
                                                 $item->workProject_id) !!}</li>
+
+                                            @if(empty($item->tasks[0]))
                                             <li>
                                                 <button
                                                     class="btn btn-primary rounded-pill btn-sm mt-1 btn-workprojectcomplete"
@@ -87,6 +92,7 @@
                                                     Complete Project
                                                 </button>
                                             </li>
+                                            @endif
                                         </ul>
                                         @endif
                                     </td>

@@ -69,13 +69,19 @@
                                         </div>
 
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', '', 'State Name') !!}
+                                            {{-- {!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', '', 'State Name') !!} --}}
+                                            {{  customCreateSelect('state_id', 'state_id', '','State Name', [])  }}
+
                                         </div>
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', '', 'District Name') !!}
+                                            {{-- {!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', '', 'District Name') !!} --}}
+                                            {{  customCreateSelect('district_id', 'district_id', '','District Name', [])  }}
+
                                         </div>
                                         <div class="col-lg-3">
-                                            {!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', '', 'City Name') !!}
+                                            {{-- {!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', '', 'City Name') !!} --}}
+                                            {{  customCreateSelect('city_id', 'city_id', '','City Name', [])  }}
+
                                         </div>
                                         <div class="col-lg-6">
                                             {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address') }}
@@ -101,7 +107,7 @@
                                             {{ createDate('joinDate', 'joinDate', 'Join Date') }}
                                             {{-- <input type="text" id="nepali-datepicker" placeholder="Select Nepali Date" name="joinDate"/> --}}
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 mt-3">
                                             {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
                                             {{  customCreateSelect('reportingTo', 'reportingTo', '','Reporting To', [])  }}
                                         </div>

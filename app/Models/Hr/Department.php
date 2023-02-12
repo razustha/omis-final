@@ -38,14 +38,14 @@ class Department extends Model
     protected function createdBy(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) =>  User::find($value) ? User::find($value)->name : '',
+        get: fn($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
 
     protected function updatedBy(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => User::find($value) ? User::find($value)->name : '',
+        get: fn($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
 }
