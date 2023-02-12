@@ -518,7 +518,7 @@
 
                 function getRoles()
                 {
-                    return Role::all();
+                    return Role::whereNotIn('id',[1,2])->get();
                 }
                 function getEmployees()
                 {
