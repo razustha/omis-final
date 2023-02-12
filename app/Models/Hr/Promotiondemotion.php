@@ -6,6 +6,7 @@
         use Illuminate\Database\Eloquent\Factories\HasFactory;
         use Illuminate\Database\Eloquent\Model;
         use App\Traits\CreatedUpdatedBy;
+        use App\Models\Hr\Employee;
 
         class Promotiondemotion extends Model
         {
@@ -31,7 +32,7 @@
 
             ];
 
-            protected $appends = ['status_name'];
+            protected $appends = ['status_name','employee_name'];
 
             protected function getStatusNameAttribute()
             {
@@ -51,10 +52,9 @@
             get: fn ($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
-    protected function EmployeeId(): Attribute
+    protected function getEmployeeNameAttribute()
     {
-        return Attribute::make(
-            get: fn ($value) =>  Employee::find($value) ? Employee::find($value)->full_name : '',
-        );
+        $employee=Employee::find($this->employee_id);
+        return $employee ? $employee->full_name:'';
     }
         }

@@ -65,6 +65,8 @@
                             'leaveStart'=>$request->leaveStart,
                             'leaveEnd'=>$request->leaveEnd,
                             'leaveType'=>$request->leaveType,
+                            'manager_name'=>$employee->manager_name,
+                            'remarks'=>$request->remarks,
                             'view' => 'omis.emails.leaveapplication'
                         ];
                         Mail::to($employee->emailAddress)->send(new CommonMail($mail_data, $employee));

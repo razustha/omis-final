@@ -33,15 +33,15 @@
                                         <div class="col-lg-4">
                                             {{ createText('lastName', 'lastName', 'Last Name', '', $data->lastName) }}
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others'], $data->gender_id) }}
 
 
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             {{ createDate('dateOfBirth', 'dateOfBirth', 'Date Of Birth', '', $data->dateOfBirth) }}
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             {!! getSelectForForeignColumn(
                                                 'tbl_nationality',
                                                 'nationality_id',
@@ -52,7 +52,7 @@
                                             ) !!}
                                         </div>
 
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             {{ createText('phoneNumber', 'phoneNumber', 'Phone Number', '', $data->phoneNumber) }}
                                         </div>
 

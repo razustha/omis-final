@@ -49,7 +49,7 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td>
                                             {{-- <td class="tb-col">{{ $item->company_id }}</td> --}}
-                                            <td class="tb-col">{{ $item->employee_id }}</td>
+                                            <td class="tb-col">{{ $item->employee_name }}</td>
                                             <td class="tb-col">{{ $item->promotionTitle }}</td>
                                             <td class="tb-col">{{ $item->promotionDate }}</td>
                                             <!-- <td class="tb-col">{{ $item->description }}</td>

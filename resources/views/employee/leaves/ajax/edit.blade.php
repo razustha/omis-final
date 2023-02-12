@@ -27,7 +27,7 @@
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
         </div>
         <div class="col-lg-12">
-            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', $data->remarks) }}
+            {{ createLabel('remarks', 'form-label col-form-label', 'Reason') }}{{ createTextArea('remarks', 'remarks', 'remarks', '', $data->remarks) }}
         </div>
         <div class="col-md-12"><?php createButton('btn-primary btn-update', '', 'Submit'); ?>
         </div>

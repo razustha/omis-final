@@ -67,7 +67,7 @@ class Employee extends Model
 
     ];
 
-    protected $appends = ['status_name', 'full_name', 'role_name','department_name','designation_name'];
+    protected $appends = ['status_name', 'full_name', 'role_name','department_name','designation_name','manager_name'];
 
     protected function getStatusNameAttribute()
     {
@@ -106,5 +106,9 @@ class Employee extends Model
     public function getFullnameAttribute()
     {
         return "{$this->firstName} {$this->middleName} {$this->lastName}";
+    }
+    public function getManagerNameAttribute(){
+        $manager = Employee::find($this->reportingTo);
+        return $manager ? $manager->full_name : '';
     }
 }

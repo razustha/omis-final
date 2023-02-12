@@ -38,7 +38,7 @@
 </div><div class="col-lg-6">{{createText("leaveApprovalBy","leaveApprovalBy","LeaveApprovalBy")}}
 </div><div class="col-lg-6">{{createText("leaveApprovedDate","leaveApprovedDate","LeaveApprovedDate")}}
 </div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}
-</div><div class="col-lg-6">{{createText("remarks","remarks","Remarks")}}
+</div><div class="col-lg-6">{{createText("remarks","remarks","lorem")}}
 </div> <br> <div class="col-md-12"><?php createButton("btn-primary","","Submit"); ?>
 </div> </form></div></div></div></div></div></div></div></div>
 @endsection

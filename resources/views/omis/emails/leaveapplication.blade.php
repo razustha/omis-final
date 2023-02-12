@@ -29,7 +29,7 @@
                                 <tr>
                                     <td>
                                         To,<br>
-                                        {{ $mail_data['name'] }}<br>
+                                        {{ $mail_data['manager_name'] }}<br>
 
                                         <br>
                                     </td>
@@ -40,11 +40,9 @@
                                        
                                         <table>
                                             <tr>
-                                            <td style="display:block">Iam writing to request a formal leave of absence from work from {{$mail_data['leaveStart']}} to {{$mail_data['leaveEnd']}}. The reason for my leave is {{$mail_data['leaveType']}}
-                                            I have ensured that all of my current projects are up to date and i have informed my colleagues who will be taking care of my
-                                             responsibilities in my absence. I have also provided my contact information in case of any urgent matters that require
-                                             my attention.</td><br>
-                                           <td style="display:block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you for considering my request, and I look forward to resuming work after my leave.</td>
+                                            <td style="display:block">{{$mail_data['remarks']}}</td><br>
+                                           <td style="display:block;"><b>Leave From: {{$mail_data['leaveStart']}} - {{$mail_data['leaveEnd']}}</b></td>
+                                           <td style="display:block"><b>Leave Type: {{$mail_data['leaveType']}}</b></td>
                                            <td style="display:block">Your's Sincerely</td>
                                            <td style="display:block">{{$mail_data['name']}}</td>
                                            </tr>

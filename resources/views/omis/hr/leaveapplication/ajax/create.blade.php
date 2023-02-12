@@ -21,8 +21,8 @@
         </div>
         <div class="col-lg-12">
 
-            {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
-            {{ createTextArea('remarks', 'remarks', 'Remarks', '', '') }}
+            {{ createLabel('remarks', 'form-label col-form-label', 'Reason') }}
+            {{ createTextArea('remarks', 'remarks', 'Reason', '', '') }}
         </div> <br>
         <div class="col-md-12"><?php createButton('btn-primary btn-store', '', 'Submit'); ?>
         </div>
