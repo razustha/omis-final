@@ -123,4 +123,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Organization::class,'user_id');
     }
+
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class, 'email', 'emailAddress');
+    }
 }
