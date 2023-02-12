@@ -48,7 +48,7 @@
         var department_id = $(this).val();
             $.ajax({
                 type: "GET",
-                url: "{{route('hr.employee.getDepartmentEmployee')}}",
+                url: "{{route('work.workprojects.getDepartmentEmployee')}}",
                 data: {
                     'department_id': department_id
                 },

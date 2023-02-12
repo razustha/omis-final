@@ -915,6 +915,7 @@ Route::middleware('auth')->group(function () {
                     Route::put('/update/{id}', [WorkProjectsController::class, 'update'])->name('work.workprojects.update'); //->middleware('permission:work-workProjects-update');
                     Route::delete('/destroy/{id}', [WorkProjectsController::class, 'destroy'])->name('work.workprojects.destroy'); //->middleware('permission:work-workProjects-destroy');
                     Route::delete('/destroy/ProjectEmployee/{id}', [WorkProjectsController::class, 'destroyProjectEmployee'])->name('work.workprojects.destroyProjectEmployee'); //->middleware('permission:work-workProjects-destroy');
+                    Route::get('get-department-employee', [WorkProjectsController::class, 'getDepartmentEmployee'])->name('work.workprojects.getDepartmentEmployee');
                 }
             );
 

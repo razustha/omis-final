@@ -1,6 +1,7 @@
 <?php
         namespace App\Http\Controllers\Work;
         use App\Http\Controllers\Controller;
+use App\Models\Hr\Employee;
 use App\Models\Work\ProjectEmployee;
 use Illuminate\Http\Request;
         use App\Models\Work\Workprojects;
@@ -115,6 +116,13 @@ use Illuminate\Http\Request;
                 $data->status = -1;
                 $data->save();
                 return response()->json(['status'=>true,'message'=>'The Workprojects Deleted Successfully.'],200);
+            }
+
+            public function getDepartmentEmployee(Request $request)
+            {
+                $department_id = $request->department_id;
+                $data = Employee::where('organization_id', auth()->user()->id)->where('department_id', $department_id)->orderBy('created_at', 'desc')->get();
+                return response()->json(['status' => 200, 'message' => $data]);
             }
 
             public function destroyProjectEmployee(Request $request, $id)
