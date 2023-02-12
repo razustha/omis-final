@@ -152,6 +152,9 @@ Route::get('calander', function () {
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+
     Route::get('/calendar', [DashboardController::class, 'calendar'])->name('getcalendar');
     Route::get('/full-calendar', [DashboardController::class, 'getEvent'])->name('fetchcalendardata');
 

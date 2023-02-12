@@ -37,7 +37,7 @@
 
 
     {{-- Update CheckIn --}}
-    <!-- <div class="modal fade update_CheckIn" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    <div class="modal fade update_CheckIn" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     @include('omis/partials/footerincludes');
     <script src="{{ asset('assets/js/fullscreen.js') }}"></script>
 

@@ -6,7 +6,6 @@
 
 
 <body class="nk-body" data-sidebar-collapse="lg" data-navbar-collapse="lg" id="">
-
     <div class="nk-app-root">
         <div class="nk-main">
 
@@ -35,10 +34,6 @@
   				</div>
 
         </div>
-
-   			<!--check in -->
-   			@include('employee.layouts.employee.clockIn')
-   			<!--check in -->
 
 	</div>
 
@@ -84,39 +79,40 @@
 	    </div>
 	</div>
 
-	 <div class="modal fade new_CheckIn" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    {{-- Update CheckIn --}}
+    <div class="modal fade update_CheckIn" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
         aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title align-self-center mt-0 text-center" id="exampleModalLabel">Add Check In</h5>
-                        <button type="button" class="btn-primary close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{route('hr.attendence.checkIn')}}" method="POST">
-                            @csrf
-                            <div class="form-group row">
-                                <input type="hidden" value="{{auth()->user()->id}}">
-                                <div class="col-md-12">
-                                    {{ createText('location', 'location', 'location') }}
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="col-lg-12">
-                                        {{ createText('workFrom', 'workFrom', 'Work From') }}
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <?php createButton("btn-primary","","Save"); ?>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title align-self-center mt-0 text-center" id="exampleModalLabel">Add Check In</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('hr.attendence.checkIn')}}" method="POST">
+                        @csrf
+                        <div class="form-group row">
+                            <input type="hidden" value="{{auth()->user()->id}}">
+                            <div class="col-md-12">
+                                {{ createText('location', 'location', 'location') }}
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-lg-12">
+                                    {{ createText('workFrom', 'workFrom', 'Work From') }}
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            <br>
+                            <div class="col-md-12">
+                                <?php createButton("btn-primary","","Save"); ?>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-	</div>
+        </div>
+    </div>
+
+
+
 
 
 	<!-- Nav bar contents display -->
