@@ -45,7 +45,7 @@ use Illuminate\Http\Request;
 
             public function store(Request $request)
             {
-
+// dd($request->all());
                 $request->request->add(['alias' => slugify($request->workprojectsName)]);
                 $project = Workprojects::create($request->except('employee_id'));
                 foreach($request->employee_id as $employee)
@@ -117,11 +117,23 @@ use Illuminate\Http\Request;
                 $data->save();
                 return response()->json(['status'=>true,'message'=>'The Workprojects Deleted Successfully.'],200);
             }
+            public function updateProjectStatus(Request $request)
+            {
+               
+                $data = WorkProjects::findOrFail($request->workProject_id);
+                $data->workProject_status = "completed";
+                if($data->save()){
+                    return response()->json(['status'=>true, 'message'=>'The Project has been completed Successfully']);
+                } else {
+                    return response()->json(['status'=>false]);
+                }
+            }
 
             public function getDepartmentEmployee(Request $request)
             {
                 $department_id = $request->department_id;
-                $data = Employee::where('organization_id', auth()->user()->id)->where('department_id', $department_id)->orderBy('created_at', 'desc')->get();
+                $data = Employee::where('organization_id', auth()->user()->userOrganization->organization_id)->where('department_id', $department_id)->orderBy('created_at', 'desc')->get();
+                
                 return response()->json(['status' => 200, 'message' => $data]);
             }
 
