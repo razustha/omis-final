@@ -102,7 +102,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
-                                            {{  customCreateSelect('reportingTo', 'reportingTo', '','Reporting To', getEmployees()->pluck('full_name','employee_id')->toArray())  }}
+                                            {{  customCreateSelect('reportingTo', 'reportingTo', '','Reporting To', [])  }}
                                         </div>
 
                                         <div class="col-lg-12">
