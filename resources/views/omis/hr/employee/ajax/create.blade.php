@@ -48,6 +48,9 @@
                                         </div>
 
                                         <div class="col-lg-4">
+                                            {{ createEmail('emailAddress', 'emailAddress', 'Email Address') }}
+                                        </div>
+                                        <div class="col-lg-4">
                                             {{ createPassword('password', 'password', 'Password') }}
                                         </div>
 
@@ -55,9 +58,7 @@
                                             {{ createText('phoneNumber', 'phoneNumber', 'Phone Number') }}
                                         </div>
 
-                                        <div class="col-lg-4">
-                                            {{ createEmail('emailAddress', 'emailAddress', 'Email Address') }}
-                                        </div>
+                                      
 
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Address Details</h2>
@@ -102,7 +103,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
-                                            {{  customCreateSelect('reportingTo', 'reportingTo', '','Reporting To', getEmployees()->pluck('full_name','employee_id')->toArray())  }}
+                                            {{  customCreateSelect('reportingTo', 'reportingTo', '','Reporting To', [])  }}
                                         </div>
 
                                         <div class="col-lg-12">

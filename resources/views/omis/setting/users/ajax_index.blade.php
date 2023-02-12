@@ -31,7 +31,7 @@
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
                                         <th class="tb-col"><span class="overline-title">User Type</span></th>
-                                        <th class="tb-col"><span class="overline-title">company_id</span></th>
+                                        <th class="tb-col"><span class="overline-title">USer Roles</span></th>
                                         {{-- <th class="tb-col"><span class="overline-title">branch_id</span></th> --}}
                                         <th class="tb-col"><span class="overline-title">name</span></th>
                                         <th class="tb-col"><span class="overline-title">mobile</span></th>

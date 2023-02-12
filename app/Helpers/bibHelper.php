@@ -187,6 +187,7 @@
                 {
                 ?>
                     <select class="js-select <?php $class; ?>" name="<?php echo $name; ?>" aria-label="Default select example" data-search="true" data-sort="false">
+                    <option value="">Select Option</option>
                         <?php $sn = 0;
                         for ($i = 0; $i < sizeof($values); $i++) : $v = $values[$i][0];
                             $d = isset($values[$i]) ? $values[$i] : "";
@@ -206,7 +207,7 @@
                     <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
                     
                         <select class="form-select <?php echo $class ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" aria-label="Default select example">
-                        <!-- <option value="">Select</option> -->
+                        <option value="">Select Option</option>
                             <?php foreach ($values as $key => $value) { ?>
                                 <option value="<?= $key ?>" <?php echo $keyValue == $key ? 'selected' : '' ?>><?= $value ?></option>
                             <?php } ?>

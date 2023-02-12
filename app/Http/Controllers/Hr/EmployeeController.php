@@ -87,7 +87,7 @@ class EmployeeController extends Controller
                 $request['skills'] = $skills->implode(',');
             }
             $user->roles()->attach($user_role);
-            $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : null;
+            $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : '1';
 
             $request->request->add(['user_id' => $user->id]);
             $employee = Employee::create($request->all());
