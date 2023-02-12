@@ -51,12 +51,12 @@
                                                 'Nationality Name',
                                             ) !!}
                                         </div>
-                                       
+
                                         <div class="col-lg-4">
                                             {{ createText('phoneNumber', 'phoneNumber', 'Phone Number', '', $data->phoneNumber) }}
                                         </div>
 
-                                        
+
 
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Address Details</h2>
@@ -79,7 +79,7 @@
                                             {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address', '', $data->permanentAddress) }}
                                         </div>
                                         <div class="col-lg-6">
-                                            {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address','', $data->temproryAddress) }}
+                                            {{ createText('temproryAddress', 'temproryAddress', 'Temprory Address', '', $data->temproryAddress) }}
                                         </div>
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Organization Role</h2>
@@ -89,42 +89,31 @@
                                         </div>
 
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Department ') !!}
+                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Department') !!}
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('tbl_designation', 'designation_id', 'designationName', '', $data, 'Designation ') !!}
-                                        </div>
-                                        <div class="col-lg-4">
-                                            {{-- {{ createText('reportingTo', 'reportingTo', 'ReportingTo', '','', $data->reportingTo,'Reporting To') }} --}}
-                                            {!! getSelectForForeignColumn(
-                                                'tbl_employee',
-                                                'employee_id',
-                                                'firstName',
-                                                '',
-                                                $data->reportingTo,
-                                                'Reporting To',
-                                            ) !!}
-
-                                        </div>
-                                        <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
-                                        </div>
-
-
-                                        <div class="col-lg-6">
-                                            {{ createDate('joinDate', 'joinDate', 'Join Date') }}
+                                            {!! getSelectForForeignColumn('tbl_designation', 'designation_id', 'designationName', '', $data, 'Designation') !!}
                                         </div>
                                         <div class="col-lg-6">
-                                            {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
-                                            {{  customCreateSelect('employee_id', 'employee_id', '','Employee', getEmployees()->pluck('full_name','employee_id')->toArray())  }}
+                                            {{ createDate('joinDate', 'joinDate', 'Join Date','',$data->joiningDate) }}
                                         </div>
+                                        <div class="col-lg-6">
+                                        {{ customCreateSelect('reportingTo','reportingTo','','Reporting To',getReportingTo($data->department_id)->pluck('full_name', 'employee_id')->toArray(),$data->reportingTo) }}
 
+
+                                        </div>
+                                       
+
+
+                                       
+                                       
                                         <div class="col-lg-12">
                                             {{ createLabel('Skills', 'form-label col-form-label', 'Skills') }}
                                             <select name="skills[]" class="form-control skills" multiple>
-                                                @if(!empty($skills[0]) )
+                                                @if (!empty($skills[0]))
                                                     @foreach ($skills as $skill)
-                                                        <option value="{{$skill}}" selected>{{$skill}}</option>
+                                                        <option value="{{ $skill }}" selected>
+                                                            {{ $skill }}</option>
                                                     @endforeach
                                                 @endif
                                             </select>
@@ -169,11 +158,11 @@
                                 </div> -->
 
                             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
-                            {{ customCreateSelect('is_head', 'is_head', '', 'Is Head', ['manager' => 'Manager', 'team_lead' => 'Team Lead','project_manager' => 'Project Manager','employee' => 'Employee'], $data->is_head) }}
+                            {{ customCreateSelect('is_head', 'is_head', '', 'Is Head', ['manager' => 'Manager', 'team_lead' => 'Team Lead', 'project_manager' => 'Project Manager', 'employee' => 'Employee'], $data->is_head) }}
 
                         </div>
                         <div class="col-lg-12">
-                            {{ createText('panNo', 'panNo', 'Govt. Pan No','', $data->panNo) }}
+                            {{ createText('panNo', 'panNo', 'Govt. Pan No', '', $data->panNo) }}
                         </div>
                         <hr>
                         <div class="col-12">
@@ -261,66 +250,70 @@
 </form>
 <script>
     // Fetch state according to country
-    $('#country_id').on('change',function(e){
+    $('#country_id').on('change', function(e) {
         e.preventDefault();
         var country_id = $(this).val();
-            $.ajax({
-                type: "GET",
-                url: "{{route('master.state.getState')}}",
-                data: {
-                    'country_id': country_id
-                },
-                dataType: "json",
-                success: function(response){
-                    // console.log(response);
-                    $('#state_id').html('<option value="#" selected disabled>Choose State</option>');
-                    $.each(response.message, function(key,value){
-                        $('#state_id').append('<option value='+value.state_id+'>'+value.stateName+'</option>');
-                    });
-                }
-            });
+        $.ajax({
+            type: "GET",
+            url: "{{ route('master.state.getState') }}",
+            data: {
+                'country_id': country_id
+            },
+            dataType: "json",
+            success: function(response) {
+                // console.log(response);
+                $('#state_id').html('<option value="#" selected disabled>Choose State</option>');
+                $.each(response.message, function(key, value) {
+                    $('#state_id').append('<option value=' + value.state_id + '>' + value
+                        .stateName + '</option>');
+                });
+            }
+        });
     });
 
     // Fetch District according to state
-    $('#state_id').on('change',function(e){
+    $('#state_id').on('change', function(e) {
         e.preventDefault();
         var state_id = $(this).val();
-            $.ajax({
-                type: "GET",
-                url: "{{route('master.state.getDistrict')}}",
-                data: {
-                    'state_id': state_id
-                },
-                dataType: "json",
-                success: function(response){
-                    // console.log(response);
-                    $('#district_id').html('<option value="#" selected disabled>Choose District</option>');
-                    $.each(response.message, function(key,value){
-                        $('#district_id').append('<option value='+value.district_id+'>'+value.districtName+'</option>');
-                    });
-                }
-            });
+        $.ajax({
+            type: "GET",
+            url: "{{ route('master.state.getDistrict') }}",
+            data: {
+                'state_id': state_id
+            },
+            dataType: "json",
+            success: function(response) {
+                // console.log(response);
+                $('#district_id').html(
+                    '<option value="#" selected disabled>Choose District</option>');
+                $.each(response.message, function(key, value) {
+                    $('#district_id').append('<option value=' + value.district_id + '>' +
+                        value.districtName + '</option>');
+                });
+            }
+        });
     });
 
     // Fetch City according to district
-    $('#district_id').on('change',function(e){
+    $('#district_id').on('change', function(e) {
         e.preventDefault();
         var district_id = $(this).val();
-            $.ajax({
-                type: "GET",
-                url: "{{route('master.state.getCity')}}",
-                data: {
-                    'district_id': district_id
-                },
-                dataType: "json",
-                success: function(response){
-                    // console.log(response);
-                    $('#city_id').html('<option value="#" selected disabled>Choose City</option>');
-                    $.each(response.message, function(key,value){
-                        $('#city_id').append('<option value='+value.city_id+'>'+value.cityName+'</option>');
-                    });
-                }
-            });
+        $.ajax({
+            type: "GET",
+            url: "{{ route('master.state.getCity') }}",
+            data: {
+                'district_id': district_id
+            },
+            dataType: "json",
+            success: function(response) {
+                // console.log(response);
+                $('#city_id').html('<option value="#" selected disabled>Choose City</option>');
+                $.each(response.message, function(key, value) {
+                    $('#city_id').append('<option value=' + value.city_id + '>' + value
+                        .cityName + '</option>');
+                });
+            }
+        });
     });
 
     // Skill tag

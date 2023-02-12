@@ -65,7 +65,7 @@
                                                 </div>
                                             </td>
                                             <td class="tb-col">{{ $item->phoneNumber }}</td>
-                                            <td class="tb-col">{{ $item->role_id }}</td>
+                                            <td class="tb-col">{{ $item->role_name }}</td>
                                             <td class="tb-col">{{ $item->department_id }}</td>
                                             {{-- <td class="tb-col">{{ $item->designation_id }}</td> --}}
                                             <td class="tb-col">{!! $item->status_name !!}</td>

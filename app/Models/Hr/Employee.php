@@ -67,7 +67,7 @@ class Employee extends Model
 
     ];
 
-    protected $appends = ['status_name','full_name'];
+    protected $appends = ['status_name', 'full_name', 'role_name','department_name','designation_name'];
 
     protected function getStatusNameAttribute()
     {
@@ -77,33 +77,30 @@ class Employee extends Model
     protected function createdBy(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) =>  User::find($value) ? User::find($value)->name : '',
+        get: fn($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
 
     protected function updatedBy(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => User::find($value) ? User::find($value)->name : '',
+        get: fn($value) => User::find($value) ? User::find($value)->name : '',
         );
     }
-    protected function departmentId(): Attribute
+    protected function getDepartmentNameAttribute()
     {
-        return Attribute::make(
-            get: fn ($value) =>  Department::find($value) ? Department::find($value)->departmentName : '',
-        );
+        $department = Department::find($this->department_id);
+        return $department ? $department->departmentName : '';
     }
-    protected function designationId(): Attribute
+    protected function getDesignationNameAttribute()
     {
-        return Attribute::make(
-            get: fn ($value) =>  Designation::find($value) ? Designation::find($value)->designationName : '',
-        );
+        $designation = Designation::find($this->designation_id);
+        return $designation ? $designation->designationName : '';
     }
-    protected function roleId(): Attribute
+    protected function getRoleNameAttribute()
     {
-        return Attribute::make(
-            get: fn ($value) =>  Role::find($value) ? Role::find($value)->name : '',
-        );
+        $role = Role::find($this->role_id);
+        return $role ? $role->name : '';
     }
 
     public function getFullnameAttribute()

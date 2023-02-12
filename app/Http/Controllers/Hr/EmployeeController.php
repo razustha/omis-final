@@ -92,8 +92,14 @@ class EmployeeController extends Controller
             $request->request->add(['user_id' => $user->id]);
             $employee = Employee::create($request->all());
         } else {
-            $user_role = Role::findOrFail($request->role_id);
-            $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : null;
+            if ($request->skills) {
+                $skills = collect($request->skills);
+            }
+
+            if (isset($skills)) {
+                $request['skills'] = $skills->implode(',');
+            }
+            $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : '1';
             $employee = Employee::create($request->all());
         }
         if ($user && !empty($user->email)) {
@@ -156,7 +162,7 @@ class EmployeeController extends Controller
         if (isset($skills)) {
             $request['skills'] = $skills->implode(',');
         }
-        $request['organization_id'] = auth()->user()->id;
+        $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : '1';
         $employee->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
         $user = User::find($employee->user_id);
         if ($user) {
@@ -218,14 +224,16 @@ class EmployeeController extends Controller
     public function getHeadOfDepartment(Request $request)
     {
         $department_id = $request->department_id;
-        $data = Employee::where('status', '<>', -1)->where('organization_id',auth()->user()->userOrganization->organization_id)->where('department_id', $department_id)->where('is_head', 'manager')->orderBy('created_at', 'desc')->get();
+        // $data = Employee::where('status', '<>', -1)->where('organization_id',auth()->user()->employee->organization_id)->where('department_id', $department_id)->where('is_head', 'manager')->orderBy('created_at', 'desc')->get();
+        $data = Employee::where('status', '<>', -1)->where('department_id', $department_id)->where('is_head', 'manager')->orderBy('created_at', 'desc')->get();
+
         return response()->json(['status' => 200, 'message' => $data]);
     }
 
     public function getDepartmentEmployee(Request $request)
     {
         $department_id = $request->department_id;
-        $data = Employee::where('organization_id', auth()->user()->employee->organization_id)->where('department_id', $department_id)->orderBy('created_at', 'desc')->get();
+        $data = Employee::where('department_id', $department_id)->orderBy('created_at', 'desc')->get();
 
         return response()->json(['status' => 200, 'message' => $data]);
     }
