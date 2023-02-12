@@ -24,6 +24,7 @@
 'department_id',
 'assignedEmployees',
 'projectDescription',
+'workProject_status',
 'createdOn',
 'createdBy',
 'alias',

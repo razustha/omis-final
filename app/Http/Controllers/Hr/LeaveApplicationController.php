@@ -42,6 +42,7 @@
                     return response()->json(['status' => true, 'message' => 'The Leaveapplication Created Successfully.'], 200);
                 }
                 return redirect()->route('hr.leaveapplication.index')->with('success','The Leaveapplication created Successfully.');
+           
             }
 
             public function show(Request $request, $id)

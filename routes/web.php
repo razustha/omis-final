@@ -916,6 +916,8 @@ Route::middleware('auth')->group(function () {
                     Route::delete('/destroy/{id}', [WorkProjectsController::class, 'destroy'])->name('work.workprojects.destroy'); //->middleware('permission:work-workProjects-destroy');
                     Route::delete('/destroy/ProjectEmployee/{id}', [WorkProjectsController::class, 'destroyProjectEmployee'])->name('work.workprojects.destroyProjectEmployee'); //->middleware('permission:work-workProjects-destroy');
                     Route::get('get-department-employee', [WorkProjectsController::class, 'getDepartmentEmployee'])->name('work.workprojects.getDepartmentEmployee');
+                    Route::get('/updateworkprojectStatus', [WorkProjectsController::class, 'updateProjectStatus'])->name('work.workprojects.updateProjectStatus'); //->middleware('permission:work-timelog-store');
+
                 }
             );
 
