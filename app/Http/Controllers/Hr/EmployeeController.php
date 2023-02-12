@@ -78,7 +78,7 @@ class EmployeeController extends Controller
             ];
             $user = User::create($users);
             $user_role = Role::findOrFail($request->role_id);
-
+                                
             if ($request->skills) {
                 $skills = collect($request->skills);
             }

@@ -1,10 +1,20 @@
 <?php
         namespace App\Http\Controllers\Hr;
         use App\Http\Controllers\Controller;
+        use App\Models\Hr\Employee;
         use Illuminate\Http\Request;
         use App\Models\Hr\Leaveapplication;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
+        use App\Mail\CommonMail;
+        use Exception;
+        use Illuminate\Support\Facades\Log;
+        use Illuminate\Support\Facades\Mail;
+        use App\Models\User;
+
+        
+
+
 
         class LeaveapplicationController extends Controller
         {
@@ -36,8 +46,36 @@
 
             public function store(Request $request)
             {
+                
+                $employee = Employee::findOrFail($request->employee_id);
+                // dd(!empty($employee->emailAddress));
                 $request->request->add(['alias' => slugify($request->leaveapplicationName)]);
-                Leaveapplication::create($request->all());
+             
+                $leaveApplication=Leaveapplication::create($request->all());
+             
+                
+            //    start
+      
+                if (!empty($employee->emailAddress)) {
+                    try {
+                        $mail_data = [
+                            'name' => $employee->full_name,
+                            'subject' => 'Leave Application',
+                            'message' => 'Leave Application Result:',
+                            'leaveStart'=>$request->leaveStart,
+                            'leaveEnd'=>$request->leaveEnd,
+                            'leaveType'=>$request->leaveType,
+                            'view' => 'omis.emails.leaveapplication'
+                        ];
+                        Mail::to($employee->emailAddress)->send(new CommonMail($mail_data, $employee));
+                    } catch (Exception $e) {
+                        Log::info($e->getMessage());
+                        return $e->getMessage();
+    
+                    }
+                }
+                // end
+
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Leaveapplication Created Successfully.'], 200);
                 }
