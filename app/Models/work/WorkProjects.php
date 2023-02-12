@@ -6,6 +6,7 @@
         use Illuminate\Database\Eloquent\Factories\HasFactory;
         use Illuminate\Database\Eloquent\Model;
         use App\Traits\CreatedUpdatedBy;
+use Illuminate\Support\Facades\DB;
 
         class WorkProjects extends Model
         {
@@ -24,6 +25,7 @@
 'department_id',
 'assignedEmployees',
 'projectDescription',
+'workProject_status',
 'createdOn',
 'createdBy',
 'alias',
@@ -57,4 +59,20 @@
     {
         return $this->hasMany(ProjectEmployee::class,'workProject_id','workProject_id');
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(Tasks::class,'workProject_id','workProject_id')->where('tasks_status','pending');
+    }
+
+    // public function tasks()
+    // {
+    //     $tasks = DB::table('tbl_tasks')
+    //         ->join('tbl_workProjects', 'tbl_workProjects.workProject_id', 'tbl_tasks.workProject_id')
+    //         ->select('tbl_tasks.tasks_id')
+    //         ->where('tbl_tasks.tasks_status','pending')
+    //         ->first();
+
+    //     return $tasks;
+    // }
 }
