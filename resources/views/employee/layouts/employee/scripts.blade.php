@@ -21,6 +21,19 @@
 
     <!-- custom js -->
     <script type="text/javascript">
+        // For Attendence
+        $(document ).ready(function() {
+            $(".update_CheckIn").modal({
+                show: false,
+                backdrop: 'static',
+                keyboard: false
+            });
+            @if(empty(auth()->user()->attendence()))
+                $(window).on('load', function() {
+                    $('.update_CheckIn').modal('show');
+                });
+            @endif
+        });
         $(document).on('click', ".btn-checkIn", function() {
             $('.update_CheckIn').modal('show');
 
@@ -182,18 +195,7 @@
             ],
         });
 
-        $(document ).ready(function() {
-            $(".update_CheckIn").modal({
-                show: false,
-                backdrop: 'static',
-                keyboard: false
-            });
-            @if(empty(auth()->user()->attendence()))
-                $(window).on('load', function() {
-                    $('.update_CheckIn').modal('show');
-                });
-            @endif
-        });
+
     </script>
    <!-- custom js -->
 
