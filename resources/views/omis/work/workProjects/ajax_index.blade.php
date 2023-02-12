@@ -17,11 +17,13 @@
                                         </ol>
                                     </nav>
                             </div>
+                            @if(empty(auth()->user()->hasRole('super-admin')))
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'projects', 'work.workprojects.create') !!}
                                 </ul>
                             </div>
+                            @endif
                         </div>
                     </div>
                     <div class="nk-block">
