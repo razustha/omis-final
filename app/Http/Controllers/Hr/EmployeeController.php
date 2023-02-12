@@ -23,7 +23,7 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         $organization_id = auth()->user()->id;
-        $data = Employee::where('status', '<>', -1)->where('organization_id',$organization_id)->orderBy('created_at', 'desc')->get();
+        $data = Employee::where('status', '<>', -1)->where('organization_id', $organization_id)->orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             $html = view("omis.hr.employee.ajax.index", compact('data'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
@@ -54,13 +54,13 @@ class EmployeeController extends Controller
             'emailAddress' => 'required|email:unique:users',
         ]);
 
-
         if ($validator->fails()) {
             return response()->json([
                 'error' => $validator->errors()->all(),
             ]);
         }
 
+        $user = null;
         if ($request->is_login == 1) {
             $users = [
                 'name' => $request->firstName . ' ' . $request->middleName . ' ' . $request->lastName,
@@ -70,25 +70,29 @@ class EmployeeController extends Controller
             ];
             $user = User::create($users);
             $user_role = Role::findOrFail($request->role_id);
-            if($request->skills) {
+            if ($request->skills) {
                 $skills = collect($request->skills);
             }
 
-            if(isset($skills)) {
+            if (isset($skills)) {
                 $request['skills'] = $skills->implode(',');
             }
             $user->roles()->attach($user_role);
-            $request['organization_id'] = auth()->user()->id;
+            $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : null;
+            $request->request->add(['user_id' => $user->id]);
+            $employee = Employee::create($request->all());
+        } else {
+            $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : null;
             $employee = Employee::create($request->all());
         }
-        if (!empty($user->email)) {
+        if ($user && !empty($user->email)) {
             try {
                 $mail_data = [
                     'name' => $employee->full_name,
                     'subject' => 'User Login Credentials',
                     'message' => 'your Login credentials are:',
                     'password' => $request->password,
-                    'logo'=>$employee->logo,
+                    'logo' => $employee->logo,
                     'view' => 'omis.emails.credentials'
                 ];
                 Mail::to($user->email)->send(new CommonMail($mail_data, $user));
@@ -97,7 +101,7 @@ class EmployeeController extends Controller
             }
         }
 
-        $request->request->add(['alias' => slugify($request->employeeName)]);
+        // $request->request->add(['alias' => slugify($request->employeeName)]);
 
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Employee Created Successfully.'], 200);
@@ -123,10 +127,10 @@ class EmployeeController extends Controller
         $skills = explode(',', $data->skills);
 
         if ($request->ajax()) {
-            $html = view("omis.hr.employee.ajax.edit", compact('data','skills'))->render();
+            $html = view("omis.hr.employee.ajax.edit", compact('data', 'skills'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
-        return view("omis.hr.employee.edit", compact('data','skills'));
+        return view("omis.hr.employee.edit", compact('data', 'skills'));
     }
 
 
@@ -134,15 +138,19 @@ class EmployeeController extends Controller
     {
         $data = Employee::findOrFail($id);
         $data->skills = null;
-        if($request->skills) {
+        if ($request->skills) {
             $skills = collect($request->skills);
         }
 
-        if(isset($skills)) {
+        if (isset($skills)) {
             $request['skills'] = $skills->implode(',');
         }
         $request['organization_id'] = auth()->user()->id;
         $employee = $data->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
+        $user = User::find($employee->user_id);
+        if($user){
+            $user->roles()->sync([$request->role_id]);
+        }
 
         $imagePath = [];
         $data = $request->all();
@@ -159,7 +167,7 @@ class EmployeeController extends Controller
             }
         }
         if (!empty($data['image_name'])) {
-            foreach ($data['image_name'] as  $key => $value) {
+            foreach ($data['image_name'] as $key => $value) {
                 if ($value != null) {
                     $files = [
                         'image_path' => $request->image_path[$key],
@@ -199,16 +207,16 @@ class EmployeeController extends Controller
     public function getHeadOfDepartment(Request $request)
     {
         $department_id = $request->department_id;
-        $data = Employee::where('status', '<>', -1)->where('organization_id',auth()->user()->id)->where('department_id',$department_id)->where('is_head','manager')->orderBy('created_at', 'desc')->get();
-        return response()->json(['status'=>200, 'message'=>$data]);
+        $data = Employee::where('status', '<>', -1)->where('organization_id', auth()->user()->id)->where('department_id', $department_id)->where('is_head', 'manager')->orderBy('created_at', 'desc')->get();
+        return response()->json(['status' => 200, 'message' => $data]);
     }
 
     public function getDepartmentEmployee(Request $request)
     {
         $department_id = $request->department_id;
-        $data = Employee::where('organization_id',auth()->user()->id)->where('department_id',$department_id)->orderBy('created_at', 'desc')->get();
+        $data = Employee::where('organization_id',auth()->user()->employee->organization_id)->where('department_id',$department_id)->orderBy('created_at', 'desc')->get();
 
-        return response()->json(['status'=>200, 'message'=>$data]);
+        return response()->json(['status' => 200, 'message' => $data]);
     }
 
 

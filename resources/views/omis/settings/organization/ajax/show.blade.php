@@ -125,39 +125,39 @@
                                                 <div class="col-xl-6">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Owner Name </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->ownerName }}</h6>
+                                                       
+                                                        <p class="text text-light">{{ $data->ownerName }}</p>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-xl-6">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Email Address </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->emailAddress }}</h6>
+                                                        
+                                                        <p class="text text-light">{{ $data->emailAddress }}</p>
                                                     </div>
                                                 </div>
                                                 <hr class="border-light border-3 opacity-75">
                                                 <div class="col-xl-4">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Phone Number </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->phoneNumber }}</h6>
+                                                        
+                                                        <p class="text text-light">{{ $data->phoneNumber }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Landline Number</h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->landLineNumber }}</h6>
+                                                        
+                                                        <p class="text text-light">{{ $data->landLineNumber }}</p>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-xl-4">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Fax Number </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->faxAddress }}</h6>
+                                                       
+                                                        <p class="text text-light">{{ $data->faxAddress }}</p>
                                                     </div>
                                                 </div>
 
@@ -165,15 +165,15 @@
                                                 <div class="col-xl-3">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Country </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{$data['country_id']}}</h6>
+                                                        
+                                                        <p class="text text-light">{{$data['country_id']}}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">State </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{$data['state_id']}}</h6>
+                                                        
+                                                        <p class="text text-light">{{$data['state_id']}}</p>
                                                     </div>
                                                 </div>
 
@@ -181,15 +181,15 @@
                                                 <div class="col-xl-3">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">District </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{$data['district_id']}}</h6>
+                                                        
+                                                        <p class="text text-light">{{$data['district_id']}}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">City </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{$data['city_id']}}</h6>
+                                                        
+                                                        <p class="text text-light">{{$data['city_id']}}</p>
                                                     </div>
                                                 </div>
 
@@ -197,15 +197,15 @@
                                                 <div class="col-xl-6">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Document Name </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->documentName }}</h6>
+                                                        
+                                                        <p class="text text-light">{{ $data->documentName }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Document Type </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->documentType }}</h6>
+                                                        
+                                                        <p class="text text-light">{{ $data->documentType }}</p>
                                                     </div>
                                                 </div>
 
@@ -213,15 +213,15 @@
                                                 <div class="col-xl-6">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Geo Map Location </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->geoMapLocation }}</h6>
+                                                        
+                                                        <p class="text text-light">{{ $data->geoMapLocation }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6">
                                                     <div class="p-3 mb-2 text-dark">
                                                         <h3 class="card-title">Remarks </h3>
-                                                        <hr class="border-light border-4 opacity-75">
-                                                        <h6 class="card-title">{{ $data->remarks }}</h6>
+                                                        
+                                                        <p class="text text-light">{{ $data->remarks }}</p>
                                                     </div>
                                                 </div>
 

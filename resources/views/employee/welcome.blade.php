@@ -1,10 +1,10 @@
-@include("employee/partials/headerincludes")
+@include("employee/layouts/employee/head")
 <body class="nk-body" data-sidebar-collapse="lg" data-navbar-collapse="lg">
     <div class="nk-app-root">
         <div class="nk-main">
-            @include("employee/partials/sidebar")
+            @include("employee/layouts/employee/sidebar")
             <div class="nk-wrap">
-                @include("employee/partials/header")
+                @include("employee/layouts/employee/header")
                 <div class="nk-content">
                     <div class="container">
                         <div class="nk-content-inner">
@@ -552,9 +552,9 @@
                         </div>
                     </div>
                 </div>
-                @include("employee/partials/footer")
+                @include("employee/layouts/employee/footer")
             </div>
         </div>
     </div>
 </body>
-@include("employee/partials/footerincludes");
+@include("employee/layouts/employee/scripts");

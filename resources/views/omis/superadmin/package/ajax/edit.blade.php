@@ -6,7 +6,7 @@
         </div>
         <div class="col-lg-6">{{ createText('price', 'price', 'Price', '', $data->price) }}
         </div>
-        <div class="col-lg-3">{{ createNumber('duration', 'duration', 'Duration', '', $data->duration) }}
+        <div class="col-lg-3">{{ createNumber('duration', 'duration', 'Duration in Years', '', $data->duration) }}
         </div>
         <div class="col-lg-3">{{ createNumber('loginLimitNo', 'loginLimitNo', 'User Login Limit', '', $data->loginLimitNo) }}
         </div>
@@ -22,7 +22,7 @@
             <h3>Features</h3>
         </div>
         <div class="col-lg-12 mt-1 mb-3">
-            <h7><input type="checkbox" class="form-check-input" onclick="checkUncheck(this)">&nbsp; &nbsp;Check All</h7>
+            <h5><input type="checkbox" class="form-check-input" onclick="checkUncheck(this)">&nbsp; &nbsp;Check All</h5>
         </div>
 
         <div class="col-lg-6">

@@ -67,7 +67,7 @@
                             {{-- Add Modal --}}
                             <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                                 <div class="offcanvas-header border-bottom border-light">
-                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Users</h5><button type="button"
+                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Role</h5><button type="button"
                                         class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body" data-simplebar>
@@ -87,7 +87,7 @@
                         {{-- Edit Modal --}}
                         <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Users<h5><button type="button"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Role<h5><button type="button"
                                             class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>
