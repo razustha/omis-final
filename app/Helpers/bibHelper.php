@@ -536,4 +536,9 @@
                     return Employee::where('status', '<>', -1)->where('department_id', $department_id)->where('is_head', 'manager')->orderBy('created_at', 'desc')->get(); 
                 }
 
+                function getEmployeeHasNoLogin()
+                {
+                    return Employee::where('status', '<>', -1)->where('is_login', 0)->get();
+                }
+
                 ?>
