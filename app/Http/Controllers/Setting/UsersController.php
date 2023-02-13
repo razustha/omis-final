@@ -3,20 +3,23 @@
 namespace App\Http\Controllers\Setting;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hr\Employee;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\Setting\Users;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
     public function index(Request $request)
     {
-        $data = User::with('roles')->where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
-        if(!auth()->user()->user_type == 'SUPER ADMIN')
-            $data = User::with('roles')->where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
+        $user = User::with('roles')->where('status', '<>', -1);
+        if (auth()->user()->user_type != 'SUPER ADMIN')
+            $user = $user->whereNotIn('user_type', ['SUPER ADMIN', 'COMPANY']);
+        $data = $user->orderBy('created_at', 'desc')->get();
         // dd($data);
         if ($request->ajax()) {
             $html = view("omis.setting.users.ajax.index", compact('data'))->render();
@@ -37,9 +40,22 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $user = User::create($request->all());
-        $user_role = Role::findOrFail($request->role_id);
-        $user->roles()->attach($user_role);
+        $employee = Employee::findOrFail($request->employee_id);
+        $userData = [
+            'name' => $employee->full_name,
+            'email' => $employee->emailAddress,
+            'password' => bcrypt($request->password)
+        ];
+        try {
+            DB::beginTransaction();
+            $user = User::create($userData);
+            $user->roles()->sync([$request->role_id]);
+            $employee->update(['is_login' => 1, 'user_id' => $user->id, 'role_id' => $request->role_id]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+        }
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Users Created Successfully.'], 200);
         }
@@ -60,8 +76,9 @@ class UsersController extends Controller
     public function edit(Request $request, $id)
     {
         $data = User::findOrFail($id);
+        $employee = Employee::where('user_id', $data->id)->firstOrFail();
         if ($request->ajax()) {
-            $html = view("omis.setting.users.ajax.edit", compact('data'))->render();
+            $html = view("omis.setting.users.ajax.edit", compact('data', 'employee'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
         return view("omis.setting.users.edit", compact('data'));
@@ -70,9 +87,28 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = User::findOrFail($id);
-        $request->request->add(['alias' => slugify($request->usersName)]);
-        $data->update($request->all());
+        // dd($request->all(),$id);
+        try {
+            DB::beginTransaction();
+            $user = User::findOrFail($id);
+            $request->request->add(['alias' => slugify($request->usersName)]);
+            $data = $request->all();
+            if ($data['password']) {
+                $data['password'] = bcrypt($data['password']);
+            } else {
+                unset($data['password']);
+            }
+
+            $user->update($data);
+            $user->roles()->sync([$request->role_id]);
+            $employee = Employee::where('user_id', $user->id)->firstOrFail();
+            $employee->update(['role_id' => $data['role_id'], 'emailAddress' => $data['email']]);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            DB::rollBack();
+            Log::info($e->getMessage());
+        }
+
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Users updated Successfully.'], 200);
         }
