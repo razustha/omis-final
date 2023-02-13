@@ -410,13 +410,13 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/destroy/{id}', [ClientsController::class, 'destroy'])->name('crm.clients.destroy')->middleware('permission:crm-clients-destroy');
             });
             Route::prefix("leads")->group(function () {
-                Route::get('/', [LeadsController::class, 'index'])->name('crm.leads.index')->middleware('permission:Crm-leads-index');
-                Route::get('/create', [LeadsController::class, 'create'])->name('crm.leads.create')->middleware('permission:Crm-leads-create');
-                Route::post('/store', [LeadsController::class, 'store'])->name('crm.leads.store')->middleware('permission:Crm-leads-store');
-                Route::get('/show/{id}', [LeadsController::class, 'show'])->name('crm.leads.show')->middleware('permission:Crm-leads-show');
-                Route::get('/edit/{id}', [LeadsController::class, 'edit'])->name('crm.leads.edit')->middleware('permission:Crm-leads-edit');
-                Route::put('/update/{id}', [LeadsController::class, 'update'])->name('crm.leads.update')->middleware('permission:Crm-leads-update');
-                Route::delete('/destroy/{id}', [LeadsController::class, 'destroy'])->name('crm.leads.destroy')->middleware('permission:Crm-leads-destroy');
+                Route::get('/', [LeadsController::class, 'index'])->name('crm.leads.index')->middleware('permission:crm-leads-index');
+                Route::get('/create', [LeadsController::class, 'create'])->name('crm.leads.create')->middleware('permission:crm-leads-create');
+                Route::post('/store', [LeadsController::class, 'store'])->name('crm.leads.store')->middleware('permission:crm-leads-store');
+                Route::get('/show/{id}', [LeadsController::class, 'show'])->name('crm.leads.show')->middleware('permission:crm-leads-show');
+                Route::get('/edit/{id}', [LeadsController::class, 'edit'])->name('crm.leads.edit')->middleware('permission:crm-leads-edit');
+                Route::put('/update/{id}', [LeadsController::class, 'update'])->name('crm.leads.update')->middleware('permission:crm-leads-update');
+                Route::delete('/destroy/{id}', [LeadsController::class, 'destroy'])->name('crm.leads.destroy')->middleware('permission:crm-leads-destroy');
             });
         }
     );
@@ -467,13 +467,13 @@ Route::middleware('auth')->group(function () {
     Route::prefix("assets")->group(
         function () {
             Route::prefix("assestCategory")->group(function () {
-                Route::get('/', [AssestCategoryController::class, 'index'])->name('assets.assestcategory.index')->middleware('permission:assets-assestCategory-index');
-                Route::get('/create', [AssestCategoryController::class, 'create'])->name('assets.assestcategory.create')->middleware('permission:assets-assestCategory-create');
-                Route::post('/store', [AssestCategoryController::class, 'store'])->name('assets.assestcategory.store')->middleware('permission:assets-assestCategory-store');
-                Route::get('/show/{id}', [AssestCategoryController::class, 'show'])->name('assets.assestcategory.show')->middleware('permission:assets-assestCategory-show');
-                Route::get('/edit/{id}', [AssestCategoryController::class, 'edit'])->name('assets.assestcategory.edit')->middleware('permission:assets-assestCategory-edit');
-                Route::put('/update/{id}', [AssestCategoryController::class, 'update'])->name('assets.assestcategory.update')->middleware('permission:assets-assestCategory-update');
-                Route::delete('/destroy/{id}', [AssestCategoryController::class, 'destroy'])->name('assets.assestcategory.destroy')->middleware('permission:assets-assestCategory-destroy');
+                Route::get('/', [AssestCategoryController::class, 'index'])->name('assets.assestcategory.index')->middleware('permission:assets-assestcategory-index');
+                Route::get('/create', [AssestCategoryController::class, 'create'])->name('assets.assestcategory.create')->middleware('permission:assets-assestcategory-create');
+                Route::post('/store', [AssestCategoryController::class, 'store'])->name('assets.assestcategory.store')->middleware('permission:assets-assestcategory-store');
+                Route::get('/show/{id}', [AssestCategoryController::class, 'show'])->name('assets.assestcategory.show')->middleware('permission:assets-assestcategory-show');
+                Route::get('/edit/{id}', [AssestCategoryController::class, 'edit'])->name('assets.assestcategory.edit')->middleware('permission:assets-assestcategory-edit');
+                Route::put('/update/{id}', [AssestCategoryController::class, 'update'])->name('assets.assestcategory.update')->middleware('permission:assets-assestcategory-update');
+                Route::delete('/destroy/{id}', [AssestCategoryController::class, 'destroy'])->name('assets.assestcategory.destroy')->middleware('permission:assets-assestcategory-destroy');
             });
 
 
@@ -663,33 +663,33 @@ Route::middleware('auth')->group(function () {
     Route::prefix("Training")->group(
         function () {
             Route::prefix("trainingtype")->group(function () {
-                Route::get('/', [TrainingtypeController::class, 'index'])->name('training.trainingtype.index')->middleware('permission:Training-trainingtype-index');
-                Route::get('/create', [TrainingtypeController::class, 'create'])->name('training.trainingtype.create')->middleware('permission:Training-trainingtype-create');
-                Route::post('/store', [TrainingtypeController::class, 'store'])->name('training.trainingtype.store')->middleware('permission:Training-trainingtype-store');
-                Route::get('/show/{id}', [TrainingtypeController::class, 'show'])->name('training.trainingtype.show')->middleware('permission:Training-trainingtype-show');
-                Route::get('/edit/{id}', [TrainingtypeController::class, 'edit'])->name('training.trainingtype.edit')->middleware('permission:Training-trainingtype-edit');
-                Route::put('/update/{id}', [TrainingtypeController::class, 'update'])->name('training.trainingtype.update')->middleware('permission:Training-trainingtype-update');
-                Route::delete('/destroy/{id}', [TrainingtypeController::class, 'destroy'])->name('training.trainingtype.destroy')->middleware('permission:Training-trainingtype-destroy');
+                Route::get('/', [TrainingtypeController::class, 'index'])->name('training.trainingtype.index')->middleware('permission:training-trainingtype-index');
+                Route::get('/create', [TrainingtypeController::class, 'create'])->name('training.trainingtype.create')->middleware('permission:training-trainingtype-create');
+                Route::post('/store', [TrainingtypeController::class, 'store'])->name('training.trainingtype.store')->middleware('permission:training-trainingtype-store');
+                Route::get('/show/{id}', [TrainingtypeController::class, 'show'])->name('training.trainingtype.show')->middleware('permission:training-trainingtype-show');
+                Route::get('/edit/{id}', [TrainingtypeController::class, 'edit'])->name('training.trainingtype.edit')->middleware('permission:training-trainingtype-edit');
+                Route::put('/update/{id}', [TrainingtypeController::class, 'update'])->name('training.trainingtype.update')->middleware('permission:training-trainingtype-update');
+                Route::delete('/destroy/{id}', [TrainingtypeController::class, 'destroy'])->name('training.trainingtype.destroy')->middleware('permission:training-trainingtype-destroy');
             });
 
 
             Route::prefix("traininglist")->group(function () {
-                Route::get('/', [TraininglistController::class, 'index'])->name('training.traininglist.index')->middleware('permission:Training-traininglist-index');
-                Route::get('/create', [TraininglistController::class, 'create'])->name('training.traininglist.create')->middleware('permission:Training-traininglist-create');
-                Route::post('/store', [TraininglistController::class, 'store'])->name('training.traininglist.store')->middleware('permission:Training-traininglist-store');
-                Route::get('/show/{id}', [TraininglistController::class, 'show'])->name('training.traininglist.show')->middleware('permission:Training-traininglist-show');
-                Route::get('/edit/{id}', [TraininglistController::class, 'edit'])->name('training.traininglist.edit')->middleware('permission:Training-traininglist-edit');
-                Route::put('/update/{id}', [TraininglistController::class, 'update'])->name('training.traininglist.update')->middleware('permission:Training-traininglist-update');
-                Route::delete('/destroy/{id}', [TraininglistController::class, 'destroy'])->name('training.traininglist.destroy')->middleware('permission:Training-traininglist-destroy');
+                Route::get('/', [TraininglistController::class, 'index'])->name('training.traininglist.index')->middleware('permission:training-traininglist-index');
+                Route::get('/create', [TraininglistController::class, 'create'])->name('training.traininglist.create')->middleware('permission:training-traininglist-create');
+                Route::post('/store', [TraininglistController::class, 'store'])->name('training.traininglist.store')->middleware('permission:training-traininglist-store');
+                Route::get('/show/{id}', [TraininglistController::class, 'show'])->name('training.traininglist.show')->middleware('permission:training-traininglist-show');
+                Route::get('/edit/{id}', [TraininglistController::class, 'edit'])->name('training.traininglist.edit')->middleware('permission:training-traininglist-edit');
+                Route::put('/update/{id}', [TraininglistController::class, 'update'])->name('training.traininglist.update')->middleware('permission:training-traininglist-update');
+                Route::delete('/destroy/{id}', [TraininglistController::class, 'destroy'])->name('training.traininglist.destroy')->middleware('permission:training-traininglist-destroy');
             });
             Route::prefix("trainer")->group(function () {
-                Route::get('/', [TrainerController::class, 'index'])->name('training.trainer.index')->middleware('permission:Training-trainer-index');
-                Route::get('/create', [TrainerController::class, 'create'])->name('training.trainer.create')->middleware('permission:Training-trainer-create');
-                Route::post('/store', [TrainerController::class, 'store'])->name('training.trainer.store')->middleware('permission:Training-trainer-store');
-                Route::get('/show/{id}', [TrainerController::class, 'show'])->name('training.trainer.show')->middleware('permission:Training-trainer-show');
-                Route::get('/edit/{id}', [TrainerController::class, 'edit'])->name('training.trainer.edit')->middleware('permission:Training-trainer-edit');
-                Route::put('/update/{id}', [TrainerController::class, 'update'])->name('training.trainer.update')->middleware('permission:Training-trainer-update');
-                Route::delete('/destroy/{id}', [TrainerController::class, 'destroy'])->name('training.trainer.destroy')->middleware('permission:Training-trainer-destroy');
+                Route::get('/', [TrainerController::class, 'index'])->name('training.trainer.index')->middleware('permission:training-trainer-index');
+                Route::get('/create', [TrainerController::class, 'create'])->name('training.trainer.create')->middleware('permission:training-trainer-create');
+                Route::post('/store', [TrainerController::class, 'store'])->name('training.trainer.store')->middleware('permission:training-trainer-store');
+                Route::get('/show/{id}', [TrainerController::class, 'show'])->name('training.trainer.show')->middleware('permission:training-trainer-show');
+                Route::get('/edit/{id}', [TrainerController::class, 'edit'])->name('training.trainer.edit')->middleware('permission:training-trainer-edit');
+                Route::put('/update/{id}', [TrainerController::class, 'update'])->name('training.trainer.update')->middleware('permission:training-trainer-update');
+                Route::delete('/destroy/{id}', [TrainerController::class, 'destroy'])->name('training.trainer.destroy')->middleware('permission:training-trainer-destroy');
             });
         }
     );
@@ -856,13 +856,13 @@ Route::middleware('auth')->group(function () {
 
 
             Route::prefix("financePay")->group(function () {
-                Route::get('/', [FinancePayController::class, 'index'])->name('finance.financepay.index')->middleware('permission:finance-financePay-index');
-                Route::get('/create', [FinancePayController::class, 'create'])->name('finance.financepay.create')->middleware('permission:finance-financePay-create');
-                Route::post('/store', [FinancePayController::class, 'store'])->name('finance.financepay.store')->middleware('permission:finance-financePay-store');
-                Route::get('/show/{id}', [FinancePayController::class, 'show'])->name('finance.financepay.show')->middleware('permission:finance-financePay-show');
-                Route::get('/edit/{id}', [FinancePayController::class, 'edit'])->name('finance.financepay.edit')->middleware('permission:finance-financePay-edit');
-                Route::put('/update/{id}', [FinancePayController::class, 'update'])->name('finance.financepay.update')->middleware('permission:finance-financePay-update');
-                Route::delete('/destroy/{id}', [FinancePayController::class, 'destroy'])->name('finance.financepay.destroy')->middleware('permission:finance-financePay-destroy');
+                Route::get('/', [FinancePayController::class, 'index'])->name('finance.financepay.index')->middleware('permission:finance-financepay-index');
+                Route::get('/create', [FinancePayController::class, 'create'])->name('finance.financepay.create')->middleware('permission:finance-financepay-create');
+                Route::post('/store', [FinancePayController::class, 'store'])->name('finance.financepay.store')->middleware('permission:finance-financepay-store');
+                Route::get('/show/{id}', [FinancePayController::class, 'show'])->name('finance.financepay.show')->middleware('permission:finance-financepay-show');
+                Route::get('/edit/{id}', [FinancePayController::class, 'edit'])->name('finance.financepay.edit')->middleware('permission:finance-financepay-edit');
+                Route::put('/update/{id}', [FinancePayController::class, 'update'])->name('finance.financepay.update')->middleware('permission:finance-financepay-update');
+                Route::delete('/destroy/{id}', [FinancePayController::class, 'destroy'])->name('finance.financepay.destroy')->middleware('permission:finance-financepay-destroy');
             });
 
 

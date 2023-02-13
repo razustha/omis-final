@@ -87,9 +87,8 @@
                                         <div class="col-lg-4">
                                             {{ customCreateSelect('role_id','role_id','','User Role',getRoles()->pluck('name', 'id')->toArray(),$data->role_id) }}
                                         </div>
-
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Department') !!}
+                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Department Name') !!}
                                         </div>
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id', 'designationName', '', $data, 'Designation') !!}

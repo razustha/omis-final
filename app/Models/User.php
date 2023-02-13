@@ -60,10 +60,13 @@ class User extends Authenticatable
 
     protected $appends = ['status_name'];
 
+
     protected function getStatusNameAttribute()
     {
         return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
     }
+
+
 
     public function todayAttendance()
     {

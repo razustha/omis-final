@@ -42,13 +42,14 @@
                 </a>
             </div>
             <nav class="nk-header-menu nk-navbar">
-                @role('super-super-admin')
+            
                 <ul class="nk-nav">
-                    
+                  
                     <li class="nk-nav-item "><a href="#" class="nk-nav-link "><span
                                 class="nk-nav-text">Dashboards</span></a>
 
                     </li>
+                    @role('super-super-admin')
                
                    
                     <li class="nk-nav-item "><a href="{{ route('form.create') }}" class="nk-nav-link "><span
@@ -105,8 +106,9 @@
 
                                 </ul>
                     </li>
+                    @endrole
                 </ul>
-                @endrole
+              
             </nav>
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav ms-2">

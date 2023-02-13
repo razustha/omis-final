@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <div class="row g-gs">
                                 <div class="col-6">
-                                    <label class="form-label">Employee Id -
+                                    <label class="form-label">Employee ID -
                                         {{ $emp_id }}
                                     </label>
                                 </div>
@@ -96,7 +96,7 @@
                                             {{customCreateSelect('role_id', 'role_id', '', 'User Role', getRoles()->pluck('name','id')->toArray())}}
                                         </div>
                                         <div class="col-lg-4">
-                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department') !!}
+                                            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department Name') !!}
                                         </div>
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
@@ -159,7 +159,7 @@
                             {{ customCreateSelect('is_head', 'is_head', '', 'Is Head', ['manager' => 'Manager', 'team_lead' => 'Team Lead','project_manager' => 'Project Manager','employee' => 'Employee']) }}
                         </div>
                         <div class="col-lg-12">
-                            {{ createNumber('panNo', 'panNo', 'Govt. Pan No') }}
+                            {{ createNumber('panNo', 'panNo', 'Govt. Pan No.') }}
                         </div>
                         <hr>
                         <div class="col-12">
