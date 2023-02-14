@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Setting;
 
 use App\Http\Controllers\Controller;
+use App\Models\Master\Module;
+use App\Models\Settings\Organization;
+use App\Models\Superadmin\Package;
 use Illuminate\Http\Request;
 use App\Models\Permission;
 use App\Models\Role;
@@ -15,13 +18,16 @@ class RoleController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Permission::join('tbl_module','permissions.module_id','tbl_module.module_id')
-                            ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
-                            ->select('moduleName','permissions.*')->get();
-        $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
-            ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
-            ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
-        $data = Role::where('roles.status', '<>', -1)->get();
+        // $data = Permission::join('tbl_module','permissions.module_id','tbl_module.module_id')
+        //                     ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
+        //                     ->select('moduleName','permissions.*')->get();
+        // $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
+        //     ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
+        //     ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
+        $role = Role::where('roles.status', '<>', -1);
+        if (auth()->user()->user_type != 'SUPER ADMIN')
+            $role = $role->whereNotIn('id', [1, 2]);
+        $data = $role->get();
         // dd($data);
         if ($request->ajax()) {
             $html = view("omis.setting.role.ajax.index", compact('data'))->render();
@@ -33,17 +39,27 @@ class RoleController extends Controller
     public function create(Request $request)
     {
         // DB::enableQueryLog();
-        $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
-            ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
-            ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
-    //    dd(DB::getQueryLog());
+        $oragnization = Organization::findOrFail(1);
+        if (auth()->user()->user_type != 'SUPER ADMIN')
+            $package = Package::findOrFail($oragnization->package_id);
+        if (auth()->user()->user_type != 'SUPER ADMIN')
+            $modules = explode(',', $package->feature);
+        else
+            $modules = Module::all()->pluck('module_id')->toArray();
+        // dd($modules);
+        // $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
+        //     ->where('tbl_module.module_id', '=', 1)
+        //     ->where('permissions.status', '<>', -1)
+        //     ->orderBy('tbl_module.module_id', 'asc')
+        //     ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
+        //    dd(DB::getQueryLog());
         // $groupPermissions = $this->permission->getPermissionByGroupWise()->groupBy('group_name')->chunk(3);
         // dd($groupPermissions->toarray());
         if ($request->ajax()) {
-            $html = view("omis.setting.role.ajax.create", ['groupPermissions' => $groupPermissions])->render();
+            $html = view("omis.setting.role.ajax.create", ['modules' => $modules])->render();
             return response()->json(['status' => true, 'content' => $html], 200);
         }
-        return view("omis.setting.role.create",['groupPermissions' => $groupPermissions]);
+        return view("omis.setting.role.create", ['modules' => $modules]);
     }
 
     public function store(Request $request)
@@ -78,11 +94,14 @@ class RoleController extends Controller
     public function edit(Request $request, $id)
     {
         $role = Role::findOrFail($id);
-        $groupPermissions = Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
-            ->where('permissions.status', '<>', -1)->orderBy('tbl_module.module_id', 'asc')
-            ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
+        $oragnization = Organization::findOrFail(1);
+        $package = Package::findOrFail($oragnization->package_id);
+        if (auth()->user()->user_type != 'SUPER ADMIN')
+            $modules = explode(',', $package->feature);
+        else
+            $modules = Module::all()->pluck('module_id')->toArray();
         if ($request->ajax()) {
-            $html = view("omis.setting.role.ajax.edit", ['groupPermissions' => $groupPermissions, 'role' => $role])->render();
+            $html = view("omis.setting.role.ajax.edit", ['modules' => $modules, 'role' => $role])->render();
 
             return response()->json(['status' => true, 'content' => $html], 200);
         }

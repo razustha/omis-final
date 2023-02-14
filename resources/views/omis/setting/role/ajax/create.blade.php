@@ -18,67 +18,49 @@
             $moduleName = '';
             $moduleId = [];
             $counter = 0;
+            
         @endphp
-        @foreach ($groupPermissions as $chunk)
-            <?php
-            $chunkk = $chunk;
-           
-            foreach ($chunkk as $titlee => $groupp) {
-                foreach ($groupp as $permission) {
-                    // print_r($permission->toArray());
+
+        @foreach($modules as $module)
+            @php
+                $groupPermissions = \App\Models\Permission::join('tbl_module', 'permissions.module_id', 'tbl_module.module_id')
+                ->where('tbl_module.module_id', '=', $module)
+                ->where('permissions.status', '<>', -1)
+                ->orderBy('tbl_module.module_id', 'asc')
+                ->select('moduleName', 'permissions.*')->get()->groupBy('group_name')->chunk(3);
+                $moduleObj = \App\Models\Master\Module::findOrFail($module);
+            @endphp
+                <h2 class='text-primary custom-module'>{{ $moduleObj->moduleName }}</h2>
+            @foreach ($groupPermissions as $chunk)
+
+                <div class="row mt-3 g-3">
+                    @foreach ($chunk as $title => $group)
+                        <div class="col-xs-6 col-sm-4 col-md-4 mb-3">
                     
-                    
-                    if (empty($moduleId)) {
-                        $moduleId[] = $permission->moduleName;
-                        echo "<h2 class='text-primary custom-module'>$permission->moduleName</h2>";
-                        break;
-                    }
-                 
-
-
-                    // echo "<h4>$permission->moduleName</h4>";
-                    // print_r($moduleId);
-                    if (!in_array($permission->moduleName, $moduleId)) {
-                        $moduleId[] = $permission->moduleName;
-                        echo "<h2 class='text-primary custom-module'>$permission->moduleName</h2>";
-                        break;
-                    }
-                }
-                break;
-            }
-           
-            ?>
-           
-
-            <div class="row mt-3 g-3">
-                
-                
-                @foreach ($chunk as $title => $group)
-                    <div class="col-xs-6 col-sm-4 col-md-4 mb-3">
-                   
-                                
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input"
-                                data-checkbox-group="{{ Str::slug($title) }}" data-role="selectall">
-                            <label class="overrole-title form-check-label h5 font-weight-bold text-danger"
-                                for="permission">{{ ucfirst($title) }}</label>
-
-                        </div>
-                       
-                        
-                        @foreach ($group as $permission)
+                                    
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input"
-                                    name="permissions[{{ $permission->slug }}]" value="{{ $permission->id }}"
-                                    {{ isset($role) &&$role->permissions()->whereSlug($permission->slug)->first()? 'checked': '' }}
-                                    data-checkbox-group="{{ Str::slug($title) }}" data-role="select">
-                                <label class="form-check-label"
-                                    for="{{ $permission->slug }}">{{ $permission->slug }}</label>
+                                    data-checkbox-group="{{ Str::slug($title) }}" data-role="selectall">
+                                <label class="overrole-title form-check-label h5 font-weight-bold text-danger"
+                                    for="permission">{{ ucfirst($title) }}</label>
+
                             </div>
-                        @endforeach
-                    </div>
-                @endforeach
-            </div>
+                        
+                            
+                            @foreach ($group as $permission)
+                                <div class="form-group form-check" style="margin-left: 20px">
+                                    <input type="checkbox" class="form-check-input"
+                                        name="permissions[{{ $permission->slug }}]" value="{{ $permission->id }}"
+                                        {{ isset($role) &&$role->permissions()->whereSlug($permission->slug)->first()? 'checked': '' }}
+                                        data-checkbox-group="{{ Str::slug($title) }}" data-role="select">
+                                    <label class="form-check-label"
+                                        for="{{ $permission->slug }}">{{ $permission->slug }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
+            @endforeach
         @endforeach
 </form>
 
