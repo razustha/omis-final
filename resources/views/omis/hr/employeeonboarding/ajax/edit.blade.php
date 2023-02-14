@@ -2,12 +2,13 @@
     @csrf
     @method('PUT')
     <div class="row">
-        <div class="col-lg-4">{{  customCreateSelect('employee_id', 'employee_id', '','Employee', getEmployees()->pluck('full_name','employee_id')->toArray())  }}
+        <div class="col-lg-4">
+        {{ customCreateSelect('employee_id','employee_id','','Employee',getEmployees()->pluck('full_name', 'employee_id')->toArray(),$data->employee_id) }}
         </div>
         <div class="col-lg-4">
-            {{ createText('departmentName', 'departmentName', 'Department Name', '', $data->departmentName) }}
+        {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Department Name') !!}
         </div>
-        <div class="col-lg-4">{{ createText('designation', 'designation', 'Designation', '', $data->designation) }}
+        <div class="col-lg-4"> {!! getSelectForForeignColumn('tbl_designation', 'designation_id', 'designationName', '', $data, 'Designation') !!}
         </div>
         <div class="col-lg-4">{{ createText('workingShift', 'workingShift', 'Working Shift', '', $data->workingShift) }}
         </div>

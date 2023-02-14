@@ -52,11 +52,11 @@
                                             <td class="tb-col">
                                                 @if($item->task->tasks_status == "pending")
                                                     @if(!empty($item->task->latestTimeLog($item->task->tasks_id)))
-                                                        <button href="javascript:;" class="text-primary btn border btn-stop-timer btn-sm" data-timelog_id="{{$item->task->latestTimeLog($item->task->tasks_id)->timelog_id}}">
+                                                        <button href="javascript:;" class="text-danger btn border btn-stop-timer btn-sm" data-timelog_id="{{$item->task->latestTimeLog($item->task->tasks_id)->timelog_id}}">
                                                             <em class="icon ni ni-stop-circle-fill"></em>
                                                         </button>
                                                     @else
-                                                        <button href="javascript:;" class="text-primary btn border btn-start-timer btn-sm" data-tasks_id="{{$item->task->tasks_id}}">
+                                                        <button href="javascript:;" class="text-success btn border btn-start-timer btn-sm" data-tasks_id="{{$item->task->tasks_id}}">
                                                             <em class="icon ni ni-play-circle-fill"></em>
                                                         </button>
                                                     @endif
