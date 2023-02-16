@@ -8,8 +8,7 @@
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
                                 <h2 class="nk-block-title">Leave Application List</h1>
-                                    @can('officemanagement-generatorlogbook-edit')
-                                    @endcan
+                                  
 
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
@@ -228,7 +227,8 @@
                                                 </td>
                                                 <td class="tb-col">
                                                     <ul class="d-flex flex-wrap ">
-                                                        <li>
+                                                     
+                                                    <li>
                                                             {!! actionCanvasButton(
                                                                 '',
                                                                 'btn-showCanvas',
@@ -238,8 +238,11 @@
                                                                 $item->leaveApplication_id,
                                                             ) !!}
                                                         </li>
+                                                      
+                                                     
                                                         @if ($item->leaveApplication_status == null)
-                                                            <li>
+                                                
+                                                        <li>
                                                                 {!! actionCanvasButton(
                                                                     '',
                                                                     'btn-editCanvas',
@@ -249,8 +252,10 @@
                                                                     $item->leaveApplication_id,
                                                                 ) !!}
                                                             </li>
+                                                        
+                                                           
                                                             <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-
+                                                                   
                                                         @endif
                                                     </ul>
                                                 </td>
@@ -278,7 +283,8 @@
                                                 </td>
                                                 <td class="tb-col">
                                                     <ul class="d-flex flex-wrap ">
-                                                        <li>
+                                              
+                                                    <li>
                                                             {!! actionCanvasButton(
                                                                 '',
                                                                 'btn-showCanvas',
@@ -288,6 +294,8 @@
                                                                 $item->leaveApplication_id,
                                                             ) !!}
                                                         </li>
+                                                      
+                                                      
                                                         <li>
                                                             {!! actionCanvasButton(
                                                                 '',
@@ -298,8 +306,10 @@
                                                                 $item->leaveApplication_id,
                                                             ) !!}
                                                         </li>
+                                              
+                                                         
                                                         <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-
+                                                            
                                                     </ul>
                                                 </td>
                                             </tr>

@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('reports-leavereports-create')
                                         {!!createCanvasButton("customBtnAdd","","Leave Reports","reports.leavereports.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -56,13 +58,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
-                                                    {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'reports.leavereports.show',$item->leaveReports_id) !!}
+                                                <li>  
+                                                @can('reports-leavereports-show')  
+                                                {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'reports.leavereports.show',$item->leaveReports_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
-                                                        {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'reports.leavereports.edit',$item->leaveReports_id) !!}
+                                               @can('reports-leavereports-edit')
+                                                {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'reports.leavereports.edit',$item->leaveReports_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'reports.leavereports.destroy',$item->leaveReports_id) !!}</li>
+                                                <li>
+                                                @can('reports-leavereports-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'reports.leavereports.destroy',$item->leaveReports_id) !!}
+                                                @endcan
+                                                </li>
                                                </ul> </td>
                                                </tr>
 

@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('payroll-newpayment-create')
                                         {!!createCanvasButton("customBtnAdd","","New Payment","payroll.newpayment.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -59,12 +61,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                @can('payroll-newpayment-show')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'payroll.newpayment.show',$item->newpayment_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('payroll-newpayment-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'payroll.newpayment.edit',$item->newpayment_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('payroll-newpayment-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'payroll.newpayment.destroy',$item->newpayment_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'payroll.newpayment.destroy',$item->newpayment_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

@@ -19,7 +19,9 @@
                             </div>
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
+                                 
                                     {!! createCanvasButton('customBtnAdd', '', 'permission', 'setting.permission.create') !!}
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -55,12 +57,21 @@
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                     <li>
+                                                 
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'setting.permission.show', $item->id) !!}
+                                                    
                                                     </li>
                                                     <li>
+                                             
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'setting.permission.edit', $item->id) !!}
+                                              
                                                     </li>
-                                                    <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'setting.permission.destroy', $item->id) !!}</li>
+                                           
+                                                    <li>
+
+                                                    {!! deleteCanvasButton('', 'btn-hover-danger', 'setting.permission.destroy', $item->id) !!}
+                                                
+                                                    </li>
                                                 </ul>
                                             </td>
                                         </tr>

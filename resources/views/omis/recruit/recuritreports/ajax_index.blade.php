@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('recruit-recuritreports-create')
                                         {!!createCanvasButton("customBtnAdd","","Reports","recruit.recuritreports.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -59,12 +61,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                @can('recruit-recuritreports-create')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'recruit.recuritreports.show',$item->recuritreports_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('recruit-recuritreports-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'recruit.recuritreports.edit',$item->recuritreports_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('recruit-recuritreports-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'recruit.recuritreports.destroy',$item->recuritreports_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'recruit.recuritreports.destroy',$item->recuritreports_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

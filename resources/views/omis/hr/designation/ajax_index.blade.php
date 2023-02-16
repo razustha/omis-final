@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
+                            @can('hr-designation-create')    
+                            <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Designation', 'hr.designation.create') !!}
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -52,7 +54,8 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                @can('hr-designation-show')  
+                                                <li>
                                                         {!! actionCanvasButton(
                                                             '',
                                                             'btn-showCanvas',
@@ -62,6 +65,8 @@
                                                             $item->designation_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-designation-edit')
                                                     <li>
                                                         {!! actionCanvasButton(
                                                             '',
@@ -72,7 +77,10 @@
                                                             $item->designation_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-designation-destroy')
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.designation.destroy', $item->designation_id) !!}</li>
+                                               @endcan
                                                 </ul>
                                             </td>
                                         </tr>

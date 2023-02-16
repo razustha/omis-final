@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
+                            @can('hr-mangeholiday-create')    
+                            <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Manage Holiday', 'hr.mangeholiday.create') !!}
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -57,7 +59,8 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                @can('hr-mangeholiday-show')    
+                                                <li>
                                                         {!! actionCanvasButton(
                                                             '',
                                                             'btn-showCanvas',
@@ -67,6 +70,8 @@
                                                             $item->mangeHoliday_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-mangeholiday-edit')
                                                     <li>
                                                         {!! actionCanvasButton(
                                                             '',
@@ -77,7 +82,10 @@
                                                             $item->mangeHoliday_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-mangeholiday-destroy')
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.mangeholiday.destroy', $item->mangeHoliday_id) !!}</li>
+                                                @endcan
                                                 </ul>
                                             </td>
                                         </tr>

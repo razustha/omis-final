@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
+                                @can('hr-resignation-create')
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Resignation', 'hr.resignation.create') !!}
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -55,7 +57,8 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                @can('hr-resignation-show')  
+                                                <li>
                                                         {!! actionCanvasButton(
                                                             '',
                                                             'btn-showCanvas',
@@ -65,6 +68,8 @@
                                                             $item->resignation_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-resignation-edit')
                                                     <li>
                                                         {!! actionCanvasButton(
                                                             '',
@@ -75,7 +80,10 @@
                                                             $item->resignation_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-resignation-destroy')
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.resignation.destroy', $item->resignation_id) !!}</li>
+                                                @endcan
                                                 </ul>
                                             </td>
                                         </tr>

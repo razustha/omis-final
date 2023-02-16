@@ -12,8 +12,10 @@
                             <div class="nk-content-body">
                             <div class="card">
                                         <div class="card-body">
+                                    
                                             {{BibClass::addButton("settings/dictonary","Cancel")}}
                                             {{BibClass::tableEntryForm($tableName)}}
+                 
                                         </div>
                                     </div>
 

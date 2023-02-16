@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('requisition-convincerequest-create')
                                         {!!createCanvasButton("customBtnAdd","","Convince Request","requisition.convincerequest.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -55,12 +57,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                @can('requisition-convincerequest-show')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'requisition.convincerequest.show',$item->convinceReuest_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('requisition-convincerequest-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'requisition.convincerequest.edit',$item->convinceReuest_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('requisition-convincerequest-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'requisition.convincerequest.destroy',$item->convinceReuest_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'requisition.convincerequest.destroy',$item->convinceReuest_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

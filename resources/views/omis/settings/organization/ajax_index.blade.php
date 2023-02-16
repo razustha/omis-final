@@ -18,9 +18,12 @@
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
-                                    <ul class="d-flex">
+                              
+                                <ul class="d-flex">
+                                     
                                         {!!createCanvasButton("customBtnAdd","","Organization","settings.organization.create") !!}
                                     </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -52,14 +55,21 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>   
+                                                
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'settings.organization.show',$item->organization_id) !!}
+                                       
                                                 </li>
                                                <li> 
+                                            
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'settings.organization.edit',$item->organization_id) !!}
-                                                </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'settings.organization.destroy',$item->organization_id) !!}</li>
-                                               </ul> </td>
+                                           
+                                                    </li>
+                                                <li>
+                                         
+                                                {!! deleteCanvasButton("","btn-hover-danger",'settings.organization.destroy',$item->organization_id) !!}</li>
+                                    
+                                                </ul> </td>
                                                </tr>
 
                                         @endforeach

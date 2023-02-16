@@ -38,6 +38,7 @@ class RoleController extends Controller
 
     public function create(Request $request)
     {
+    
         // DB::enableQueryLog();
         $oragnization = Organization::findOrFail(1);
         if (auth()->user()->user_type != 'SUPER ADMIN')
@@ -58,8 +59,11 @@ class RoleController extends Controller
         if ($request->ajax()) {
             $html = view("omis.setting.role.ajax.create", ['modules' => $modules])->render();
             return response()->json(['status' => true, 'content' => $html], 200);
+
         }
         return view("omis.setting.role.create", ['modules' => $modules]);
+        
+        
     }
 
     public function store(Request $request)

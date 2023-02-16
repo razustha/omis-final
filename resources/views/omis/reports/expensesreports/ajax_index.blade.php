@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('reports-expensesreports-create')
                                         {!!createCanvasButton("customBtnAdd","","Expenses Reports","reports.expensesreports.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -56,13 +58,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>   
+                                                    @can('reports-expensesreports-show') 
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'reports.expensesreports.show',$item->expensesReports_id) !!}
+                                                    @endcan
                                                 </li>
                                                <li> 
+                                               @can('reports-expensesreports-edit') 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'reports.expensesreports.edit',$item->expensesReports_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('reports-expensesreports-destroy')     
+                                                {!! deleteCanvasButton("","btn-hover-danger",'reports.expensesreports.destroy',$item->expensesReports_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'reports.expensesreports.destroy',$item->expensesReports_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('requisition-requisitiontravel-create')
                                         {!!createCanvasButton("customBtnAdd","","Requisition Travel","requisition.requisitiontravel.create") !!}
+                                    @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -54,13 +56,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>   
+                                                @can('requisition-requisitiontravel-show') 
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'requisition.requisitiontravel.show',$item->requisitiontravel_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('requisition-requisitiontravel-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'requisition.requisitiontravel.edit',$item->requisitiontravel_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('requisition-requisitiontravel-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'requisition.requisitiontravel.destroy',$item->requisitiontravel_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'requisition.requisitiontravel.destroy',$item->requisitiontravel_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

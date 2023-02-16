@@ -18,9 +18,11 @@
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
-                                    <ul class="d-flex">
+                                @can('finance-financepay-create')    
+                                <ul class="d-flex">
                                         {!!createCanvasButton("customBtnAdd","","Payments","finance.financepay.create") !!}
                                     </ul>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
@@ -56,14 +58,20 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
+                                                    @can('finance-financepay-show')
                                                 <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'finance.financepay.show',$item->payeeName_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('finance-financepay-edit')
                                                <li> 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'finance.financepay.edit',$item->payeeName_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('finance-financepay-destroy')
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'finance.financepay.destroy',$item->payeeName_id) !!}</li>
-                                               </ul> </td>
+                                            @endcan   
+                                            </ul> </td>
                                                </tr>
 
                                         @endforeach

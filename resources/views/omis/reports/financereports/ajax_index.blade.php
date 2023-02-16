@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('reports-financereports-create')
                                         {!!createCanvasButton("customBtnAdd","","Finance Reports","reports.financereports.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -61,12 +63,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                    @can('reports-financereports-show')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'reports.financereports.show',$item->financeReports_id) !!}
+                                                    @endcan
                                                 </li>
                                                <li> 
+                                                @can('reports-financereports-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'reports.financereports.edit',$item->financeReports_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('reports-financereports-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'reports.financereports.destroy',$item->financeReports_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'reports.financereports.destroy',$item->financeReports_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 
