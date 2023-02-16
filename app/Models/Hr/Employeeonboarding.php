@@ -17,8 +17,8 @@ class Employeeonboarding extends Model
     public $timestamps = true;
     protected $fillable = [
         'employee_id',
-        'departmentName',
-        'designation',
+        'department_id',
+        'designation_id',
         'workingShift',
         'workingHour',
         'workingMode',

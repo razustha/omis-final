@@ -48,12 +48,12 @@
                             <li class="nk-menu-item"><a href="{{ route('settings.organization.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Organization</span></a>
                             </li>
-                            <!-- <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span
+                            <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span
                                         class="nk-menu-text">Invoices</span></a>
                             </li>
                             <li class="nk-menu-item"><a href="#" class="nk-menu-link"><span
                                         class="nk-menu-text">Companies</span></a>
-                            </li> -->
+                            </li>
                         </ul>
                     </li>
                     @endrole
