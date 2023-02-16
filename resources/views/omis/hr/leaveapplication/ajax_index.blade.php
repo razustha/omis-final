@@ -46,77 +46,145 @@
                                         $i = 1;
                                     @endphp
                                     @foreach ($data as $item)
-                                        @if (auth()->user()->employee != null)
+                                        @if($item->employee)
+                                            @if (auth()->user()->employee != null)
 
-                                            @if (($item->employee->reportingTo == auth()->user()->employee->employee_id) && auth()->user()->employee->is_head == 'manager')
+                                                @if (($item->employee->reportingTo == auth()->user()->employee->employee_id) && auth()->user()->employee->is_head == 'manager')
 
-                                                <tr>
-                                                    <td class="tb-col">{{ $i++ }}</td>
+                                                    <tr>
+                                                        <td class="tb-col">{{ $i++ }}</td>
 
-                                                    <td class="tb-col">
-                                                        {{ $item->employee->firstName }}{{ $item->employee->middleName }}
-                                                        {{ $item->employee->lastName }}
-                                                    </td>
-                                                    <td class="tb-col">{{ $item->leaveType }}</td>
+                                                        <td class="tb-col">
+                                                            {{ $item->employee->firstName }}{{ $item->employee->middleName }}
+                                                            {{ $item->employee->lastName }}
+                                                        </td>
+                                                        <td class="tb-col">{{ $item->leaveType }}</td>
 
-                                                    <td class="tb-col">
-                                                        @if ($item->leaveApplication_status == null)
-                                                            <span class="badge text-bg-warning">Pending</span>
-                                                        @elseif($item->leaveApplication_status == 'approved')
-                                                            <span class="badge text-bg-success">Approved</span>
-                                                        @elseif($item->leaveApplication_status == 'forwarded')
-                                                            <span class="badge text-bg-info">Forwarded</span>
-                                                        @else
-                                                            <span class="badge text-bg-danger">Rejected</span>
-                                                        @endif
-                                                    </td>
-                                                    <td class="tb-col">
-                                                        <ul class="d-flex flex-wrap ">
-                                                            <li>
-                                                                {!! actionCanvasButton(
-                                                                    '',
-                                                                    'btn-showCanvas',
-                                                                    'showoffcanvas',
-                                                                    'eye',
-                                                                    'hr.leaveapplication.show',
-                                                                    $item->leaveApplication_id,
-                                                                ) !!}
-                                                            </li>
-                                                            <li>
-                                                                {!! actionCanvasButton(
-                                                                    '',
-                                                                    'btn-editCanvas',
-                                                                    'editoffcanvas',
-                                                                    'edit',
-                                                                    'hr.leaveapplication.edit',
-                                                                    $item->leaveApplication_id,
-                                                                ) !!}
-                                                            </li>
-                                                            <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-
-
-                                                            @if ($item->leaveApplication_status == null && auth()->user()->employee->is_head == 'manager')
+                                                        <td class="tb-col">
+                                                            @if ($item->leaveApplication_status == null)
+                                                                <span class="badge text-bg-warning">Pending</span>
+                                                            @elseif($item->leaveApplication_status == 'approved')
+                                                                <span class="badge text-bg-success">Approved</span>
+                                                            @elseif($item->leaveApplication_status == 'forwarded')
+                                                                <span class="badge text-bg-info">Forwarded</span>
+                                                            @else
+                                                                <span class="badge text-bg-danger">Rejected</span>
+                                                            @endif
+                                                        </td>
+                                                        <td class="tb-col">
+                                                            <ul class="d-flex flex-wrap ">
                                                                 <li>
-                                                                    <button type="button"
-                                                                        class="btn btn-color-info btn-hover-info btn-icon btn-soft"
-                                                                        onclick="forwardthis({{ $item->leaveApplication_id }})"
-                                                                        value="1" data-bs-toggle="tooltip"
-                                                                        data-bs-placement="top"
-                                                                        data-bs-custom-class="custom-tooltip"
-                                                                        title="Forward To Hr"> <em
-                                                                            class="icon ni ni-forward"></em></button>
+                                                                    {!! actionCanvasButton(
+                                                                        '',
+                                                                        'btn-showCanvas',
+                                                                        'showoffcanvas',
+                                                                        'eye',
+                                                                        'hr.leaveapplication.show',
+                                                                        $item->leaveApplication_id,
+                                                                    ) !!}
                                                                 </li>
                                                                 <li>
-                                                                    <button type="button"
-                                                                        class="btn btn-color-danger btn-hover-danger btn-icon btn-soft"
-                                                                        onclick="rejectthis({{ $item->leaveApplication_id }})"
-                                                                        value="0" data-bs-toggle="tooltip"
-                                                                        data-bs-placement="top"
-                                                                        data-bs-custom-class="custom-tooltip"
-                                                                        title="Rejected"> <em
-                                                                            class="icon ni ni-cross-circle"></em></button>
+                                                                    {!! actionCanvasButton(
+                                                                        '',
+                                                                        'btn-editCanvas',
+                                                                        'editoffcanvas',
+                                                                        'edit',
+                                                                        'hr.leaveapplication.edit',
+                                                                        $item->leaveApplication_id,
+                                                                    ) !!}
                                                                 </li>
-                                                            @elseif(auth()->user()->hasRole('hr'))
+                                                                <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
+
+
+                                                                @if ($item->leaveApplication_status == null && auth()->user()->employee->is_head == 'manager')
+                                                                    <li>
+                                                                        <button type="button"
+                                                                            class="btn btn-color-info btn-hover-info btn-icon btn-soft"
+                                                                            onclick="forwardthis({{ $item->leaveApplication_id }})"
+                                                                            value="1" data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-custom-class="custom-tooltip"
+                                                                            title="Forward To Hr"> <em
+                                                                                class="icon ni ni-forward"></em></button>
+                                                                    </li>
+                                                                    <li>
+                                                                        <button type="button"
+                                                                            class="btn btn-color-danger btn-hover-danger btn-icon btn-soft"
+                                                                            onclick="rejectthis({{ $item->leaveApplication_id }})"
+                                                                            value="0" data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-custom-class="custom-tooltip"
+                                                                            title="Rejected"> <em
+                                                                                class="icon ni ni-cross-circle"></em></button>
+                                                                    </li>
+                                                                @elseif(auth()->user()->hasRole('hr'))
+                                                                    <li>
+                                                                        <button type="button"
+                                                                            class="btn btn-color-info btn-hover-info btn-icon btn-soft"
+                                                                            onclick="approvedthis({{ $item->leaveApplication_id }})"
+                                                                            value="1" data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-custom-class="custom-tooltip"
+                                                                            title="Approved Leave"> <em
+                                                                                class="icon ni ni-forward"></em></button>
+                                                                    </li>
+                                                                    <li>
+                                                                        <button type="button"
+                                                                            class="btn btn-color-danger btn-hover-danger btn-icon btn-soft"
+                                                                            onclick="rejectthis({{ $item->leaveApplication_id }})"
+                                                                            value="0" data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-custom-class="custom-tooltip"
+                                                                            title="Rejected"> <em
+                                                                                class="icon ni ni-cross-circle"></em></button>
+                                                                    </li>
+                                                                @endif
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                @elseif(auth()->user()->hasRole('hr'))
+                                                    <tr>
+                                                        <td class="tb-col">{{ $i++ }}</td>
+
+                                                        <td class="tb-col">
+                                                            {{ $item->employee->firstName }}{{ $item->employee->middleName }}
+                                                        </td>
+                                                        <td class="tb-col">{{ $item->leaveType }}</td>
+
+                                                        <td class="tb-col">
+                                                            @if ($item->leaveApplication_status == null)
+                                                                <span class="badge text-bg-warning">Pending</span>
+                                                            @elseif($item->leaveApplication_status == 'approved')
+                                                                <span class="badge text-bg-success">Approved</span>
+                                                            @elseif($item->leaveApplication_status == 'forwarded')
+                                                                <span class="badge text-bg-info">Forwarded</span>
+                                                            @else
+                                                                <span class="badge text-bg-danger">Rejected</span>
+                                                            @endif
+                                                        </td>
+                                                        <td class="tb-col">
+                                                            <ul class="d-flex flex-wrap ">
+                                                                <li>
+                                                                    {!! actionCanvasButton(
+                                                                        '',
+                                                                        'btn-showCanvas',
+                                                                        'showoffcanvas',
+                                                                        'eye',
+                                                                        'hr.leaveapplication.show',
+                                                                        $item->leaveApplication_id,
+                                                                    ) !!}
+                                                                </li>
+                                                                <li>
+                                                                    {!! actionCanvasButton(
+                                                                        '',
+                                                                        'btn-editCanvas',
+                                                                        'editoffcanvas',
+                                                                        'edit',
+                                                                        'hr.leaveapplication.edit',
+                                                                        $item->leaveApplication_id,
+                                                                    ) !!}
+                                                                </li>
+                                                                <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
                                                                 <li>
                                                                     <button type="button"
                                                                         class="btn btn-color-info btn-hover-info btn-icon btn-soft"
@@ -125,7 +193,7 @@
                                                                         data-bs-placement="top"
                                                                         data-bs-custom-class="custom-tooltip"
                                                                         title="Approved Leave"> <em
-                                                                            class="icon ni ni-forward"></em></button>
+                                                                            class="icon ni ni-check"></em></button>
                                                                 </li>
                                                                 <li>
                                                                     <button type="button"
@@ -134,14 +202,62 @@
                                                                         value="0" data-bs-toggle="tooltip"
                                                                         data-bs-placement="top"
                                                                         data-bs-custom-class="custom-tooltip"
-                                                                        title="Rejected"> <em
+                                                                        title="Reject Leave"> <em
                                                                             class="icon ni ni-cross-circle"></em></button>
                                                                 </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                @else
+                                                <tr>
+                                                    <td class="tb-col">{{ $i++ }}</td>
+                                                    <td class="tb-col">
+                                                        {{ $item->employee->firstName }}{{ $item->employee->middleName }}
+                                                    </td>
+                                                    <td class="tb-col">{{ $item->leaveType }}</td>
+
+                                                    <td class="tb-col">
+                                                        @if ($item->leaveApplication_status == null)
+                                                            <span class="badge text-bg-warning">Pending</span>
+                                                        @elseif($item->leaveApplication_status == 'approved')
+                                                            <span class="badge text-bg-success">Approved</span>
+                                                        @elseif($item->leaveApplication_status == 'forwarded')
+                                                            <span class="badge text-bg-info">Forwarded</span>
+                                                        @else
+                                                            <span class="badge text-bg-danger">Rejected</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="tb-col">
+                                                        <ul class="d-flex flex-wrap ">
+                                                            <li>
+                                                                {!! actionCanvasButton(
+                                                                    '',
+                                                                    'btn-showCanvas',
+                                                                    'showoffcanvas',
+                                                                    'eye',
+                                                                    'hr.leaveapplication.show',
+                                                                    $item->leaveApplication_id,
+                                                                ) !!}
+                                                            </li>
+                                                            @if ($item->leaveApplication_status == null)
+                                                                <li>
+                                                                    {!! actionCanvasButton(
+                                                                        '',
+                                                                        'btn-editCanvas',
+                                                                        'editoffcanvas',
+                                                                        'edit',
+                                                                        'hr.leaveapplication.edit',
+                                                                        $item->leaveApplication_id,
+                                                                    ) !!}
+                                                                </li>
+                                                                <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
+
                                                             @endif
                                                         </ul>
                                                     </td>
                                                 </tr>
-                                            @elseif(auth()->user()->hasRole('hr'))
+                                                @endif
+                                            @else
                                                 <tr>
                                                     <td class="tb-col">{{ $i++ }}</td>
 
@@ -184,125 +300,11 @@
                                                                 ) !!}
                                                             </li>
                                                             <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-                                                            <li>
-                                                                <button type="button"
-                                                                    class="btn btn-color-info btn-hover-info btn-icon btn-soft"
-                                                                    onclick="approvedthis({{ $item->leaveApplication_id }})"
-                                                                    value="1" data-bs-toggle="tooltip"
-                                                                    data-bs-placement="top"
-                                                                    data-bs-custom-class="custom-tooltip"
-                                                                    title="Approved Leave"> <em
-                                                                        class="icon ni ni-check"></em></button>
-                                                            </li>
-                                                            <li>
-                                                                <button type="button"
-                                                                    class="btn btn-color-danger btn-hover-danger btn-icon btn-soft"
-                                                                    onclick="rejectthis({{ $item->leaveApplication_id }})"
-                                                                    value="0" data-bs-toggle="tooltip"
-                                                                    data-bs-placement="top"
-                                                                    data-bs-custom-class="custom-tooltip"
-                                                                    title="Reject Leave"> <em
-                                                                        class="icon ni ni-cross-circle"></em></button>
-                                                            </li>
+
                                                         </ul>
                                                     </td>
                                                 </tr>
-                                            @else
-                                            <tr>
-                                                <td class="tb-col">{{ $i++ }}</td>
-                                                <td class="tb-col">
-                                                    {{ $item->employee->firstName }}{{ $item->employee->middleName }}
-                                                </td>
-                                                <td class="tb-col">{{ $item->leaveType }}</td>
-
-                                                <td class="tb-col">
-                                                    @if ($item->leaveApplication_status == null)
-                                                        <span class="badge text-bg-warning">Pending</span>
-                                                    @elseif($item->leaveApplication_status == 'approved')
-                                                        <span class="badge text-bg-success">Approved</span>
-                                                    @elseif($item->leaveApplication_status == 'forwarded')
-                                                        <span class="badge text-bg-info">Forwarded</span>
-                                                    @else
-                                                        <span class="badge text-bg-danger">Rejected</span>
-                                                    @endif
-                                                </td>
-                                                <td class="tb-col">
-                                                    <ul class="d-flex flex-wrap ">
-                                                        <li>
-                                                            {!! actionCanvasButton(
-                                                                '',
-                                                                'btn-showCanvas',
-                                                                'showoffcanvas',
-                                                                'eye',
-                                                                'hr.leaveapplication.show',
-                                                                $item->leaveApplication_id,
-                                                            ) !!}
-                                                        </li>
-                                                        @if ($item->leaveApplication_status == null)
-                                                            <li>
-                                                                {!! actionCanvasButton(
-                                                                    '',
-                                                                    'btn-editCanvas',
-                                                                    'editoffcanvas',
-                                                                    'edit',
-                                                                    'hr.leaveapplication.edit',
-                                                                    $item->leaveApplication_id,
-                                                                ) !!}
-                                                            </li>
-                                                            <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-
-                                                        @endif
-                                                    </ul>
-                                                </td>
-                                            </tr>
                                             @endif
-                                        @else
-                                            <tr>
-                                                <td class="tb-col">{{ $i++ }}</td>
-
-                                                <td class="tb-col">
-                                                    {{ $item->employee->firstName }}{{ $item->employee->middleName }}
-                                                </td>
-                                                <td class="tb-col">{{ $item->leaveType }}</td>
-
-                                                <td class="tb-col">
-                                                    @if ($item->leaveApplication_status == null)
-                                                        <span class="badge text-bg-warning">Pending</span>
-                                                    @elseif($item->leaveApplication_status == 'approved')
-                                                        <span class="badge text-bg-success">Approved</span>
-                                                    @elseif($item->leaveApplication_status == 'forwarded')
-                                                        <span class="badge text-bg-info">Forwarded</span>
-                                                    @else
-                                                        <span class="badge text-bg-danger">Rejected</span>
-                                                    @endif
-                                                </td>
-                                                <td class="tb-col">
-                                                    <ul class="d-flex flex-wrap ">
-                                                        <li>
-                                                            {!! actionCanvasButton(
-                                                                '',
-                                                                'btn-showCanvas',
-                                                                'showoffcanvas',
-                                                                'eye',
-                                                                'hr.leaveapplication.show',
-                                                                $item->leaveApplication_id,
-                                                            ) !!}
-                                                        </li>
-                                                        <li>
-                                                            {!! actionCanvasButton(
-                                                                '',
-                                                                'btn-editCanvas',
-                                                                'editoffcanvas',
-                                                                'edit',
-                                                                'hr.leaveapplication.edit',
-                                                                $item->leaveApplication_id,
-                                                            ) !!}
-                                                        </li>
-                                                        <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-
-                                                    </ul>
-                                                </td>
-                                            </tr>
                                         @endif
                                     @endforeach
 
