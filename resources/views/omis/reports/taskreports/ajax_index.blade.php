@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('reports-taskreports-create')
                                         {!!createCanvasButton("customBtnAdd","","Task Reports","reports.taskreports.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -66,13 +68,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>  
+                                                    @can('reports-taskreports-show')  
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'reports.taskreports.show',$item->taskreports_id) !!}
+                                                    @endcan
                                                 </li>
                                                <li> 
+                                               @can('reports-taskreports-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'reports.taskreports.edit',$item->taskreports_id) !!}
-                                                </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'reports.taskreports.destroy',$item->taskreports_id) !!}</li>
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('reports-taskreports-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'reports.taskreports.destroy',$item->taskreports_id) !!}
+                                                @endcan
+                                            </li>
                                                </ul> </td>
                                                </tr>
 

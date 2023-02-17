@@ -18,9 +18,11 @@
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
-                                    <ul class="d-flex">
+                                @can('hr-latereasons-create')    
+                                <ul class="d-flex">
                                         {!!createCanvasButton("customBtnAdd","","Late Reasons","hr.latereasons.create") !!}
                                     </ul>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
@@ -62,14 +64,20 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
+                                                    @can('hr-latereasons-show')
                                                 <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'hr.latereasons.show',$item->latereasons_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('hr-latereasons-edit')
                                                <li> 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'hr.latereasons.edit',$item->latereasons_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('hr-latereasons-destroy')
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'hr.latereasons.destroy',$item->latereasons_id) !!}</li>
-                                               </ul> </td>
+                                            @endcan   
+                                            </ul> </td>
                                                </tr>
 
                                         @endforeach

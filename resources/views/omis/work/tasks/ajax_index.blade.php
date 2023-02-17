@@ -18,12 +18,15 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
+                            @can('work-tasks-create')    
+                            <ul class="d-flex">
+                                        
                                     {!! createCanvasButton('customBtnAdd', '', 'Tasks', 'work.tasks.create') !!}
                                     <a class="mt-2 btn btn-primary-outlined" href="{{route('work.tasks.allTaskList')}}">
                                         View Task Board
                                     </a>
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -65,13 +68,20 @@
                                                 @if($item->tasks_status == "pending")
                                                     <ul class="d-flex flex-wrap ">
                                                         <li>
+                                                            @can('work-tasks-show')
                                                             {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'work.tasks.show', $item->tasks_id) !!}
+                                                        @endcan
                                                         </li>
                                                         <li>
+                                                        @can('work-tasks-edit')
                                                             {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'work.tasks.edit', $item->tasks_id) !!}
+                                                        @endcan
                                                         </li>
-                                                        <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'work.tasks.destroy', $item->tasks_id) !!}</li>
                                                         <li>
+                                                        @can('work.tasks.destroy')
+                                                            {!! deleteCanvasButton('', 'btn-hover-danger', 'work.tasks.destroy', $item->tasks_id) !!}</li>
+                                                        @endcan
+                                                         <li>
                                                             <button class="btn btn-primary rounded-pill btn-sm mt-1 btn-taskcomplete" data-tasks_id="{{$item->tasks_id}}">
                                                                 Complete Task
                                                             </button>

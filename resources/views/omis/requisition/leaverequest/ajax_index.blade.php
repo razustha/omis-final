@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('requisition-leaverequest-create')
                                         {!!createCanvasButton("customBtnAdd","","Leave Request","requisition.leaverequest.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -60,13 +62,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>  
+                                                @can('requisition-leaverequest-show')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'requisition.leaverequest.show',$item->leaverequest_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('requisition-leaverequest-show')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'requisition.leaverequest.edit',$item->leaverequest_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('requisition-leaverequest-destroy')     
+                                                {!! deleteCanvasButton("","btn-hover-danger",'requisition.leaverequest.destroy',$item->leaverequest_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'requisition.leaverequest.destroy',$item->leaverequest_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

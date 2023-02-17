@@ -37,7 +37,7 @@ class Employeeonboarding extends Model
 
     ];
 
-    protected $appends = ['status_name'];
+    protected $appends = ['status_name','employee_name'];
 
     protected function getStatusNameAttribute()
     {
@@ -58,10 +58,15 @@ class Employeeonboarding extends Model
         );
     }
 
-    protected function EmployeeId(): Attribute
+//     protected function EmployeeId(): Attribute
+//     {
+//         return Attribute::make(
+//             get: fn ($value) =>  Employee::find($value) ? Employee::find($value)->full_name : '',
+//         );
+//     }
+protected function getEmployeeNameAttribute()
     {
-        return Attribute::make(
-            get: fn ($value) =>  Employee::find($value) ? Employee::find($value)->full_name : '',
-        );
+        $employee=Employee::find($this->employee_id);
+        return $employee ? $employee->full_name:'';
     }
 }

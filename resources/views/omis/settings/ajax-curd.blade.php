@@ -6,6 +6,8 @@
             @include("omis/partials/sidebar")
             <div class="nk-wrap">
                 @include("omis/partials/header")
+
+           
                 <div class="nk-content">
                     <div class="container-fluid">
                         <div class="nk-content-inner">
@@ -87,6 +89,7 @@
                         </div>
                     </div>
                 </div>
+          
                 @include("omis/partials/footer")
             </div>
         </div>

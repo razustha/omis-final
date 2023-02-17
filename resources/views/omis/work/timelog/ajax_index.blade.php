@@ -19,7 +19,9 @@
                             </div>
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
+                                    @can('work-timelog-create')
                                     {!! createCanvasButton('customBtnAdd', '', 'Timelog', 'work.timelog.create') !!}
+                                    @endcan
                                 </ul>
                             </div>
                         </div>
@@ -63,12 +65,19 @@
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                     <li>
+                                                        @can('work-timelog-show')
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'work.timelog.show', $item->timelog_id) !!}
+                                                        @endcan
                                                     </li>
                                                     <li>
+                                                        @can('work-timelog-edit')
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'work.timelog.edit', $item->timelog_id) !!}
+                                                        @endcan
                                                     </li>
-                                                    <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'work.timelog.destroy', $item->timelog_id) !!}</li>
+                                                    <li>
+                                                      @can('work-timelog-destroy')  {!! deleteCanvasButton('', 'btn-hover-danger', 'work.timelog.destroy', $item->timelog_id) !!}
+                                                    @endcan
+                                                    </li>
                                                 </ul>
                                             </td>
                                         </tr>

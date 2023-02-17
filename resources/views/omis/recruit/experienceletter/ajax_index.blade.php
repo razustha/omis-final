@@ -19,8 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        
+                                        @can('recruit-experienceletter-create')
                                         {!!createCanvasButton("customBtnAdd","","Experience Letter","recruit.experienceletter.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -64,12 +65,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                @can('recruit-experienceletter-show')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'recruit.experienceletter.show',$item->experienceletter_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('recruit-experienceletter-show')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'recruit.experienceletter.edit',$item->experienceletter_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('recruit-experienceletter-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'recruit.experienceletter.destroy',$item->experienceletter_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'recruit.experienceletter.destroy',$item->experienceletter_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

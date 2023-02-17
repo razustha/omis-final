@@ -19,9 +19,13 @@
                             </div>
                             @if(empty(auth()->user()->hasRole('super-super-admin')))
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
+                       
+                            <ul class="d-flex">
+                           
                                     {!! createCanvasButton('customBtnAdd', '', 'projects', 'work.workprojects.create') !!}
+                              
                                 </ul>
+                        
                             </div>
                             @endif
                         </div>
@@ -74,15 +78,23 @@
                                         @if($item->workProject_status == "pending")
                                         <ul class="d-flex flex-wrap ">
                                             <li>
+                                           
                                                 {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye',
                                                 'work.workprojects.show', $item->workProject_id) !!}
+                                                   
                                             </li>
                                             <li>
+                                             
                                                 {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit',
                                                 'work.workprojects.edit', $item->workProject_id) !!}
+                                                  
                                             </li>
-                                            <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'work.workprojects.destroy',
-                                                $item->workProject_id) !!}</li>
+                                            <li>
+                                             
+                                            {!! deleteCanvasButton('', 'btn-hover-danger', 'work.workprojects.destroy',
+                                                $item->workProject_id) !!}
+                                          
+                                            </li>
 
                                             @if(empty($item->tasks[0]))
                                             <li>

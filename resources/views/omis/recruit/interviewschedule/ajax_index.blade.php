@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('recruit-interviewschedule-create')
                                         {!!createCanvasButton("customBtnAdd","","Interview Schedule","recruit.interviewschedule.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -64,13 +66,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>   
+                                                    @can('recruit-interviewschedule-show') 
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'recruit.interviewschedule.show',$item->interviewschedule_id) !!}
+                                                    @endcan
                                                 </li>
                                                <li> 
+                                               @can('recruit-interviewschedule-edit') 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'recruit.interviewschedule.edit',$item->interviewschedule_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('recruit-interviewschedule-destroy')     
+                                                {!! deleteCanvasButton("","btn-hover-danger",'recruit.interviewschedule.destroy',$item->interviewschedule_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'recruit.interviewschedule.destroy',$item->interviewschedule_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

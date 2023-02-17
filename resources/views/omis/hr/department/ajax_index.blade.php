@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
+                                @can('hr-department-create')
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Department', 'hr.department.create') !!}
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -49,9 +51,12 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                @can('hr-department-show')    
+                                                <li>
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'hr.department.show', $item->department_id) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-department-edit')
                                                     <li>
                                                         {!! actionCanvasButton(
                                                             '',
@@ -62,7 +67,10 @@
                                                             $item->department_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-department-destroy')
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.department.destroy', $item->department_id) !!}</li>
+                                                    @endcan
                                                 </ul>
                                             </td>
                                         </tr>

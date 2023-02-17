@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('rostermanagement-rostercategory-create')
                                         {!!createCanvasButton("customBtnAdd","","Roster Category","rostermanagement.rostercategory.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>

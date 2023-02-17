@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('requisition-travel-create')
                                         {!!createCanvasButton("customBtnAdd","","Travel","requisition.travel.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -67,12 +69,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                    @can('requisition-travel-create')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'requisition.travel.show',$item->travel_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('requisition-travel-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'requisition.travel.edit',$item->travel_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('requisition-travel-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'requisition.travel.destroy',$item->travel_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'requisition.travel.destroy',$item->travel_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

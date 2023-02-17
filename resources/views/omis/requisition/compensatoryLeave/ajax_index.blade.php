@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('requisition-compensatoryleave-create')
                                         {!!createCanvasButton("customBtnAdd","","Compensatory Leave","requisition.compensatoryleave.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -74,13 +76,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>  
+                                                @can('requisition-compensatoryleave-show')  
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'requisition.compensatoryleave.show',$item->compensatoryleave_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('requisition-compensatoryleave-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'requisition.compensatoryleave.edit',$item->compensatoryleave_id) !!}
-                                                </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'requisition.compensatoryleave.destroy',$item->compensatoryleave_id) !!}</li>
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('requisition-compensatoryleave-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'requisition.compensatoryleave.destroy',$item->compensatoryleave_id) !!}
+                                                @endcan
+                                            </li>
                                                </ul> </td>
                                                </tr>
 

@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
+                            @can('hr-transfer-create')   
+                            <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Transfer', 'hr.transfer.create') !!}
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -59,13 +61,19 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                @can('hr-transfer-show')   
+                                                <li>
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'hr.transfer.show', $item->transfer_id) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-transfer-edit')
                                                     <li>
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'hr.transfer.edit', $item->transfer_id) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-transfer-destroy')
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.transfer.destroy', $item->transfer_id) !!}</li>
+                                                @endcan
                                                 </ul>
                                             </td>
                                         </tr>

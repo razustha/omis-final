@@ -33,10 +33,10 @@ Route::middleware('auth')->prefix("setting")->group(function () {
 Route::middleware('auth')->prefix("setting")->group(function () {
     Route::prefix("role")->group(function () {
         Route::get('/', [RoleController::class, 'index'])->name('setting.role.index')->middleware('permission:settings-role-index');
-        Route::get('/create', [RoleController::class, 'create'])->name('setting.role.create')->middleware('permission:settings-role-index');
+        Route::get('/create', [RoleController::class, 'create'])->name('setting.role.create'); 
         Route::post('/store', [RoleController::class, 'store'])->name('setting.role.store')->middleware('permission:settings-role-index');
         Route::get('/show/{id}', [RoleController::class, 'show'])->name('setting.role.show')->middleware('permission:settings-role-index');
-        Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('setting.role.edit')->middleware('permission:settings-role-index');
+        Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('setting.role.edit');
         Route::put('/update/{id}', [RoleController::class, 'update'])->name('setting.role.update')->middleware('permission:settings-role-index');
         Route::delete('/destroy/{id}', [RoleController::class, 'destroy'])->name('setting.role.destroy')->middleware('permission:settings-role-index');
     });

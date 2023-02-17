@@ -18,9 +18,11 @@
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
+                                    @can('finance-expensesclaim-create')
                                     <ul class="d-flex">
                                         {!!createCanvasButton("customBtnAdd","","Expenses Claim","finance.expensesclaim.create") !!}
                                     </ul>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
@@ -100,14 +102,20 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
+                                                    @can('finance-expensesclaim-show')
                                                 <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'finance.expensesclaim.show',$item->expensesClaim_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('finance-expensesclaim-edit')
                                                <li> 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'finance.expensesclaim.edit',$item->expensesClaim_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('finance-expensesclaim-destroy')
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'finance.expensesclaim.destroy',$item->expensesClaim_id) !!}</li>
-                                               </ul> </td>
+                                            @endcan   
+                                            </ul> </td>
                                                </tr>
 
                                         @endforeach

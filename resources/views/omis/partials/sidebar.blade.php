@@ -94,11 +94,11 @@
                             <span class="nk-menu-text">Settings</span></a>
                         <ul class="nk-menu-sub">
 
-                          @can('settings-organization-index')
+                          
                             <li class="nk-menu-item"><a href="{{ route('settings.organizationsettings.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Organization
                                         Setting</span></a></li>
-                                        @endcan
+                                        
                                   
                                   
                                         

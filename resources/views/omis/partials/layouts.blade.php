@@ -155,7 +155,8 @@
                 success: function(res) {
                     $("#addConvasByAjax").html(res.content);
                     $('.lfm').filemanager('image');
-
+                    let mainInput = document.getElementById("nepali-datepicker1");
+                    mainInput.nepaliDatePicker();
 
                 }
             })

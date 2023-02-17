@@ -18,9 +18,11 @@
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
+                                    @can('assets-assestcategory-create')
                                     <ul class="d-flex">
                                         {!!createCanvasButton("customBtnAdd","","Assest category","assets.assestcategory.create") !!}
                                     </ul>
+                                 @endcan
                                 </div>
                             </div>
                         </div>
@@ -46,16 +48,25 @@
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->assestsTypeRemarks }}</td>
 <!-- <td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
-<td class="tb-col">
+<td class="tb-col">             
+                                   
                                                 <ul class="d-flex flex-wrap ">
+                                                @can('assets-assestcategory-show')
                                                 <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'assets.assestcategory.show',$item->assestCategory_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('assets-assestcategory-edit')
                                                <li> 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'assets.assestcategory.edit',$item->assestCategory_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('assets-assestcategory-destroy')
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'assets.assestcategory.destroy',$item->assestCategory_id) !!}</li>
-                                               </ul> </td>
+                                                @endcan
+                                            </ul>
+                                            
+                                             </td>
                                                </tr>
 
                                         @endforeach

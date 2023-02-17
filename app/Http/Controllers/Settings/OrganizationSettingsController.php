@@ -20,7 +20,7 @@ class OrganizationSettingsController extends Controller
         //
         $organizationsettings = OrganizationSettings::all();
         $notificationsettings = NotificationSettings::all();
-        return view('omis.settings.organizationsettings', compact('organizationsettings','notificationsettings'));
+        return view('settings.organizationsettings.index', compact('organizationsettings','notificationsettings'));
     }
 
     /**
