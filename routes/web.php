@@ -85,7 +85,7 @@ use App\Http\Controllers\Travelfleet\TravelrequestController;
 use App\Http\Controllers\Travelfleet\TravelslogController;
 use App\Http\Controllers\Travelfleet\VehiclelogController;
 use App\Http\Controllers\Work\TasksController;
-use App\Http\Controllers\work\WorkProjectsController;
+use App\Http\Controllers\Work\WorkProjectsController;
 
 use App\Http\Controllers\Finance\CreditNotesController;
 use App\Http\Controllers\Finance\EstimatesController;
