@@ -14,7 +14,7 @@ Route::middleware('auth')->prefix("settings")->group(function () {
         Route::get('/show/{id}', [UsersController::class, 'show'])->name('setting.users.show')->middleware('permission:settings-users-index');
         Route::get('/edit/{id}', [UsersController::class, 'edit'])->name('setting.users.edit')->middleware('permission:settings-users-index');
         Route::put('/update/{id}', [UsersController::class, 'update'])->name('setting.users.update')->middleware('permission:settings-users-index');
-        Route::delete('/destroy/{id}', [UsersController::class, 'destroy'])->name('setting.users.destroy')->middleware('permission:settings-users-index');
+        Route::get('/destroy/{id}', [UsersController::class, 'destroy'])->name('setting.users.destroy')->middleware('permission:settings-users-index');
     });
 });
 
@@ -26,19 +26,19 @@ Route::middleware('auth')->prefix("setting")->group(function () {
         Route::get('/show/{id}', [PermissionController::class, 'show'])->name('setting.permission.show')->middleware('permission:settings-permission-index');
         Route::get('/edit/{id}', [PermissionController::class, 'edit'])->name('setting.permission.edit')->middleware('permission:settings-permission-index');
         Route::put('/update/{id}', [PermissionController::class, 'update'])->name('setting.permission.update')->middleware('permission:settings-permission-index');
-        Route::delete('/destroy/{id}', [PermissionController::class, 'destroy'])->name('setting.permission.destroy')->middleware('permission:settings-permission-index');
+        Route::get('/destroy/{id}', [PermissionController::class, 'destroy'])->name('setting.permission.destroy')->middleware('permission:settings-permission-index');
     });
 });
 
 Route::middleware('auth')->prefix("setting")->group(function () {
     Route::prefix("role")->group(function () {
         Route::get('/', [RoleController::class, 'index'])->name('setting.role.index')->middleware('permission:settings-role-index');
-        Route::get('/create', [RoleController::class, 'create'])->name('setting.role.create'); 
+        Route::get('/create', [RoleController::class, 'create'])->name('setting.role.create');
         Route::post('/store', [RoleController::class, 'store'])->name('setting.role.store')->middleware('permission:settings-role-index');
         Route::get('/show/{id}', [RoleController::class, 'show'])->name('setting.role.show')->middleware('permission:settings-role-index');
         Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('setting.role.edit');
         Route::put('/update/{id}', [RoleController::class, 'update'])->name('setting.role.update')->middleware('permission:settings-role-index');
-        Route::delete('/destroy/{id}', [RoleController::class, 'destroy'])->name('setting.role.destroy')->middleware('permission:settings-role-index');
+        Route::get('/destroy/{id}', [RoleController::class, 'destroy'])->name('setting.role.destroy')->middleware('permission:settings-role-index');
     });
 });
 

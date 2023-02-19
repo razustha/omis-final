@@ -21,7 +21,7 @@ Route::get('/user/tasks', function () {
 })->name('employee.tasks.index');
 
 Route::get('/user/expenses', function () {
-    return view('employee\expenses\index');
+    return view('employee.expenses.index');
 })->name('employee.expenses.index');
 
 Route::get('/user/attandance', function () {

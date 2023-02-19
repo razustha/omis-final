@@ -189,7 +189,7 @@
 @endsection
 
 @section('js')
-    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+    <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
     <script type="text/javascript">
         var append = 2;
         $(document).on('click', '#additemrowedu', function() {

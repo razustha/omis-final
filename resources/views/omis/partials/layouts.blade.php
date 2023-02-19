@@ -84,7 +84,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
-    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+    <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
     <script src="{{ asset('assets/js/nepali.datepicker.v4.0.1.min.js') }}"></script>
     <script>
         $(document).on('click', '#nepali-datepicker', function(e) {
@@ -111,10 +111,6 @@
                     var token = $("meta[name='csrf-token']").attr("content");
                     $.ajax({
                         url: url,
-                        type: "DELETE",
-                        data: {
-                            "_token": _token,
-                        },
                         success: function(res) {
                             if (res.status) {
                                 Swal.fire({
