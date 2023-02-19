@@ -18,9 +18,11 @@
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
-                                    <ul class="d-flex">
+                                @can('timesheet-absentreason-create')
+                                <ul class="d-flex">
                                         {!!createCanvasButton("customBtnAdd","","Absentreason","timesheet.absentreason.create") !!}
                                     </ul>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
@@ -63,12 +65,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                @can('timesheet-absentreason-show')   
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'timesheet.absentreason.show',$item->absentReason_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                                    @can('timesheet-absentreason-edit')                    
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'timesheet.absentreason.edit',$item->absentReason_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'timesheet.absentreason.destroy',$item->absentReason_id) !!}</li>
+                                                <li>
+                                                @can('timesheet-absentreason-destroy')  
+                                                    {!! deleteCanvasButton("","btn-hover-danger",'timesheet.absentreason.destroy',$item->absentReason_id) !!}
+                                                @endcan
+                                                </li>
                                                </ul> </td>
                                                </tr>
 

@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('recruit-jobpost-create')
                                         {!!createCanvasButton("customBtnAdd","","Job Post","recruit.jobpost.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -57,12 +59,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                @can('recruit-jobpost-show')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'recruit.jobpost.show',$item->jobpost_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('recruit-jobpost-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'recruit.jobpost.edit',$item->jobpost_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('recruit-jobpost-destroy')
+                                                    {!! deleteCanvasButton("","btn-hover-danger",'recruit.jobpost.destroy',$item->jobpost_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'recruit.jobpost.destroy',$item->jobpost_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

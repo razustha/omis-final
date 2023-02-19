@@ -18,11 +18,13 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
+                                @can('hr-employee-create')
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Employee', 'hr.employee.create') !!}
                                     {{-- <input type="text" id="nepali-datepicker" placeholder="Select Nepali Date" name="joinDate"/> --}}
 
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -74,11 +76,15 @@
                                                     {{-- <li>
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'hr.employee.show', $item->employee_id) !!}
                                                     </li> --}}
+                                                    @can('hr-employee-show')
                                                     <li>{{ actionButton('View Employee', "<em class=\"icon ni ni-eye\"></em>", route('hr.employee.show', [$item->employee_id]), 'btn-showModal') }}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-employee-edit')
                                                     <li>
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'hr.employee.edit', $item->employee_id) !!}
                                                     </li>
+                                                    @endcan
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.employee.destroy', $item->employee_id) !!}</li>
                                                 </ul>
                                             </td>

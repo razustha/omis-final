@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('rostermanagement-rosterentries-create')
                                         {!!createCanvasButton("customBtnAdd","","Roster Entries","rostermanagement.rosterentries.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -56,13 +58,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>   
+                                                @can('rostermanagement-rosterentries-show') 
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'rostermanagement.rosterentries.show',$item->rosterentries_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('rostermanagement-rosterentries-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'rostermanagement.rosterentries.edit',$item->rosterentries_id) !!}
-                                                </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'rostermanagement.rosterentries.destroy',$item->rosterentries_id) !!}</li>
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('rostermanagement-rosterentries-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'rostermanagement.rosterentries.destroy',$item->rosterentries_id) !!}
+                                                @endcan
+                                            </li>
                                                </ul> </td>
                                                </tr>
 

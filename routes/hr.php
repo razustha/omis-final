@@ -183,6 +183,8 @@ Route::prefix('hr')->group(function () {
         Route::get('/edit/{id}', [PromotiondemotionController::class, 'edit'])->name('hr.promotiondemotion.edit')->middleware('permission:hr-promotiondemotion-edit');
         Route::put('/update/{id}', [PromotiondemotionController::class, 'update'])->name('hr.promotiondemotion.update')->middleware('permission:hr-promotiondemotion-update');
         Route::delete('/destroy/{id}', [PromotiondemotionController::class, 'destroy'])->name('hr.promotiondemotion.destroy')->middleware('permission:hr-promotiondemotion-destroy');
+        Route::get('get-employee-designation', [PromotiondemotionController::class, 'getEmployeeDesignation'])->name('hr.promotiondemotion.getEmployeeDesignation');
+
     });
 
 

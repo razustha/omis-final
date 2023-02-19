@@ -85,7 +85,7 @@ use App\Http\Controllers\Travelfleet\TravelrequestController;
 use App\Http\Controllers\Travelfleet\TravelslogController;
 use App\Http\Controllers\Travelfleet\VehiclelogController;
 use App\Http\Controllers\Work\TasksController;
-use App\Http\Controllers\work\WorkProjectsController;
+use App\Http\Controllers\Work\WorkProjectsController;
 
 use App\Http\Controllers\Finance\CreditNotesController;
 use App\Http\Controllers\Finance\EstimatesController;
@@ -845,13 +845,13 @@ Route::middleware('auth')->group(function () {
 
 
             Route::prefix("financeExpenses")->group(function () {
-                Route::get('/', [FinanceExpensesController::class, 'index'])->name('finance.financeexpenses.index')->middleware('permission:finance-financeExpenses-index');
-                Route::get('/create', [FinanceExpensesController::class, 'create'])->name('finance.financeexpenses.create')->middleware('permission:finance-financeExpenses-create');
-                Route::post('/store', [FinanceExpensesController::class, 'store'])->name('finance.financeexpenses.store')->middleware('permission:finance-financeExpenses-store');
-                Route::get('/show/{id}', [FinanceExpensesController::class, 'show'])->name('finance.financeexpenses.show')->middleware('permission:finance-financeExpenses-show');
-                Route::get('/edit/{id}', [FinanceExpensesController::class, 'edit'])->name('finance.financeexpenses.edit')->middleware('permission:finance-financeExpenses-edit');
-                Route::put('/update/{id}', [FinanceExpensesController::class, 'update'])->name('finance.financeexpenses.update')->middleware('permission:finance-financeExpenses-update');
-                Route::delete('/destroy/{id}', [FinanceExpensesController::class, 'destroy'])->name('finance.financeexpenses.destroy')->middleware('permission:finance-financeExpenses-destroy');
+                Route::get('/', [FinanceExpensesController::class, 'index'])->name('finance.financeexpenses.index')->middleware('permission:finance-financeexpenses-index');
+                Route::get('/create', [FinanceExpensesController::class, 'create'])->name('finance.financeexpenses.create')->middleware('permission:finance-financeexpenses-create');
+                Route::post('/store', [FinanceExpensesController::class, 'store'])->name('finance.financeexpenses.store')->middleware('permission:finance-financeexpenses-store');
+                Route::get('/show/{id}', [FinanceExpensesController::class, 'show'])->name('finance.financeexpenses.show')->middleware('permission:finance-financeexpenses-show');
+                Route::get('/edit/{id}', [FinanceExpensesController::class, 'edit'])->name('finance.financeexpenses.edit')->middleware('permission:finance-financeexpenses-edit');
+                Route::put('/update/{id}', [FinanceExpensesController::class, 'update'])->name('finance.financeexpenses.update')->middleware('permission:finance-financeexpenses-update');
+                Route::delete('/destroy/{id}', [FinanceExpensesController::class, 'destroy'])->name('finance.financeexpenses.destroy')->middleware('permission:finance-financeexpenses-destroy');
             });
 
 

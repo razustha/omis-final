@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('recruit-jobinterview-create')
                                         {!!createCanvasButton("customBtnAdd","","Job Interview","recruit.jobinterview.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -61,12 +63,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                @can('recruit-jobinterview-show')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'recruit.jobinterview.show',$item->jobInterview_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('recruit-jobinterview-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'recruit.jobinterview.edit',$item->jobInterview_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('recruit-jobinterview-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'recruit.jobinterview.destroy',$item->jobInterview_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'recruit.jobinterview.destroy',$item->jobInterview_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

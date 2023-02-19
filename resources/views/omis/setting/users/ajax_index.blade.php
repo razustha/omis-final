@@ -19,7 +19,9 @@
                             </div>
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
+    
                                     {!! createCanvasButton('customBtnAdd', '', 'Users', 'setting.users.create') !!}
+                   
                                 </ul>
                             </div>
                         </div>
@@ -67,12 +69,20 @@
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                     <li>
+                      
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'setting.users.show', $item->id) !!}
+                            
                                                     </li>
                                                     <li>
+
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'setting.users.edit', $item->id) !!}
+                                        
                                                     </li>
-                                                    <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'setting.users.destroy', $item->id) !!}</li>
+                                                    <li>
+
+                                                        {!! deleteCanvasButton('', 'btn-hover-danger', 'setting.users.destroy', $item->id) !!}
+                     
+                                                    </li>
                                                 </ul>
                                             </td>
                                         </tr>

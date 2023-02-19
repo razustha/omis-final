@@ -131,4 +131,9 @@ class Employee extends Model
         $manager = Employee::find($this->reportingTo);
         return $manager ? $manager->full_name : '';
     }
+
+    public function designation()
+    {
+        return $this->belongsTo(Designation::class,'designation_id','designation_id');
+    }
 }

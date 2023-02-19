@@ -1,7 +1,9 @@
 <?php
         namespace App\Http\Controllers\Hr;
         use App\Http\Controllers\Controller;
-        use Illuminate\Http\Request;
+use App\Models\Hr\Designation;
+use App\Models\Hr\Employee;
+use Illuminate\Http\Request;
         use App\Models\Hr\Promotiondemotion;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
@@ -31,6 +33,9 @@
             {
                 $request->request->add(['alias' => slugify($request->promotiondemotionName)]);
                 Promotiondemotion::create($request->all());
+                $employee = Employee::where('employee_id', $request->employee_id)->first();
+                $employee->designation_id = $request->updated_designation_id;
+                $employee->save();
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Promotiondemotion Created Successfully.'], 200);
                 }
@@ -76,6 +81,23 @@
                 $data->status = -1;
                 $data->save();
                 return response()->json(['status'=>true,'message'=>'The Promotiondemotion Deleted Successfully.'],200);
+            }
+
+            public function getEmployeeDesignation(Request $request)
+            {
+
+                $employee = Employee::where('employee_id', $request->employee_id)->first();
+                if($request->type == 'promotion')
+                {
+                    $promotion_designation_id = Designation::where('designation_id', '<', $employee->designation_id)->max('designation_id');
+                    $data = Designation::where('designation_id', $promotion_designation_id)->get();
+
+                } elseif($request->type == 'demotion')
+                {
+                    $promotion_designation_id = Designation::where('designation_id', '>', $employee->designation_id)->min('designation_id');
+                    $data = Designation::where('designation_id', $promotion_designation_id)->get();
+                }
+                return response()->json(['status' => 200, 'message' => $data]);
             }
 
             public static function getAjaxContent($type, $id = '', $option = '')
@@ -137,4 +159,3 @@
                 }
             }
         }
-        

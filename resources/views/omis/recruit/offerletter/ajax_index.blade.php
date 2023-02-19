@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('recruit-offerletter-create')
                                         {!!createCanvasButton("customBtnAdd","","Offer Letter","recruit.offerletter.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -70,13 +72,21 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>   
+                                                    @can('recruit-offerletter-show') 
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'recruit.offerletter.show',$item->offerletter_id) !!}
+                                                    @endcan
                                                 </li>
                                                <li> 
+                                               @can('recruit-offerletter-edit')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'recruit.offerletter.edit',$item->offerletter_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('recruit-offerletter-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'recruit.offerletter.destroy',$item->offerletter_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'recruit.offerletter.destroy',$item->offerletter_id) !!}</li>
                                                </ul> </td>
                                                </tr>
 

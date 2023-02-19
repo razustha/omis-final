@@ -19,13 +19,13 @@
                                         <div class="nk-block-head-content">
                                                 <div class="d-flex gap">
                                                 <div class="gap-col">
-                                               
+
                                                <div class="box-dotted py-2">
-                                                   <div class="d-flex align-items-center">
-                                                       <div class="h4 mb-0">12:00 AM</div></span>
-                                                   </div>
-                                                   <div class="smaller">Tuesday</div>
-                                                
+                                                <div class="container">
+                                                    <div class="clock"></div>
+                                                    <div class="smaller">{{ date('l')}}</div>
+                                                </div>
+
                                                </div>
                                            </div>
                                                 <a href="#" class="btn btn-primary d-none d-md-inline-flex">Clock In</a>
@@ -33,8 +33,8 @@
                                             </div>
                                         </div>
                                         </div>
-                               
-                               
+
+
                                     <div class="col-xxl-7">
                                         <div class="row g-gs">
                                             <div class="col-md-6">

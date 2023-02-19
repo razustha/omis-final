@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
+                              
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Warnings', 'hr.warnings.create') !!}
                                 </ul>
+                               
                             </div>
                         </div>
                     </div>
@@ -57,7 +59,8 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                
+                                                <li>
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'hr.warnings.show', $item->warnings_id) !!}
                                                     </li>
                                                     <li>

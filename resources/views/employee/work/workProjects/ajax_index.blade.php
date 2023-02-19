@@ -19,9 +19,7 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
-                                    {!! createCanvasButton('customBtnAdd', '', 'projects', 'work.workprojects.create') !!}
-                                </ul>
+                           
                             </div>
                         </div>
                     </div>

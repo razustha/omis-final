@@ -35,10 +35,10 @@
                                     </div> -->
 
                                     <div class="p-2">
-                                        <div class="d-flex align-items-center">
-                                            <div class="h4 mb-0"><h2 class="title"> 12:00 AM</h2></div>
+                                        <div class="container">
+                                            <div class="clock"></div>
+                                            <div class="smaller">{{ date('l')}}</div>
                                         </div>
-                                        <div class="large">Tuesday</div>
 
                                     </div>
 
@@ -679,5 +679,42 @@
             $('.new_CheckIn').modal('show');
 
         })
+
+        // Clock
+        const clock = document.querySelector('.clock');
+
+        //assigning time values to constants
+        const tick = () => {
+        const now = new Date();
+        let h = now.getHours();
+        const m = now.getMinutes();
+        const s = now.getSeconds();
+        let am_pm = 'AM';
+
+        //transforming 24 hour clock into 12 hour clock
+            if (h >= 12) {
+                h -= 12;
+                am_pm = "PM";
+            };
+            if (h == 0) {
+                h = 12;
+                am_pm = "AM";
+            };
+
+        //defining html for digital clock
+        const html = `
+        <span>${h}</span> :
+        <span>${m}</span> :
+        <span>${s}</span>
+        <span class="ampm">${am_pm}</span>
+        `;
+
+        //printing html code inside div.clock
+        clock.innerHTML = html;
+        };
+
+        //refreshing clock every 1 second
+        setInterval(tick, 1000);
     </script>
 @endsection
+

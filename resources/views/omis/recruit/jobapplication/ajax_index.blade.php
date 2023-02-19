@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('recruit-jobapplication-create')
                                         {!!createCanvasButton("customBtnAdd","","Job Application","recruit.jobapplication.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -67,12 +69,20 @@
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                 <li>    
+                                                @can('recruit-jobapplication-create')
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'recruit.jobapplication.show',$item->jobapplication_id) !!}
+                                                @endcan
                                                 </li>
                                                <li> 
+                                               @can('recruit-jobapplication-show')
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'recruit.jobapplication.edit',$item->jobapplication_id) !!}
+                                                @endcan
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'recruit.jobapplication.destroy',$item->jobapplication_id) !!}</li>
+                                                <li>
+                                                @can('recruit-jobapplication-destroy')    
+                                                {!! deleteCanvasButton("","btn-hover-danger",'recruit.jobapplication.destroy',$item->jobapplication_id) !!}
+                                                @endcan
+                                                </li>
                                                </ul> </td>
                                                </tr>
 

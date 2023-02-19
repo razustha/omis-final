@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
+                                @can('hr-employeementtimeline-create')
                                 <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Employeement Timeline', 'hr.employeementtimeline.create') !!}
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -57,7 +59,8 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                @can('hr-employeementtimeline-show')   
+                                                <li>
                                                         {!! actionCanvasButton(
                                                             '',
                                                             'btn-showCanvas',
@@ -67,6 +70,8 @@
                                                             $item->employeementTimeLine_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-employeementtimeline-edit')
                                                     <li>
                                                         {!! actionCanvasButton(
                                                             '',
@@ -77,12 +82,15 @@
                                                             $item->employeementTimeLine_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-employeementtimeline-destroy')
                                                     <li>{!! deleteCanvasButton(
                                                         '',
                                                         'btn-hover-danger',
                                                         'hr.employeementtimeline.destroy',
                                                         $item->employeementTimeLine_id,
                                                     ) !!}</li>
+                                                    @endcan
                                                 </ul>
                                             </td>
                                         </tr>

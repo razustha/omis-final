@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
+                                        @can('supplier-suppliercategory-create')
                                         {!!createCanvasButton("customBtnAdd","","category","supplier.suppliercategory.create") !!}
+                                        @endcan
                                     </ul>
                                 </div>
                             </div>
@@ -52,14 +54,22 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>  
+                                                    @can('supplier-suppliercategory-show')  
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'supplier.suppliercategory.show',$item->supplierCategory_id) !!}
+                                                    @endcan
                                                 </li>
                                                <li> 
+                                               @can('supplier-suppliercategory-edit')  
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'supplier.suppliercategory.edit',$item->supplierCategory_id) !!}
+                                                @endcan
+                                                    </li>
+                                                <li>
+                                                @can('supplier-suppliercategory-destroy')      
+                                                {!! deleteCanvasButton("","btn-hover-danger",'supplier.suppliercategory.destroy',$item->supplierCategory_id) !!}
                                                 </li>
-                                                <li>{!! deleteCanvasButton("","btn-hover-danger",'supplier.suppliercategory.destroy',$item->supplierCategory_id) !!}</li>
-                                               </ul> </td>
+                                                @endcan  
+                                            </ul> </td>
                                                </tr>
 
                                         @endforeach

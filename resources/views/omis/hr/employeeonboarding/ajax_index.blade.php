@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
+                            @can('hr-employeeonboarding-create')    
+                            <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Employee Onboarding', 'hr.employeeonboarding.create') !!}
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -45,7 +47,7 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td>
-                                            <td class="tb-col">{{ $item->employee_id }}</td>
+                                            <td class="tb-col">{{ $item->employee_name }}</td>
 
                                             <td class="tb-col">{{ $item->workingShift }}</td>
                                             <!-- <td class="tb-col">{{ $item->workingHour }}</td> -->
@@ -53,7 +55,8 @@
 
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                @can('hr-employeeonboarding-show')  
+                                                <li>
                                                         {!! actionCanvasButton(
                                                             '',
                                                             'btn-showCanvas',
@@ -63,6 +66,8 @@
                                                             $item->employeeonboarding_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-employeeonboarding-edit')
                                                     <li>
                                                         {!! actionCanvasButton(
                                                             '',
@@ -73,7 +78,10 @@
                                                             $item->employeeonboarding_id,
                                                         ) !!}
                                                     </li>
+                                                    @endcan
+                                                    @can('hr-employeeonboarding-destroy')
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.employeeonboarding.destroy', $item->employeeonboarding_id) !!}</li>
+                                               @endcan
                                                 </ul>
                                             </td>
                                         </tr>

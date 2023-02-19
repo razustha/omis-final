@@ -18,9 +18,11 @@
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
-                                    <ul class="d-flex">
+                                @can('hr-absentreason-create')   
+                                <ul class="d-flex">
                                         {!!createCanvasButton("customBtnAdd","","Absent Reason","hr.absentreason.create") !!}
                                     </ul>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
@@ -62,14 +64,20 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
+                                                    @can('hr-absentreason-show')
                                                 <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'hr.absentreason.show',$item->absentReason_id) !!}
                                                 </li>
-                                               <li> 
+                                                @endcan
+                                                @can('hr-absentreason-edit')
+                                                <li> 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'hr.absentreason.edit',$item->absentReason_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('hr-absentreason-destroy')
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'hr.absentreason.destroy',$item->absentReason_id) !!}</li>
-                                               </ul> </td>
+                                            @endcan  
+                                            </ul> </td>
                                                </tr>
 
                                         @endforeach

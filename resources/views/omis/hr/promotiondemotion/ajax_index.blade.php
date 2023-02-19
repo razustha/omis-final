@@ -18,9 +18,11 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                                <ul class="d-flex">
+                            @can('hr-promotiondemotion-create')
+                            <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Promotion Demotion', 'hr.promotiondemotion.create') !!}
                                 </ul>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -57,7 +59,8 @@
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li>
+                                                @can('hr-promotiondemotion-show')
+                                                <li>
                                                         {!! actionCanvasButton(
                                                             '',
                                                             'btn-showCanvas',
@@ -67,17 +70,9 @@
                                                             $item->promotiondemotion_id,
                                                         ) !!}
                                                     </li>
-                                                    <li>
-                                                        {!! actionCanvasButton(
-                                                            '',
-                                                            'btn-editCanvas',
-                                                            'editoffcanvas',
-                                                            'edit',
-                                                            'hr.promotiondemotion.edit',
-                                                            $item->promotiondemotion_id,
-                                                        ) !!}
-                                                    </li>
-                                                    <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.promotiondemotion.destroy', $item->promotiondemotion_id) !!}</li>
+                                                    @endcan
+
+
                                                 </ul>
                                             </td>
                                         </tr>

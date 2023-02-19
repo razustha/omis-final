@@ -17,19 +17,19 @@ use Illuminate\Http\Request;
                     $data = Workprojects::where('status','<>',-1)->orderBy('created_at','desc')->get();
 
                     if ($request->ajax()) {
-                        $html = view("omis.work.workprojects.ajax.index", compact('data'))->render();
+                        $html = view("omis.work.workProjects.ajax.index", compact('data'))->render();
                         return response()->json(['status' => true, 'content' => $html], 200);
                     }
-                    return view("omis.work.workprojects.ajax_index", compact('data'));
+                    return view("omis.work.workProjects.ajax_index", compact('data'));
 
 
                 } else {
                     $data = ProjectEmployee::where('employee_id', auth()->user()->employee->employee_id)->get();
                     if ($request->ajax()) {
-                        $html = view("employee.work.workprojects.ajax.index", compact('data'))->render();
+                        $html = view("employee.work.workProjects.ajax.index", compact('data'))->render();
                         return response()->json(['status' => true, 'content' => $html], 200);
                     }
-                    return view("employee.work.workprojects.ajax_index", compact('data'));
+                    return view("employee.work.workProjects.ajax_index", compact('data'));
                 }
 
             }
@@ -37,10 +37,10 @@ use Illuminate\Http\Request;
             public function create(Request $request)
             {
                 if ($request->ajax()) {
-                    $html = view("omis.work.workprojects.ajax.create")->render();
+                    $html = view("omis.work.workProjects.ajax.create")->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.work.workprojects.create");
+                return view("omis.work.workProjects.create");
             }
 
             public function store(Request $request)
@@ -64,10 +64,10 @@ use Illuminate\Http\Request;
             {
                 $data = Workprojects::findOrFail($id);
                 if ($request->ajax()) {
-                    $html = view("omis.work.workprojects.ajax.show", compact('data'))->render();
+                    $html = view("omis.work.workProjects.ajax.show", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.work.workprojects.show", compact('data'));
+                return view("omis.work.workProjects.show", compact('data'));
             }
 
 
@@ -75,10 +75,10 @@ use Illuminate\Http\Request;
             {
                 $data = Workprojects::findOrFail($id);
                 if ($request->ajax()) {
-                    $html = view("omis.work.workprojects.ajax.edit", compact('data'))->render();
+                    $html = view("omis.work.workProjects.ajax.edit", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.work.workprojects.edit", compact('data'));
+                return view("omis.work.workProjects.edit", compact('data'));
             }
 
 

@@ -19,7 +19,9 @@
                             </div>
                             <div class="nk-block-head-content">
                                 <ul class="d-flex">
+                                
                                     {!! createCanvasButton('customBtnAdd', '', 'Role', 'setting.role.create') !!}
+                         
                                 </ul>
                             </div>
                         </div>
@@ -54,9 +56,15 @@
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'setting.role.show', $item->id) !!}
                                                     </li> -->
                                                     <li>
+                                        
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'setting.role.edit', $item->id) !!}
+                                               
                                                     </li>
-                                                    <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'setting.role.destroy', $item->id) !!}</li>
+                                                    <li>
+                                            
+                                                        {!! deleteCanvasButton('', 'btn-hover-danger', 'setting.role.destroy', $item->id) !!}
+                                               
+                                                    </li>
                                                 </ul>
                                             </td>
                                         </tr>

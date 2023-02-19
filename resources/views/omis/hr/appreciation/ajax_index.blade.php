@@ -18,9 +18,11 @@
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
+                                    @can('hr-appreciation-create')
                                     <ul class="d-flex">
                                         {!!createCanvasButton("customBtnAdd","","Appreciation","hr.appreciation.create") !!}
                                     </ul>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
@@ -58,14 +60,20 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
+                                                    @can('hr-appreciation-show')
                                                 <li>    
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'hr.appreciation.show',$item->appreciation_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('hr-appreciation-edit')
                                                <li> 
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'hr.appreciation.edit',$item->appreciation_id) !!}
                                                 </li>
+                                                @endcan
+                                                @can('hr-appreciation-destroy')
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'hr.appreciation.destroy',$item->appreciation_id) !!}</li>
-                                               </ul> </td>
+                                            @endcan   
+                                            </ul> </td>
                                                </tr>
 
                                         @endforeach
