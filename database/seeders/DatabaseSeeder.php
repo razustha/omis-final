@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(PermissionSeeder::class);
         $user = \App\Models\User::create([
             // 'User_type' => $arr[array_rand($arr,1),
             'User_type' => 'SUPER ADMIN',
@@ -52,7 +53,6 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\Company::factory(5)->create();
         // $this->call(FeatureSeeder::class);
-        // $this->call(PermissionSeeder::class);
         // $this->call(UserPermissionSeeder::class);
         // $this->call(CompanySeeder::class);
         // $this->call(BranchSeeder::class);
