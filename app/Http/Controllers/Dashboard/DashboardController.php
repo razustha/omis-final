@@ -16,7 +16,7 @@ class DashboardController extends Controller
     {
         $employees = Employee::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
         $leaves = Leaveapplication::where('leaveApplication_status','approved')->get();
-        return view('omis\welcome', compact('employees','leaves'));
+        return view('omis.welcome', compact('employees','leaves'));
     }
     public function calendar() {
 
