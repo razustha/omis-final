@@ -8,7 +8,7 @@
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
                                 <h2 class="nk-block-title">Leave Application List</h1>
-                                  
+
 
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
@@ -303,117 +303,7 @@
                                                         </ul>
                                                     </td>
                                                 </tr>
-<<<<<<< HEAD
-                                            @else
-                                            <tr>
-                                                <td class="tb-col">{{ $i++ }}</td>
-                                                <td class="tb-col">
-                                                    {{ $item->employee->firstName }}{{ $item->employee->middleName }}
-                                                </td>
-                                                <td class="tb-col">{{ $item->leaveType }}</td>
-
-                                                <td class="tb-col">
-                                                    @if ($item->leaveApplication_status == null)
-                                                        <span class="badge text-bg-warning">Pending</span>
-                                                    @elseif($item->leaveApplication_status == 'approved')
-                                                        <span class="badge text-bg-success">Approved</span>
-                                                    @elseif($item->leaveApplication_status == 'forwarded')
-                                                        <span class="badge text-bg-info">Forwarded</span>
-                                                    @else
-                                                        <span class="badge text-bg-danger">Rejected</span>
-                                                    @endif
-                                                </td>
-                                                <td class="tb-col">
-                                                    <ul class="d-flex flex-wrap ">
-                                                     
-                                                    <li>
-                                                            {!! actionCanvasButton(
-                                                                '',
-                                                                'btn-showCanvas',
-                                                                'showoffcanvas',
-                                                                'eye',
-                                                                'hr.leaveapplication.show',
-                                                                $item->leaveApplication_id,
-                                                            ) !!}
-                                                        </li>
-                                                      
-                                                     
-                                                        @if ($item->leaveApplication_status == null)
-                                                
-                                                        <li>
-                                                                {!! actionCanvasButton(
-                                                                    '',
-                                                                    'btn-editCanvas',
-                                                                    'editoffcanvas',
-                                                                    'edit',
-                                                                    'hr.leaveapplication.edit',
-                                                                    $item->leaveApplication_id,
-                                                                ) !!}
-                                                            </li>
-                                                        
-                                                           
-                                                            <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-                                                                   
-                                                        @endif
-                                                    </ul>
-                                                </td>
-                                            </tr>
                                             @endif
-                                        @else
-                                            <tr>
-                                                <td class="tb-col">{{ $i++ }}</td>
-
-                                                <td class="tb-col">
-                                                    {{ $item->employee->firstName }}{{ $item->employee->middleName }}
-                                                </td>
-                                                <td class="tb-col">{{ $item->leaveType }}</td>
-
-                                                <td class="tb-col">
-                                                    @if ($item->leaveApplication_status == null)
-                                                        <span class="badge text-bg-warning">Pending</span>
-                                                    @elseif($item->leaveApplication_status == 'approved')
-                                                        <span class="badge text-bg-success">Approved</span>
-                                                    @elseif($item->leaveApplication_status == 'forwarded')
-                                                        <span class="badge text-bg-info">Forwarded</span>
-                                                    @else
-                                                        <span class="badge text-bg-danger">Rejected</span>
-                                                    @endif
-                                                </td>
-                                                <td class="tb-col">
-                                                    <ul class="d-flex flex-wrap ">
-                                              
-                                                    <li>
-                                                            {!! actionCanvasButton(
-                                                                '',
-                                                                'btn-showCanvas',
-                                                                'showoffcanvas',
-                                                                'eye',
-                                                                'hr.leaveapplication.show',
-                                                                $item->leaveApplication_id,
-                                                            ) !!}
-                                                        </li>
-                                                      
-                                                      
-                                                        <li>
-                                                            {!! actionCanvasButton(
-                                                                '',
-                                                                'btn-editCanvas',
-                                                                'editoffcanvas',
-                                                                'edit',
-                                                                'hr.leaveapplication.edit',
-                                                                $item->leaveApplication_id,
-                                                            ) !!}
-                                                        </li>
-                                              
-                                                         
-                                                        <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-                                                            
-                                                    </ul>
-                                                </td>
-                                            </tr>
-=======
-                                            @endif
->>>>>>> 6cb209bc903f49f2355a13c97c575cb30002b589
                                         @endif
                                     @endforeach
 
