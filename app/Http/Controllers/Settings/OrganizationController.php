@@ -57,7 +57,7 @@ class OrganizationController extends Controller
             $package = Package::where('package_id', $organization->package_id)->first();
 
             $permissions = Permission::whereIn('module_id', explode(',', $package->feature))->get();
-            $role = Role::where('super-admin', 'super-admin')->first();
+            $role = Role::where('slug', 'super-admin')->first();
             if (!$role) {
                 $role = Role::create([
                     'name' => 'Super Admin',
