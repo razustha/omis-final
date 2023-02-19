@@ -57,7 +57,7 @@ class OrganizationController extends Controller
             $package = Package::where('package_id', $organization->package_id)->first();
 
             $permissions = Permission::whereIn('module_id', explode(',', $package->feature))->get();
-            $role = Role::where('id', 2)->first();
+            $role = Role::where('super-admin', 'super-admin')->first();
             if (!$role) {
                 $role = Role::create([
                     'name' => 'Super Admin',
@@ -67,9 +67,9 @@ class OrganizationController extends Controller
                     'updatedBy' => '1',
                 ]);
             }
-            RolePermission::where('role_id', 2)->delete();
+            // RolePermission::where('role_id', 2)->delete();
             foreach ($permissions as $permission) {
-                RolePermission::create(['role_id' => 2, 'permission_id' => $permission->id]);
+                RolePermission::create(['role_id' => $role->id, 'permission_id' => $permission->id]);
             }
 
             $user->roles()->attach($role);
