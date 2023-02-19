@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_workProjects';
-            protected $primaryKey = 'workProject_id';
+            protected $table = 'tbl_workprojects';
+            protected $primaryKey = 'workproject_id';
             public $timestamps = true;
             protected $fillable =[
                 'projectTitle',
