@@ -74,6 +74,26 @@ class Employee extends Model
         return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
     }
 
+    protected function firstName(): Attribute
+    {
+        return Attribute::make(
+        get: fn($value) => $value ?? '',
+        );
+    }
+
+    protected function middleName(): Attribute
+    {
+        return Attribute::make(
+        get: fn($value) => $value ?? '',
+        );
+    }
+
+    protected function lastName(): Attribute
+    {
+        return Attribute::make(
+        get: fn($value) => $value ?? '',
+        );
+    }
     protected function createdBy(): Attribute
     {
         return Attribute::make(

@@ -11,6 +11,7 @@
         use App\Models\Setting\Setting;
         use App\Models\Settings\NotificationSettings;
         use App\Models\Settings\UserSettings;
+        use App\Models\Log\OperationLog;
         use Illuminate\Support\Facades\DB;
 
         function label($text)
@@ -539,6 +540,37 @@
                 function getEmployeeHasNoLogin()
                 {
                     return Employee::where('status', '<>', -1)->where('is_login', 0)->get();
+                }
+
+                //get unique Operation number
+                function getOperationNumber()
+                {
+                    $startNumber= date('YmdHis').rand(1000,9999);
+                    $isExists = OperationLog::where('operation_end_no',$startNumber)->first();
+                    while($isExists){
+                        $startNumber= date('YmdHis').rand(100000,999999);
+                        $isExists = OperationLog::where('operation_end_no',$startNumber)->first();
+                    }
+                        return $startNumber + 1; 
+                } 
+
+                /**
+                 * function createLog(operation start number, operation end number, model class full name with path,model Id for create and upodate operation, operation Name, previous values in array, new values in array);
+                 */
+                function createLog($startOperationNumber,$endOperationNumber,$modelName,$modelId,$operationName,$previousValues,$newValues)
+                {
+                    $operationId = getOperationNumber();
+                    $user_id = auth()->user()->id;
+                    OperationLog::create([
+                        'user_id'=> $user_id,
+                        'operation_start_no'=> $startOperationNumber,
+                        'operation_end_no'=> $endOperationNumber,
+                        'model_name' => $modelName,
+                        'model_id' => $modelId,
+                        'operation_name' => $operationName,
+                        'previous_values' => $previousValues ? json_encode($previousValues) : null,
+                        'new_values' => $newValues ? json_encode($newValues) : null,
+                    ]);
                 }
 
                 ?>
