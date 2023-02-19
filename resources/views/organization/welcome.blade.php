@@ -35,10 +35,10 @@
                                     </div> -->
 
                                     <div class="p-2">
-                                        <div class="d-flex align-items-center">
-                                            <div class="h4 mb-0"><h2 class="title"> 12:00 AM</h2></div>
+                                        <div class="container">
+                                            <div class="clock"></div>
+                                            <div class="smaller">{{ date('l')}}</div>
                                         </div>
-                                        <div class="large">Tuesday</div>
 
                                     </div>
 

@@ -34,11 +34,10 @@
                                         @endif
                                     </div>
                                     <div class="p-2">
-                                        <div class="d-flex align-items-center">
-                                            <div class="h4 mb-0">12:00 AM</div>
+                                        <div class="container">
+                                            <div class="clock"></div>
+                                            <div class="smaller">{{ date('l')}}</div>
                                         </div>
-                                        <div class="smaller">Tuesday</div>
-
                                     </div>
 
                                 </div>
