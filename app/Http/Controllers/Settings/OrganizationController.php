@@ -66,11 +66,12 @@ class OrganizationController extends Controller
                     'createdBy' => '1',
                     'updatedBy' => '1',
                 ]);
+                foreach ($permissions as $permission) {
+                    RolePermission::create(['role_id' => $role->id, 'permission_id' => $permission->id]);
+                }
             }
             // RolePermission::where('role_id', 2)->delete();
-            foreach ($permissions as $permission) {
-                RolePermission::create(['role_id' => $role->id, 'permission_id' => $permission->id]);
-            }
+
 
             $user->roles()->attach($role);
 
