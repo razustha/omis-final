@@ -19,6 +19,8 @@
                 'company_id',
 'employee_id',
 'promotionTitle',
+'updated_designation_id',
+'type',
 'promotionDate',
 'description',
 'createdOn',

@@ -3,7 +3,10 @@
     <div class="row">
         <div class="col-lg-6">{{ createText('designationName', 'designationName', 'Designation Title') }}
         </div>
-        
+
+        <div class="col-lg-6">{{ createText('rank', 'rank', 'Designation Rank') }}
+        </div>
+
         <div class="col-lg-6">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>
         <div class="col-lg-12">

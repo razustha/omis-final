@@ -18,7 +18,7 @@
                                     </nav>
                             </div>
                             <div class="nk-block-head-content">
-                            @can('hr-designation-create')    
+                            @can('hr-designation-create')
                             <ul class="d-flex">
                                     {!! createCanvasButton('customBtnAdd', '', 'Designation', 'hr.designation.create') !!}
                                 </ul>
@@ -33,6 +33,7 @@
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
                                         <th class="tb-col"><span class="overline-title">Designation</span></th>
+                                        <th class="tb-col"><span class="overline-title">Designation Rank</span></th>
 
                                         <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                         <th class="tb-col"><span class="overline-title">status</span></th>
@@ -48,13 +49,14 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->designationName }}</td>
+                                            <td class="tb-col">{{ $item->rank }}</td>
 
-                                           
+
                                             <!-- <td class="tb-col">{{ $item->alias }}</td> -->
                                             <td class="tb-col">{!! $item->status_name !!}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                @can('hr-designation-show')  
+                                                @can('hr-designation-show')
                                                 <li>
                                                         {!! actionCanvasButton(
                                                             '',
