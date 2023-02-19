@@ -29,6 +29,17 @@
 
             public function store(Request $request)
             {
+                $validator = Validator::make($request->all(), [
+                    'districtName' => 'required',
+                    'country_id' => 'required|exists:tbl_country,country_id',
+                    'state_id' => 'required|exists:tbl_state,state_id',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
                 District::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The District Created Successfully.'], 200);

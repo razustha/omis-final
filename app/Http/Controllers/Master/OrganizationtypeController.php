@@ -31,6 +31,15 @@ class OrganizationtypeController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'organizationName' => 'required'
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'error' => $validator->errors()->all(),
+        ]);
+    }
         $request->request->add(['alias' => slugify($request->organizationName)]);
         Organizationtype::create($request->all());
         if ($request->ajax()) {
@@ -63,6 +72,15 @@ class OrganizationtypeController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'organizationName' => 'required'
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'error' => $validator->errors()->all(),
+        ]);
+    }
         $data = Organizationtype::findOrFail($id);
         $request->request->add(['alias' => slugify($request->organizationName)]);
         $data->update($request->all());
