@@ -139,7 +139,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [LatereasonsController::class, 'show'])->name('hr.latereasons.show')->middleware('permission:hr-latereasons-show');
         Route::get('/edit/{id}', [LatereasonsController::class, 'edit'])->name('hr.latereasons.edit')->middleware('permission:hr-latereasons-edit');
         Route::put('/update/{id}', [LatereasonsController::class, 'update'])->name('hr.latereasons.update')->middleware('permission:hr-latereasons-update');
-        Route::delete('/destroy/{id}', [LatereasonsController::class, 'destroy'])->name('hr.latereasons.destroy')->middleware('permission:hr-latereasons-destroy');
+        Route::get('/destroy/{id}', [LatereasonsController::class, 'destroy'])->name('hr.latereasons.destroy')->middleware('permission:hr-latereasons-destroy');
     });
 
     Route::prefix("employeeonboarding")->group(function () {
@@ -149,7 +149,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [EmployeeonboardingController::class, 'show'])->name('hr.employeeonboarding.show')->middleware('permission:hr-employeeonboarding-show');
         Route::get('/edit/{id}', [EmployeeonboardingController::class, 'edit'])->name('hr.employeeonboarding.edit')->middleware('permission:hr-employeeonboarding-edit');
         Route::put('/update/{id}', [EmployeeonboardingController::class, 'update'])->name('hr.employeeonboarding.update')->middleware('permission:hr-employeeonboarding-update');
-        Route::delete('/destroy/{id}', [EmployeeonboardingController::class, 'destroy'])->name('hr.employeeonboarding.destroy')->middleware('permission:hr-employeeonboarding-destroy');
+        Route::get('/destroy/{id}', [EmployeeonboardingController::class, 'destroy'])->name('hr.employeeonboarding.destroy')->middleware('permission:hr-employeeonboarding-destroy');
     });
 
     Route::prefix("employee")->group(function () {
@@ -159,7 +159,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [EmployeeController::class, 'show'])->name('hr.employee.show');
         Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name('hr.employee.edit');
         Route::put('/update/{id}', [EmployeeController::class, 'update'])->name('hr.employee.update');
-        Route::delete('/destroy/{id}', [EmployeeController::class, 'destroy'])->name('hr.employee.destroy');
+        Route::get('/destroy/{id}', [EmployeeController::class, 'destroy'])->name('hr.employee.destroy');
         Route::get('get-department', [EmployeeController::class, 'getHeadOfDepartment'])->name('hr.employee.getHeadOfDepartment');
         Route::get('get-department-employee', [EmployeeController::class, 'getDepartmentEmployee'])->name('hr.employee.getDepartmentEmployee');
     });
@@ -172,7 +172,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [ResignationController::class, 'show'])->name('hr.resignation.show')->middleware('permission:hr-resignation-show');
         Route::get('/edit/{id}', [ResignationController::class, 'edit'])->name('hr.resignation.edit')->middleware('permission:hr-resignation-edit');
         Route::put('/update/{id}', [ResignationController::class, 'update'])->name('hr.resignation.update')->middleware('permission:hr-resignation-update');
-        Route::delete('/destroy/{id}', [ResignationController::class, 'destroy'])->name('hr.resignation.destroy')->middleware('permission:hr-resignation-destroy');
+        Route::get('/destroy/{id}', [ResignationController::class, 'destroy'])->name('hr.resignation.destroy')->middleware('permission:hr-resignation-destroy');
     });
 
     Route::prefix("promotiondemotion")->group(function () {
@@ -182,7 +182,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [PromotiondemotionController::class, 'show'])->name('hr.promotiondemotion.show')->middleware('permission:hr-promotiondemotion-show');
         Route::get('/edit/{id}', [PromotiondemotionController::class, 'edit'])->name('hr.promotiondemotion.edit')->middleware('permission:hr-promotiondemotion-edit');
         Route::put('/update/{id}', [PromotiondemotionController::class, 'update'])->name('hr.promotiondemotion.update')->middleware('permission:hr-promotiondemotion-update');
-        Route::delete('/destroy/{id}', [PromotiondemotionController::class, 'destroy'])->name('hr.promotiondemotion.destroy')->middleware('permission:hr-promotiondemotion-destroy');
+        Route::get('/destroy/{id}', [PromotiondemotionController::class, 'destroy'])->name('hr.promotiondemotion.destroy')->middleware('permission:hr-promotiondemotion-destroy');
         Route::get('get-employee-designation', [PromotiondemotionController::class, 'getEmployeeDesignation'])->name('hr.promotiondemotion.getEmployeeDesignation');
 
     });
@@ -195,7 +195,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [MangeholidayController::class, 'show'])->name('hr.mangeholiday.show')->middleware('permission:hr-mangeholiday-show');
         Route::get('/edit/{id}', [MangeholidayController::class, 'edit'])->name('hr.mangeholiday.edit')->middleware('permission:hr-mangeholiday-edit');
         Route::put('/update/{id}', [MangeholidayController::class, 'update'])->name('hr.mangeholiday.update')->middleware('permission:hr-mangeholiday-update');
-        Route::delete('/destroy/{id}', [MangeholidayController::class, 'destroy'])->name('hr.mangeholiday.destroy')->middleware('permission:hr-mangeholiday-destroy');
+        Route::get('/destroy/{id}', [MangeholidayController::class, 'destroy'])->name('hr.mangeholiday.destroy')->middleware('permission:hr-mangeholiday-destroy');
     });
 
     Route::prefix("shiftroster")->group(function () {
@@ -205,7 +205,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [ShiftrosterController::class, 'show'])->name('hr.shiftroster.show')->middleware('permission:hr-shiftroster-show');
         Route::get('/edit/{id}', [ShiftrosterController::class, 'edit'])->name('hr.shiftroster.edit')->middleware('permission:hr-shiftroster-edit');
         Route::put('/update/{id}', [ShiftrosterController::class, 'update'])->name('hr.shiftroster.update')->middleware('permission:hr-shiftroster-update');
-        Route::delete('/destroy/{id}', [ShiftrosterController::class, 'destroy'])->name('hr.shiftroster.destroy')->middleware('permission:hr-shiftroster-destroy');
+        Route::get('/destroy/{id}', [ShiftrosterController::class, 'destroy'])->name('hr.shiftroster.destroy')->middleware('permission:hr-shiftroster-destroy');
     });
 
     Route::prefix("department")->group(function () {
@@ -215,7 +215,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [DepartmentController::class, 'show'])->name('hr.department.show')->middleware('permission:hr-department-show');
         Route::get('/edit/{id}', [DepartmentController::class, 'edit'])->name('hr.department.edit')->middleware('permission:hr-department-edit');
         Route::put('/update/{id}', [DepartmentController::class, 'update'])->name('hr.department.update')->middleware('permission:hr-department-update');
-        Route::delete('/destroy/{id}', [DepartmentController::class, 'destroy'])->name('hr.department.destroy')->middleware('permission:hr-department-destroy');
+        Route::get('/destroy/{id}', [DepartmentController::class, 'destroy'])->name('hr.department.destroy')->middleware('permission:hr-department-destroy');
     });
 
 
@@ -226,7 +226,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [CmsController::class, 'show'])->name('hr.cms.show')->middleware('permission:hr-cms-show');
         Route::get('/edit/{id}', [CmsController::class, 'edit'])->name('hr.cms.edit')->middleware('permission:hr-cms-edit');
         Route::put('/update/{id}', [CmsController::class, 'update'])->name('hr.cms.update')->middleware('permission:hr-cms-update');
-        Route::delete('/destroy/{id}', [CmsController::class, 'destroy'])->name('hr.cms.destroy')->middleware('permission:hr-cms-destroy');
+        Route::get('/destroy/{id}', [CmsController::class, 'destroy'])->name('hr.cms.destroy')->middleware('permission:hr-cms-destroy');
     });
 
     Route::prefix("designation")->group(function () {
@@ -236,7 +236,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [DesignationController::class, 'show'])->name('hr.designation.show')->middleware('permission:hr-designation-show');
         Route::get('/edit/{id}', [DesignationController::class, 'edit'])->name('hr.designation.edit')->middleware('permission:hr-designation-edit');
         Route::put('/update/{id}', [DesignationController::class, 'update'])->name('hr.designation.update')->middleware('permission:hr-designation-update');
-        Route::delete('/destroy/{id}', [DesignationController::class, 'destroy'])->name('hr.designation.destroy')->middleware('permission:hr-designation-destroy');
+        Route::get('/destroy/{id}', [DesignationController::class, 'destroy'])->name('hr.designation.destroy')->middleware('permission:hr-designation-destroy');
     });
 
     Route::prefix("leaveApplication")->group(function () {
@@ -246,7 +246,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [LeaveApplicationController::class, 'show'])->name('hr.leaveapplication.show');
         Route::get('/edit/{id}', [LeaveApplicationController::class, 'edit'])->name('hr.leaveapplication.edit');
         Route::put('/update/{id}', [LeaveApplicationController::class, 'update'])->name('hr.leaveapplication.update');
-        Route::delete('/destroy/{id}', [LeaveApplicationController::class, 'destroy'])->name('hr.leaveapplication.destroy');
+        Route::get('/destroy/{id}', [LeaveApplicationController::class, 'destroy'])->name('hr.leaveapplication.destroy');
         Route::get('tobeapprove', [LeaveApplicationController::class, 'toApprove'])->name('hr.leaveapplication.tobeapprove');
         Route::get('tobereject', [LeaveApplicationController::class, 'toReject'])->name('hr.leaveapplication.tobereject');
         Route::get('tobeforward', [LeaveApplicationController::class, 'toForward'])->name('hr.leaveapplication.tobeforward');
@@ -260,7 +260,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [AbsentreasonController::class, 'show'])->name('hr.absentreason.show')->middleware('permission:hr-absentreason-show');
         Route::get('/edit/{id}', [AbsentreasonController::class, 'edit'])->name('hr.absentreason.edit')->middleware('permission:hr-absentreason-edit');
         Route::put('/update/{id}', [AbsentreasonController::class, 'update'])->name('hr.absentreason.update')->middleware('permission:hr-absentreason-update');
-        Route::delete('/destroy/{id}', [AbsentReasonController::class, 'destroy'])->name('hr.absentreason.destroy')->middleware('permission:hr-absentreason-destroy');
+        Route::get('/destroy/{id}', [AbsentReasonController::class, 'destroy'])->name('hr.absentreason.destroy')->middleware('permission:hr-absentreason-destroy');
     });
 
 
@@ -273,7 +273,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [AppreciationController::class, 'show'])->name('hr.appreciation.show')->middleware('permission:hr-appreciation-show');
         Route::get('/edit/{id}', [AppreciationController::class, 'edit'])->name('hr.appreciation.edit')->middleware('permission:hr-appreciation-edit');
         Route::put('/update/{id}', [AppreciationController::class, 'update'])->name('hr.appreciation.update')->middleware('permission:hr-appreciation-update');
-        Route::delete('/destroy/{id}', [AppreciationController::class, 'destroy'])->name('hr.appreciation.destroy')->middleware('permission:hr-appreciation-destroy');
+        Route::get('/destroy/{id}', [AppreciationController::class, 'destroy'])->name('hr.appreciation.destroy')->middleware('permission:hr-appreciation-destroy');
     });
     Route::prefix("attendence")->group(function () {
         Route::get('/', [AttendenceController::class, 'index'])->name('hr.attendence.index')->middleware('permission:hr-attendence-index');
@@ -282,7 +282,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [AttendenceController::class, 'show'])->name('hr.attendence.show')->middleware('permission:hr-attendence-show');
         Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit')->middleware('permission:hr-attendence-update');
         Route::put('/update/{id}', [AttendenceController::class, 'update'])->name('hr.attendence.update')->middleware('permission:hr-attendence-update');
-        Route::delete('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy')->middleware('permission:hr-attendence-destroy');
+        Route::get('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy')->middleware('permission:hr-attendence-destroy');
         Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn');//->middleware('permission:hr-attendence-checkin');
         Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut');//->middleware('permission:hr-attendence-checkout');
     });
@@ -294,7 +294,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [ComplaintsController::class, 'show'])->name('hr.complaints.show')->middleware('permission:hr-complaints-show');
         Route::get('/edit/{id}', [ComplaintsController::class, 'edit'])->name('hr.complaints.edit')->middleware('permission:hr-complaints-edot');
         Route::put('/update/{id}', [ComplaintsController::class, 'update'])->name('hr.complaints.update')->middleware('permission:hr-complaints-update');
-        Route::delete('/destroy/{id}', [ComplaintsController::class, 'destroy'])->name('hr.complaints.destroy')->middleware('permission:hr-complaints-destory');
+        Route::get('/destroy/{id}', [ComplaintsController::class, 'destroy'])->name('hr.complaints.destroy')->middleware('permission:hr-complaints-destory');
     });
 
 
@@ -305,7 +305,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [WarningsController::class, 'show'])->name('hr.warnings.show')->middleware('permission:hr-warnings-show');
         Route::get('/edit/{id}', [WarningsController::class, 'edit'])->name('hr.warnings.edit')->middleware('permission:hr-warnings-edit');
         Route::put('/update/{id}', [WarningsController::class, 'update'])->name('hr.warnings.update')->middleware('permission:hr-warnings-update');
-        Route::delete('/destroy/{id}', [WarningsController::class, 'destroy'])->name('hr.warnings.destroy')->middleware('permission:hr-warnings-destory');
+        Route::get('/destroy/{id}', [WarningsController::class, 'destroy'])->name('hr.warnings.destroy')->middleware('permission:hr-warnings-destory');
     });
 
     Route::prefix("transfer")->group(function () {
@@ -315,7 +315,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [TransferController::class, 'show'])->name('hr.transfer.show')->middleware('permission:hr-transfer-show');
         Route::get('/edit/{id}', [TransferController::class, 'edit'])->name('hr.transfer.edit')->middleware('permission:hr-transfer-edit');
         Route::put('/update/{id}', [TransferController::class, 'update'])->name('hr.transfer.update')->middleware('permission:hr-transfer-update');
-        Route::delete('/destroy/{id}', [TransferController::class, 'destroy'])->name('hr.transfer.destroy')->middleware('permission:hr-transfer-destory');
+        Route::get('/destroy/{id}', [TransferController::class, 'destroy'])->name('hr.transfer.destroy')->middleware('permission:hr-transfer-destory');
     });
 
 
@@ -326,7 +326,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [AttendenceController::class, 'show'])->name('hr.attendence.show')->middleware('permission:hr-attendence-show');
         Route::get('/edit/{id}', [AttendenceController::class, 'edit'])->name('hr.attendence.edit')->middleware('permission:hr-attendence-edit');
         Route::put('/update/{id}', [AttendenceController::class, 'update'])->name('hr.attendence.update')->middleware('permission:hr-attendence-update');
-        Route::delete('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy')->middleware('permission:hr-attendence-destory');
+        Route::get('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy')->middleware('permission:hr-attendence-destory');
     });
     Route::prefix("employeelist")->group(function () {
         Route::get('/', [EmployeelistController::class, 'index'])->name('hr.employeelist.index')->middleware('permission:hr-employeelist-index');
@@ -335,7 +335,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [EmployeelistController::class, 'show'])->name('hr.employeelist.show')->middleware('permission:hr-employeelist-show');
         Route::get('/edit/{id}', [EmployeelistController::class, 'edit'])->name('hr.employeelist.edit')->middleware('permission:hr-employeelist-edit');
         Route::put('/update/{id}', [EmployeelistController::class, 'update'])->name('hr.employeelist.update')->middleware('permission:hr-employeelist-update');
-        Route::delete('/destroy/{id}', [EmployeelistController::class, 'destroy'])->name('hr.employeelist.destroy')->middleware('permission:hr-employeelist-destory');
+        Route::get('/destroy/{id}', [EmployeelistController::class, 'destroy'])->name('hr.employeelist.destroy')->middleware('permission:hr-employeelist-destory');
     });
 
     Route::prefix("employeementtimeline")->group(function () {
@@ -345,6 +345,6 @@ Route::prefix('hr')->group(function () {
         Route::get('/show/{id}', [EmployeementtimelineController::class, 'show'])->name('hr.employeementtimeline.show')->middleware('permission:hr-employeementtimeline-show');
         Route::get('/edit/{id}', [EmployeementtimelineController::class, 'edit'])->name('hr.employeementtimeline.edit')->middleware('permission:hr-employeementtimeline-edit');
         Route::put('/update/{id}', [EmployeementtimelineController::class, 'update'])->name('hr.employeementtimeline.update')->middleware('permission:hr-employeementtimeline-update');
-        Route::delete('/destroy/{id}', [EmployeementtimelineController::class, 'destroy'])->name('hr.employeementtimeline.destroy')->middleware('permission:hr-employeementtimeline-destroy');
+        Route::get('/destroy/{id}', [EmployeementtimelineController::class, 'destroy'])->name('hr.employeementtimeline.destroy')->middleware('permission:hr-employeementtimeline-destroy');
     });
 });
