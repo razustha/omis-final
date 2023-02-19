@@ -1,5 +1,5 @@
 <?php
-        namespace App\Models\work;
+        namespace App\Models\Work;
 
 use App\Models\Hr\Employee;
 use App\Models\User;

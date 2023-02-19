@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\work;
+namespace App\Models\Work;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
