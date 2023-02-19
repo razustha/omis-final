@@ -23,8 +23,7 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
 
-        if(auth()->user()->user_type == "COMPANY")
-        {
+        if (auth()->user()->user_type == "COMPANY") {
             $organization_id = auth()->user()->organization->organization_id;
             $data = Employee::where('status', '<>', -1)->where('organization_id', $organization_id)->orderBy('created_at', 'desc')->get();
         } else {
@@ -76,21 +75,37 @@ class EmployeeController extends Controller
                 'password' => Hash::make($request->password),
                 'user_type' => 'EMPLOYEE'
             ];
-            $user = User::create($users);
-            $user_role = Role::findOrFail($request->role_id);
-                                
-            if ($request->skills) {
-                $skills = collect($request->skills);
-            }
+            try {
+                DB::beginTransaction();
+                $user = User::create($users);
+                $operationNumber = getOperationNumber();
+                createLog($operationNumber, null, User::class, $user->id, 'create', null, $users);
 
-            if (isset($skills)) {
-                $request['skills'] = $skills->implode(',');
-            }
-            $user->roles()->attach($user_role);
-            $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : null;
+                $user_role = Role::findOrFail($request->role_id);
 
-            $request->request->add(['user_id' => $user->id]);
-            $employee = Employee::create($request->all());
+                if ($request->skills) {
+                    $skills = collect($request->skills);
+                }
+
+                if (isset($skills)) {
+                    $request['skills'] = $skills->implode(',');
+                }
+                $user->roles()->attach($user_role);
+
+                createLog(null, null, 'users_roles', $user->id, 'create', null, ['user_id' => $user->id, 'role_id' => $request->role_id]);
+
+                $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : null;
+
+                $request->request->add(['user_id' => $user->id]);
+                $employee = Employee::create($request->all());
+                createLog(null, $operationNumber, Employee::class, $employee->id, 'create', null, $request->all());
+
+            } catch (Exception $e) {
+                DB::rollBack();
+                Log::info($e->getMessage());
+                return $e->getMessage();
+            }
+            DB::commit();
         } else {
             if ($request->skills) {
                 $skills = collect($request->skills);
@@ -100,7 +115,17 @@ class EmployeeController extends Controller
                 $request['skills'] = $skills->implode(',');
             }
             $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : '1';
-            $employee = Employee::create($request->all());
+            try {
+                DB::beginTransaction();
+                $employee = Employee::create($request->all());
+                createLog(getOperationNumber(), getOperationNumber(), Employee::class, $employee->employee_id, 'create', null, $request->all());
+
+            } catch (Exception $e) {
+                DB::rollBack();
+                Log::info($e->getMessage());
+                return $e->getMessage();
+            }
+            DB::commit();
         }
         if ($user && !empty($user->email)) {
             try {
@@ -163,12 +188,30 @@ class EmployeeController extends Controller
             $request['skills'] = $skills->implode(',');
         }
         $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : '1';
-        $employee->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
-        $user = User::find($employee->user_id);
-        if ($user) {
-            $user->roles()->sync([$request->role_id]);
-        }
+        $OperationNumber = getOperationNumber();
+        $previousRec = $employee->toArray();
 
+        try {
+            DB::beginTransaction();
+
+            $employee->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
+            createLog($OperationNumber, null, Employee::class, $employee->employee_id, 'update', $previousRec, $employee->toArray());
+
+            $user = User::find($employee->user_id);
+            if ($user) {
+                $previousRole = [];
+                foreach ($user->roles as $role) {
+                    $previousRole = ['user_id' => $role->pivot->user_id, 'role_id' => $role->pivot->user_id];
+                }
+                $user->roles()->sync([$request->role_id]);
+                createLog(null, $OperationNumber, 'users_roles', $user->id, 'update', $previousRole, ['user_id' => $user->id, 'role_id' => $request->role_id]);
+            }
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+            return $e->getMessage();
+        }
+        DB::commit();
         $imagePath = [];
         $data = $request->all();
 

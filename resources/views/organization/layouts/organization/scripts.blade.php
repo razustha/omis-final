@@ -45,10 +45,6 @@
                     var token = $("meta[name='csrf-token']").attr("content");
                     $.ajax({
                         url: url,
-                        type: "DELETE",
-                        data: {
-                            "_token": _token,
-                        },
                         success: function(res) {
                             if (res.status) {
                                 Swal.fire({

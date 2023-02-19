@@ -139,7 +139,7 @@ Route::prefix("master")->group(
             Route::get('/show/{id}', [ModuleController::class, 'show'])->name('master.module.show')->middleware('permission:master-module-show');
             Route::get('/edit/{id}', [ModuleController::class, 'edit'])->name('master.module.edit')->middleware('permission:master-module-edit');
             Route::put('/update/{id}', [ModuleController::class, 'update'])->name('master.module.update')->middleware('permission:master-module-update');
-            Route::delete('/destroy/{id}', [ModuleController::class, 'destroy'])->name('master.module.destroy')->middleware('permission:master-module-destroy');
+            Route::get('/destroy/{id}', [ModuleController::class, 'destroy'])->name('master.module.destroy')->middleware('permission:master-module-destroy');
         });
 
         Route::prefix("country")->group(function () {
@@ -149,7 +149,7 @@ Route::prefix("master")->group(
             Route::get('/show/{id}', [CountryController::class, 'show'])->name('master.country.show')->middleware('permission:master-country-show');
             Route::get('/edit/{id}', [CountryController::class, 'edit'])->name('master.country.edit')->middleware('permission:master-country-edit');
             Route::put('/update/{id}', [CountryController::class, 'update'])->name('master.country.update')->middleware('permission:master-country-update');
-            Route::delete('/destroy/{id}', [CountryController::class, 'destroy'])->name('master.country.destroy')->middleware('permission:master-country-destroy');
+            Route::get('/destroy/{id}', [CountryController::class, 'destroy'])->name('master.country.destroy')->middleware('permission:master-country-destroy');
         });
 
         Route::prefix("state")->group(
@@ -160,7 +160,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [StateController::class, 'show'])->name('master.state.show')->middleware('permission:master-state-show');
                 Route::get('/edit/{id}', [StateController::class, 'edit'])->name('master.state.edit')->middleware('permission:master-state-edit');
                 Route::put('/update/{id}', [StateController::class, 'update'])->name('master.state.update')->middleware('permission:master-state-update');
-                Route::delete('/destroy/{id}', [StateController::class, 'destroy'])->name('master.state.destroy')->middleware('permission:master-state-destroy');
+                Route::get('/destroy/{id}', [StateController::class, 'destroy'])->name('master.state.destroy')->middleware('permission:master-state-destroy');
                 Route::get('get-states', [StateController::class, 'getState'])->name('master.state.getState');//->middleware('permission:master-state-getstate');
             }
         );
@@ -173,7 +173,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [DistrictController::class, 'show'])->name('master.district.show')->middleware('permission:master-district-store');
                 Route::get('/edit/{id}', [DistrictController::class, 'edit'])->name('master.district.edit')->middleware('permission:master-district-edit');
                 Route::put('/update/{id}', [DistrictController::class, 'update'])->name('master.district.update')->middleware('permission:master-district-update');
-                Route::delete('/destroy/{id}', [DistrictController::class, 'destroy'])->name('master.district.destroy')->middleware('permission:master-district-destroy');
+                Route::get('/destroy/{id}', [DistrictController::class, 'destroy'])->name('master.district.destroy')->middleware('permission:master-district-destroy');
                 Route::get('get-districts', [DistrictController::class, 'getDistrict'])->name('master.state.getDistrict');//->middleware('permission:master-district-getdistrict');
             }
         );
@@ -186,7 +186,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [CityController::class, 'show'])->name('master.city.show')->middleware('permission:master-city-show');
                 Route::get('/edit/{id}', [CityController::class, 'edit'])->name('master.city.edit')->middleware('permission:master-city-edit');
                 Route::put('/update/{id}', [CityController::class, 'update'])->name('master.city.update')->middleware('permission:master-city-update');
-                Route::delete('/destroy/{id}', [CityController::class, 'destroy'])->name('master.city.destroy')->middleware('permission:master-city-destroy');
+                Route::get('/destroy/{id}', [CityController::class, 'destroy'])->name('master.city.destroy')->middleware('permission:master-city-destroy');
 
                 Route::get('/checkvalidation', [CityController::class, 'checkValidation'])->name('master.city.checkValidation')->middleware('permission:master-city-checkValidation');
 
@@ -201,7 +201,7 @@ Route::prefix("master")->group(
             Route::get('/show/{id}', [LeavetypeController::class, 'show'])->name('master.leavetype.show')->middleware('permission:master-leavetype-show');
             Route::get('/edit/{id}', [LeavetypeController::class, 'edit'])->name('master.leavetype.edit')->middleware('permission:master-leavetype-edit');
             Route::put('/update/{id}', [LeavetypeController::class, 'update'])->name('master.leavetype.update')->middleware('permission:master-leavetype-update');
-            Route::delete('/destroy/{id}', [LeavetypeController::class, 'destroy'])->name('master.leavetype.destroy')->middleware('permission:master-leavetype-destroy');
+            Route::get('/destroy/{id}', [LeavetypeController::class, 'destroy'])->name('master.leavetype.destroy')->middleware('permission:master-leavetype-destroy');
         });
 
 
@@ -214,7 +214,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [NationalityController::class, 'show'])->name('master.nationality.show')->middleware('permission:master-nationality-store');
                 Route::get('/edit/{id}', [NationalityController::class, 'edit'])->name('master.nationality.edit')->middleware('permission:master-nationality-edit');
                 Route::put('/update/{id}', [NationalityController::class, 'update'])->name('master.nationality.update')->middleware('permission:master-nationality-update');
-                Route::delete('/destroy/{id}', [NationalityController::class, 'destroy'])->name('master.nationality.destroy')->middleware('permission:master-nationality-destroy');
+                Route::get('/destroy/{id}', [NationalityController::class, 'destroy'])->name('master.nationality.destroy')->middleware('permission:master-nationality-destroy');
             }
         );
         Route::prefix("policy")->group(
@@ -225,7 +225,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [PolicyController::class, 'show'])->name('master.policy.show')->middleware('permission:master-policy-store');
                 Route::get('/edit/{id}', [PolicyController::class, 'edit'])->name('master.policy.edit')->middleware('permission:master-policy-edit');
                 Route::put('/update/{id}', [PolicyController::class, 'update'])->name('master.policy.update')->middleware('permission:master-policy-update');
-                Route::delete('/destroy/{id}', [PolicyController::class, 'destroy'])->name('master.policy.destroy')->middleware('permission:master-policy-destroy');
+                Route::get('/destroy/{id}', [PolicyController::class, 'destroy'])->name('master.policy.destroy')->middleware('permission:master-policy-destroy');
             }
         );
 
@@ -237,7 +237,7 @@ Route::prefix("master")->group(
             Route::get('/show/{id}', [OrganizationtypeController::class, 'show'])->name('master.organizationtype.show')->middleware('permission:master-organizationtype-show');
             Route::get('/edit/{id}', [OrganizationtypeController::class, 'edit'])->name('master.organizationtype.edit')->middleware('permission:master-organizationtype-edit');
             Route::put('/update/{id}', [OrganizationtypeController::class, 'update'])->name('master.organizationtype.update')->middleware('permission:master-organizationtype-update');
-            Route::delete('/destroy/{id}', [OrganizationtypeController::class, 'destroy'])->name('master.organizationtype.destroy')->middleware('permission:master-organizationtype-destory');
+            Route::get('/destroy/{id}', [OrganizationtypeController::class, 'destroy'])->name('master.organizationtype.destroy')->middleware('permission:master-organizationtype-destory');
         });
 
 
@@ -249,7 +249,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [OwnershipController::class, 'show'])->name('master.ownership.show')->middleware('permission:master-ownership-show');
                 Route::get('/edit/{id}', [OwnershipController::class, 'edit'])->name('master.ownership.edit')->middleware('permission:master-ownership-edit');
                 Route::put('/update/{id}', [OwnershipController::class, 'update'])->name('master.ownership.update')->middleware('permission:master-ownership-update');
-                Route::delete('/destroy/{id}', [OwnershipController::class, 'destroy'])->name('master.ownership.destroy')->middleware('permission:master-ownership-destroy');
+                Route::get('/destroy/{id}', [OwnershipController::class, 'destroy'])->name('master.ownership.destroy')->middleware('permission:master-ownership-destroy');
             }
         );
 
@@ -260,7 +260,7 @@ Route::prefix("master")->group(
             Route::get('/show/{id}', [TraveltypeController::class, 'show'])->name('master.traveltype.show')->middleware('permission:master-traveltype-show');
             Route::get('/edit/{id}', [TraveltypeController::class, 'edit'])->name('master.traveltype.edit')->middleware('permission:master-traveltype-edit');
             Route::put('/update/{id}', [TraveltypeController::class, 'update'])->name('master.traveltype.update')->middleware('permission:master-traveltype-update');
-            Route::delete('/destroy/{id}', [TraveltypeController::class, 'destroy'])->name('master.traveltype.destroy')->middleware('permission:master-traveltype-destroy');
+            Route::get('/destroy/{id}', [TraveltypeController::class, 'destroy'])->name('master.traveltype.destroy')->middleware('permission:master-traveltype-destroy');
         });
 
         Route::prefix("employmentSizeCategory")->group(
@@ -271,7 +271,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [EmploymentSizeCategoryController::class, 'show'])->name('master.employmentsizecategory.show')->middleware('permission:master-employmentSizeCategory-show');
                 Route::get('/edit/{id}', [EmploymentSizeCategoryController::class, 'edit'])->name('master.employmentsizecategory.edit')->middleware('permission:master-employmentSizeCategory-edit');
                 Route::put('/update/{id}', [EmploymentSizeCategoryController::class, 'update'])->name('master.employmentsizecategory.update')->middleware('permission:master-employmentSizeCategory-update');
-                Route::delete('/destroy/{id}', [EmploymentSizeCategoryController::class, 'destroy'])->name('master.employmentsizecategory.destroy')->middleware('permission:master-employmentSizeCategory-destroy');
+                Route::get('/destroy/{id}', [EmploymentSizeCategoryController::class, 'destroy'])->name('master.employmentsizecategory.destroy')->middleware('permission:master-employmentSizeCategory-destroy');
             });
         Route::prefix("departmenttype")->group(function () {
             Route::get('/', [DepartmenttypeController::class, 'index'])->name('master.departmenttype.index')->middleware('permission:master-departmenttype-index');
@@ -280,7 +280,7 @@ Route::prefix("master")->group(
             Route::get('/show/{id}', [DepartmenttypeController::class, 'show'])->name('master.departmenttype.show')->middleware('permission:master-departmenttype-show');
             Route::get('/edit/{id}', [DepartmenttypeController::class, 'edit'])->name('master.departmenttype.edit')->middleware('permission:master-departmenttype-edit');
             Route::put('/update/{id}', [DepartmenttypeController::class, 'update'])->name('master.departmenttype.update')->middleware('permission:master-departmenttype-update');
-            Route::delete('/destroy/{id}', [DepartmenttypeController::class, 'destroy'])->name('master.departmenttype.destroy')->middleware('permission:master-departmenttype-destroy');
+            Route::get('/destroy/{id}', [DepartmenttypeController::class, 'destroy'])->name('master.departmenttype.destroy')->middleware('permission:master-departmenttype-destroy');
         });
 
 
@@ -292,7 +292,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [OrganizationCategoryController::class, 'show'])->name('master.organizationcategory.show')->middleware('permission:master-departmenttype-show');
                 Route::get('/edit/{id}', [OrganizationCategoryController::class, 'edit'])->name('master.organizationcategory.edit')->middleware('permission:master-departmenttype-edit');
                 Route::put('/update/{id}', [OrganizationCategoryController::class, 'update'])->name('master.organizationcategory.update')->middleware('permission:master-departmenttype-update');
-                Route::delete('/destroy/{id}', [OrganizationCategoryController::class, 'destroy'])->name('master.organizationcategory.destroy')->middleware('permission:master-departmenttype-destroy');
+                Route::get('/destroy/{id}', [OrganizationCategoryController::class, 'destroy'])->name('master.organizationcategory.destroy')->middleware('permission:master-departmenttype-destroy');
             });
 
         Route::prefix("jobTitle")->group(
@@ -303,7 +303,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [JobTitleController::class, 'show'])->name('master.jobtitle.show')->middleware('permission:master-jobTitle-show');
                 Route::get('/edit/{id}', [JobTitleController::class, 'edit'])->name('master.jobtitle.edit')->middleware('permission:master-jobTitle-edit');
                 Route::put('/update/{id}', [JobTitleController::class, 'update'])->name('master.jobtitle.update')->middleware('permission:master-jobTitle-update');
-                Route::delete('/destroy/{id}', [JobTitleController::class, 'destroy'])->name('master.jobtitle.destroy')->middleware('permission:master-jobTitle-destroy');
+                Route::get('/destroy/{id}', [JobTitleController::class, 'destroy'])->name('master.jobtitle.destroy')->middleware('permission:master-jobTitle-destroy');
             });
 
 
@@ -315,7 +315,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [HolidayTypesController::class, 'show'])->name('master.holidaytypes.show')->middleware('permission:master-holidayTypes-show');
                 Route::get('/edit/{id}', [HolidayTypesController::class, 'edit'])->name('master.holidaytypes.edit')->middleware('permission:master-holidayTypes-edit');
                 Route::put('/update/{id}', [HolidayTypesController::class, 'update'])->name('master.holidaytypes.update')->middleware('permission:master-holidayTypes-update');
-                Route::delete('/destroy/{id}', [HolidayTypesController::class, 'destroy'])->name('master.holidaytypes.destroy')->middleware('permission:master-holidayTypes-destroy');
+                Route::get('/destroy/{id}', [HolidayTypesController::class, 'destroy'])->name('master.holidaytypes.destroy')->middleware('permission:master-holidayTypes-destroy');
             });
 
         Route::prefix("fleet")->group(
@@ -326,7 +326,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [FleetController::class, 'show'])->name('master.fleet.show')->middleware('permission:master-fleet-show');
                 Route::get('/edit/{id}', [FleetController::class, 'edit'])->name('master.fleet.edit')->middleware('permission:master-fleet-edit');
                 Route::put('/update/{id}', [FleetController::class, 'update'])->name('master.fleet.update')->middleware('permission:master-fleet-update');
-                Route::delete('/destroy/{id}', [FleetController::class, 'destroy'])->name('master.fleet.destroy')->middleware('permission:master-fleet-destroy');
+                Route::get('/destroy/{id}', [FleetController::class, 'destroy'])->name('master.fleet.destroy')->middleware('permission:master-fleet-destroy');
             });
 
         Route::prefix("department")->group(
@@ -337,7 +337,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [MasterDepartmentController::class, 'show'])->name('master.department.show')->middleware('permission:master-department-show');
                 Route::get('/edit/{id}', [MasterDepartmentController::class, 'edit'])->name('master.department.edit')->middleware('permission:master-department-edit');
                 Route::put('/update/{id}', [MasterDepartmentController::class, 'update'])->name('master.department.update')->middleware('permission:master-department-update');
-                Route::delete('/destroy/{id}', [MasterDepartmentController::class, 'destroy'])->name('master.department.destroy')->middleware('permission:master-department-destroy');
+                Route::get('/destroy/{id}', [MasterDepartmentController::class, 'destroy'])->name('master.department.destroy')->middleware('permission:master-department-destroy');
             }
         );
 
@@ -349,7 +349,7 @@ Route::prefix("master")->group(
                 Route::get('/show/{id}', [AttendanceFromController::class, 'show'])->name('master.attendancefrom.show')->middleware('permission:master-attendanceFrom-show');
                 Route::get('/edit/{id}', [AttendanceFromController::class, 'edit'])->name('master.attendancefrom.edit')->middleware('permission:master-attendanceFrom-edit');
                 Route::put('/update/{id}', [AttendanceFromController::class, 'update'])->name('master.attendancefrom.update')->middleware('permission:master-attendanceFrom-update');
-                Route::delete('/destroy/{id}', [AttendanceFromController::class, 'destroy'])->name('master.attendancefrom.destroy')->middleware('permission:master-attendanceFrom-destroy');
+                Route::get('/destroy/{id}', [AttendanceFromController::class, 'destroy'])->name('master.attendancefrom.destroy')->middleware('permission:master-attendanceFrom-destroy');
             }
         );
 

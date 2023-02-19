@@ -326,7 +326,7 @@
                     // console.log(response);
                     $('#reportingTo').html('<option value="#" selected disabled>Select Reporting To</option>');
                     $.each(response.message, function(key,value){
-                        $('#reportingTo').append('<option value='+value.employee_id+'>'+value.firstName+''+value.middleName+''+value.lastName+'</option>');
+                        $('#reportingTo').append('<option value='+value.employee_id+'>'+value.firstName+' '+value.middleName+' '+value.lastName+'</option>');
                     });
                 }
             });

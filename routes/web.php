@@ -185,7 +185,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/show/{id}', [PackageController::class, 'show'])->name('superadmin.package.show');
         Route::get('/edit/{id}', [PackageController::class, 'edit'])->name('superadmin.package.edit');
         Route::put('/update/{id}', [PackageController::class, 'update'])->name('superadmin.package.update');
-        Route::delete('/destroy/{id}', [PackageController::class, 'destroy'])->name('superadmin.package.destroy');
+        Route::get('/destroy/{id}', [PackageController::class, 'destroy'])->name('superadmin.package.destroy');
     });
 
 
@@ -201,7 +201,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [OrganizationController::class, 'show'])->name('settings.organization.show')->middleware('permission:settings-organization-show');
                 Route::get('/edit/{id}', [OrganizationController::class, 'edit'])->name('settings.organization.edit')->middleware('permission:settings-organization-edit');
                 Route::put('/update/{id}', [OrganizationController::class, 'update'])->name('settings.organization.update')->middleware('permission:settings-organization-update');
-                Route::delete('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('settings.organization.destroy')->middleware('permission:settings-organization-destroy');
+                Route::get('/destroy/{id}', [OrganizationController::class, 'destroy'])->name('settings.organization.destroy')->middleware('permission:settings-organization-destroy');
             });
 
         Route::get('organizationsettings', [OrganizationSettingsController::class, 'index'])->name('settings.organizationsettings.index')->middleware('permission:settings-organizationsettings-index');
@@ -227,7 +227,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [SuppliercategoryController::class, 'show'])->name('supplier.suppliercategory.show')->middleware('permission:supplier-suppliercategory-show');
                 Route::get('/edit/{id}', [SuppliercategoryController::class, 'edit'])->name('supplier.suppliercategory.edit')->middleware('permission:supplier-suppliercategory-edit');
                 Route::put('/update/{id}', [SuppliercategoryController::class, 'update'])->name('supplier.suppliercategory.update')->middleware('permission:supplier-suppliercategory-update');
-                Route::delete('/destroy/{id}', [SuppliercategoryController::class, 'destroy'])->name('supplier.suppliercategory.destroy')->middleware('permission:supplier-suppliercategory-destroy');
+                Route::get('/destroy/{id}', [SuppliercategoryController::class, 'destroy'])->name('supplier.suppliercategory.destroy')->middleware('permission:supplier-suppliercategory-destroy');
             });
             Route::prefix("addsupplier")->group(function () {
                 Route::get('/', [AddsupplierController::class, 'index'])->name('supplier.addsupplier.index')->middleware('permission:supplier-addsupplier-index');
@@ -236,7 +236,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [AddsupplierController::class, 'show'])->name('supplier.addsupplier.show')->middleware('permission:supplier-addsupplier-show');
                 Route::get('/edit/{id}', [AddsupplierController::class, 'edit'])->name('supplier.addsupplier.edit')->middleware('permission:supplier-addsupplier-edit');
                 Route::put('/update/{id}', [AddsupplierController::class, 'update'])->name('supplier.addsupplier.update')->middleware('permission:supplier-addsupplier-update');
-                Route::delete('/destroy/{id}', [AddsupplierController::class, 'destroy'])->name('supplier.addsupplier.destroy')->middleware('permission:supplier-addsupplier-destroy');
+                Route::get('/destroy/{id}', [AddsupplierController::class, 'destroy'])->name('supplier.addsupplier.destroy')->middleware('permission:supplier-addsupplier-destroy');
             });
         }
     );
@@ -250,7 +250,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [JobinterviewController::class, 'show'])->name('recruit.jobinterview.show')->middleware('permission:recruit-jobinterview-show');
                 Route::get('/edit/{id}', [JobinterviewController::class, 'edit'])->name('recruit.jobinterview.edit')->middleware('permission:recruit-jobinterview-edit');
                 Route::put('/update/{id}', [JobinterviewController::class, 'update'])->name('recruit.jobinterview.update')->middleware('permission:recruit-jobinterview-update');
-                Route::delete('/destroy/{id}', [JobinterviewController::class, 'destroy'])->name('recruit.jobinterview.destroy')->middleware('permission:recruit-jobinterview-destroy');
+                Route::get('/destroy/{id}', [JobinterviewController::class, 'destroy'])->name('recruit.jobinterview.destroy')->middleware('permission:recruit-jobinterview-destroy');
             });
             Route::prefix("recuritreports")->group(function () {
                 Route::get('/', [RecuritreportsController::class, 'index'])->name('recruit.recuritreports.index')->middleware('permission:recruit-recuritreports-index');
@@ -259,7 +259,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [RecuritreportsController::class, 'show'])->name('recruit.recuritreports.show')->middleware('permission:recruit-recuritreports-show');
                 Route::get('/edit/{id}', [RecuritreportsController::class, 'edit'])->name('recruit.recuritreports.edit')->middleware('permission:recruit-recuritreports-edit');
                 Route::put('/update/{id}', [RecuritreportsController::class, 'update'])->name('recruit.recuritreports.update')->middleware('permission:recruit-recuritreports-update');
-                Route::delete('/destroy/{id}', [RecuritreportsController::class, 'destroy'])->name('recruit.recuritreports.destroy')->middleware('permission:recruit-recuritreports-destroy');
+                Route::get('/destroy/{id}', [RecuritreportsController::class, 'destroy'])->name('recruit.recuritreports.destroy')->middleware('permission:recruit-recuritreports-destroy');
             });
 
             Route::prefix("experienceletter")->group(function () {
@@ -269,7 +269,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ExperienceletterController::class, 'show'])->name('recruit.experienceletter.show')->middleware('permission:recruit-experienceletter-show');
                 Route::get('/edit/{id}', [ExperienceletterController::class, 'edit'])->name('recruit.experienceletter.edit')->middleware('permission:recruit-experienceletter-edit');
                 Route::put('/update/{id}', [ExperienceletterController::class, 'update'])->name('recruit.experienceletter.update')->middleware('permission:recruit-experienceletter-update');
-                Route::delete('/destroy/{id}', [ExperienceletterController::class, 'destroy'])->name('recruit.experienceletter.destroy')->middleware('permission:recruit-experienceletter-destroy');
+                Route::get('/destroy/{id}', [ExperienceletterController::class, 'destroy'])->name('recruit.experienceletter.destroy')->middleware('permission:recruit-experienceletter-destroy');
             });
 
             Route::prefix("offerletter")->group(function () {
@@ -279,7 +279,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [OfferletterController::class, 'show'])->name('recruit.offerletter.show')->middleware('permission:recruit-offerletter-show');
                 Route::get('/edit/{id}', [OfferletterController::class, 'edit'])->name('recruit.offerletter.edit')->middleware('permission:recruit-offerletter-edit');
                 Route::put('/update/{id}', [OfferletterController::class, 'update'])->name('recruit.offerletter.update')->middleware('permission:recruit-offerletter-update');
-                Route::delete('/destroy/{id}', [OfferletterController::class, 'destroy'])->name('recruit.offerletter.destroy')->middleware('permission:recruit-offerletter-destroy');
+                Route::get('/destroy/{id}', [OfferletterController::class, 'destroy'])->name('recruit.offerletter.destroy')->middleware('permission:recruit-offerletter-destroy');
             });
 
             Route::prefix("jobpost")->group(function () {
@@ -289,7 +289,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [JobpostController::class, 'show'])->name('recruit.jobpost.show')->middleware('permission:recruit-jobpost-show');
                 Route::get('/edit/{id}', [JobpostController::class, 'edit'])->name('recruit.jobpost.edit')->middleware('permission:recruit-jobpost-edit');
                 Route::put('/update/{id}', [JobpostController::class, 'update'])->name('recruit.jobpost.update')->middleware('permission:recruit-jobpost-update');
-                Route::delete('/destroy/{id}', [JobpostController::class, 'destroy'])->name('recruit.jobpost.destroy')->middleware('permission:recruit-jobpost-destroy');
+                Route::get('/destroy/{id}', [JobpostController::class, 'destroy'])->name('recruit.jobpost.destroy')->middleware('permission:recruit-jobpost-destroy');
             });
             Route::prefix("jobapplication")->group(function () {
                 Route::get('/', [JobapplicationController::class, 'index'])->name('recruit.jobapplication.index')->middleware('permission:recruit-jobapplication-index');
@@ -298,7 +298,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [JobapplicationController::class, 'show'])->name('recruit.jobapplication.show')->middleware('permission:recruit-jobapplication-show');
                 Route::get('/edit/{id}', [JobapplicationController::class, 'edit'])->name('recruit.jobapplication.edit')->middleware('permission:recruit-jobapplication-edit');
                 Route::put('/update/{id}', [JobapplicationController::class, 'update'])->name('recruit.jobapplication.update')->middleware('permission:recruit-jobapplication-update');
-                Route::delete('/destroy/{id}', [JobapplicationController::class, 'destroy'])->name('recruit.jobapplication.destroy')->middleware('permission:recruit-jobapplication-destroy');
+                Route::get('/destroy/{id}', [JobapplicationController::class, 'destroy'])->name('recruit.jobapplication.destroy')->middleware('permission:recruit-jobapplication-destroy');
             });
             Route::prefix("interviewschedule")->group(function () {
                 Route::get('/', [InterviewscheduleController::class, 'index'])->name('recruit.interviewschedule.index')->middleware('permission:recruit-interviewschedule-index');
@@ -307,7 +307,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [InterviewscheduleController::class, 'show'])->name('recruit.interviewschedule.show')->middleware('permission:recruit-interviewschedule-show');
                 Route::get('/edit/{id}', [InterviewscheduleController::class, 'edit'])->name('recruit.interviewschedule.edit')->middleware('permission:recruit-interviewschedule-edit');
                 Route::put('/update/{id}', [InterviewscheduleController::class, 'update'])->name('recruit.interviewschedule.update')->middleware('permission:recruit-interviewschedule-update');
-                Route::delete('/destroy/{id}', [InterviewscheduleController::class, 'destroy'])->name('recruit.interviewschedule.destroy')->middleware('permission:recruit-interviewschedule-destroy');
+                Route::get('/destroy/{id}', [InterviewscheduleController::class, 'destroy'])->name('recruit.interviewschedule.destroy')->middleware('permission:recruit-interviewschedule-destroy');
             });
         }
     );
@@ -321,7 +321,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ProductController::class, 'show'])->name('inventory.product.show')->middleware('permission:inventory-product-showy');
                 Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('inventory.product.edit')->middleware('permission:inventory-product-edit');
                 Route::put('/update/{id}', [ProductController::class, 'update'])->name('inventory.product.update')->middleware('permission:inventory-product-update');
-                Route::delete('/destroy/{id}', [ProductController::class, 'destroy'])->name('inventory.product.destroy')->middleware('permission:inventory-product-destroy');
+                Route::get('/destroy/{id}', [ProductController::class, 'destroy'])->name('inventory.product.destroy')->middleware('permission:inventory-product-destroy');
             });
 
 
@@ -332,7 +332,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [PurchaseorderController::class, 'show'])->name('inventory.purchaseorder.show')->middleware('permission:inventory-purchaseorder-show');
                 Route::get('/edit/{id}', [PurchaseorderController::class, 'edit'])->name('inventory.purchaseorder.edit')->middleware('permission:inventory-purchaseorder-edit');
                 Route::put('/update/{id}', [PurchaseorderController::class, 'update'])->name('inventory.purchaseorder.update')->middleware('permission:inventory-purchaseorder-update');
-                Route::delete('/destroy/{id}', [PurchaseorderController::class, 'destroy'])->name('inventory.purchaseorder.destroy')->middleware('permission:inventory-purchaseorder-destroy');
+                Route::get('/destroy/{id}', [PurchaseorderController::class, 'destroy'])->name('inventory.purchaseorder.destroy')->middleware('permission:inventory-purchaseorder-destroy');
             });
 
             Route::prefix("servicelog")->group(function () {
@@ -342,7 +342,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ServicelogController::class, 'show'])->name('inventory.servicelog.show')->middleware('permission:inventory-servicelog-show');
                 Route::get('/edit/{id}', [ServicelogController::class, 'edit'])->name('inventory.servicelog.edit')->middleware('permission:inventory-servicelog-edit');
                 Route::put('/update/{id}', [ServicelogController::class, 'update'])->name('inventory.servicelog.update')->middleware('permission:inventory-servicelog-update');
-                Route::delete('/destroy/{id}', [ServicelogController::class, 'destroy'])->name('inventory.servicelog.destroy')->middleware('permission:inventory-servicelog-destroy');
+                Route::get('/destroy/{id}', [ServicelogController::class, 'destroy'])->name('inventory.servicelog.destroy')->middleware('permission:inventory-servicelog-destroy');
             });
 
             Route::prefix("stockreconcile")->group(function () {
@@ -352,7 +352,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [StockreconcileController::class, 'show'])->name('inventory.stockreconcile.show')->middleware('permission:inventory-stockreconcile-show');
                 Route::get('/edit/{id}', [StockreconcileController::class, 'edit'])->name('inventory.stockreconcile.edit')->middleware('permission:inventory-stockreconcile-edit');
                 Route::put('/update/{id}', [StockreconcileController::class, 'update'])->name('inventory.stockreconcile.update')->middleware('permission:inventory-stockreconcile-update');
-                Route::delete('/destroy/{id}', [StockreconcileController::class, 'destroy'])->name('inventory.stockreconcile.destroy')->middleware('permission:inventory-stockreconcile-destroy');
+                Route::get('/destroy/{id}', [StockreconcileController::class, 'destroy'])->name('inventory.stockreconcile.destroy')->middleware('permission:inventory-stockreconcile-destroy');
             });
             Route::prefix("purchaseentry")->group(function () {
                 Route::get('/', [PurchaseentryController::class, 'index'])->name('inventory.purchaseentry.index')->middleware('permission:inventory-purchaseentry-index');
@@ -361,7 +361,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [PurchaseentryController::class, 'show'])->name('inventory.purchaseentry.show')->middleware('permission:inventory-purchaseentry-show');
                 Route::get('/edit/{id}', [PurchaseentryController::class, 'edit'])->name('inventory.purchaseentry.edit')->middleware('permission:inventory-purchaseentry-edit');
                 Route::put('/update/{id}', [PurchaseentryController::class, 'update'])->name('inventory.purchaseentry.update')->middleware('permission:inventory-purchaseentry-update');
-                Route::delete('/destroy/{id}', [PurchaseentryController::class, 'destroy'])->name('inventory.purchaseentry.destroy')->middleware('permission:inventory-purchaseentry-destroy');
+                Route::get('/destroy/{id}', [PurchaseentryController::class, 'destroy'])->name('inventory.purchaseentry.destroy')->middleware('permission:inventory-purchaseentry-destroy');
             });
 
             Route::prefix("service")->group(function () {
@@ -371,7 +371,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ServiceController::class, 'show'])->name('inventory.service.show')->middleware('permission:inventory-service-show');
                 Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('inventory.service.edit')->middleware('permission:inventory-service-edit');
                 Route::put('/update/{id}', [ServiceController::class, 'update'])->name('inventory.service.update')->middleware('permission:inventory-service-update');
-                Route::delete('/destroy/{id}', [ServiceController::class, 'destroy'])->name('inventory.service.destroy')->middleware('permission:inventory-service-destroy');
+                Route::get('/destroy/{id}', [ServiceController::class, 'destroy'])->name('inventory.service.destroy')->middleware('permission:inventory-service-destroy');
             });
 
 
@@ -382,7 +382,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [BarcodemanagementController::class, 'show'])->name('inventory.barcodemanagement.show')->middleware('permission:inventory-barcodemanagement-show');
                 Route::get('/edit/{id}', [BarcodemanagementController::class, 'edit'])->name('inventory.barcodemanagement.edit')->middleware('permission:inventory-barcodemanagement-edit');
                 Route::put('/update/{id}', [BarcodemanagementController::class, 'update'])->name('inventory.barcodemanagement.update')->middleware('permission:inventory-barcodemanagement-update');
-                Route::delete('/destroy/{id}', [BarcodemanagementController::class, 'destroy'])->name('inventory.barcodemanagement.destroy')->middleware('permission:inventory-barcodemanagement-destroy');
+                Route::get('/destroy/{id}', [BarcodemanagementController::class, 'destroy'])->name('inventory.barcodemanagement.destroy')->middleware('permission:inventory-barcodemanagement-destroy');
             });
 
 
@@ -393,7 +393,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [GoodreceivedreconcileController::class, 'show'])->name('inventory.goodreceivedreconcile.show')->middleware('permission:inventory-goodreceivedreconcile-show');
                 Route::get('/edit/{id}', [GoodreceivedreconcileController::class, 'edit'])->name('inventory.goodreceivedreconcile.edit')->middleware('permission:inventory-goodreceivedreconcile-edit');
                 Route::put('/update/{id}', [GoodreceivedreconcileController::class, 'update'])->name('inventory.goodreceivedreconcile.update')->middleware('permission:inventory-goodreceivedreconcile-update');
-                Route::delete('/destroy/{id}', [GoodreceivedreconcileController::class, 'destroy'])->name('inventory.goodreceivedreconcile.destroy')->middleware('permission:inventory-goodreceivedreconcile-destroy');
+                Route::get('/destroy/{id}', [GoodreceivedreconcileController::class, 'destroy'])->name('inventory.goodreceivedreconcile.destroy')->middleware('permission:inventory-goodreceivedreconcile-destroy');
             });
         }
     );
@@ -407,7 +407,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ClientsController::class, 'show'])->name('crm.clients.show')->middleware('permission:crm-clients-show');
                 Route::get('/edit/{id}', [ClientsController::class, 'edit'])->name('crm.clients.edit')->middleware('permission:crm-clients-edit');
                 Route::put('/update/{id}', [ClientsController::class, 'update'])->name('crm.clients.update')->middleware('permission:crm-clients-update');
-                Route::delete('/destroy/{id}', [ClientsController::class, 'destroy'])->name('crm.clients.destroy')->middleware('permission:crm-clients-destroy');
+                Route::get('/destroy/{id}', [ClientsController::class, 'destroy'])->name('crm.clients.destroy')->middleware('permission:crm-clients-destroy');
             });
             Route::prefix("leads")->group(function () {
                 Route::get('/', [LeadsController::class, 'index'])->name('crm.leads.index')->middleware('permission:crm-leads-index');
@@ -416,7 +416,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [LeadsController::class, 'show'])->name('crm.leads.show')->middleware('permission:crm-leads-show');
                 Route::get('/edit/{id}', [LeadsController::class, 'edit'])->name('crm.leads.edit')->middleware('permission:crm-leads-edit');
                 Route::put('/update/{id}', [LeadsController::class, 'update'])->name('crm.leads.update')->middleware('permission:crm-leads-update');
-                Route::delete('/destroy/{id}', [LeadsController::class, 'destroy'])->name('crm.leads.destroy')->middleware('permission:crm-leads-destroy');
+                Route::get('/destroy/{id}', [LeadsController::class, 'destroy'])->name('crm.leads.destroy')->middleware('permission:crm-leads-destroy');
             });
         }
     );
@@ -434,7 +434,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [AnnouncementController::class, 'show'])->name('notice.announcement.show')->middleware('permission:notice-announcement-show');
                 Route::get('/edit/{id}', [AnnouncementController::class, 'edit'])->name('notice.announcement.edit')->middleware('permission:notice-announcement-edit');
                 Route::put('/update/{id}', [AnnouncementController::class, 'update'])->name('notice.announcement.update')->middleware('permission:notice-announcement-update');
-                Route::delete('/destroy/{id}', [AnnouncementController::class, 'destroy'])->name('notice.announcement.destroy')->middleware('permission:notice-announcement-destroy');
+                Route::get('/destroy/{id}', [AnnouncementController::class, 'destroy'])->name('notice.announcement.destroy')->middleware('permission:notice-announcement-destroy');
             });
 
 
@@ -445,7 +445,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [OverviewController::class, 'show'])->name('notice.overview.show')->middleware('permission:notice-overview-show');
                 Route::get('/edit/{id}', [OverviewController::class, 'edit'])->name('notice.overview.edit')->middleware('permission:notice-overview-edit');
                 Route::put('/update/{id}', [OverviewController::class, 'update'])->name('notice.overview.update')->middleware('permission:notice-overview-update');
-                Route::delete('/destroy/{id}', [OverviewController::class, 'destroy'])->name('notice.overview.destroy')->middleware('permission:notice-overview-destroy');
+                Route::get('/destroy/{id}', [OverviewController::class, 'destroy'])->name('notice.overview.destroy')->middleware('permission:notice-overview-destroy');
             });
 
 
@@ -456,7 +456,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [DetailsviewController::class, 'show'])->name('notice.detailsview.show')->middleware('permission:notice-detailsview-show');
                 Route::get('/edit/{id}', [DetailsviewController::class, 'edit'])->name('notice.detailsview.edit')->middleware('permission:notice-detailsview-edit');
                 Route::put('/update/{id}', [DetailsviewController::class, 'update'])->name('notice.detailsview.update')->middleware('permission:notice-detailsview-update');
-                Route::delete('/destroy/{id}', [DetailsviewController::class, 'destroy'])->name('notice.detailsview.destroy')->middleware('permission:notice-detailsview-destroy');
+                Route::get('/destroy/{id}', [DetailsviewController::class, 'destroy'])->name('notice.detailsview.destroy')->middleware('permission:notice-detailsview-destroy');
             });
         }
     );
@@ -473,7 +473,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [AssestCategoryController::class, 'show'])->name('assets.assestcategory.show')->middleware('permission:assets-assestcategory-show');
                 Route::get('/edit/{id}', [AssestCategoryController::class, 'edit'])->name('assets.assestcategory.edit')->middleware('permission:assets-assestcategory-edit');
                 Route::put('/update/{id}', [AssestCategoryController::class, 'update'])->name('assets.assestcategory.update')->middleware('permission:assets-assestcategory-update');
-                Route::delete('/destroy/{id}', [AssestCategoryController::class, 'destroy'])->name('assets.assestcategory.destroy')->middleware('permission:assets-assestcategory-destroy');
+                Route::get('/destroy/{id}', [AssestCategoryController::class, 'destroy'])->name('assets.assestcategory.destroy')->middleware('permission:assets-assestcategory-destroy');
             });
 
 
@@ -484,7 +484,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [FixedassetsController::class, 'show'])->name('assets.fixedassets.show')->middleware('permission:assets-fixedassets-show');
                 Route::get('/edit/{id}', [FixedassetsController::class, 'edit'])->name('assets.fixedassets.edit')->middleware('permission:assets-fixedassets-edit');
                 Route::put('/update/{id}', [FixedassetsController::class, 'update'])->name('assets.fixedassets.update')->middleware('permission:assets-fixedassets-update');
-                Route::delete('/destroy/{id}', [FixedassetsController::class, 'destroy'])->name('assets.fixedassets.destroy')->middleware('permission:assets-fixedassets-destroy');
+                Route::get('/destroy/{id}', [FixedassetsController::class, 'destroy'])->name('assets.fixedassets.destroy')->middleware('permission:assets-fixedassets-destroy');
             });
 
 
@@ -495,7 +495,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [EquipmentdemandController::class, 'show'])->name('assets.equipmentdemand.show')->middleware('permission:assets-equipmentdemand-show');
                 Route::get('/edit/{id}', [EquipmentdemandController::class, 'edit'])->name('assets.equipmentdemand.edit')->middleware('permission:assets-equipmentdemand-edit');
                 Route::put('/update/{id}', [EquipmentdemandController::class, 'update'])->name('assets.equipmentdemand.update')->middleware('permission:assets-equipmentdemand-update');
-                Route::delete('/destroy/{id}', [EquipmentdemandController::class, 'destroy'])->name('assets.equipmentdemand.destroy')->middleware('permission:assets-equipmentdemand-destroy');
+                Route::get('/destroy/{id}', [EquipmentdemandController::class, 'destroy'])->name('assets.equipmentdemand.destroy')->middleware('permission:assets-equipmentdemand-destroy');
             });
         }
     );
@@ -508,7 +508,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/store', [DictonaryController::class, 'store'])->middleware('permission:assets-dictonary-store');
             Route::get('/edit/{id}', [DictonaryController::class, 'edit'])->middleware('permission:assets-dictonary-edit');
             Route::post('/update/{id}', [DictonaryController::class, 'update'])->middleware('permission:assets-dictonary-update');
-            Route::delete('/destroy/{id}', [DictonaryController::class, 'destroy'])->middleware('permission:assets-dictonary-destroy');
+            Route::get('/destroy/{id}', [DictonaryController::class, 'destroy'])->middleware('permission:assets-dictonary-destroy');
         }
     );
 
@@ -525,7 +525,7 @@ Route::middleware('auth')->group(function () {
     //     Route::post('/store', [DepartmentController::class, 'store']);
     //     Route::get('/edit/{id}', [DepartmentController::class, 'edit']);
     //     Route::post('/update/{id}', [DepartmentController::class, 'update']);
-    //     Route::delete('/destroy/{id}', [DepartmentController::class, 'destroy']);
+    //     Route::get('/destroy/{id}', [DepartmentController::class, 'destroy']);
     // });
 
 
@@ -535,7 +535,7 @@ Route::middleware('auth')->group(function () {
     // End Settings Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
     Route::prefix("requisition")->group(
@@ -547,7 +547,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [LeaverequestController::class, 'show'])->name('requisition.leaverequest.show')->middleware('permission:requisition-leaverequest-show');
                 Route::get('/edit/{id}', [LeaverequestController::class, 'edit'])->name('requisition.leaverequest.edit')->middleware('permission:requisition-leaverequest-edit');
                 Route::put('/update/{id}', [LeaverequestController::class, 'update'])->name('requisition.leaverequest.update')->middleware('permission:requisition-leaverequest-update');
-                Route::delete('/destroy/{id}', [LeaverequestController::class, 'destroy'])->name('requisition.leaverequest.destroy')->middleware('permission:requisition-leaverequest-destroy');
+                Route::get('/destroy/{id}', [LeaverequestController::class, 'destroy'])->name('requisition.leaverequest.destroy')->middleware('permission:requisition-leaverequest-destroy');
             });
 
             Route::prefix("travel")->group(function () {
@@ -557,7 +557,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TravelController::class, 'show'])->name('requisition.travel.show')->middleware('permission:requisition-travel-show');
                 Route::get('/edit/{id}', [TravelController::class, 'edit'])->name('requisition.travel.edit')->middleware('permission:requisition-travel-edit');
                 Route::put('/update/{id}', [TravelController::class, 'update'])->name('requisition.travel.update')->middleware('permission:requisition-travel-update');
-                Route::delete('/destroy/{id}', [TravelController::class, 'destroy'])->name('requisition.travel.destroy')->middleware('permission:requisition-travel-destroy');
+                Route::get('/destroy/{id}', [TravelController::class, 'destroy'])->name('requisition.travel.destroy')->middleware('permission:requisition-travel-destroy');
             });
 
             Route::prefix("requisitiontravel")->group(function () {
@@ -567,7 +567,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [RequisitiontravelController::class, 'show'])->name('requisition.requisitiontravel.show')->middleware('permission:requisition-requisitiontravel-show');
                 Route::get('/edit/{id}', [RequisitiontravelController::class, 'edit'])->name('requisition.requisitiontravel.edit')->middleware('permission:requisition-requisitiontravel-edit');
                 Route::put('/update/{id}', [RequisitiontravelController::class, 'update'])->name('requisition.requisitiontravel.update')->middleware('permission:requisition-requisitiontravel-update');
-                Route::delete('/destroy/{id}', [RequisitiontravelController::class, 'destroy'])->name('requisition.requisitiontravel.destroy')->middleware('permission:requisition-requisitiontravel-destroy');
+                Route::get('/destroy/{id}', [RequisitiontravelController::class, 'destroy'])->name('requisition.requisitiontravel.destroy')->middleware('permission:requisition-requisitiontravel-destroy');
             });
             Route::prefix("convinceRequest")->group(function () {
                 Route::get('/', [ConvinceRequestController::class, 'index'])->name('requisition.convincerequest.index')->middleware('permission:requisition-convinceRequest-index');
@@ -576,7 +576,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ConvinceRequestController::class, 'show'])->name('requisition.convincerequest.show')->middleware('permission:requisition-convinceRequest-show');
                 Route::get('/edit/{id}', [ConvinceRequestController::class, 'edit'])->name('requisition.convincerequest.edit')->middleware('permission:requisition-convinceRequest-edit');
                 Route::put('/update/{id}', [ConvinceRequestController::class, 'update'])->name('requisition.convincerequest.update')->middleware('permission:requisition-convinceRequest-update');
-                Route::delete('/destroy/{id}', [ConvinceRequestController::class, 'destroy'])->name('requisition.convincerequest.destroy')->middleware('permission:requisition-convinceRequest-destroy');
+                Route::get('/destroy/{id}', [ConvinceRequestController::class, 'destroy'])->name('requisition.convincerequest.destroy')->middleware('permission:requisition-convinceRequest-destroy');
             });
 
             Route::prefix("compensatoryLeave")->group(function () {
@@ -586,7 +586,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [CompensatoryLeaveController::class, 'show'])->name('requisition.compensatoryleave.show')->middleware('permission:requisition-compensatoryLeave-show');
                 Route::get('/edit/{id}', [CompensatoryLeaveController::class, 'edit'])->name('requisition.compensatoryleave.edit')->middleware('permission:requisition-compensatoryLeave-edit');
                 Route::put('/update/{id}', [CompensatoryLeaveController::class, 'update'])->name('requisition.compensatoryleave.update')->middleware('permission:requisition-compensatoryLeave-update');
-                Route::delete('/destroy/{id}', [CompensatoryLeaveController::class, 'destroy'])->name('requisition.compensatoryleave.destroy')->middleware('permission:requisition-compensatoryLeave-destroy');
+                Route::get('/destroy/{id}', [CompensatoryLeaveController::class, 'destroy'])->name('requisition.compensatoryleave.destroy')->middleware('permission:requisition-compensatoryLeave-destroy');
             });
 
             Route::prefix("barcodeManagement")->group(function () {
@@ -596,7 +596,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [BarcodeManagementController::class, 'show'])->name('requisition.barcodemanagement.show')->middleware('permission:requisition-barcodeManagement-show');
                 Route::get('/edit/{id}', [BarcodeManagementController::class, 'edit'])->name('requisition.barcodemanagement.edit')->middleware('permission:requisition-barcodeManagement-edit');
                 Route::put('/update/{id}', [BarcodeManagementController::class, 'update'])->name('requisition.barcodemanagement.update')->middleware('permission:requisition-barcodeManagement-update');
-                Route::delete('/destroy/{id}', [BarcodeManagementController::class, 'destroy'])->name('requisition.barcodemanagement.destroy')->middleware('permission:requisition-barcodeManagement-destroy');
+                Route::get('/destroy/{id}', [BarcodeManagementController::class, 'destroy'])->name('requisition.barcodemanagement.destroy')->middleware('permission:requisition-barcodeManagement-destroy');
             });
         }
     );
@@ -609,7 +609,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [GeneratorlogbookController::class, 'show'])->name('officemanagement.generatorlogbook.show')->middleware('permission:officemanagement-generatorlogbook-show');
                 Route::get('/edit/{id}', [GeneratorlogbookController::class, 'edit'])->name('officemanagement.generatorlogbook.edit')->middleware('permission:officemanagement-generatorlogbook-edit');
                 Route::put('/update/{id}', [GeneratorlogbookController::class, 'update'])->name('officemanagement.generatorlogbook.update')->middleware('permission:officemanagement-generatorlogbook-update');
-                Route::delete('/destroy/{id}', [GeneratorlogbookController::class, 'destroy'])->name('officemanagement.generatorlogbook.destroy')->middleware('permission:officemanagement-generatorlogbook-destroy');
+                Route::get('/destroy/{id}', [GeneratorlogbookController::class, 'destroy'])->name('officemanagement.generatorlogbook.destroy')->middleware('permission:officemanagement-generatorlogbook-destroy');
             });
             Route::prefix("cashdeposite")->group(function () {
                 Route::get('/', [CashdepositeController::class, 'index'])->name('officemanagement.cashdeposite.index')->middleware('permission:officemanagement-cashdeposite-index');
@@ -618,7 +618,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [CashdepositeController::class, 'show'])->name('officemanagement.cashdeposite.show')->middleware('permission:officemanagement-cashdeposite-show');
                 Route::get('/edit/{id}', [CashdepositeController::class, 'edit'])->name('officemanagement.cashdeposite.edit')->middleware('permission:officemanagement-cashdeposite-edit');
                 Route::put('/update/{id}', [CashdepositeController::class, 'update'])->name('officemanagement.cashdeposite.update')->middleware('permission:officemanagement-cashdeposite-update');
-                Route::delete('/destroy/{id}', [CashdepositeController::class, 'destroy'])->name('officemanagement.cashdeposite.destroy')->middleware('permission:officemanagement-cashdeposite-destroy');
+                Route::get('/destroy/{id}', [CashdepositeController::class, 'destroy'])->name('officemanagement.cashdeposite.destroy')->middleware('permission:officemanagement-cashdeposite-destroy');
             });
 
             Route::prefix("contract")->group(function () {
@@ -628,7 +628,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ContractController::class, 'show'])->name('officemanagement.contract.show')->middleware('permission:officemanagement-contract-show');
                 Route::get('/edit/{id}', [ContractController::class, 'edit'])->name('officemanagement.contract.edit')->middleware('permission:officemanagement-contract-edit');
                 Route::put('/update/{id}', [ContractController::class, 'update'])->name('officemanagement.contract.update')->middleware('permission:officemanagement-contract-update');
-                Route::delete('/destroy/{id}', [ContractController::class, 'destroy'])->name('officemanagement.contract.destroy')->middleware('permission:officemanagement-contract-destroy');
+                Route::get('/destroy/{id}', [ContractController::class, 'destroy'])->name('officemanagement.contract.destroy')->middleware('permission:officemanagement-contract-destroy');
             });
 
             Route::prefix("purchaseservice")->group(function () {
@@ -638,7 +638,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [PurchaseserviceController::class, 'show'])->name('officemanagement.purchaseservice.show')->middleware('permission:officemanagement-purchaseservice-show');
                 Route::get('/edit/{id}', [PurchaseserviceController::class, 'edit'])->name('officemanagement.purchaseservice.edit')->middleware('permission:officemanagement-purchaseservice-edit');
                 Route::put('/update/{id}', [PurchaseserviceController::class, 'update'])->name('officemanagement.purchaseservice.update')->middleware('permission:officemanagement-purchaseservice-update');
-                Route::delete('/destroy/{id}', [PurchaseserviceController::class, 'destroy'])->name('officemanagement.purchaseservice.destroy')->middleware('permission:officemanagement-purchaseservice-destroy');
+                Route::get('/destroy/{id}', [PurchaseserviceController::class, 'destroy'])->name('officemanagement.purchaseservice.destroy')->middleware('permission:officemanagement-purchaseservice-destroy');
             });
         }
     );
@@ -653,7 +653,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [NewpaymentController::class, 'show'])->name('payroll.newpayment.show')->middleware('permission:payroll-newpayment-show');
                 Route::get('/edit/{id}', [NewpaymentController::class, 'edit'])->name('payroll.newpayment.edit')->middleware('permission:payroll-newpayment-edit');
                 Route::put('/update/{id}', [NewpaymentController::class, 'update'])->name('payroll.newpayment.update')->middleware('permission:payroll-newpayment-update');
-                Route::delete('/destroy/{id}', [NewpaymentController::class, 'destroy'])->name('payroll.newpayment.destroy')->middleware('permission:payroll-newpayment-destroy');
+                Route::get('/destroy/{id}', [NewpaymentController::class, 'destroy'])->name('payroll.newpayment.destroy')->middleware('permission:payroll-newpayment-destroy');
             });
         }
     );
@@ -669,7 +669,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TrainingtypeController::class, 'show'])->name('training.trainingtype.show')->middleware('permission:training-trainingtype-show');
                 Route::get('/edit/{id}', [TrainingtypeController::class, 'edit'])->name('training.trainingtype.edit')->middleware('permission:training-trainingtype-edit');
                 Route::put('/update/{id}', [TrainingtypeController::class, 'update'])->name('training.trainingtype.update')->middleware('permission:training-trainingtype-update');
-                Route::delete('/destroy/{id}', [TrainingtypeController::class, 'destroy'])->name('training.trainingtype.destroy')->middleware('permission:training-trainingtype-destroy');
+                Route::get('/destroy/{id}', [TrainingtypeController::class, 'destroy'])->name('training.trainingtype.destroy')->middleware('permission:training-trainingtype-destroy');
             });
 
 
@@ -680,7 +680,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TraininglistController::class, 'show'])->name('training.traininglist.show')->middleware('permission:training-traininglist-show');
                 Route::get('/edit/{id}', [TraininglistController::class, 'edit'])->name('training.traininglist.edit')->middleware('permission:training-traininglist-edit');
                 Route::put('/update/{id}', [TraininglistController::class, 'update'])->name('training.traininglist.update')->middleware('permission:training-traininglist-update');
-                Route::delete('/destroy/{id}', [TraininglistController::class, 'destroy'])->name('training.traininglist.destroy')->middleware('permission:training-traininglist-destroy');
+                Route::get('/destroy/{id}', [TraininglistController::class, 'destroy'])->name('training.traininglist.destroy')->middleware('permission:training-traininglist-destroy');
             });
             Route::prefix("trainer")->group(function () {
                 Route::get('/', [TrainerController::class, 'index'])->name('training.trainer.index')->middleware('permission:training-trainer-index');
@@ -689,7 +689,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TrainerController::class, 'show'])->name('training.trainer.show')->middleware('permission:training-trainer-show');
                 Route::get('/edit/{id}', [TrainerController::class, 'edit'])->name('training.trainer.edit')->middleware('permission:training-trainer-edit');
                 Route::put('/update/{id}', [TrainerController::class, 'update'])->name('training.trainer.update')->middleware('permission:training-trainer-update');
-                Route::delete('/destroy/{id}', [TrainerController::class, 'destroy'])->name('training.trainer.destroy')->middleware('permission:training-trainer-destroy');
+                Route::get('/destroy/{id}', [TrainerController::class, 'destroy'])->name('training.trainer.destroy')->middleware('permission:training-trainer-destroy');
             });
         }
     );
@@ -702,7 +702,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [FleetrequestController::class, 'show'])->name('travelfleet.fleetrequest.show')->middleware('permission:travelfleet-fleetrequest-show');
                 Route::get('/edit/{id}', [FleetrequestController::class, 'edit'])->name('travelfleet.fleetrequest.edit')->middleware('permission:travelfleet-fleetrequest-edit');
                 Route::put('/update/{id}', [FleetrequestController::class, 'update'])->name('travelfleet.fleetrequest.update')->middleware('permission:travelfleet-fleetrequest-update');
-                Route::delete('/destroy/{id}', [FleetrequestController::class, 'destroy'])->name('travelfleet.fleetrequest.destroy')->middleware('permission:travelfleet-fleetrequest-destroy');
+                Route::get('/destroy/{id}', [FleetrequestController::class, 'destroy'])->name('travelfleet.fleetrequest.destroy')->middleware('permission:travelfleet-fleetrequest-destroy');
             });
 
             Route::prefix("fleetroster")->group(function () {
@@ -712,7 +712,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [FleetrosterController::class, 'show'])->name('travelfleet.fleetroster.show')->middleware('permission:travelfleet-fleetroster-show');
                 Route::get('/edit/{id}', [FleetrosterController::class, 'edit'])->name('travelfleet.fleetroster.edit')->middleware('permission:travelfleet-fleetroster-edit');
                 Route::put('/update/{id}', [FleetrosterController::class, 'update'])->name('travelfleet.fleetroster.update')->middleware('permission:travelfleet-fleetroster-update');
-                Route::delete('/destroy/{id}', [FleetrosterController::class, 'destroy'])->name('travelfleet.fleetroster.destroy')->middleware('permission:travelfleet-fleetroster-destroy');
+                Route::get('/destroy/{id}', [FleetrosterController::class, 'destroy'])->name('travelfleet.fleetroster.destroy')->middleware('permission:travelfleet-fleetroster-destroy');
             });
 
 
@@ -723,7 +723,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TravelslogController::class, 'show'])->name('travelfleet.travelslog.show')->middleware('permission:travelfleet-travelslog-show');
                 Route::get('/edit/{id}', [TravelslogController::class, 'edit'])->name('travelfleet.travelslog.edit')->middleware('permission:travelfleet-travelslog-edit');
                 Route::put('/update/{id}', [TravelslogController::class, 'update'])->name('travelfleet.travelslog.update')->middleware('permission:travelfleet-travelslog-update');
-                Route::delete('/destroy/{id}', [TravelslogController::class, 'destroy'])->name('travelfleet.travelslog.destroy')->middleware('permission:travelfleet-travelslog-destroy');
+                Route::get('/destroy/{id}', [TravelslogController::class, 'destroy'])->name('travelfleet.travelslog.destroy')->middleware('permission:travelfleet-travelslog-destroy');
             });
 
             Route::prefix("vehiclelog")->group(function () {
@@ -733,7 +733,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [VehiclelogController::class, 'show'])->name('travelfleet.vehiclelog.show')->middleware('permission:travelfleet-vehiclelog-show');
                 Route::get('/edit/{id}', [VehiclelogController::class, 'edit'])->name('travelfleet.vehiclelog.edit')->middleware('permission:travelfleet-vehiclelog-edit');
                 Route::put('/update/{id}', [VehiclelogController::class, 'update'])->name('travelfleet.vehiclelog.update')->middleware('permission:travelfleet-vehiclelog-update');
-                Route::delete('/destroy/{id}', [VehiclelogController::class, 'destroy'])->name('travelfleet.vehiclelog.destroy')->middleware('permission:travelfleet-vehiclelog-destroy');
+                Route::get('/destroy/{id}', [VehiclelogController::class, 'destroy'])->name('travelfleet.vehiclelog.destroy')->middleware('permission:travelfleet-vehiclelog-destroy');
             });
             Route::prefix("travelcategory")->group(function () {
                 Route::get('/', [TravelcategoryController::class, 'index'])->name('travelfleet.travelcategory.index')->middleware('permission:travelfleet-travelcategory-index');
@@ -742,7 +742,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TravelcategoryController::class, 'show'])->name('travelfleet.travelcategory.show')->middleware('permission:travelfleet-travelcategory-show');
                 Route::get('/edit/{id}', [TravelcategoryController::class, 'edit'])->name('travelfleet.travelcategory.edit')->middleware('permission:travelfleet-travelcategory-edit');
                 Route::put('/update/{id}', [TravelcategoryController::class, 'update'])->name('travelfleet.travelcategory.update')->middleware('permission:travelfleet-travelcategory-update');
-                Route::delete('/destroy/{id}', [TravelcategoryController::class, 'destroy'])->name('travelfleet.travelcategory.destroy')->middleware('permission:travelfleet-travelcategory-destroy');
+                Route::get('/destroy/{id}', [TravelcategoryController::class, 'destroy'])->name('travelfleet.travelcategory.destroy')->middleware('permission:travelfleet-travelcategory-destroy');
             });
             Route::prefix("travelapproval")->group(function () {
                 Route::get('/', [TravelapprovalController::class, 'index'])->name('travelfleet.travelapproval.index')->middleware('permission:travelfleet-travelapproval-index');
@@ -751,7 +751,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TravelapprovalController::class, 'show'])->name('travelfleet.travelapproval.show')->middleware('permission:travelfleet-travelapproval-show');
                 Route::get('/edit/{id}', [TravelapprovalController::class, 'edit'])->name('travelfleet.travelapproval.edit')->middleware('permission:travelfleet-travelapproval-edit');
                 Route::put('/update/{id}', [TravelapprovalController::class, 'update'])->name('travelfleet.travelapproval.update')->middleware('permission:travelfleet-travelapproval-update');
-                Route::delete('/destroy/{id}', [TravelapprovalController::class, 'destroy'])->name('travelfleet.travelapproval.destroy')->middleware('permission:travelfleet-travelapproval-destroy');
+                Route::get('/destroy/{id}', [TravelapprovalController::class, 'destroy'])->name('travelfleet.travelapproval.destroy')->middleware('permission:travelfleet-travelapproval-destroy');
             });
 
 
@@ -762,7 +762,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TravelrequestController::class, 'show'])->name('travelfleet.travelrequest.show')->middleware('permission:travelfleet-travelrequest-show');
                 Route::get('/edit/{id}', [TravelrequestController::class, 'edit'])->name('travelfleet.travelrequest.edit')->middleware('permission:travelfleet-travelrequest-edit');
                 Route::put('/update/{id}', [TravelrequestController::class, 'update'])->name('travelfleet.travelrequest.update')->middleware('permission:travelfleet-travelrequest-update');
-                Route::delete('/destroy/{id}', [TravelrequestController::class, 'destroy'])->name('travelfleet.travelrequest.destroy')->middleware('permission:travelfleet-travelrequest-destroy');
+                Route::get('/destroy/{id}', [TravelrequestController::class, 'destroy'])->name('travelfleet.travelrequest.destroy')->middleware('permission:travelfleet-travelrequest-destroy');
             });
 
 
@@ -773,7 +773,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [MaintenancelogController::class, 'show'])->name('travelfleet.maintenancelog.show')->middleware('permission:travelfleet-maintenancelog-show');
                 Route::get('/edit/{id}', [MaintenancelogController::class, 'edit'])->name('travelfleet.maintenancelog.edit')->middleware('permission:travelfleet-maintenancelog-edit');
                 Route::put('/update/{id}', [MaintenancelogController::class, 'update'])->name('travelfleet.maintenancelog.update')->middleware('permission:travelfleet-maintenancelog-update');
-                Route::delete('/destroy/{id}', [MaintenancelogController::class, 'destroy'])->name('travelfleet.maintenancelog.destroy')->middleware('permission:travelfleet-maintenancelog-destroy');
+                Route::get('/destroy/{id}', [MaintenancelogController::class, 'destroy'])->name('travelfleet.maintenancelog.destroy')->middleware('permission:travelfleet-maintenancelog-destroy');
             });
 
             Route::prefix("fleetmanagement")->group(function () {
@@ -783,7 +783,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [FleetmanagementController::class, 'show'])->name('travelfleet.fleetmanagement.show')->middleware('permission:travelfleet-fleetmanagement-show');
                 Route::get('/edit/{id}', [FleetmanagementController::class, 'edit'])->name('travelfleet.fleetmanagement.edit')->middleware('permission:travelfleet-fleetmanagement-edit');
                 Route::put('/update/{id}', [FleetmanagementController::class, 'update'])->name('travelfleet.fleetmanagement.update')->middleware('permission:travelfleet-fleetmanagement-update');
-                Route::delete('/destroy/{id}', [FleetmanagementController::class, 'destroy'])->name('travelfleet.fleetmanagement.destroy')->middleware('permission:travelfleet-fleetmanagement-destroy');
+                Route::get('/destroy/{id}', [FleetmanagementController::class, 'destroy'])->name('travelfleet.fleetmanagement.destroy')->middleware('permission:travelfleet-fleetmanagement-destroy');
             });
 
             Route::prefix("driverroster")->group(function () {
@@ -793,7 +793,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [DriverrosterController::class, 'show'])->name('travelfleet.driverroster.show')->middleware('permission:travelfleet-driverroster-show');
                 Route::get('/edit/{id}', [DriverrosterController::class, 'edit'])->name('travelfleet.driverroster.edit')->middleware('permission:travelfleet-driverroster-edit');
                 Route::put('/update/{id}', [DriverrosterController::class, 'update'])->name('travelfleet.driverroster.update')->middleware('permission:travelfleet-driverroster-update');
-                Route::delete('/destroy/{id}', [DriverrosterController::class, 'destroy'])->name('travelfleet.driverroster.destroy')->middleware('permission:travelfleet-driverroster-destroy');
+                Route::get('/destroy/{id}', [DriverrosterController::class, 'destroy'])->name('travelfleet.driverroster.destroy')->middleware('permission:travelfleet-driverroster-destroy');
             });
         }
     );
@@ -807,7 +807,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [CreditNotesController::class, 'show'])->name('finance.creditnotes.show')->middleware('permission:finance-creditnotes-show');
                 Route::get('/edit/{id}', [CreditNotesController::class, 'edit'])->name('finance.creditnotes.edit')->middleware('permission:finance-creditnotes-edit');
                 Route::put('/update/{id}', [CreditNotesController::class, 'update'])->name('finance.creditnotes.update')->middleware('permission:finance-creditnotes-update');
-                Route::delete('/destroy/{id}', [CreditNotesController::class, 'destroy'])->name('finance.creditnotes.destroy')->middleware('permission:finance-creditnotes-destroy');
+                Route::get('/destroy/{id}', [CreditNotesController::class, 'destroy'])->name('finance.creditnotes.destroy')->middleware('permission:finance-creditnotes-destroy');
             });
 
 
@@ -818,7 +818,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [InvoicesController::class, 'show'])->name('finance.invoices.show')->middleware('permission:finance-invoices-show');
                 Route::get('/edit/{id}', [InvoicesController::class, 'edit'])->name('finance.invoices.edit')->middleware('permission:finance-invoices-edit');
                 Route::put('/update/{id}', [InvoicesController::class, 'update'])->name('finance.invoices.update')->middleware('permission:finance-invoices-update');
-                Route::delete('/destroy/{id}', [InvoicesController::class, 'destroy'])->name('finance.invoices.destroy')->middleware('permission:finance-invoices-destroy');
+                Route::get('/destroy/{id}', [InvoicesController::class, 'destroy'])->name('finance.invoices.destroy')->middleware('permission:finance-invoices-destroy');
             });
 
             Route::prefix("estimates")->group(function () {
@@ -828,7 +828,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [EstimatesController::class, 'show'])->name('finance.estimates.show')->middleware('permission:finance-estimates-show');
                 Route::get('/edit/{id}', [EstimatesController::class, 'edit'])->name('finance.estimates.edit')->middleware('permission:finance-estimates-edit');
                 Route::put('/update/{id}', [EstimatesController::class, 'update'])->name('finance.estimates.update')->middleware('permission:finance-estimates-update');
-                Route::delete('/destroy/{id}', [EstimatesController::class, 'destroy'])->name('finance.estimates.destroy')->middleware('permission:finance-estimates-destroy');
+                Route::get('/destroy/{id}', [EstimatesController::class, 'destroy'])->name('finance.estimates.destroy')->middleware('permission:finance-estimates-destroy');
             });
 
 
@@ -840,7 +840,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ProposalController::class, 'show'])->name('finance.proposal.show')->middleware('permission:finance-proposal-show');
                 Route::get('/edit/{id}', [ProposalController::class, 'edit'])->name('finance.proposal.edit')->middleware('permission:finance-proposal-edit');
                 Route::put('/update/{id}', [ProposalController::class, 'update'])->name('finance.proposal.update')->middleware('permission:finance-proposal-update');
-                Route::delete('/destroy/{id}', [ProposalController::class, 'destroy'])->name('finance.proposal.destroy')->middleware('permission:finance-proposal-destroy');
+                Route::get('/destroy/{id}', [ProposalController::class, 'destroy'])->name('finance.proposal.destroy')->middleware('permission:finance-proposal-destroy');
             });
 
 
@@ -851,7 +851,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [FinanceExpensesController::class, 'show'])->name('finance.financeexpenses.show')->middleware('permission:finance-financeexpenses-show');
                 Route::get('/edit/{id}', [FinanceExpensesController::class, 'edit'])->name('finance.financeexpenses.edit')->middleware('permission:finance-financeexpenses-edit');
                 Route::put('/update/{id}', [FinanceExpensesController::class, 'update'])->name('finance.financeexpenses.update')->middleware('permission:finance-financeexpenses-update');
-                Route::delete('/destroy/{id}', [FinanceExpensesController::class, 'destroy'])->name('finance.financeexpenses.destroy')->middleware('permission:finance-financeexpenses-destroy');
+                Route::get('/destroy/{id}', [FinanceExpensesController::class, 'destroy'])->name('finance.financeexpenses.destroy')->middleware('permission:finance-financeexpenses-destroy');
             });
 
 
@@ -862,7 +862,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [FinancePayController::class, 'show'])->name('finance.financepay.show')->middleware('permission:finance-financepay-show');
                 Route::get('/edit/{id}', [FinancePayController::class, 'edit'])->name('finance.financepay.edit')->middleware('permission:finance-financepay-edit');
                 Route::put('/update/{id}', [FinancePayController::class, 'update'])->name('finance.financepay.update')->middleware('permission:finance-financepay-update');
-                Route::delete('/destroy/{id}', [FinancePayController::class, 'destroy'])->name('finance.financepay.destroy')->middleware('permission:finance-financepay-destroy');
+                Route::get('/destroy/{id}', [FinancePayController::class, 'destroy'])->name('finance.financepay.destroy')->middleware('permission:finance-financepay-destroy');
             });
 
 
@@ -873,7 +873,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [AdvancerequestController::class, 'show'])->name('finance.advancerequest.show')->middleware('permission:finance-advancerequest-show');
                 Route::get('/edit/{id}', [AdvancerequestController::class, 'edit'])->name('finance.advancerequest.edit')->middleware('permission:finance-advancerequest-edit');
                 Route::put('/update/{id}', [AdvancerequestController::class, 'update'])->name('finance.advancerequest.update')->middleware('permission:finance-advancerequest-update');
-                Route::delete('/destroy/{id}', [AdvancerequestController::class, 'destroy'])->name('finance.advancerequest.destroy')->middleware('permission:finance-advancerequest-destroy');
+                Route::get('/destroy/{id}', [AdvancerequestController::class, 'destroy'])->name('finance.advancerequest.destroy')->middleware('permission:finance-advancerequest-destroy');
             });
 
 
@@ -885,7 +885,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [CashrequestController::class, 'show'])->name('finance.cashrequest.show')->middleware('permission:finance-cashrequest-show');
                 Route::get('/edit/{id}', [CashrequestController::class, 'edit'])->name('finance.cashrequest.edit')->middleware('permission:finance-cashrequest-edit');
                 Route::put('/update/{id}', [CashrequestController::class, 'update'])->name('finance.cashrequest.update')->middleware('permission:finance-cashrequest-update');
-                Route::delete('/destroy/{id}', [CashrequestController::class, 'destroy'])->name('finance.cashrequest.destroy')->middleware('permission:finance-cashrequest-destroy');
+                Route::get('/destroy/{id}', [CashrequestController::class, 'destroy'])->name('finance.cashrequest.destroy')->middleware('permission:finance-cashrequest-destroy');
             });
 
 
@@ -896,7 +896,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ExpensesclaimController::class, 'show'])->name('finance.expensesclaim.show')->middleware('permission:finance-expensesclaim-show');
                 Route::get('/edit/{id}', [ExpensesclaimController::class, 'edit'])->name('finance.expensesclaim.edit')->middleware('permission:finance-expensesclaim-edit');
                 Route::put('/update/{id}', [ExpensesclaimController::class, 'update'])->name('finance.expensesclaim.update')->middleware('permission:finance-expensesclaim-update');
-                Route::delete('/destroy/{id}', [ExpensesclaimController::class, 'destroy'])->name('finance.expensesclaim.destroy')->middleware('permission:finance-expensesclaim-destroy');
+                Route::get('/destroy/{id}', [ExpensesclaimController::class, 'destroy'])->name('finance.expensesclaim.destroy')->middleware('permission:finance-expensesclaim-destroy');
             });
         }
 
@@ -913,8 +913,8 @@ Route::middleware('auth')->group(function () {
                     Route::get('/show/{id}', [WorkProjectsController::class, 'show'])->name('work.workprojects.show'); //->middleware('permission:work-workProjects-show');
                     Route::get('/edit/{id}', [WorkProjectsController::class, 'edit'])->name('work.workprojects.edit'); //->middleware('permission:work-workProjects-edit');
                     Route::put('/update/{id}', [WorkProjectsController::class, 'update'])->name('work.workprojects.update'); //->middleware('permission:work-workProjects-update');
-                    Route::delete('/destroy/{id}', [WorkProjectsController::class, 'destroy'])->name('work.workprojects.destroy'); //->middleware('permission:work-workProjects-destroy');
-                    Route::delete('/destroy/ProjectEmployee/{id}', [WorkProjectsController::class, 'destroyProjectEmployee'])->name('work.workprojects.destroyProjectEmployee'); //->middleware('permission:work-workProjects-destroy');
+                    Route::get('/destroy/{id}', [WorkProjectsController::class, 'destroy'])->name('work.workprojects.destroy'); //->middleware('permission:work-workProjects-destroy');
+                    Route::get('/destroy/ProjectEmployee/{id}', [WorkProjectsController::class, 'destroyProjectEmployee'])->name('work.workprojects.destroyProjectEmployee'); //->middleware('permission:work-workProjects-destroy');
                     Route::get('get-department-employee', [WorkProjectsController::class, 'getDepartmentEmployee'])->name('work.workprojects.getDepartmentEmployee');
                     Route::get('/updateworkprojectStatus', [WorkProjectsController::class, 'updateProjectStatus'])->name('work.workprojects.updateProjectStatus'); //->middleware('permission:work-timelog-store');
 
@@ -928,7 +928,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TasksController::class, 'show'])->name('work.tasks.show'); //->middleware('permission:work-tasks-show');
                 Route::get('/edit/{id}', [TasksController::class, 'edit'])->name('work.tasks.edit'); //->middleware('permission:work-tasks-edit');
                 Route::put('/update/{id}', [TasksController::class, 'update'])->name('work.tasks.update');
-                Route::delete('/destroy/{id}', [TasksController::class, 'destroy'])->name('work.tasks.destroy'); //->middleware('permission:work-tasks-destroy');
+                Route::get('/destroy/{id}', [TasksController::class, 'destroy'])->name('work.tasks.destroy'); //->middleware('permission:work-tasks-destroy');
                 Route::get('get-assigned-employee', [TasksController::class, 'getAssignedEmployee'])->name('work.tasks.getAssignedEmployee');
                 Route::get('/updateTaskStatus', [TasksController::class, 'updateTaskStatus'])->name('work.tasks.updateTaskStatus'); //->middleware('permission:work-timelog-store');
                 Route::get('/all-task-lists', [TasksController::class, 'allTaskList'])->name('work.tasks.allTaskList'); //->middleware('permission:work-timelog-store');
@@ -942,7 +942,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TimelogController::class, 'show'])->name('work.timelog.show'); //->middleware('permission:work-timelog-show');
                 Route::get('/edit/{id}', [TimelogController::class, 'edit'])->name('work.timelog.edit'); //->middleware('permission:work-timelog-edit');
                 Route::put('/update/{id}', [TimelogController::class, 'update'])->name('work.timelog.update'); //->middleware('permission:work-timelog-update');
-                Route::delete('/destroy/{id}', [TimelogController::class, 'destroy'])->name('work.timelog.destroy'); //->middleware('permission:work-tasks-destroy');
+                Route::get('/destroy/{id}', [TimelogController::class, 'destroy'])->name('work.timelog.destroy'); //->middleware('permission:work-tasks-destroy');
                 Route::get('/startTimeLog', [TimelogController::class, 'startTimeLog'])->name('work.timelog.startTimeLog'); //->middleware('permission:work-timelog-store');
                 Route::get('/stopTimeLog', [TimelogController::class, 'stopTimeLog'])->name('work.timelog.stopTimeLog'); //->middleware('permission:work-timelog-store');
 
@@ -958,7 +958,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [WorkfromhomeController::class, 'show'])->name('project.workfromhome.show')->middleware('permission:project-workfromhome-show');
                 Route::get('/edit/{id}', [WorkfromhomeController::class, 'edit'])->name('project.workfromhome.edit')->middleware('permission:project-workfromhome-edit');
                 Route::put('/update/{id}', [WorkfromhomeController::class, 'update'])->name('project.workfromhome.update')->middleware('permission:project-workfromhome-update');
-                Route::delete('/destroy/{id}', [WorkfromhomeController::class, 'destroy'])->name('project.workfromhome.destroy')->middleware('permission:project-workfromhome-destroy');
+                Route::get('/destroy/{id}', [WorkfromhomeController::class, 'destroy'])->name('project.workfromhome.destroy')->middleware('permission:project-workfromhome-destroy');
             });
         }
     );
@@ -972,7 +972,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [RostercategoryController::class, 'show'])->name('rostermanagement.rostercategory.show')->middleware('permission:rostermanagement-rostercategory-show');
                 Route::get('/edit/{id}', [RostercategoryController::class, 'edit'])->name('rostermanagement.rostercategory.edit')->middleware('permission:rostermanagement-rostercategory-edit');
                 Route::put('/update/{id}', [RostercategoryController::class, 'update'])->name('rostermanagement.rostercategory.update')->middleware('permission:rostermanagement-rostercategory-update');
-                Route::delete('/destroy/{id}', [RostercategoryController::class, 'destroy'])->name('rostermanagement.rostercategory.destroy')->middleware('permission:rostermanagement-rostercategory-destroy');
+                Route::get('/destroy/{id}', [RostercategoryController::class, 'destroy'])->name('rostermanagement.rostercategory.destroy')->middleware('permission:rostermanagement-rostercategory-destroy');
             });
 
             Route::prefix("rosterentries")->group(function () {
@@ -982,7 +982,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [RosterentriesController::class, 'show'])->name('rostermanagement.rosterentries.show')->middleware('permission:rostermanagement-rosterentries-show');
                 Route::get('/edit/{id}', [RosterentriesController::class, 'edit'])->name('rostermanagement.rosterentries.edit')->middleware('permission:rostermanagement-rosterentries-edit');
                 Route::put('/update/{id}', [RosterentriesController::class, 'update'])->name('rostermanagement.rosterentries.update')->middleware('permission:rostermanagement-rosterentries-update');
-                Route::delete('/destroy/{id}', [RosterentriesController::class, 'destroy'])->name('rostermanagement.rosterentries.destroy')->middleware('permission:rostermanagement-rosterentries-destroy');
+                Route::get('/destroy/{id}', [RosterentriesController::class, 'destroy'])->name('rostermanagement.rosterentries.destroy')->middleware('permission:rostermanagement-rosterentries-destroy');
             });
         }
     );
@@ -998,7 +998,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [EventController::class, 'show'])->name('eventsandmeetings.event.show')->middleware('permission:eventsandmeetings-event-show');
                 Route::get('/edit/{id}', [EventController::class, 'edit'])->name('eventsandmeetings.event.edit')->middleware('permission:eventsandmeetings-event-edit');
                 Route::put('/update/{id}', [EventController::class, 'update'])->name('eventsandmeetings.event.update')->middleware('permission:eventsandmeetings-event-update');
-                Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('eventsandmeetings.event.destroy')->middleware('permission:eventsandmeetings-event-destroy');
+                Route::get('/destroy/{id}', [EventController::class, 'destroy'])->name('eventsandmeetings.event.destroy')->middleware('permission:eventsandmeetings-event-destroy');
             });
 
             Route::prefix("meeting")->group(
@@ -1009,7 +1009,7 @@ Route::middleware('auth')->group(function () {
                     Route::get('/show/{id}', [MeetingController::class, 'show'])->name('eventsandmeetings.meeting.show')->middleware('permission:eventsandmeetings-meeting-show');
                     Route::get('/edit/{id}', [MeetingController::class, 'edit'])->name('eventsandmeetings.meeting.edit')->middleware('permission:eventsandmeetings-meeting-edit');
                     Route::put('/update/{id}', [MeetingController::class, 'update'])->name('eventsandmeetings.meeting.update')->middleware('permission:eventsandmeetings-meeting-update');
-                    Route::delete('/destroy/{id}', [MeetingController::class, 'destroy'])->name('eventsandmeetings.meeting.destroy')->middleware('permission:eventsandmeetings-meeting-destroy');
+                    Route::get('/destroy/{id}', [MeetingController::class, 'destroy'])->name('eventsandmeetings.meeting.destroy')->middleware('permission:eventsandmeetings-meeting-destroy');
                 }
             );
         }
@@ -1026,7 +1026,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TravelreportsController::class, 'show'])->name('reports.travelreports.show')->middleware('permission:reports-travelreports-show');
                 Route::get('/edit/{id}', [TravelreportsController::class, 'edit'])->name('reports.travelreports.edit')->middleware('permission:reports-travelreports-edit');
                 Route::put('/update/{id}', [TravelreportsController::class, 'update'])->name('reports.travelreports.update')->middleware('permission:reports-travelreports-update');
-                Route::delete('/destroy/{id}', [TravelreportsController::class, 'destroy'])->name('reports.travelreports.destroy')->middleware('permission:reports-travelreports-destroy');
+                Route::get('/destroy/{id}', [TravelreportsController::class, 'destroy'])->name('reports.travelreports.destroy')->middleware('permission:reports-travelreports-destroy');
             });
 
             Route::prefix("taskreports")->group(function () {
@@ -1036,7 +1036,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [TaskreportsController::class, 'show'])->name('reports.taskreports.show')->middleware('permission:reports-taskreports-show');
                 Route::get('/edit/{id}', [TaskreportsController::class, 'edit'])->name('reports.taskreports.edit')->middleware('permission:reports-taskreports-edit');
                 Route::put('/update/{id}', [TaskreportsController::class, 'update'])->name('reports.taskreports.update')->middleware('permission:reports-taskreports-update');
-                Route::delete('/destroy/{id}', [TaskreportsController::class, 'destroy'])->name('reports.taskreports.destroy')->middleware('permission:reports-taskreports-destroy');
+                Route::get('/destroy/{id}', [TaskreportsController::class, 'destroy'])->name('reports.taskreports.destroy')->middleware('permission:reports-taskreports-destroy');
             });
 
 
@@ -1047,7 +1047,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [FinancereportsController::class, 'show'])->name('reports.financereports.show')->middleware('permission:reports-financereports-show');
                 Route::get('/edit/{id}', [FinancereportsController::class, 'edit'])->name('reports.financereports.edit')->middleware('permission:reports-financereports-edit');
                 Route::put('/update/{id}', [FinancereportsController::class, 'update'])->name('reports.financereports.update')->middleware('permission:reports-financereports-update');
-                Route::delete('/destroy/{id}', [FinancereportsController::class, 'destroy'])->name('reports.financereports.destroy')->middleware('permission:reports-financereports-destroy');
+                Route::get('/destroy/{id}', [FinancereportsController::class, 'destroy'])->name('reports.financereports.destroy')->middleware('permission:reports-financereports-destroy');
             });
 
             Route::prefix("leavereports")->group(function () {
@@ -1057,7 +1057,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [LeavereportsController::class, 'show'])->name('reports.leavereports.show')->middleware('permission:reports-leavereports-show');
                 Route::get('/edit/{id}', [LeavereportsController::class, 'edit'])->name('reports.leavereports.edit')->middleware('permission:reports-leavereports-edit');
                 Route::put('/update/{id}', [LeavereportsController::class, 'update'])->name('reports.leavereports.update')->middleware('permission:reports-leavereports-update');
-                Route::delete('/destroy/{id}', [LeavereportsController::class, 'destroy'])->name('reports.leavereports.destroy')->middleware('permission:reports-leavereports-destroy');
+                Route::get('/destroy/{id}', [LeavereportsController::class, 'destroy'])->name('reports.leavereports.destroy')->middleware('permission:reports-leavereports-destroy');
             });
 
             Route::prefix("expensesreports")->group(function () {
@@ -1067,7 +1067,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [ExpensesreportsController::class, 'show'])->name('reports.expensesreports.show')->middleware('permission:reports-expensesreports-show');
                 Route::get('/edit/{id}', [ExpensesreportsController::class, 'edit'])->name('reports.expensesreports.edit')->middleware('permission:reports-expensesreports-edit');
                 Route::put('/update/{id}', [ExpensesreportsController::class, 'update'])->name('reports.expensesreports.update')->middleware('permission:reports-expensesreports-update');
-                Route::delete('/destroy/{id}', [ExpensesreportsController::class, 'destroy'])->name('reports.expensesreports.destroy')->middleware('permission:reports-expensesreports-destroy');
+                Route::get('/destroy/{id}', [ExpensesreportsController::class, 'destroy'])->name('reports.expensesreports.destroy')->middleware('permission:reports-expensesreports-destroy');
             });
 
             Route::prefix("attendancereports")->group(function () {
@@ -1077,7 +1077,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/show/{id}', [AttendancereportsController::class, 'show'])->name('reports.attendancereports.show')->middleware('permission:reports-attendancereports-show');
                 Route::get('/edit/{id}', [AttendancereportsController::class, 'edit'])->name('reports.attendancereports.edit')->middleware('permission:reports-attendancereports-edit');
                 Route::put('/update/{id}', [AttendancereportsController::class, 'update'])->name('reports.attendancereports.update')->middleware('permission:reports-attendancereports-update');
-                Route::delete('/destroy/{id}', [AttendancereportsController::class, 'destroy'])->name('reports.attendancereports.destroy')->middleware('permission:reports-attendancereports-destroy');
+                Route::get('/destroy/{id}', [AttendancereportsController::class, 'destroy'])->name('reports.attendancereports.destroy')->middleware('permission:reports-attendancereports-destroy');
             });
         }
     );
