@@ -75,7 +75,7 @@ class OrganizationController extends Controller
             $user->roles()->attach($role);
 
             //if App is in live mode then 
-            if (!env('APP_MODE'))
+            if (!env('APP_MODE')) {
                 if (!empty($user->email)) {
                     try {
                         $mail_data = [
@@ -93,6 +93,7 @@ class OrganizationController extends Controller
 
                     }
                 }
+            }
         } catch (Exception $e) {
             DB::rollBack();
             Log::info($e->getMessage());
