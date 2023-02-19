@@ -19,6 +19,7 @@ class Designation extends Model
         'designationName',
         'compnayName_id',
         'department_id',
+        'rank',
         'createdOn',
         'createdBy',
         'alias',

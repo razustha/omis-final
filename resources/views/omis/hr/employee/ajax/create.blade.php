@@ -58,7 +58,7 @@
                                             {{ createText('phoneNumber', 'phoneNumber', 'Phone Number') }}
                                         </div>
 
-                                      
+
 
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Address Details</h2>
@@ -326,7 +326,7 @@
                     // console.log(response);
                     $('#reportingTo').html('<option value="#" selected disabled>Select Reporting To</option>');
                     $.each(response.message, function(key,value){
-                        $('#reportingTo').append('<option value='+value.employee_id+'>'+value.firstName+''+value.middleName+''+value.lastName+'</option>');
+                        $('#reportingTo').append('<option value='+value.employee_id+'>'+value.firstName+' '+value.middleName+' '+value.lastName+'</option>');
                     });
                 }
             });

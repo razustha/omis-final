@@ -84,7 +84,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
-    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+    <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
     <script src="{{ asset('assets/js/nepali.datepicker.v4.0.1.min.js') }}"></script>
     <script>
         $(document).on('click', '#nepali-datepicker', function(e) {
@@ -111,10 +111,6 @@
                     var token = $("meta[name='csrf-token']").attr("content");
                     $.ajax({
                         url: url,
-                        type: "DELETE",
-                        data: {
-                            "_token": _token,
-                        },
                         success: function(res) {
                             if (res.status) {
                                 Swal.fire({
@@ -265,41 +261,7 @@
             @endif
         });
 
-        // Clock
-        const clock = document.querySelector('.clock');
 
-        //assigning time values to constants
-        const tick = () => {
-        const now = new Date();
-        let h = now.getHours();
-        const m = now.getMinutes();
-        const s = now.getSeconds();
-        let am_pm = 'AM';
-
-        //transforming 24 hour clock into 12 hour clock
-            if (h >= 12) {
-                h -= 12;
-                am_pm = "PM";
-            };
-            if (h == 0) {
-                h = 12;
-                am_pm = "AM";
-            };
-
-        //defining html for digital clock
-        const html = `
-        <span>${h}</span> :
-        <span>${m}</span> :
-        <span>${s}</span>
-        <span class="ampm">${am_pm}</span>
-        `;
-
-        //printing html code inside div.clock
-        clock.innerHTML = html;
-        };
-
-        //refreshing clock every 1 second
-        setInterval(tick, 1000);
 
 
     </script>
