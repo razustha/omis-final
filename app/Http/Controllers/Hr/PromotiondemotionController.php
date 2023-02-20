@@ -31,6 +31,20 @@ use Illuminate\Http\Request;
 
             public function store(Request $request)
             {
+                $validator = Validator::make($request->all(), [
+                    'promotionTitle' => 'required',
+                    'employee_id' => 'required|exists:tbl_employee,employee_id',
+                    'type' => 'required',
+                    'promotionDate' => 'required',
+                    'updated_designation_id' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
                 $request->request->add(['alias' => slugify($request->promotiondemotionName)]);
                 Promotiondemotion::create($request->all());
                 $employee = Employee::where('employee_id', $request->employee_id)->first();

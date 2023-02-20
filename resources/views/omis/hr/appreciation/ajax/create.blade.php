@@ -1,5 +1,5 @@
 
-                <form action="{{route('hr.appreciation.store')}}" id="storeCustomForm">
+<form action="{{route('hr.appreciation.store')}}" id="storeCustomForm">
  @csrf 
 <div class="row"><div class="col-lg-6">{{createText("appreciationTitle","appreciationTitle","Appreciation Title")}}
 </div><div class="col-lg-6">{{createText("appreciationType","appreciationType","Appreciation Type")}}
