@@ -61,10 +61,10 @@ use App\Http\Controllers\Recruit\OfferletterController;
 use App\Http\Controllers\Recruit\RecuritreportsController;
 use App\Http\Controllers\Reports\TaskreportsController;
 use App\Http\Controllers\Requisition\LeaverequestController;
-use App\Http\Controllers\requisition\TravelController;
-use App\Http\Controllers\requisition\RequisitiontravelController;
-use App\Http\Controllers\requisition\ConvinceRequestController;
-use App\Http\Controllers\requisition\CompensatoryLeaveController;
+use App\Http\Controllers\Requisition\TravelController;
+use App\Http\Controllers\Requisition\RequisitiontravelController;
+use App\Http\Controllers\Requisition\ConvinceRequestController;
+use App\Http\Controllers\Requisition\CompensatoryLeaveController;
 use App\Http\Controllers\Inventory\BarcodeManagementController;
 use App\Http\Controllers\Hr\TransferController;
 
