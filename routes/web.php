@@ -231,7 +231,7 @@ Route::middleware('auth')->group(function () {
             });
             Route::prefix("addsupplier")->group(function () {
                 Route::get('/', [AddsupplierController::class, 'index'])->name('supplier.addsupplier.index')->middleware('permission:supplier-addsupplier-index');
-                Route::get('/create', [AddsupplierController::class, 'create'])->name('supplier.addsupplier.create')->middleware('permissionsupplier-addsupplier-create');
+                Route::get('/create', [AddsupplierController::class, 'create'])->name('supplier.addsupplier.create')->middleware('permission:supplier-addsupplier-create');
                 Route::post('/store', [AddsupplierController::class, 'store'])->name('supplier.addsupplier.store')->middleware('permission:supplier-addsupplier-store');
                 Route::get('/show/{id}', [AddsupplierController::class, 'show'])->name('supplier.addsupplier.show')->middleware('permission:supplier-addsupplier-show');
                 Route::get('/edit/{id}', [AddsupplierController::class, 'edit'])->name('supplier.addsupplier.edit')->middleware('permission:supplier-addsupplier-edit');
