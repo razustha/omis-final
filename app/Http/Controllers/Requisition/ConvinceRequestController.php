@@ -2,7 +2,7 @@
         namespace App\Http\Controllers\Requisition;
         use App\Http\Controllers\Controller;
         use Illuminate\Http\Request;
-        use App\Models\Requisition\Convincerequest;
+        use App\Models\Requisition\ConvinceRequest;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
 
@@ -10,27 +10,27 @@
         {
            public function index(Request $request)
             {
-                $data = Convincerequest::where('status','<>',-1)->orderBy('created_at','desc')->get();
+                $data = ConvinceRequest::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
-                    $html = view("omis.requisition.convincerequest.ajax.index", compact('data'))->render();
+                    $html = view("omis.requisition.convinceRequest.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.convincerequest.ajax_index", compact('data'));
+                return view("omis.requisition.convinceRequest.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
             {
                 if ($request->ajax()) {
-                    $html = view("omis.requisition.convincerequest.ajax.create")->render();
+                    $html = view("omis.requisition.convinceRequest.ajax.create")->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.convincerequest.create");
+                return view("omis.requisition.convinceRequest.create");
             }
 
             public function store(Request $request)
             {
                 $request->request->add(['alias' => slugify($request->convincerequestName)]);
-                Convincerequest::create($request->all());
+                ConvinceRequest::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Convincerequest Created Successfully.'], 200);
                 }
@@ -39,29 +39,29 @@
 
             public function show(Request $request, $id)
             {
-                $data = Convincerequest::findOrFail($id);
+                $data = ConvinceRequest::findOrFail($id);
                 if ($request->ajax()) {
-                    $html = view("omis.requisition.convincerequest.ajax.show", compact('data'))->render();
+                    $html = view("omis.requisition.convinceRequest.ajax.show", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.convincerequest.show", compact('data'));
+                return view("omis.requisition.convinceRequest.show", compact('data'));
             }
 
 
             public function edit(Request $request, $id)
             {
-                $data = Convincerequest::findOrFail($id);
+                $data = ConvinceRequest::findOrFail($id);
                 if ($request->ajax()) {
-                    $html = view("omis.requisition.convincerequest.ajax.edit", compact('data'))->render();
+                    $html = view("omis.requisition.convinceRequest.ajax.edit", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.convincerequest.edit", compact('data'));
+                return view("omis.requisition.convinceRequest.edit", compact('data'));
             }
 
 
             public function update(Request $request, $id)
             {
-                $data = Convincerequest::findOrFail($id);
+                $data = ConvinceRequest::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->convincerequestName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
@@ -72,7 +72,7 @@
 
             public function destroy(Request $request,$id)
             {
-                $data = Convincerequest::findOrFail($id);
+                $data = ConvinceRequest::findOrFail($id);
                 $data->status = -1;
                 $data->save();
                 return response()->json(['status'=>true,'message'=>'The Convincerequest Deleted Successfully.'],200);
@@ -82,15 +82,15 @@
             {
                 switch ($type) {
                     case 'index':
-                        $data = Convincerequest::where('status', '<>', -1)->get();
-                        return view("omis.requisition.convincerequest.ajax.index", compact('data'))->render();
+                        $data = ConvinceRequest::where('status', '<>', -1)->get();
+                        return view("omis.requisition.convinceRequest.ajax.index", compact('data'))->render();
                         break;
                     case 'create':
-                        return view("omis.requisition.convincerequest.ajax.create")->render();
+                        return view("omis.requisition.convinceRequest.ajax.create")->render();
                         break;
                     case 'edit':
-                        $data = Convincerequest::findOrFail($id);
-                        return view("omis.requisition.convincerequest.ajax.edit", compact('data'))->render();
+                        $data = ConvinceRequest::findOrFail($id);
+                        return view("omis.requisition.convinceRequest.ajax.edit", compact('data'))->render();
                         break;
                     default:
                         return 'Not Found';
@@ -106,28 +106,28 @@
                 if ($route[0] == 'api') {
                     switch ($action) {
                         case 'index':
-                            $data = Convincerequest::where('status', '<>', -1)->get();
-                            $html = view("omis.requisition.convincerequest.ajax.index", compact('data'))->render();
+                            $data = ConvinceRequest::where('status', '<>', -1)->get();
+                            $html = view("omis.requisition.convinceRequest.ajax.index", compact('data'))->render();
                             return response()->json(['status' => true, 'content' => $html], 200);
                             break;
                         case 'store':
-                            Convincerequest::create($request->all());
+                            ConvinceRequest::create($request->all());
                             if ($request->ajax()) {
                                 return response()->json(['status' => true, 'message' => 'The Convincerequest Created Successfully.'], 200);
                             }
                             break;
                         case 'edit':
-                            $data = Convincerequest::findOrFail($id);
-                            $html = view("omis.requisition.convincerequest.ajax.edit", compact('data'))->render();
+                            $data = ConvinceRequest::findOrFail($id);
+                            $html = view("omis.requisition.convinceRequest.ajax.edit", compact('data'))->render();
                             return response()->json(['status' => true, 'content' => $html], 200);
                             break;
                         case 'update':
-                            $data = Convincerequest::findOrFail($id);
+                            $data = ConvinceRequest::findOrFail($id);
                             $data->update($request->all());
                             return response()->json(['status' => true, 'message' => 'The Convincerequest updated Successfully.'], 200);
                             break;
                         case 'delete':
-                            $data = Convincerequest::findOrFail($id);
+                            $data = ConvinceRequest::findOrFail($id);
                             $data->status = -1;
                             $data->save();
                             return response()->json(['status' => true, 'message' => 'The Convincerequest Deleted Successfully.'], 200);

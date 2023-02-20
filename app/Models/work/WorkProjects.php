@@ -1,5 +1,5 @@
 <?php
-        namespace App\Models\Work;
+        namespace App\Models\work;
 
         use App\Models\User;
         use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
             use HasFactory, CreatedUpdatedBy;
 
             protected $table = 'tbl_workprojects';
-            protected $primaryKey = 'workproject_id';
+            protected $primaryKey = 'workProject_id';
             public $timestamps = true;
             protected $fillable =[
                 'projectTitle',

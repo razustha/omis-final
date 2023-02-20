@@ -29,6 +29,16 @@
 
             public function store(Request $request)
             {
+                
+ $validator = Validator::make($request->all(), [
+    'policyName' => 'required',
+]);
+
+if ($validator->fails()) {
+    return response()->json([
+        'error' => $validator->errors()->all(),
+    ]);
+}
                 $request->request->add(['alias' => slugify($request->policyName)]);
                 Policy::create($request->all());
                 if ($request->ajax()) {
@@ -61,6 +71,16 @@
 
             public function update(Request $request, $id)
             {
+                                
+ $validator = Validator::make($request->all(), [
+    'policyName' => 'required',
+]);
+
+if ($validator->fails()) {
+    return response()->json([
+        'error' => $validator->errors()->all(),
+    ]);
+}
                 $data = Policy::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->policyName)]);
                 $data->update($request->all());

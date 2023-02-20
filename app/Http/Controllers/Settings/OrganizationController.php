@@ -57,37 +57,42 @@ class OrganizationController extends Controller
             $package = Package::where('package_id', $organization->package_id)->first();
 
             $permissions = Permission::whereIn('module_id', explode(',', $package->feature))->get();
-            $role = Role::where('id', 2)->first();
+            $role = Role::where('slug', 'super-admin')->first();
             if (!$role) {
                 $role = Role::create([
-                    'name' => 'Super Admin', 'slug' => 'super-admin',
+                    'name' => 'Super Admin',
+                    'slug' => 'super-admin',
                     'createdOn' => now(),
                     'createdBy' => '1',
                     'updatedBy' => '1',
                 ]);
+                foreach ($permissions as $permission) {
+                    RolePermission::create(['role_id' => $role->id, 'permission_id' => $permission->id]);
+                }
             }
-            RolePermission::where('role_id', 2)->delete();
-            foreach ($permissions as $permission) {
-                RolePermission::create(['role_id' => 2, 'permission_id' => $permission->id]);
-            }
+            // RolePermission::where('role_id', 2)->delete();
+
 
             $user->roles()->attach($role);
 
-            if (!empty($user->email)) {
-                try {
-                    $mail_data = [
-                        'name' => $user->name,
-                        'subject' => 'User Login Credentials',
-                        'message' => 'your Login credentials are:',
-                        'password' => $request->password,
-                        'logo'=>$organization->logo,
-                        'view' => 'omis.emails.credentials'
-                    ];
-                    Mail::to($user->email)->send(new CommonMail($mail_data, $user));
-                } catch (Exception $e) {
-                    Log::info($e->getMessage());
-                    return $e->getMessage();
+            //if App is in live mode then 
+            if (!env('APP_MODE')) {
+                if (!empty($user->email)) {
+                    try {
+                        $mail_data = [
+                            'name' => $user->name,
+                            'subject' => 'User Login Credentials',
+                            'message' => 'your Login credentials are:',
+                            'password' => $request->password,
+                            'logo' => $organization->logo,
+                            'view' => 'omis.emails.credentials'
+                        ];
+                        Mail::to($user->email)->send(new CommonMail($mail_data, $user));
+                    } catch (Exception $e) {
+                        Log::info($e->getMessage());
+                        return $e->getMessage();
 
+                    }
                 }
             }
         } catch (Exception $e) {

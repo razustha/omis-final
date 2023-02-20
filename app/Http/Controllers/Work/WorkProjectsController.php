@@ -26,10 +26,10 @@ use Illuminate\Http\Request;
                 } else {
                     $data = ProjectEmployee::where('employee_id', auth()->user()->employee->employee_id)->get();
                     if ($request->ajax()) {
-                        $html = view("employee.work.WorkProjects.ajax.index", compact('data'))->render();
+                        $html = view("employee.work.workProjects.ajax.index", compact('data'))->render();
                         return response()->json(['status' => true, 'content' => $html], 200);
                     }
-                    return view("employee.work.WorkProjects.ajax_index", compact('data'));
+                    return view("employee.work.workProjects.ajax_index", compact('data'));
                 }
 
             }

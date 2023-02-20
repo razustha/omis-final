@@ -35,7 +35,7 @@ use App\Http\Controllers\Form\GeneralFormController;
 use App\Http\Controllers\Hr\ComplaintsController;
 use App\Http\Controllers\Hr\DepartmentController;
 use App\Http\Controllers\Hr\AppreciationController;
-use App\Http\Controllers\Hr\MangeholidayController;
+use App\Http\Controllers\Hr\MangeHolidayController;
 use App\Http\Controllers\Hr\PromotiondemotionController;
 use App\Http\Controllers\Hr\ResignationController;
 use App\Http\Controllers\Hr\WarningsController;

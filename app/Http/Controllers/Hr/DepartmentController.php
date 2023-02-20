@@ -31,6 +31,16 @@ class DepartmentController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'departmentName' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->all(),
+            ]);
+        }
+
         $request->request->add(['alias' => slugify($request->departmentName)]);
         Department::create($request->all());
         if ($request->ajax()) {
@@ -63,6 +73,10 @@ class DepartmentController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'departmentName' => 'required',
+        ]);
+        
         $data = Department::findOrFail($id);
         $request->request->add(['alias' => slugify($request->departmentName)]);
         $data->update($request->all());
