@@ -26,10 +26,11 @@
         </div>
         <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', $data, 'State') !!}
         </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', $data, 'City') !!}
-        </div>
         <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', $data, 'District') !!}
         </div>
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', $data, 'City') !!}
+        </div>
+        
         <div class="col-lg-4">
             {{ createText('geoMapLocation', 'geoMapLocation', 'GeoMap Location', '', $data->geoMapLocation) }}
         </div>
