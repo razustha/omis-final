@@ -32,10 +32,6 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">day</span></th>
 <th class="tb-col"><span class="overline-title">date</span></th>
-<<<<<<< HEAD
-
-=======
->>>>>>> 99c60602502d969e0e03eeac2880518a0ff8dfcd
 <th class="tb-col"><span class="overline-title">addSupplier_id</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
@@ -49,10 +45,6 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->day }}</td>
 <td class="tb-col">{{ $item->date }}</td>
-<<<<<<< HEAD
-
-=======
->>>>>>> 99c60602502d969e0e03eeac2880518a0ff8dfcd
 <td class="tb-col">{{ $item->addSupplier_id }}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
@@ -65,13 +57,7 @@
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'supplier.addsupplier.destroy',$item->goodsName) !!}</li>
                                                </ul> </td>
                                                </tr>
-<<<<<<< HEAD
-
                                         @endforeach
-
-=======
-                                        @endforeach
->>>>>>> 99c60602502d969e0e03eeac2880518a0ff8dfcd
                                     </tbody>
                                 </table>
                                 {{-- Add Modal --}}
@@ -92,10 +78,6 @@
                                 </div>
                             </div>
                             </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 99c60602502d969e0e03eeac2880518a0ff8dfcd
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
@@ -115,15 +97,8 @@
                                 </div>
                             </div>
                             {{-- Edit Modal --}}
-<<<<<<< HEAD
-
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg showoffcanvas" id="showoffcanvas">
-
-=======
-                            {{-- Edit Modal --}}
-                            <div class="offcanvas offcanvas-end offcanvas-size-xxlg showoffcanvas" id="showoffcanvas">
->>>>>>> 99c60602502d969e0e03eeac2880518a0ff8dfcd
                             </div>
                             {{-- Edit Modal --}}
                     </div>
@@ -132,8 +107,4 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> 99c60602502d969e0e03eeac2880518a0ff8dfcd
