@@ -29,6 +29,16 @@
 
             public function store(Request $request)
             {
+                $validator = Validator::make($request->all(), [
+                    'designationName' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
                 $request->request->add(['alias' => slugify($request->designationName)]);
                 Designation::create($request->all());
                 if ($request->ajax()) {
@@ -61,6 +71,15 @@
 
             public function update(Request $request, $id)
             {
+                $validator = Validator::make($request->all(), [
+                    'designationName' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
                 $data = Designation::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->designationName)]);
                 $data->update($request->all());

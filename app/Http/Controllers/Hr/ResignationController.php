@@ -29,6 +29,18 @@
 
             public function store(Request $request)
             {
+                $validator = Validator::make($request->all(), [
+                    'department_id' => 'required|exists:tbl_department,department_id',
+                    'employee_id' => 'required|exists:tbl_employee,employee_id',
+                    'description' =>'required',
+                    'resignationDate' => 'required',
+                ]);
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
                 $request->request->add(['alias' => slugify($request->resignationName)]);
                 Resignation::create($request->all());
                 if ($request->ajax()) {
@@ -61,6 +73,18 @@
 
             public function update(Request $request, $id)
             {
+                $validator = Validator::make($request->all(), [
+                    'department_id' => 'required|exists:tbl_department,department_id',
+                    'employee_id' => 'required|exists:tbl_employee,employee_id',
+                    'description' =>'required',
+                    'resignationDate' => 'required',
+                ]);
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
                 $data = Resignation::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->resignationName)]);
                 $data->update($request->all());
