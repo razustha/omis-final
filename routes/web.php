@@ -283,7 +283,7 @@ Route::middleware('auth')->group(function () {
             });
 
             Route::prefix("jobpost")->group(function () {
-                Route::get('/', [JobpostController::class, 'index'])->name('recruit.jobpost.index')->middleware('permission:recruit-jobpost-idnex');
+                Route::get('/', [JobpostController::class, 'index'])->name('recruit.jobpost.index')->middleware('permission:recruit-jobpost-index');
                 Route::get('/create', [JobpostController::class, 'create'])->name('recruit.jobpost.create')->middleware('permission:recruit-jobpost-create');
                 Route::post('/store', [JobpostController::class, 'store'])->name('recruit.jobpost.store')->middleware('permission:recruit-jobpost-store');
                 Route::get('/show/{id}', [JobpostController::class, 'show'])->name('recruit.jobpost.show')->middleware('permission:recruit-jobpost-show');
@@ -570,23 +570,23 @@ Route::middleware('auth')->group(function () {
                 Route::get('/destroy/{id}', [RequisitiontravelController::class, 'destroy'])->name('requisition.requisitiontravel.destroy')->middleware('permission:requisition-requisitiontravel-destroy');
             });
             Route::prefix("convinceRequest")->group(function () {
-                Route::get('/', [ConvinceRequestController::class, 'index'])->name('requisition.convincerequest.index')->middleware('permission:requisition-convinceRequest-index');
-                Route::get('/create', [ConvinceRequestController::class, 'create'])->name('requisition.convincerequest.create')->middleware('permission:requisition-convinceRequest-create');
-                Route::post('/store', [ConvinceRequestController::class, 'store'])->name('requisition.convincerequest.store')->middleware('permission:requisition-convinceRequest-store');
-                Route::get('/show/{id}', [ConvinceRequestController::class, 'show'])->name('requisition.convincerequest.show')->middleware('permission:requisition-convinceRequest-show');
-                Route::get('/edit/{id}', [ConvinceRequestController::class, 'edit'])->name('requisition.convincerequest.edit')->middleware('permission:requisition-convinceRequest-edit');
-                Route::put('/update/{id}', [ConvinceRequestController::class, 'update'])->name('requisition.convincerequest.update')->middleware('permission:requisition-convinceRequest-update');
-                Route::get('/destroy/{id}', [ConvinceRequestController::class, 'destroy'])->name('requisition.convincerequest.destroy')->middleware('permission:requisition-convinceRequest-destroy');
+                Route::get('/', [ConvinceRequestController::class, 'index'])->name('requisition.convincerequest.index')->middleware('permission:requisition-convincerequest-index');
+                Route::get('/create', [ConvinceRequestController::class, 'create'])->name('requisition.convincerequest.create')->middleware('permission:requisition-convincerequest-create');
+                Route::post('/store', [ConvinceRequestController::class, 'store'])->name('requisition.convincerequest.store')->middleware('permission:requisition-convincerequest-store');
+                Route::get('/show/{id}', [ConvinceRequestController::class, 'show'])->name('requisition.convincerequest.show')->middleware('permission:requisition-convincerequest-show');
+                Route::get('/edit/{id}', [ConvinceRequestController::class, 'edit'])->name('requisition.convincerequest.edit')->middleware('permission:requisition-convincerequest-edit');
+                Route::put('/update/{id}', [ConvinceRequestController::class, 'update'])->name('requisition.convincerequest.update')->middleware('permission:requisition-convincerequest-update');
+                Route::get('/destroy/{id}', [ConvinceRequestController::class, 'destroy'])->name('requisition.convincerequest.destroy')->middleware('permission:requisition-convincerequest-destroy');
             });
 
             Route::prefix("compensatoryLeave")->group(function () {
-                Route::get('/', [CompensatoryLeaveController::class, 'index'])->name('requisition.compensatoryleave.index')->middleware('permission:requisition-compensatoryLeave-index');
-                Route::get('/create', [CompensatoryLeaveController::class, 'create'])->name('requisition.compensatoryleave.create')->middleware('permission:requisition-compensatoryLeave-create');
-                Route::post('/store', [CompensatoryLeaveController::class, 'store'])->name('requisition.compensatoryleave.store')->middleware('permission:requisition-compensatoryLeave-store');
-                Route::get('/show/{id}', [CompensatoryLeaveController::class, 'show'])->name('requisition.compensatoryleave.show')->middleware('permission:requisition-compensatoryLeave-show');
-                Route::get('/edit/{id}', [CompensatoryLeaveController::class, 'edit'])->name('requisition.compensatoryleave.edit')->middleware('permission:requisition-compensatoryLeave-edit');
-                Route::put('/update/{id}', [CompensatoryLeaveController::class, 'update'])->name('requisition.compensatoryleave.update')->middleware('permission:requisition-compensatoryLeave-update');
-                Route::get('/destroy/{id}', [CompensatoryLeaveController::class, 'destroy'])->name('requisition.compensatoryleave.destroy')->middleware('permission:requisition-compensatoryLeave-destroy');
+                Route::get('/', [CompensatoryLeaveController::class, 'index'])->name('requisition.compensatoryleave.index')->middleware('permission:requisition-compensatoryleave-index');
+                Route::get('/create', [CompensatoryLeaveController::class, 'create'])->name('requisition.compensatoryleave.create')->middleware('permission:requisition-compensatoryleave-create');
+                Route::post('/store', [CompensatoryLeaveController::class, 'store'])->name('requisition.compensatoryleave.store')->middleware('permission:requisition-compensatoryleave-store');
+                Route::get('/show/{id}', [CompensatoryLeaveController::class, 'show'])->name('requisition.compensatoryleave.show')->middleware('permission:requisition-compensatoryleave-show');
+                Route::get('/edit/{id}', [CompensatoryLeaveController::class, 'edit'])->name('requisition.compensatoryleave.edit')->middleware('permission:requisition-compensatoryleave-edit');
+                Route::put('/update/{id}', [CompensatoryLeaveController::class, 'update'])->name('requisition.compensatoryleave.update')->middleware('permission:requisition-compensatoryleave-update');
+                Route::get('/destroy/{id}', [CompensatoryLeaveController::class, 'destroy'])->name('requisition.compensatoryleave.destroy')->middleware('permission:requisition-compensatoryleave-destroy');
             });
 
             Route::prefix("barcodeManagement")->group(function () {
