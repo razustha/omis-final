@@ -2,7 +2,7 @@
         namespace App\Http\Controllers\Requisition;
         use App\Http\Controllers\Controller;
         use Illuminate\Http\Request;
-        use App\Models\Requisition\Compensatoryleave;
+        use App\Models\Requisition\CompensatoryLeave;
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
 
@@ -10,27 +10,27 @@
         {
            public function index(Request $request)
             {
-                $data = Compensatoryleave::where('status','<>',-1)->orderBy('created_at','desc')->get();
+                $data = CompensatoryLeave::where('status','<>',-1)->orderBy('created_at','desc')->get();
                 if ($request->ajax()) {
-                    $html = view("omis.requisition.compensatoryleave.ajax.index", compact('data'))->render();
+                    $html = view("omis.requisition.compensatoryLeave.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.compensatoryleave.ajax_index", compact('data'));
+                return view("omis.requisition.compensatoryLeave.ajax_index", compact('data'));
             }
 
             public function create(Request $request)
             {
                 if ($request->ajax()) {
-                    $html = view("omis.requisition.compensatoryleave.ajax.create")->render();
+                    $html = view("omis.requisition.compensatoryLeave.ajax.create")->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.compensatoryleave.create");
+                return view("omis.requisition.compensatoryLeave.create");
             }
 
             public function store(Request $request)
             {
                 $request->request->add(['alias' => slugify($request->compensatoryleaveName)]);
-                Compensatoryleave::create($request->all());
+                CompensatoryLeave::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Compensatoryleave Created Successfully.'], 200);
                 }
@@ -39,29 +39,29 @@
 
             public function show(Request $request, $id)
             {
-                $data = Compensatoryleave::findOrFail($id);
+                $data = CompensatoryLeave::findOrFail($id);
                 if ($request->ajax()) {
-                    $html = view("omis.requisition.compensatoryleave.ajax.show", compact('data'))->render();
+                    $html = view("omis.requisition.compensatoryLeave.ajax.show", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.compensatoryleave.show", compact('data'));
+                return view("omis.requisition.compensatoryLeave.show", compact('data'));
             }
 
 
             public function edit(Request $request, $id)
             {
-                $data = Compensatoryleave::findOrFail($id);
+                $data = CompensatoryLeave::findOrFail($id);
                 if ($request->ajax()) {
-                    $html = view("omis.requisition.compensatoryleave.ajax.edit", compact('data'))->render();
+                    $html = view("omis.requisition.compensatoryLeave.ajax.edit", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.requisition.compensatoryleave.edit", compact('data'));
+                return view("omis.requisition.compensatoryLeave.edit", compact('data'));
             }
 
 
             public function update(Request $request, $id)
             {
-                $data = Compensatoryleave::findOrFail($id);
+                $data = CompensatoryLeave::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->compensatoryleaveName)]);
                 $data->update($request->all());
                 if ($request->ajax()) {
@@ -72,7 +72,7 @@
 
             public function destroy(Request $request,$id)
             {
-                $data = Compensatoryleave::findOrFail($id);
+                $data = CompensatoryLeave::findOrFail($id);
                 $data->status = -1;
                 $data->save();
                 return response()->json(['status'=>true,'message'=>'The Compensatoryleave Deleted Successfully.'],200);
@@ -82,15 +82,15 @@
             {
                 switch ($type) {
                     case 'index':
-                        $data = Compensatoryleave::where('status', '<>', -1)->get();
-                        return view("omis.requisition.compensatoryleave.ajax.index", compact('data'))->render();
+                        $data = CompensatoryLeave::where('status', '<>', -1)->get();
+                        return view("omis.requisition.compensatoryLeave.ajax.index", compact('data'))->render();
                         break;
                     case 'create':
-                        return view("omis.requisition.compensatoryleave.ajax.create")->render();
+                        return view("omis.requisition.compensatoryLeave.ajax.create")->render();
                         break;
                     case 'edit':
-                        $data = Compensatoryleave::findOrFail($id);
-                        return view("omis.requisition.compensatoryleave.ajax.edit", compact('data'))->render();
+                        $data = CompensatoryLeave::findOrFail($id);
+                        return view("omis.requisition.compensatoryLeave.ajax.edit", compact('data'))->render();
                         break;
                     default:
                         return 'Not Found';
@@ -106,28 +106,28 @@
                 if ($route[0] == 'api') {
                     switch ($action) {
                         case 'index':
-                            $data = Compensatoryleave::where('status', '<>', -1)->get();
-                            $html = view("omis.requisition.compensatoryleave.ajax.index", compact('data'))->render();
+                            $data = CompensatoryLeave::where('status', '<>', -1)->get();
+                            $html = view("omis.requisition.compensatoryLeave.ajax.index", compact('data'))->render();
                             return response()->json(['status' => true, 'content' => $html], 200);
                             break;
                         case 'store':
-                            Compensatoryleave::create($request->all());
+                            CompensatoryLeave::create($request->all());
                             if ($request->ajax()) {
                                 return response()->json(['status' => true, 'message' => 'The Compensatoryleave Created Successfully.'], 200);
                             }
                             break;
                         case 'edit':
-                            $data = Compensatoryleave::findOrFail($id);
-                            $html = view("omis.requisition.compensatoryleave.ajax.edit", compact('data'))->render();
+                            $data = CompensatoryLeave::findOrFail($id);
+                            $html = view("omis.requisition.compensatoryLeave.ajax.edit", compact('data'))->render();
                             return response()->json(['status' => true, 'content' => $html], 200);
                             break;
                         case 'update':
-                            $data = Compensatoryleave::findOrFail($id);
+                            $data = CompensatoryLeave::findOrFail($id);
                             $data->update($request->all());
                             return response()->json(['status' => true, 'message' => 'The Compensatoryleave updated Successfully.'], 200);
                             break;
                         case 'delete':
-                            $data = Compensatoryleave::findOrFail($id);
+                            $data = CompensatoryLeave::findOrFail($id);
                             $data->status = -1;
                             $data->save();
                             return response()->json(['status' => true, 'message' => 'The Compensatoryleave Deleted Successfully.'], 200);
