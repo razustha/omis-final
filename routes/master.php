@@ -7,12 +7,12 @@ use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\DepartmentController as MasterDepartmentController;
 use App\Http\Controllers\Master\DistrictController;
 use App\Http\Controllers\Master\FleetController;
-use App\Http\Controllers\Master\HolidayTypesController;
+use App\Http\Controllers\Master\HolidaytypesController;
 use App\Http\Controllers\Master\NationalityController;
-use App\Http\Controllers\Master\OrganizationCategoryController;
-use App\Http\Controllers\Master\EmploymentSizeCategoryController;
+use App\Http\Controllers\Master\OrganizationcategoryController;
+use App\Http\Controllers\Master\EmploymentsizecategoryController;
 use App\Http\Controllers\Master\JobTitleController;
-use App\Http\Controllers\Master\OrganizationTypeController;
+use App\Http\Controllers\Master\OrganizationtypeController;
 use App\Http\Controllers\Master\PolicyController;
 use App\Http\Controllers\Master\StateController;
 use App\Http\Controllers\Master\DepartmenttypeController;
@@ -265,13 +265,13 @@ Route::prefix("master")->group(
 
         Route::prefix("employmentSizeCategory")->group(
             function () {
-                Route::get('/', [EmploymentSizeCategoryController::class, 'index'])->name('master.employmentsizecategory.index')->middleware('permission:master-employmentSizeCategory-index');
-                Route::get('/create', [EmploymentSizeCategoryController::class, 'create'])->name('master.employmentsizecategory.create')->middleware('permission:master-employmentSizeCategory-create');
-                Route::post('/store', [EmploymentSizeCategoryController::class, 'store'])->name('master.employmentsizecategory.store')->middleware('permission:master-employmentSizeCategory-store');
-                Route::get('/show/{id}', [EmploymentSizeCategoryController::class, 'show'])->name('master.employmentsizecategory.show')->middleware('permission:master-employmentSizeCategory-show');
-                Route::get('/edit/{id}', [EmploymentSizeCategoryController::class, 'edit'])->name('master.employmentsizecategory.edit')->middleware('permission:master-employmentSizeCategory-edit');
-                Route::put('/update/{id}', [EmploymentSizeCategoryController::class, 'update'])->name('master.employmentsizecategory.update')->middleware('permission:master-employmentSizeCategory-update');
-                Route::get('/destroy/{id}', [EmploymentSizeCategoryController::class, 'destroy'])->name('master.employmentsizecategory.destroy')->middleware('permission:master-employmentSizeCategory-destroy');
+                Route::get('/', [EmploymentSizeCategoryController::class, 'index'])->name('master.employmentsizecategory.index')->middleware('permission:master-employmentsizecategory-index');
+                Route::get('/create', [EmploymentSizeCategoryController::class, 'create'])->name('master.employmentsizecategory.create')->middleware('permission:master-employmentsizecategory-create');
+                Route::post('/store', [EmploymentSizeCategoryController::class, 'store'])->name('master.employmentsizecategory.store')->middleware('permission:master-employmentsizecategory-store');
+                Route::get('/show/{id}', [EmploymentSizeCategoryController::class, 'show'])->name('master.employmentsizecategory.show')->middleware('permission:master-employmentsizecategory-show');
+                Route::get('/edit/{id}', [EmploymentSizeCategoryController::class, 'edit'])->name('master.employmentsizecategory.edit')->middleware('permission:master-employmentsizecategory-edit');
+                Route::put('/update/{id}', [EmploymentSizeCategoryController::class, 'update'])->name('master.employmentsizecategory.update')->middleware('permission:master-employmentsizecategory-update');
+                Route::get('/destroy/{id}', [EmploymentSizeCategoryController::class, 'destroy'])->name('master.employmentsizecategory.destroy')->middleware('permission:master-employmentsizecategory-destroy');
             });
         Route::prefix("departmenttype")->group(function () {
             Route::get('/', [DepartmenttypeController::class, 'index'])->name('master.departmenttype.index')->middleware('permission:master-departmenttype-index');
@@ -297,25 +297,25 @@ Route::prefix("master")->group(
 
         Route::prefix("jobTitle")->group(
             function () {
-                Route::get('/', [JobTitleController::class, 'index'])->name('master.jobtitle.index')->middleware('permission:master-jobTitle-index');
-                Route::get('/create', [JobTitleController::class, 'create'])->name('master.jobtitle.create')->middleware('permission:master-jobTitle-create');
-                Route::post('/store', [JobTitleController::class, 'store'])->name('master.jobtitle.store')->middleware('permission:master-jobTitle-store');
-                Route::get('/show/{id}', [JobTitleController::class, 'show'])->name('master.jobtitle.show')->middleware('permission:master-jobTitle-show');
-                Route::get('/edit/{id}', [JobTitleController::class, 'edit'])->name('master.jobtitle.edit')->middleware('permission:master-jobTitle-edit');
-                Route::put('/update/{id}', [JobTitleController::class, 'update'])->name('master.jobtitle.update')->middleware('permission:master-jobTitle-update');
-                Route::get('/destroy/{id}', [JobTitleController::class, 'destroy'])->name('master.jobtitle.destroy')->middleware('permission:master-jobTitle-destroy');
+                Route::get('/', [JobTitleController::class, 'index'])->name('master.jobtitle.index')->middleware('permission:master-jobtitle-index');
+                Route::get('/create', [JobTitleController::class, 'create'])->name('master.jobtitle.create')->middleware('permission:master-jobtitle-create');
+                Route::post('/store', [JobTitleController::class, 'store'])->name('master.jobtitle.store')->middleware('permission:master-jobtitle-store');
+                Route::get('/show/{id}', [JobTitleController::class, 'show'])->name('master.jobtitle.show')->middleware('permission:master-jobtitle-show');
+                Route::get('/edit/{id}', [JobTitleController::class, 'edit'])->name('master.jobtitle.edit')->middleware('permission:master-jobtitle-edit');
+                Route::put('/update/{id}', [JobTitleController::class, 'update'])->name('master.jobtitle.update')->middleware('permission:master-jobtitle-update');
+                Route::get('/destroy/{id}', [JobTitleController::class, 'destroy'])->name('master.jobtitle.destroy')->middleware('permission:master-jobtitle-destroy');
             });
 
 
         Route::prefix("holidayTypes")->group(
             function () {
-                Route::get('/', [HolidayTypesController::class, 'index'])->name('master.holidaytypes.index')->middleware('permission:master-holidayTypes-index');
-                Route::get('/create', [HolidayTypesController::class, 'create'])->name('master.holidaytypes.create')->middleware('permission:master-holidayTypes-create');
-                Route::post('/store', [HolidayTypesController::class, 'store'])->name('master.holidaytypes.store')->middleware('permission:master-holidayTypes-store');
-                Route::get('/show/{id}', [HolidayTypesController::class, 'show'])->name('master.holidaytypes.show')->middleware('permission:master-holidayTypes-show');
-                Route::get('/edit/{id}', [HolidayTypesController::class, 'edit'])->name('master.holidaytypes.edit')->middleware('permission:master-holidayTypes-edit');
-                Route::put('/update/{id}', [HolidayTypesController::class, 'update'])->name('master.holidaytypes.update')->middleware('permission:master-holidayTypes-update');
-                Route::get('/destroy/{id}', [HolidayTypesController::class, 'destroy'])->name('master.holidaytypes.destroy')->middleware('permission:master-holidayTypes-destroy');
+                Route::get('/', [HolidayTypesController::class, 'index'])->name('master.holidaytypes.index')->middleware('permission:master-holidaytypes-index');
+                Route::get('/create', [HolidayTypesController::class, 'create'])->name('master.holidaytypes.create')->middleware('permission:master-holidaytypes-create');
+                Route::post('/store', [HolidayTypesController::class, 'store'])->name('master.holidaytypes.store')->middleware('permission:master-holidaytypes-store');
+                Route::get('/show/{id}', [HolidayTypesController::class, 'show'])->name('master.holidaytypes.show')->middleware('permission:master-holidaytypes-show');
+                Route::get('/edit/{id}', [HolidayTypesController::class, 'edit'])->name('master.holidaytypes.edit')->middleware('permission:master-holidaytypes-edit');
+                Route::put('/update/{id}', [HolidayTypesController::class, 'update'])->name('master.holidaytypes.update')->middleware('permission:master-holidaytypes-update');
+                Route::get('/destroy/{id}', [HolidayTypesController::class, 'destroy'])->name('master.holidaytypes.destroy')->middleware('permission:master-holidaytypes-destroy');
             });
 
         Route::prefix("fleet")->group(
@@ -343,13 +343,13 @@ Route::prefix("master")->group(
 
         Route::prefix("attendanceFrom")->group(
             function () {
-                Route::get('/', [AttendanceFromController::class, 'index'])->name('master.attendancefrom.index')->middleware('permission:master-attendanceFrom-index');
-                Route::get('/create', [AttendanceFromController::class, 'create'])->name('master.attendancefrom.create')->middleware('permission:master-attendanceFrom-create');
-                Route::post('/store', [AttendanceFromController::class, 'store'])->name('master.attendancefrom.store')->middleware('permission:master-attendanceFrom-store');
-                Route::get('/show/{id}', [AttendanceFromController::class, 'show'])->name('master.attendancefrom.show')->middleware('permission:master-attendanceFrom-show');
-                Route::get('/edit/{id}', [AttendanceFromController::class, 'edit'])->name('master.attendancefrom.edit')->middleware('permission:master-attendanceFrom-edit');
-                Route::put('/update/{id}', [AttendanceFromController::class, 'update'])->name('master.attendancefrom.update')->middleware('permission:master-attendanceFrom-update');
-                Route::get('/destroy/{id}', [AttendanceFromController::class, 'destroy'])->name('master.attendancefrom.destroy')->middleware('permission:master-attendanceFrom-destroy');
+                Route::get('/', [AttendanceFromController::class, 'index'])->name('master.attendancefrom.index');->middleware('permission:master-attendancefrom-index');
+                Route::get('/create', [AttendanceFromController::class, 'create'])->name('master.attendancefrom.create')->middleware('permission:master-attendancefrom-create');
+                Route::post('/store', [AttendanceFromController::class, 'store'])->name('master.attendancefrom.store')->middleware('permission:master-attendancefrom-store');
+                Route::get('/show/{id}', [AttendanceFromController::class, 'show'])->name('master.attendancefrom.show')->middleware('permission:master-attendancefrom-show');
+                Route::get('/edit/{id}', [AttendanceFromController::class, 'edit'])->name('master.attendancefrom.edit')->middleware('permission:master-attendancefrom-edit');
+                Route::put('/update/{id}', [AttendanceFromController::class, 'update'])->name('master.attendancefrom.update')->middleware('permission:master-attendancefrom-update');
+                Route::get('/destroy/{id}', [AttendanceFromController::class, 'destroy'])->name('master.attendancefrom.destroy')->middleware('permission:master-attendancefrom-destroy');
             }
         );
 
