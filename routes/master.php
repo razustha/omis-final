@@ -343,7 +343,7 @@ Route::prefix("master")->group(
 
         Route::prefix("attendanceFrom")->group(
             function () {
-                Route::get('/', [AttendanceFromController::class, 'index'])->name('master.attendancefrom.index');->middleware('permission:master-attendancefrom-index');
+                Route::get('/', [AttendanceFromController::class, 'index'])->name('master.attendancefrom.index')->middleware('permission:master-attendancefrom-index');
                 Route::get('/create', [AttendanceFromController::class, 'create'])->name('master.attendancefrom.create')->middleware('permission:master-attendancefrom-create');
                 Route::post('/store', [AttendanceFromController::class, 'store'])->name('master.attendancefrom.store')->middleware('permission:master-attendancefrom-store');
                 Route::get('/show/{id}', [AttendanceFromController::class, 'show'])->name('master.attendancefrom.show')->middleware('permission:master-attendancefrom-show');
