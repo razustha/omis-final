@@ -13,10 +13,10 @@
                 <div class="p-5">
     
                     <div class="card-head">
-                        <h2 class="text-center">{{$data['country_id']}}</h2>
+                        <h2 class="text-center">{{$data['stateName']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>Country Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->country_id}}</span></p><p><b>State Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->stateName}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Country Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->country_id}}</span></p><p><b>State Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->stateName}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

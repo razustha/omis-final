@@ -5,6 +5,7 @@
         use Illuminate\Database\Eloquent\Casts\Attribute;
         use Illuminate\Database\Eloquent\Factories\HasFactory;
         use Illuminate\Database\Eloquent\Model;
+        use App\Models\Master\Country;
         use App\Traits\CreatedUpdatedBy;
 
         class State extends Model
@@ -34,6 +35,13 @@
             {
                 return $this->status == 1 ? '<span class="badge text-bg-success-soft"> Active </span>' : '<span class="badge text-bg-danger-soft">Inactive</span>';
             }
+            protected function countryId(): Attribute
+            {
+                return Attribute::make(
+                    get: fn ($value) =>  Country::find($value) ? Country::find($value)->countryName : '',
+                );
+            }
+        
 
     protected function createdBy(): Attribute
     {
