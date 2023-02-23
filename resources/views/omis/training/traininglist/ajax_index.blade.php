@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Training List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Traininglist</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Traininglist Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Traininglist
+                                                <li class="breadcrumb-item"><a href="#">Training List</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Training List Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Training List
                                                 </li>
                                             </ol>
                                         </nav>

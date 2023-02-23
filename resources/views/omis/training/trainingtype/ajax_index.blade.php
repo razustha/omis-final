@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Training Type List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Trainingtype</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Trainingtype Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Trainingtype
+                                                <li class="breadcrumb-item"><a href="#">Training Type</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Training Type Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Training Type
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">trainingType</span></th>
+<th class="tb-col"><span class="overline-title">training Type</span></th>
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span

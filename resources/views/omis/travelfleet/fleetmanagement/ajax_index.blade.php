@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Fleet Management List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Fleetmanagement</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Fleetmanagement Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Fleetmanagement
+                                                <li class="breadcrumb-item"><a href="#">Fleet Management</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Fleet Management Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Fleet Management
                                                 </li>
                                             </ol>
                                         </nav>

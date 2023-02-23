@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Maintenance Log List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Maintenancelog</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Maintenancelog Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Maintenancelog
+                                                <li class="breadcrumb-item"><a href="#">Maintenance Log</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Maintenance Log Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Maintenance Log
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,8 +30,8 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">fleetName</span></th>
-<th class="tb-col"><span class="overline-title">driverName</span></th>
+<th class="tb-col"><span class="overline-title">fleet Name</span></th>
+<th class="tb-col"><span class="overline-title">driver Name</span></th>
 <th class="tb-col"><span class="overline-title">model</span></th>
 <!-- <th class="tb-col"><span class="overline-title">date</span></th>
 <th class="tb-col"><span class="overline-title">time</span></th> -->

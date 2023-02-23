@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Offer Letter List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Offerletter</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Offerletter Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Offerletter
+                                                <li class="breadcrumb-item"><a href="#">Offer Letter</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Offer Letter Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Offer Letter
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicants_id</span></th>
+<th class="tb-col"><span class="overline-title">applicants</span></th>
 <th class="tb-col"><span class="overline-title">designation</span></th>
 <th class="tb-col"><span class="overline-title">department Name</span></th>
 <!-- <th class="tb-col"><span class="overline-title">workingHour</span></th>

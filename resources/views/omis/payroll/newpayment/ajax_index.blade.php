@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">New Payment List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Newpayment</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Newpayment Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Newpayment
+                                                <li class="breadcrumb-item"><a href="#">New Payment</a></li>
+                                                <li class="breadcrumb-item"><a href="#">New Payment Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">New Payment
                                                 </li>
                                             </ol>
                                         </nav>

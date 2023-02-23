@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Job Application List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Jobapplication</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Jobapplication Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Jobapplication
+                                                <li class="breadcrumb-item"><a href="#">Job Application</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Job Application Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Job Application
                                                 </li>
                                             </ol>
                                         </nav>

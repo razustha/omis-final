@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Equipment Demand List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Equipmentdemand</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Equipmentdemand Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Equipmentdemand
+                                                <li class="breadcrumb-item"><a href="#">Equipment Demand</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Equipment Demand Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Equipment Demand
                                                 </li>
                                             </ol>
                                         </nav>
@@ -33,7 +33,7 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">date</span></th>
-<th class="tb-col"><span class="overline-title">department_id</span></th>
+<th class="tb-col"><span class="overline-title">department</span></th>
 <th class="tb-col"><span class="overline-title">position</span></th>
 <!-- <th class="tb-col"><span class="overline-title">equipmentList</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->

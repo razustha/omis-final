@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Fixedassets List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Fixedassets</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Fixedassets Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Fixedassets
+                                                <li class="breadcrumb-item"><a href="#">Fixed Assets</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Fixed Assets Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Fixed Assets
                                                 </li>
                                             </ol>
                                         </nav>
