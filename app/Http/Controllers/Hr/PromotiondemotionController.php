@@ -37,8 +37,9 @@ use Illuminate\Http\Request;
                     'type' => 'required',
                     'promotionDate' => 'required',
                     'updated_designation_id' => 'required',
+                    'department_id' => 'required',
                 ]);
-        
+
                 if ($validator->fails()) {
                     return response()->json([
                         'error' => $validator->errors()->all(),
@@ -46,9 +47,12 @@ use Illuminate\Http\Request;
                 }
 
                 $request->request->add(['alias' => slugify($request->promotiondemotionName)]);
+                $request['updated_department_id'] = $request->department_id;
+
                 Promotiondemotion::create($request->all());
                 $employee = Employee::where('employee_id', $request->employee_id)->first();
                 $employee->designation_id = $request->updated_designation_id;
+                $employee->department_id = $request->updated_department_id;
                 $employee->save();
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Promotiondemotion Created Successfully.'], 200);
@@ -105,12 +109,14 @@ use Illuminate\Http\Request;
                 {
                     $promotion_designation_id = Designation::where('designation_id', '<', $employee->designation_id)->max('designation_id');
                     $data = Designation::where('designation_id', $promotion_designation_id)->get();
-
+                    $data[0]['department_id'] = $employee->department->department_id;
                 } elseif($request->type == 'demotion')
                 {
                     $promotion_designation_id = Designation::where('designation_id', '>', $employee->designation_id)->min('designation_id');
                     $data = Designation::where('designation_id', $promotion_designation_id)->get();
+                    $data[0]['department_id'] = $employee->department->department_id;
                 }
+
                 return response()->json(['status' => 200, 'message' => $data]);
             }
 
