@@ -42,6 +42,22 @@
             {{ createLabel('projectDescription', 'form-label col-form-label', 'Description') }}{{ createTextArea('projectDescription', 'projectDescription', 'ProjectDescription', '', $data->projectDescription) }}
 
         </div>
+
+        <div class="col-12 mt-3 mb-3">
+            <div class="form-group"><label class="form-label">Project Documents</label>
+                @if ($data->project_documents)
+                    <a href="{{ $data->project_documents }}" target="_blank">View Upload Documents</a>
+                @endif
+                <div class="form-control-wrap">
+                    <input id="thumbnail" class="form-control" type="text" name="project_documents"
+                        value="" readonly>
+                    <button id="lfm btn-image" data-input="thumbnail" data-preview="holder"
+                        class="lfm btn icon-left btn-primary mt-2 btn-image">
+                        <i class="fa fa-upload"></i> &nbsp;Choose
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-6">
             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'Remarks', '', $data->remarks) }}
         </div>

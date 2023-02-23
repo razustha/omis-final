@@ -138,7 +138,7 @@
                 url: route,
                 success: function(res) {
                     $("#editConvasByAjax").html(res.content);
-                    $('.lfm').filemanager('image');
+                    $('.lfm').filemanager('file');
                 }
             })
         })
@@ -150,7 +150,7 @@
                 url: route,
                 success: function(res) {
                     $("#addConvasByAjax").html(res.content);
-                    $('.lfm').filemanager('image');
+                    $('.lfm').filemanager('file');
                     let mainInput = document.getElementById("nepali-datepicker1");
                     mainInput.nepaliDatePicker();
 

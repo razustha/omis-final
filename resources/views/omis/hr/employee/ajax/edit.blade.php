@@ -101,11 +101,11 @@
 
 
                                         </div>
-                                       
 
 
-                                       
-                                       
+
+
+
                                         <div class="col-lg-12">
                                             {{ createLabel('Skills', 'form-label col-form-label', 'Skills') }}
                                             <select name="skills[]" class="form-control skills" multiple>
