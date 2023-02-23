@@ -36,7 +36,7 @@
             {
 
                 $validator = Validator::make($request->all(), [
-                    'companyName_id' => 'required',
+                  
                     'title' => 'required',
                     'eventStartDate' => 'required',
                     'eventEndDate' =>  'required',
@@ -50,7 +50,7 @@
                 }
 
                 $request->request->add(['alias' => slugify($request->mangeholidayName)]);
-                 dd($request->all());
+                //  dd($request->all());
                  $holiday = Mangeholiday::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Mangeholiday Created Successfully.'], 200);
@@ -103,7 +103,7 @@
             public function update(Request $request, $id)
             {
                 $validator = Validator::make($request->all(), [
-                    'companyName_id' => 'required',
+                  
                     'title' => 'required',
                     'eventStartDate' => 'required',
                     'eventEndDate' =>  'required',

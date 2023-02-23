@@ -32,10 +32,10 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">company Name_id</span></th>
+                                        <!-- <th class="tb-col"><span class="overline-title">company Name_id</span></th> -->
                                         <th class="tb-col"><span class="overline-title">Holiday Title</span></th>
-                                        <th class="tb-col"><span class="overline-title">event Start Date</span></th>
-                                        <th class="tb-col"><span class="overline-title">event End Date</span></th>
+                                        <th class="tb-col"><span class="overline-title">Start Date</span></th>
+                                        <th class="tb-col"><span class="overline-title">End Date</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">holidayDescription</span></th> -->
                                         <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                         <th class="tb-col"><span class="overline-title">status</span></th>
@@ -50,7 +50,7 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td>
-                                            <td class="tb-col">{{ $item->companyName_id }}</td>
+                                            <!-- <td class="tb-col">{{ $item->companyName_id }}</td> -->
                                             <td class="tb-col">{{ $item->title }}</td>
                                             <td class="tb-col">{{ $item->eventStartDate }}</td>
                                             <td class="tb-col">{{ $item->eventEndDate }}</td>
