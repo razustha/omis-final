@@ -32,9 +32,9 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">payeePhone</span></th>
-<th class="tb-col"><span class="overline-title">payeeAccount</span></th>
-<th class="tb-col"><span class="overline-title">payerName</span></th>
+<th class="tb-col"><span class="overline-title">payee Phone</span></th>
+<th class="tb-col"><span class="overline-title">payee Account</span></th>
+<th class="tb-col"><span class="overline-title">payer Name</span></th>
 <!-- <th class="tb-col"><span class="overline-title">payerPhone</span></th>
 <th class="tb-col"><span class="overline-title">payerAccount</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th> -->

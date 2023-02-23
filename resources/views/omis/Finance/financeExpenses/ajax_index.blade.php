@@ -7,12 +7,12 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Finance Expenses List</h1>
+                                    <h2 class="nk-block-title">Expenses List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Financeexpenses</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Financeexpenses Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Financeexpenses
+                                                <li class="breadcrumb-item"><a href="#">Expenses</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Expenses Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Expenses
                                                 </li>
                                             </ol>
                                         </nav>
@@ -20,7 +20,7 @@
                                 <div class="nk-block-head-content">
                                 @can('finance-financeexpenses-create') 
                                 <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Finance Expenses","finance.financeexpenses.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Expenses","finance.financeexpenses.create") !!}
                                     </ul>
                                     @endcan
                                 </div>
@@ -33,7 +33,7 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">expenses Amount</span></th>
-<th class="tb-col"><span class="overline-title">expenses Date</span></th>
+<th class="tb-col"><span class="overline-title">Date</span></th>
 <th class="tb-col"><span class="overline-title">Account</span></th>
 <!-- <th class="tb-col"><span class="overline-title">selectCategory_id</span></th>
 <th class="tb-col"><span class="overline-title">paymentMethod</span></th>
@@ -83,7 +83,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Finance Expenses</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Expenses</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -102,7 +102,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Finance Expenses<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Expenses<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

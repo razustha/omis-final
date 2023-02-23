@@ -32,11 +32,11 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">companyName</span></th>
+<th class="tb-col"><span class="overline-title">company Name</span></th>
 <!-- <th class="tb-col"><span class="overline-title">companyTitle</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">complaintDate</span></th> -->
-<th class="tb-col"><span class="overline-title">complaintFrom</span></th>
-<th class="tb-col"><span class="overline-title">complaintAgainst</span></th>
+<th class="tb-col"><span class="overline-title">complaint From</span></th>
+<th class="tb-col"><span class="overline-title">complaint Against</span></th>
 <!-- <th class="tb-col"><span class="overline-title">complaintDescription</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>

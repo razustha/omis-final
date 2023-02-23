@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Advance Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Advancerequest</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Advancerequest Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Advancerequest
+                                                <li class="breadcrumb-item"><a href="#">Advance Request</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Advance Request Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Advance Request
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,11 +32,11 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">expireDate</span></th>
-<th class="tb-col"><span class="overline-title">alias</span></th>
+<th class="tb-col"><span class="overline-title">expire Date</span></th>
+<!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
-<th class="tb-col"><span class="overline-title">advanceRequest_id</span></th>
-<th class="tb-col"><span class="overline-title">applicantName_id</span></th>
+<th class="tb-col"><span class="overline-title">advance Request</span></th>
+<th class="tb-col"><span class="overline-title">applicant Name</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
                                         </tr>
@@ -48,7 +48,7 @@
                                         @foreach ($data as $item)
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->expireDate }}</td>
-<td class="tb-col">{{ $item->alias }}</td>
+<!-- <td class="tb-col">{{ $item->alias }}</td> -->
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">{{ $item->advanceRequest_id }}</td>
 <td class="tb-col">{{ $item->applicantName_id }}</td>

@@ -12,11 +12,9 @@
             <div class="card w-100">
                 <div class="p-5">
     
-                    <div class="card-head">
-                        <h2 class="text-center">{{$data['company_id']}}</h2>
-                    </div>
+                  
                     <div class="card-body">
-                <p><b>Company Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->company_id}}</span></p><p><b>Employee Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->employee_id}}</span></p><p><b>Promotion Title :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->promotionTitle}}</span></p><p><b>Promotion Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->promotionDate}}</span></p><p><b>Description :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->description}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                        <p><b>Title :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->promotionTitle}}</span></p> <p><b>Employee Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->employee_name}}</span></p> <p><b>Promotion/Demotion Type :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->type}}</span></p><p><b>Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->promotionDate}}</span></p><p><b>Description :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->description}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>
