@@ -20,6 +20,7 @@
 'employee_id',
 'promotionTitle',
 'updated_designation_id',
+'updated_department_id',
 'type',
 'promotionDate',
 'description',

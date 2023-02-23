@@ -10,10 +10,13 @@
         <div class="col-lg-3">
             {{ customCreateSelect('employee_id','employee_id','','Employee',getEmployees()->pluck('full_name', 'employee_id')->toArray()) }}
         </div>
-    
+
         <div class="col-lg-3">{{ createDate('promotionDate', 'promotionDate', ' Date', '', '', '') }}
         </div>
         <div class="col-lg-3">{{ customCreateSelect('updated_designation_id', 'updated_designation_id', '', 'Select Designation',) }}
+        </div>
+        <div class="col-lg-3">
+            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department Name') !!}
         </div>
         <div class="col-lg-6">
             {{ createLabel('description', 'form-label col-form-label', 'Description') }}{{ createTextArea('description', 'description', 'Description', '', '') }}
@@ -45,7 +48,9 @@
                     $('#updated_designation_id').html('<option value="#" selected disabled>Select Designation</option>');
                     $.each(response.message, function(key,value){
                         $('#updated_designation_id').append('<option value='+value.designation_id+'>'+value.designationName+'</option>');
+                        $("#department_id").val(value.department_id)
                     });
+
                 }
             });
     });
