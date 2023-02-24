@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Stock Reconcile List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Stockreconcile</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Stockreconcile Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Stockreconcile
+                                                <li class="breadcrumb-item"><a href="#">Stock Reconcile</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Stock Reconcile Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Stock Reconcile
                                                 </li>
                                             </ol>
                                         </nav>

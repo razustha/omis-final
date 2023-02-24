@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Travel Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Travelrequest</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Travelrequest Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Travelrequest
+                                                <li class="breadcrumb-item"><a href="#">Travel Request</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Travel Request Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Travel Request
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">travellerName</span></th>
+<th class="tb-col"><span class="overline-title">traveller Name</span></th>
 <!-- <th class="tb-col"><span class="overline-title">date</span></th>
 <th class="tb-col"><span class="overline-title">time</span></th>
 <th class="tb-col"><span class="overline-title">destination</span></th>

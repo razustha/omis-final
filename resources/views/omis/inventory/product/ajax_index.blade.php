@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">productName</span></th>
+<th class="tb-col"><span class="overline-title">product Name</span></th>
 <!-- <th class="tb-col"><span class="overline-title">productPhoto</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">useMaterials</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">packing</span></th> -->

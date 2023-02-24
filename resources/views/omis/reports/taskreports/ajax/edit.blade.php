@@ -2,7 +2,7 @@
         <form action="{{route('reports.taskreports.update',[$data->taskreports_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'',$data) !!}
+<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'',$data,'Employee Name') !!}
 </div><div class="col-lg-6">{{createText("taskType","taskType","Task Type",'',$data->taskType)}}
 </div><div class="col-lg-6">{{createText("taskName","taskName","Task Name",'',$data->taskName)}}
 </div><div class="col-lg-6">{{createDate("tastStartDate","tastStartDate","Task Start Date",'',$data->tastStartDate)}}

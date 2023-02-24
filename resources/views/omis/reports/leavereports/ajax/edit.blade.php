@@ -1,7 +1,7 @@
 <form action="{{route('reports.leavereports.update',[$data->leaveReports_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant Id",'',$data->applicant_id)}}
+<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant",'',$data->applicant_id)}}
 </div><div class="col-lg-6">{{createText("leaveReason","leaveReason","Leave Reason",'',$data->leaveReason)}}
 </div><div class="col-lg-6">{{createText("leaveApprovedBy","leaveApprovedBy","Leave Approved By",'',$data->leaveApprovedBy)}}
 </div><div class="col-lg-6">{{createText("totalLeaveDays","totalLeaveDays","Total Leave Days",'',$data->totalLeaveDays)}}

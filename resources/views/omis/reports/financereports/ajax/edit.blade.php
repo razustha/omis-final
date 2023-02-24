@@ -1,8 +1,8 @@
 <form action="{{route('reports.financereports.update',[$data->financeReports_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants Id",'',$data->applicants_id)}}
-</div><div class="col-lg-6">{{createText("company_id","company_id","Company Id",'',$data->company_id)}}
+<div class="row"><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants",'',$data->applicants_id)}}
+</div><div class="col-lg-6">{{createText("company_id","company_id","Company",'',$data->company_id)}}
 </div><div class="col-lg-6">{{createText("jobRole","jobRole","Job Role",'',$data->jobRole)}}
 </div><div class="col-lg-6">{{createText("applicantsDepartment","applicantsDepartment","Applicants Department",'',$data->applicantsDepartment)}}
 </div><div class="col-lg-4">{{createText("reportBy","reportBy","Report By",'',$data->reportBy)}}

@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Cash Deposit List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Cashdeposit</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Cashdeposit Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Cashdeposit
+                                                <li class="breadcrumb-item"><a href="#">Cash Deposit</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Cash Deposit Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Cash Deposit
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,7 +32,7 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">main Title</span></th>
 <th class="tb-col"><span class="overline-title">DATE</span></th>
-<th class="tb-col"><span class="overline-title">amount In Words</span></th>
+<!-- <th class="tb-col"><span class="overline-title">amount In Words</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">thousand</span></th>
 <th class="tb-col"><span class="overline-title">fiveHundred</span></th>
 <th class="tb-col"><span class="overline-title">hundred</span></th>
@@ -62,7 +62,7 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->mainTitle }}</td>
 <td class="tb-col">{{ $item->DATE }}</td>
-<td class="tb-col">{{ $item->amountWords }}</td>
+<!-- <td class="tb-col">{{ $item->amountWords }}</td> -->
 <!-- <td class="tb-col">{{ $item->thousand }}</td>
 <td class="tb-col">{{ $item->fiveHundred }}</td>
 <td class="tb-col">{{ $item->hundred }}</td>

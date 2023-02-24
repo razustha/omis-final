@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Goods Received Reconcile</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Goodreceivedreconcile</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Goodreceivedreconcile Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Goodreceivedreconcile
+                                                <li class="breadcrumb-item"><a href="#">Good Received Reconcile</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Good Received Reconcile Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Good Received Reconcile
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">good Received Reconcile_Title</span></th>
+<th class="tb-col"><span class="overline-title">good Received Reconcile</span></th>
 
 <th class="tb-col"><span class="overline-title">purchase Number</span></th>
 <th class="tb-col"><span class="overline-title">receipt Number</span></th>

@@ -1,7 +1,7 @@
 
                 <form action="{{route('reports.taskreports.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'') !!}
+<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'','','Employee Name') !!}
 </div><div class="col-lg-6">{{createText("taskType","taskType","Task Type")}}
 </div><div class="col-lg-6">{{createText("taskName","taskName","Task Name")}}
 </div><div class="col-lg-6">{{createDate("tastStartDate","tastStartDate","Task Start Date")}}

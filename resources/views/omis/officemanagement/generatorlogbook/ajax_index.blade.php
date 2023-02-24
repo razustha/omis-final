@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Generator Logbook List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Generatorlogbook</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Generatorlogbook Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Generatorlogbook
+                                                <li class="breadcrumb-item"><a href="#">Generator Logbook</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Generator Logbook Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Generator Logbook
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,9 +30,9 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">logbookTitle</span></th>
-<th class="tb-col"><span class="overline-title">subTitle</span></th>
-<th class="tb-col"><span class="overline-title">pageNumber</span></th>
+<th class="tb-col"><span class="overline-title">logbook Title</span></th>
+<th class="tb-col"><span class="overline-title">sub Title</span></th>
+<th class="tb-col"><span class="overline-title">page Number</span></th>
 <!-- <th class="tb-col"><span class="overline-title">checkedDate</span></th>
 <th class="tb-col"><span class="overline-title">fullName</span></th>
 <th class="tb-col"><span class="overline-title">purpose</span></th>
