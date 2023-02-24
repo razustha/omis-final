@@ -16,8 +16,13 @@
             public $timestamps = true;
             protected $fillable =[
                 'eventTitle',
-'eventDate',
-'eventTime',
+'startDate',
+'endDate',
+'startTime',
+'endTime',
+'description',
+'backgroundColor',
+'textColor',
 'createdOn',
 'createdBy',
 'alias',

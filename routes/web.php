@@ -157,6 +157,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/calendar', [DashboardController::class, 'calendar'])->name('getcalendar');
     Route::get('/full-calendar', [DashboardController::class, 'getEvent'])->name('fetchcalendardata');
+    Route::post('/calendar/saveRelocateEventStartDate',  [DashboardController::class, 'saveRelocateEventStartDate'])
+    ->name('saveRelocateEventStartDate');
 
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
