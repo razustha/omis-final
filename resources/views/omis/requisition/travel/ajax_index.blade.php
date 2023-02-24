@@ -32,8 +32,8 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">employee Name_id</span></th>
-<th class="tb-col"><span class="overline-title">arrangement Type_id</span></th>
+<th class="tb-col"><span class="overline-title">employee Name</span></th>
+<th class="tb-col"><span class="overline-title">arrangement Type</span></th>
 <th class="tb-col"><span class="overline-title">purpose Of Visit</span></th>
 <th class="tb-col"><span class="overline-title">destination</span></th>
 <!-- <th class="tb-col"><span class="overline-title">travelStartDate</span></th>

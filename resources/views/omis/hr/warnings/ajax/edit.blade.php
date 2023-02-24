@@ -7,7 +7,7 @@
                     </div>
                     <div class="col-lg-12">{{createDate("warningDate","warningDate","Warning Date",'',$data->warningDate)}}
                     </div>
-                    <div class="col-lg-12">{{createText("warningType_id","warningType_id","Warning Type Id",'',$data->warningType_id)}}
+                    <div class="col-lg-12">{{createText("warningType_id","warningType_id","Warning Type",'',$data->warningType_id)}}
                     </div>
                     <div class="col-lg-12">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'],$data->status)}}
                     </div>

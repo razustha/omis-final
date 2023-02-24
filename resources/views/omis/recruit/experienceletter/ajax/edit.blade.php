@@ -2,7 +2,7 @@
         <form action="{{route('recruit.experienceletter.update',[$data->experienceletter_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'',$data) !!}
+<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'',$data,'Employee Name') !!}
 </div><div class="col-lg-6">{{createText("designation","designation","Designation",'',$data->designation)}}
 </div><div class="col-lg-6">{{createText("departmentName","departmentName","Department Name",'',$data->departmentName)}}
 </div><div class="col-lg-6">{{createDate("joiningDate","joiningDate","Joining Date",'',$data->joiningDate)}}

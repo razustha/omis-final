@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 'projectStartDate',
 'projectEndDate',
 'projectPriority',
+'project_documents',
 'companyName_id',
 'department_id',
 'assignedEmployees',

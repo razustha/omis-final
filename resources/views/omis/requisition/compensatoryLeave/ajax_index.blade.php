@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Compensatory Leave List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Compensatoryleave</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Compensatoryleave Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Compensatoryleave
+                                                <li class="breadcrumb-item"><a href="#">Compensatory Leave</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Compensatory Leave Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Compensatory Leave
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,9 +32,9 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicant_id</span></th>
+<th class="tb-col"><span class="overline-title">applicant</span></th>
 <th class="tb-col"><span class="overline-title">postion</span></th>
-<th class="tb-col"><span class="overline-title">department_id</span></th>
+<th class="tb-col"><span class="overline-title">department</span></th>
 <th class="tb-col"><span class="overline-title">working Day</span></th>
 <th class="tb-col"><span class="overline-title">working Date</span></th>
 <!-- <th class="tb-col"><span class="overline-title">holidayReason</span></th>

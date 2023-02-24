@@ -1,8 +1,8 @@
 
                 <form action="{{route('finance.proposal.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("applicantName_id","applicantName_id","Applicant Name Id")}}
-</div><div class="col-lg-6">{{createText("deparmentName_id","deparmentName_id","Deparment Name Id")}}
+<div class="row"><div class="col-lg-6">{{createText("applicantName_id","applicantName_id","Applicant Name")}}
+</div><div class="col-lg-6">{{createText("deparmentName_id","deparmentName_id","Deparment Name")}}
 </div><div class="col-lg-6">{{createText("proposalTitle","proposalTitle","Proposal Title")}}
 </div><div class="col-lg-6">{{createText("proposalSubmittedBy","proposalSubmittedBy","Proposal Submitted By")}}
 </div><div class="col-lg-6">{{createText("proposalSubmittedTo","proposalSubmittedTo","Proposal Submitted To")}}

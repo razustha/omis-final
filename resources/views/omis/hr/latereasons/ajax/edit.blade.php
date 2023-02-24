@@ -2,10 +2,10 @@
         <form action="{{route('hr.latereasons.update',[$data->latereasons_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{{createText("applicantsName_id","applicantsName_id","ApplicantsName Id",'',$data->applicantsName_id)}}
+<div class="row"><div class="col-lg-6">{{createText("applicantsName_id","applicantsName_id","Applicants Name",'',$data->applicantsName_id)}}
 </div><div class="col-lg-6">{{createDate("lateDate","lateDate","Late Date",'',$data->lateDate)}}
-</div><div class="col-lg-6">{{createText("dayLate","dayLate","Day Late",'',$data->dayLate)}}
-</div><div class="col-lg-6">{{createText("lateDesignation","lateDesignation","Late Designation",'',$data->lateDesignation)}}
+</div><div class="col-lg-6">{{createText("dayLate","dayLate","Late Day",'',$data->dayLate)}}
+</div><div class="col-lg-6">{{createText("lateDesignation","lateDesignation","Designation",'',$data->lateDesignation)}}
 </div><div class="col-lg-6">{{createText("reasonForLate","reasonForLate","Reason For Late",'',$data->reasonForLate)}}
 </div><div class="col-lg-6">{{createText("submittedBy","submittedBy","Submitted By",'',$data->submittedBy)}}
 </div><div class="col-lg-4">{{createText("checkedBy","checkedBy","Checked By",'',$data->checkedBy)}}

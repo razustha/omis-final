@@ -25,7 +25,7 @@
         </div>
         {{-- <div class="col-lg-6">{{ createText('companyName', 'companyName', 'Company Name') }}
         </div> --}}
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>
         <div class="col-lg-12">

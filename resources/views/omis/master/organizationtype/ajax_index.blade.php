@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Organization Type List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Organizationtype</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Organizationtype Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Organizationtype
+                                                <li class="breadcrumb-item"><a href="#">Organization Type</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Organization Type Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Organization Type
                                                 </li>
                                             </ol>
                                         </nav>

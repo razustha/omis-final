@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Attendance Reports List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Attendancereports</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Attendancereports Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Attendancereports
+                                                <li class="breadcrumb-item"><a href="#">Attendance Reports</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Attendance Reports Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Attendance Reports
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicants_id</span></th>
+<th class="tb-col"><span class="overline-title">applicants</span></th>
 <th class="tb-col"><span class="overline-title">total Attendance</span></th>
 <th class="tb-col"><span class="overline-title">total Working Days</span></th>
 <th class="tb-col"><span class="overline-title">total Absent Days</span></th>

@@ -9,9 +9,12 @@
             <label class="form-label">Leave Type</label>
             <div class="input-group">
                 {{ customCreateSelect('leaveType', 'leaveType', '', '', ['sick' => 'Sick', 'paid' => 'Paid']) }}
-                <button class="btn btn-outline-light" type="button" data-bs-toggle="modal"
+                @can('master-leavetype-index')
+                    <button class="btn btn-outline-light" type="button" data-bs-toggle="modal"
                     data-bs-target="#leaveTypeModal">
                     Add</button>
+                @endcan
+
             </div>
 
         </div>

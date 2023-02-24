@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Finance Reports List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Financereports</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Financereports Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Financereports
+                                                <li class="breadcrumb-item"><a href="#">Finance Reports</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Finance Reports Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Finance Reports
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,8 +32,8 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicants_id</span></th>
-<th class="tb-col"><span class="overline-title">company_id</span></th>
+<th class="tb-col"><span class="overline-title">applicants</span></th>
+<th class="tb-col"><span class="overline-title">company</span></th>
 <!-- <th class="tb-col"><span class="overline-title">job Role</span></th> -->
 <th class="tb-col"><span class="overline-title">applicants Department</span></th>
 <!-- <th class="tb-col"><span class="overline-title">report By</span></th> -->

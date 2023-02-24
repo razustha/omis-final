@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Purchase Order List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Purchaseorder</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Purchaseorder Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Purchaseorder
+                                                <li class="breadcrumb-item"><a href="#">Purchase Order</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Purchase Order Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Purchase Order
                                                 </li>
                                             </ol>
                                         </nav>

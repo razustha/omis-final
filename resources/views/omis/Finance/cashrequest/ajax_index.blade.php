@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Cash Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Cashrequest</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Cashrequest Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Cashrequest
+                                                <li class="breadcrumb-item"><a href="#">Cash Request</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Cash Request Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Cash Request
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicantName_id</span></th>
+<th class="tb-col"><span class="overline-title">applicant Name</span></th>
 <th class="tb-col"><span class="overline-title">date</span></th>
 <!-- <th class="tb-col"><span class="overline-title">phone</span></th> -->
 <th class="tb-col"><span class="overline-title">amount</span></th>

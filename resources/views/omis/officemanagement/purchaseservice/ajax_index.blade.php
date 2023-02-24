@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Purchase Service List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Purchaseservice</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Purchaseservice Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Purchaseservice
+                                                <li class="breadcrumb-item"><a href="#">Purchase Service</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Purchase Service Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Purchase Service
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,9 +30,9 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">purchaseTitle</span></th>
-<th class="tb-col"><span class="overline-title">contractName</span></th>
-<th class="tb-col"><span class="overline-title">referenceNumber</span></th>
+<th class="tb-col"><span class="overline-title">purchase Title</span></th>
+<th class="tb-col"><span class="overline-title">contract Name</span></th>
+<th class="tb-col"><span class="overline-title">reference Number</span></th>
 <!-- <th class="tb-col"><span class="overline-title">date</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">vatNumber</span></th>
 <th class="tb-col"><span class="overline-title">address</span></th>

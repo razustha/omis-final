@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Fleet Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Fleetrequest</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Fleetrequest Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Fleetrequest
+                                                <li class="breadcrumb-item"><a href="#">Fleet Request</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Fleet Request Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Fleet Request
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">fleet_id</span></th>
+<th class="tb-col"><span class="overline-title">fleet</span></th>
 <th class="tb-col"><span class="overline-title">fleet Name</span></th>
 <th class="tb-col"><span class="overline-title">model Number</span></th>
 <!-- <th class="tb-col"><span class="overline-title">number Plate_id</span></th>

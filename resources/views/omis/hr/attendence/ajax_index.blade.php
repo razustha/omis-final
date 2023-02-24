@@ -89,7 +89,7 @@
                                         @endforeach
                                         <th class="tb-col">
                                             <span class="overline-title">Total</span>
-                                            
+
                                         </th>
                                     </tr>
                                 </thead>
@@ -102,19 +102,27 @@
                                         </div>
                                         <p class="smaller">{{$user->email}}</p>
                                     </td>
+                                    <?php
+                                        $count = 0;
+                                    ?>
+
                                     @foreach ($user->getAllAttendence($user->id) as $key => $attendence)
                                         @if($key == $attendence)
+
                                         <th class="tb-col px-1">
                                             <span class="overline-title"> <em style="color: red">-</em></span>
                                         </th>
                                         @else
+                                        <?php
+                                            $count = $count + 1
+                                        ?>
                                         <th class="tb-col px-1">
                                             <span class="overline-title"> <em class="icon ni ni-check" style="color: green"></em></span>
                                         </th>
                                         @endif
                                     @endforeach
                                         <th class="tb-col">
-                                           <p> 0/31</p>
+                                           <p> {{$count}}/{{count($user->getAllAttendence($user->id)) }}</p>
                                         </th>
                                 </tr>
                             </tbody>

@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Assest Category List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Assestcategory</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Assestcategory Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Assestcategory
+                                                <li class="breadcrumb-item"><a href="#">Assest Category</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Assest Category Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Assest Category
                                                 </li>
                                             </ol>
                                         </nav>

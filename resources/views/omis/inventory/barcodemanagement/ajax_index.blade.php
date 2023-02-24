@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Barcode Management List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Barcodemanagement</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Barcodemanagement Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Barcodemanagement
+                                                <li class="breadcrumb-item"><a href="#">Barcode Management</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Barcode Management Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Barcode Management
                                                 </li>
                                             </ol>
                                         </nav>

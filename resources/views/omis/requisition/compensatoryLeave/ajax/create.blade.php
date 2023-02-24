@@ -1,8 +1,8 @@
 <form action="{{route('requisition.compensatoryleave.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant Id")}}
+<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant")}}
 </div><div class="col-lg-6">{{createText("postion","postion","Postion")}}
-</div><div class="col-lg-6">{{createLabel('','form-label col-form-label','Department Name')}}{!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'') !!}
+</div><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'','','Department') !!}
 </div><div class="col-lg-6">{{createText("workingDay","workingDay","Working Day")}}
 </div><div class="col-lg-6">{{createDate("workingDate","workingDate","Working Date")}}
 </div><div class="col-lg-6">{{createText("holidayReason","holidayReason","Holiday Reason")}}

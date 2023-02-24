@@ -1,9 +1,9 @@
 <form action="{{route('requisition.compensatoryleave.update',[$data->compensatoryleave_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant Id",'',$data->applicant_id)}}
+<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant",'',$data->applicant_id)}}
 </div><div class="col-lg-6">{{createText("postion","postion","Postion",'',$data->postion)}}
-</div><div class="col-lg-6">{{createLabel('','form-label col-form-label','Department Name')}}{!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'',$data) !!}
+</div><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_department","department_id","departmentName",'',$data,'Department') !!}
 </div><div class="col-lg-6">{{createText("workingDay","workingDay","WorkingDay",'',$data->workingDay)}}
 </div><div class="col-lg-6">{{createDate("workingDate","workingDate","WorkingDate",'',$data->workingDate)}}
 </div><div class="col-lg-6">{{createText("holidayReason","holidayReason","HolidayReason",'',$data->holidayReason)}}

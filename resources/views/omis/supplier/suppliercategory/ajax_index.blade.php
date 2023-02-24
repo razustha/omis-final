@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">goods Category_id</span></th>
+<th class="tb-col"><span class="overline-title">goods Category</span></th>
 <th class="tb-col"><span class="overline-title">assets Value</span></th>
 <th class="tb-col"><span class="overline-title">date</span></th>
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->

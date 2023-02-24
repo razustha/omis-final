@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Purchase Entry List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Purchaseentry</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Purchaseentry Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Purchaseentry
+                                                <li class="breadcrumb-item"><a href="#">Purchase Entry</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Purchase Entry Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Purchase Entry
                                                 </li>
                                             </ol>
                                         </nav>

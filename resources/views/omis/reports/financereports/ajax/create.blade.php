@@ -1,7 +1,7 @@
 <form action="{{route('reports.financereports.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants Id")}}
-</div><div class="col-lg-6">{{createText("company_id","company_id","Company Id")}}
+<div class="row"><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants")}}
+</div><div class="col-lg-6">{{createText("company_id","company_id","Company")}}
 </div><div class="col-lg-6">{{createText("jobRole","jobRole","Job Role")}}
 </div><div class="col-lg-6">{{createText("applicantsDepartment","applicantsDepartment","Applicants Department")}}
 </div><div class="col-lg-4">{{createText("reportBy","reportBy","Report By")}}

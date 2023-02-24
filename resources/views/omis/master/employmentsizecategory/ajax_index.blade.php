@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Employment Size Category List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Employmentsizecategory</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Employmentsizecategory Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Employmentsizecategory
+                                                <li class="breadcrumb-item"><a href="#">Employment Size Category</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Employment Size Category Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Employment Size Category
                                                 </li>
                                             </ol>
                                         </nav>

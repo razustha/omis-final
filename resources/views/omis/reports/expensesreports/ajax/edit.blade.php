@@ -1,7 +1,7 @@
 <form action="{{route('reports.expensesreports.update',[$data->expensesReports_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant Id",'',$data->applicant_id)}}
+<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant",'',$data->applicant_id)}}
 </div><div class="col-lg-6">{{createText("expensesReportBy","expensesReportBy","Expenses Report By",'',$data->expensesReportBy)}}
 </div><div class="col-lg-4">{{createText("totalExpenses","totalExpenses","Total Expenses",'',$data->totalExpenses)}}
 </div><div class="col-lg-4">{{createText("issueDate","issueDate","Issue Date",'',$data->issueDate)}}
