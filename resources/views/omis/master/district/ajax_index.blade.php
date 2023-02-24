@@ -30,9 +30,9 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">country_id</span></th>
-                                        <th class="tb-col"><span class="overline-title">state_id</span></th>
-                                        <th class="tb-col"><span class="overline-title">district Name</span></th>
+                                        <th class="tb-col"><span class="overline-title">country</span></th>
+                                        <th class="tb-col"><span class="overline-title">state</span></th>
+                                        <th class="tb-col"><span class="overline-title">district</span></th>
                                         <th class="tb-col"><span class="overline-title">status</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
                                         </th>

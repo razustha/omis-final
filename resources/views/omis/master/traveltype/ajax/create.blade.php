@@ -1,7 +1,7 @@
 <form action="{{ route('master.traveltype.store') }}" id="storeCustomForm">
     @csrf
     <div class="row">
-        <div class="col-lg-6">{{ createText('travelTypeName', 'travelTypeName', 'Travel Type Name') }}
+        <div class="col-lg-6">{{ createText('travelTypeName', 'travelTypeName', 'Travel Type') }}
         </div>
  
         <div class="col-lg-6">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}

@@ -1,7 +1,7 @@
 
                 <form action="{{route('master.departmenttype.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("departmentParent_id","departmentParent_id","Department Parent Id")}}
+<div class="row"><div class="col-lg-6">{{createText("departmentParent_id","departmentParent_id","Department Parent")}}
 </div><div class="col-lg-6">{{createText("departmentName","departmentName","Department Name")}}
 </div><div class="col-lg-6">{{createText("jobTitle","jobTitle","Designation")}}
 </div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}

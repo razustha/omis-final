@@ -7,19 +7,19 @@
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
-                                    <h2 class="nk-block-title">Addsupplier List</h1>
+                                    <h2 class="nk-block-title">Supplier List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Addsupplier</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Addsupplier Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Addsupplier
+                                                <li class="breadcrumb-item"><a href="#">Supplier</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Supplier Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Supplier
                                                 </li>
                                             </ol>
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Addsupplier","supplier.addsupplier.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Supplier","supplier.addsupplier.create") !!}
                                     </ul>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">day</span></th>
 <th class="tb-col"><span class="overline-title">date</span></th>
-<th class="tb-col"><span class="overline-title">addSupplier_id</span></th>
+<th class="tb-col"><span class="overline-title">Supplier</span></th>
 <th class="tb-col" data-sortable="false"><span
                                                     class="overline-title">Action</span></th>
                                         </tr>
@@ -63,7 +63,7 @@
                                 {{-- Add Modal --}}
                        <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                         <div class="offcanvas-header border-bottom border-light">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Addsupplier</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Supplier</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body" data-simplebar>
                           <div class="card h-100">
@@ -81,7 +81,7 @@
                             {{-- Edit Modal --}}
                             <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Addsupplier<h5><button type="button" class="btn-close"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Supplier<h5><button type="button" class="btn-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>
