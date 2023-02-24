@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Interview Schedule List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Interviewschedule</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Interviewschedule Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Interviewschedule
+                                                <li class="breadcrumb-item"><a href="#">Interview Schedule</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Interview Schedule Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Interview Schedule
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicants_id</span></th>
+<th class="tb-col"><span class="overline-title">applicants</span></th>
 <th class="tb-col"><span class="overline-title">job Title</span></th>
 <th class="tb-col"><span class="overline-title">job Department</span></th>
 <!-- <th class="tb-col"><span class="overline-title">interviewerName</span></th>

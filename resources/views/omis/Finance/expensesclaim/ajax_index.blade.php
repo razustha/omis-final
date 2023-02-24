@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Expenses Claim List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Expensesclaim</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Expensesclaim Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Expensesclaim
+                                                <li class="breadcrumb-item"><a href="#">Expenses Claim</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Expenses Claim Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Expenses Claim
                                                 </li>
                                             </ol>
                                         </nav>

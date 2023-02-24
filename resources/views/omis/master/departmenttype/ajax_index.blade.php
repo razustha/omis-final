@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Department Type List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Departmenttype</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Departmenttype Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Departmenttype
+                                                <li class="breadcrumb-item"><a href="#">Department Type</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Department Type Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Department Type
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">department Parent_id</span></th>
+<th class="tb-col"><span class="overline-title">department Parent</span></th>
 <th class="tb-col"><span class="overline-title">department Name</span></th>
 <th class="tb-col"><span class="overline-title">Designation</span></th>
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->

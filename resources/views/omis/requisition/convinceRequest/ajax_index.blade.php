@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Convince Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Convincerequest</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Convincerequest Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Convincerequest
+                                                <li class="breadcrumb-item"><a href="#">Convince Request</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Convince Request Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Convince Request
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,8 +32,8 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">ttile Name</span></th>
-<th class="tb-col"><span class="overline-title">applicants_id</span></th>
+<th class="tb-col"><span class="overline-title">title</span></th>
+<th class="tb-col"><span class="overline-title">applicants</span></th>
 <!-- <th class="tb-col"><span class="overline-title">startDate</span></th>
 <th class="tb-col"><span class="overline-title">expireDate</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->

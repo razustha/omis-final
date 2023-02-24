@@ -10,9 +10,9 @@
                                 <h2 class="nk-block-title">Travel Type List</h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                            <li class="breadcrumb-item"><a href="#">Traveltype</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Traveltype Manage</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Traveltype
+                                            <li class="breadcrumb-item"><a href="#">Travel Type</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Travel Type Manage</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Travel Type
                                             </li>
                                         </ol>
                                     </nav>
@@ -30,7 +30,7 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">travel Type Name</span></th>
+                                        <th class="tb-col"><span class="overline-title">travel Type</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">travelTypeDescription</span></th>
                                         <th class="tb-col"><span class="overline-title">alias</span></th> -->
                                         <th class="tb-col"><span class="overline-title">status</span></th>

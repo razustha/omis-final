@@ -1,8 +1,8 @@
 
                 <form action="{{route('requisition.convincerequest.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("ttileName","ttileName","Title Name")}}
-</div><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants Id")}}
+<div class="row"><div class="col-lg-6">{{createText("ttileName","ttileName","Title")}}
+</div><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicant")}}
 </div><div class="col-lg-4">{{createDate("startDate","startDate","Start Date")}}
 </div><div class="col-lg-4">{{createDate("expireDate","expireDate","Expire Date")}}
 </div><div class="col-lg-4">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}

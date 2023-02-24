@@ -1,13 +1,13 @@
 <form action="{{ route('master.city.store') }}" id="storeCustomForm">
     @csrf
     <div class="row">
-        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '') !!}
+        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '','','Country Name') !!}
         </div>
-        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '') !!}
+        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '','','State Name') !!}
         </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '') !!}
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '','','District Name') !!}
         </div>
-        <div class="col-lg-4">{{ createText('cityName', 'cityName', 'CityName') }}
+        <div class="col-lg-4">{{ createText('cityName', 'cityName', 'City Name') }}
         </div>
         <div class="col-lg-4">{{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>

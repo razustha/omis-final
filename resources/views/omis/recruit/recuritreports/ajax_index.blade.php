@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Reports List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Recuritreports</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Recuritreports Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Recuritreports
+                                                <li class="breadcrumb-item"><a href="#">Reports</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Reports Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Reports
                                                 </li>
                                             </ol>
                                         </nav>

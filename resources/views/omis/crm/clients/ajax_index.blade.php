@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicantName_id</span></th>
+<th class="tb-col"><span class="overline-title">applicant Name</span></th>
 <th class="tb-col"><span class="overline-title">phone</span></th>
 <th class="tb-col"><span class="overline-title">email</span></th>
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->

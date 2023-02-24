@@ -1,6 +1,6 @@
 <form action="{{route('reports.leavereports.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant Id")}}
+<div class="row"><div class="col-lg-6">{{createText("applicant_id","applicant_id","Applicant")}}
 </div><div class="col-lg-6">{{createText("leaveReason","leaveReason","Leave Reason")}}
 </div><div class="col-lg-6">{{createText("leaveApprovedBy","leaveApprovedBy","Leave Approved By")}}
 </div><div class="col-lg-6">{{createText("totalLeaveDays","totalLeaveDays","Total Leave Days")}}

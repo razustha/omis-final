@@ -1,7 +1,7 @@
 
                 <form action="{{route('recruit.experienceletter.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'') !!}
+<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_employee","employee_id","employee_id",'','','Employee Name') !!}
 </div><div class="col-lg-6">{{createText("designation","designation","Designation")}}
 </div><div class="col-lg-6">{{createText("departmentName","departmentName","Department Name")}}
 </div><div class="col-lg-6">{{createDate("joiningDate","joiningDate","Joining Date")}}

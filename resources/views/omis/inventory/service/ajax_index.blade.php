@@ -31,7 +31,7 @@
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
 <th class="tb-col"><span class="overline-title">service Name</span></th>
-<th class="tb-col"><span class="overline-title">service Type_id</span></th>
+<th class="tb-col"><span class="overline-title">service Type</span></th>
 <!-- <th class="tb-col"><span class="overline-title">issueDate</span></th>
 <th class="tb-col"><span class="overline-title">serviceExpireDate</span></th> -->
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->

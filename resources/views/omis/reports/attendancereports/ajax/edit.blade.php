@@ -1,7 +1,7 @@
 <form action="{{route('reports.attendancereports.update',[$data->attendancereports_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants Id",'',$data->applicants_id)}}
+<div class="row"><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants",'',$data->applicants_id)}}
 </div><div class="col-lg-6">{{createText("totalAttendance","totalAttendance","Total Attendance",'',$data->totalAttendance)}}
 </div><div class="col-lg-6">{{createText("totalWorkingDays","totalWorkingDays","Total Working Days",'',$data->totalWorkingDays)}}
 </div><div class="col-lg-6">{{createText("totalAbsentDays","totalAbsentDays","Total Absent Days",'',$data->totalAbsentDays)}}

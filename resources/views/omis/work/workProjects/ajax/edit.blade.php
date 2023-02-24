@@ -2,29 +2,12 @@
     @csrf
     @method('PUT')
     <div class="row">
-        <div class="col-lg-6">{{ createText('projectTitle', 'projectTitle', 'ProjectTitle', '', $data->projectTitle) }}
-        </div>
-
-        <div class="col-lg-6">
-            {{ createText('projectStartDate', 'projectStartDate', 'ProjectStartDate', '', $data->projectStartDate) }}
+        <div class="col-lg-6">{{ createText('projectTitle', 'projectTitle', 'Project Title', '', $data->projectTitle) }}
         </div>
         <div class="col-lg-6">
-            {{ createText('projectEndDate', 'projectEndDate', 'ProjectEndDate', '', $data->projectEndDate) }}
+            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Department') !!}
         </div>
         <div class="col-lg-6">
-            {{ createText('projectPriority', 'projectPriority', 'ProjectPriority', '', $data->projectPriority) }}
-        </div>
-
-        <div class="col-lg-6">
-            {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', $data, 'Deapartment') !!}
-        </div>
-
-
-        <div class="col-lg-6">
-            {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
-        </div>
-
-        <div class="col-lg-12">
             <div class="col-lg-12">
                 {{ createLabel('Assigned Employee', 'form-label col-form-label', 'Assigned Employee') }}
                 <select name="employee_id[]" class="form-control employee_id" multiple>
@@ -38,7 +21,26 @@
             </div>
         </div>
 
+        <div class="col-lg-3">
+            {{ createDate('projectStartDate', 'projectStartDate', 'Start Date', '', $data->projectStartDate) }}
+        </div>
+        <div class="col-lg-3">
+            {{ createDate('projectEndDate', 'projectEndDate', 'End Date', '', $data->projectEndDate) }}
+        </div>
         <div class="col-lg-6">
+            {{ createText('projectPriority', 'projectPriority', 'Project Priority', '', $data->projectPriority) }}
+        </div>
+
+       
+
+
+        <div class="col-lg-6">
+            {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
+        </div>
+
+        
+
+        <div class="col-lg-12">
             {{ createLabel('projectDescription', 'form-label col-form-label', 'Description') }}{{ createTextArea('projectDescription', 'projectDescription', 'ProjectDescription', '', $data->projectDescription) }}
 
         </div>
@@ -58,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}{{ createTextArea('remarks', 'remarks', 'Remarks', '', $data->remarks) }}
         </div>
         <div class="col-md-12"><?php createButton('btn-primary btn-update', '', 'Update'); ?>

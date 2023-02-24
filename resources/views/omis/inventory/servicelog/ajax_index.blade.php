@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Service Log List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Servicelog</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Servicelog Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Servicelog
+                                                <li class="breadcrumb-item"><a href="#">Service Log</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Service Log Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Service Log
                                                 </li>
                                             </ol>
                                         </nav>
@@ -30,7 +30,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">serviceName</span></th>
+<th class="tb-col"><span class="overline-title">service Name</span></th>
 <!-- <th class="tb-col"><span class="overline-title">time</span></th>
 <th class="tb-col"><span class="overline-title">date</span></th>
 <th class="tb-col"><span class="overline-title">alias</span></th> -->

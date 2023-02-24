@@ -10,16 +10,16 @@
                                     <h2 class="nk-block-title">Leave Type List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Leavetype</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Leavetype Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Leavetype
+                                                <li class="breadcrumb-item"><a href="#">Leave Type</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Leave Type Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Leave Type
                                                 </li>
                                             </ol>
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Leavetype","master.leavetype.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Leave Type","master.leavetype.create") !!}
                                     </ul>
                                 </div>
                             </div>

@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['country_id']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>Country Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->country_id}}</span></p><p><b>State Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->state_id}}</span></p><p><b>District Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->district_id}}</span></p><p><b>City Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->cityName}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Country :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->country_id}}</span></p><p><b>State :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->state_id}}</span></p><p><b>District :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->district_id}}</span></p><p><b>City Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->cityName}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

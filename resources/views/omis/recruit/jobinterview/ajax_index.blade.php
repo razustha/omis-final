@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Job Interview List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Jobinterview</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Jobinterview Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Jobinterview
+                                                <li class="breadcrumb-item"><a href="#">Job Interview</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Job Interview Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Job Interview
                                                 </li>
                                             </ol>
                                         </nav>

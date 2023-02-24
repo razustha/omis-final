@@ -1,10 +1,10 @@
 
                 <form action="{{route('hr.latereasons.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("applicantsName_id","applicantsName_id","ApplicantsName Id")}}
+<div class="row"><div class="col-lg-6">{{createText("applicantsName_id","applicantsName_id","Applicants Name")}}
 </div><div class="col-lg-6">{{createDate("lateDate","lateDate","Late Date")}}
-</div><div class="col-lg-6">{{createText("dayLate","dayLate","Day Late")}}
-</div><div class="col-lg-6">{{createText("lateDesignation","lateDesignation","Late Designation")}}
+</div><div class="col-lg-6">{{createText("dayLate","dayLate","Late Day")}}
+</div><div class="col-lg-6">{{createText("lateDesignation","lateDesignation","Designation")}}
 </div><div class="col-lg-6">{{createText("reasonForLate","reasonForLate","Reason For Late")}}
 </div><div class="col-lg-6">{{createText("submittedBy","submittedBy","Submitted By")}}
 </div><div class="col-lg-4">{{createText("checkedBy","checkedBy","Checked By")}}
