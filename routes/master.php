@@ -202,6 +202,7 @@ Route::prefix("master")->group(
             Route::get('/edit/{id}', [LeavetypeController::class, 'edit'])->name('master.leavetype.edit')->middleware('permission:master-leavetype-edit');
             Route::put('/update/{id}', [LeavetypeController::class, 'update'])->name('master.leavetype.update')->middleware('permission:master-leavetype-update');
             Route::get('/destroy/{id}', [LeavetypeController::class, 'destroy'])->name('master.leavetype.destroy')->middleware('permission:master-leavetype-destroy');
+            Route::post('/paidleave', [LeavetypeController::class, 'addPaidLeave'])->name('master.leavetype.addPaidLeave');
         });
 
 

@@ -7,20 +7,16 @@
         use Illuminate\Database\Eloquent\Model;
         use App\Traits\CreatedUpdatedBy;
 
-        class Leavetype extends Model
+        class PaidLeave extends Model
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_leavetype';
-            protected $primaryKey = 'leavetype_id';
+            protected $table = 'tbl_paid_leaves';
+            protected $primaryKey = 'paid_leave_id';
             public $timestamps = true;
             protected $fillable =[
-                'leaveType',
-'leavePaidStatus',
-'leaveCount',
-'monthlyLimit',
-'colorCode',
-'assignEmployee',
+                'organization_id',
+'paidLeave',
 'createdOn',
 'createdBy',
 'updatedBy',

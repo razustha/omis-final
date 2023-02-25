@@ -41,6 +41,25 @@ class OrganizationController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->fromWorkDays == $request->toWorkDays) {
+            return redirect()->back()->with('failed', 'Work days should not be same');
+        }
+        $allDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        $fromWorkDayNumber = 0;
+        $toWorkDayNumber = 0;
+        for ($i = 0; $i > count($allDays); $i++) {
+            if ($allDays[$i] == $request->fromWorkDays) {
+                $fromWorkDayNumber = $i + 1;
+            }
+            if ($allDays[$i] == $request->toWorkDays) {
+                $toWorkDayNumber = $i + 1;
+            }
+        }
+        if ($fromWorkDayNumber > $toWorkDayNumber) {
+            return redirect()->back()->with('failed', 'From Work days should not be greater than To work days ');
+        }
+        $workDays = [$request->fromWorkDays, $request->toWorkDays];
+        $workDays = implode('-', $workDays);
         $request->request->add(['alias' => slugify($request->organizationName)]);
         $users = [
             'name' => $request->ownerName,
@@ -53,6 +72,7 @@ class OrganizationController extends Controller
             $user = User::create($users);
             $orgData = $request->all();
             $orgData['user_id'] = $user->id;
+            $orgData['workDays'] = $workDays;
             $organization = Organization::create($orgData);
             $package = Package::where('package_id', $organization->package_id)->first();
 
@@ -75,7 +95,7 @@ class OrganizationController extends Controller
 
             $user->roles()->attach($role);
 
-            //if App is in live mode then 
+            //if App is in live mode then
             if (!env('APP_MODE')) {
                 if (!empty($user->email)) {
                     try {

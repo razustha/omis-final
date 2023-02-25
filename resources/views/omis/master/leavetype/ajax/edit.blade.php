@@ -4,11 +4,9 @@
             <div class="row">
                 <div class="col-lg-6">{{ createText('leaveType', 'leaveType', 'Leave Type', '', $data->leaveType) }}
                 </div>
+
                 <div class="col-lg-6">
-                    {{ customCreateSelect('leavePaidStatus', 'leavePaidStatus', '', 'Leave Paid Status', ['Paid', 'Unpaid'], $data->status) }}
-                </div>
-                <div class="col-lg-6">
-                    {{ createText('numberOfLeave', 'numberOfLeave', 'Number Of Leave', '', $data->numberOfLeave) }}
+                    {{ createText('leaveCount', 'leaveCount', 'Number Of Leave(Annually)', '', $data->leaveCount) }}
                 </div>
                 <div class="col-lg-6">
                     {{ createText('monthlyLimit', 'monthlyLimit', 'Monthly Limit', '', $data->monthlyLimit) }}

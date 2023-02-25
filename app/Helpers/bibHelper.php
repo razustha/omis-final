@@ -112,7 +112,7 @@
         <?php
         }
         ?>
-     
+
 
 
         <?php
@@ -131,6 +131,16 @@
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
             <input type="hidden" id="<?php echo $id; ?>" placeholder="<?php echo $placeHolder; ?>" name="<?php echo $name; ?>" class="form-control <?php $class; ?>" value="<?php echo $value; ?>">
+        <?php
+        }
+        ?>
+
+        <?php
+        function createColor($name, $id, $display, $class = "", $value = "", $placeHolder = "")
+        {
+        ?>
+            <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
+            <input type="color" id="<?php echo $id; ?>" placeholder="<?php echo $placeHolder; ?>" name="<?php echo $name; ?>" class="form-control <?php $class; ?>" value="<?php echo $value; ?>">
         <?php
         }
         ?>
@@ -206,16 +216,16 @@
                 ?>
 
                     <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
-                    
+
                         <select class="form-select <?php echo $class ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" aria-label="Default select example">
                         <option value="">Select Option</option>
                             <?php foreach ($values as $key => $value) { ?>
                                 <option value="<?= $key ?>" <?php echo $keyValue == $key ? 'selected' : '' ?>><?= $value ?></option>
                             <?php } ?>
                         </select>
-                         
-                       
-                   
+
+
+
 
 
                     <!-- <div class="input-group">
@@ -534,7 +544,7 @@
 
                 function getReportingTo($department_id)
                 {
-                    return Employee::where('status', '<>', -1)->where('department_id', $department_id)->where('is_head', 'manager')->orderBy('created_at', 'desc')->get(); 
+                    return Employee::where('status', '<>', -1)->where('department_id', $department_id)->where('is_head', 'manager')->orderBy('created_at', 'desc')->get();
                 }
 
                 function getEmployeeHasNoLogin()
@@ -551,8 +561,8 @@
                         $startNumber= date('YmdHis').rand(100000,999999);
                         $isExists = OperationLog::where('operation_end_no',$startNumber)->first();
                     }
-                        return $startNumber + 1; 
-                } 
+                        return $startNumber + 1;
+                }
 
                 /**
                  * function createLog(operation start number, operation end number, model class full name with path,model Id for create and upodate operation, operation Name, previous values in array, new values in array);

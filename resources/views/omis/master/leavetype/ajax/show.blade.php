@@ -5,18 +5,18 @@
     <div class="offcanvas-body" data-simplebar>
         <div class="nk-block-head-content w-100">
             <div class="d-flex justify-content-between pb-4">
-    
+
                 <h2>Leave Type Details</h2>
                 <button class="btn btn-primary print_pdf">Print PDF</button>
             </div>
             <div class="card w-100">
                 <div class="p-5">
-    
+
                     <div class="card-head">
                         <h2 class="text-center">{{$data['leavePaidStatus']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>Leave Paid Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->leavePaidStatus}}</span></p><p><b>Number Of Leave :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->numberOfLeave}}</span></p><p><b>Monthly Limit :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->monthlyLimit}}</span></p><p><b>Color Code :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->colorCode}}</span></p><p><b>Assign Employee :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->assignEmployee}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Leave Paid Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->leavePaidStatus}}</span></p><p><b>Number Of Leave :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->leaveCount}}</span></p><p><b>Monthly Limit :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->monthlyLimit}}</span></p><p><b>Color Code :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->colorCode}}</span></p><p><b>Assign Employee :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->assignEmployee}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

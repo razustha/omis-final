@@ -4,6 +4,23 @@
             <div class="container">
                 <div class="nk-content-inner">
                     <div class="nk-content-body">
+                        <div class="card-body">
+                                <p class="mb-1" style="font-size: 20px">Paid Leave : @if($paidLeave != null )
+                                        <b>{{$paidLeave->paidLeave}}</b> / month @else <b
+                                            class="badge badge-warning">Not Added</b>@endif</p>
+                                <p>(This is the no. of paid leaves an employee can take in a month.)</p>
+                                <hr/>
+                                <form action="{{route('master.leavetype.addPaidLeave')}}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="paidLeave" class="font-weight-normal">Change paid leave per month</label>
+                                        <input type="number" class="form-control" name="paidLeave" id="paidLeave">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">Change</button>
+                                    </div>
+                                </form>
+                        </div>
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
@@ -50,7 +67,7 @@
                                         <tr>
                                             <td class="tb-col">{{ $i++ }}</td><td class="tb-col">{{ $item->leaveType }}</td>
 <!-- <td class="tb-col">{{ $item->leavePaidStatus }}</td> -->
-<td class="tb-col">{{ $item->numberOfLeave }}</td>
+<td class="tb-col">{{ $item->leaveCount }}</td>
 <!-- <td class="tb-col">{{ $item->monthlyLimit }}</td>
 <td class="tb-col">{{ $item->colorCode }}</td>
 <td class="tb-col">{{ $item->assignEmployee }}</td>
@@ -58,10 +75,10 @@
 <td class="tb-col">{!! $item->status_name !!}</td>
 <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                <li>    
+                                                <li>
                                                     {!! actionCanvasButton("","btn-showCanvas","showoffcanvas","eye",'master.leavetype.show',$item->leavetype_id) !!}
                                                 </li>
-                                               <li> 
+                                               <li>
                                                         {!! actionCanvasButton("","btn-editCanvas","editoffcanvas","edit",'master.leavetype.edit',$item->leavetype_id) !!}
                                                 </li>
                                                 <li>{!! deleteCanvasButton("","btn-hover-danger",'master.leavetype.destroy',$item->leavetype_id) !!}</li>
@@ -123,4 +140,3 @@
     </div>
 </div>
 @endsection
-    
