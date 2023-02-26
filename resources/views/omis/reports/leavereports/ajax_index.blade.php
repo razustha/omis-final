@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Leave Reports List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Leavereports</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Leavereports Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Leavereports
+                                                <li class="breadcrumb-item"><a href="#">Leave Reports</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Leave Reports Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Leave Reports
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicant_id</span></th>
+<th class="tb-col"><span class="overline-title">applicant</span></th>
 <th class="tb-col"><span class="overline-title">leave Reason</span></th>
 <!-- <th class="tb-col"><span class="overline-title">leaveApprovedBy</span></th>
 <th class="tb-col"><span class="overline-title">totalLeaveDays</span></th>

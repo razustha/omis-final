@@ -1,41 +1,34 @@
 <?php
-        namespace App\Models\Hr;
+        namespace App\Models\Master;
 
         use App\Models\User;
         use Illuminate\Database\Eloquent\Casts\Attribute;
         use Illuminate\Database\Eloquent\Factories\HasFactory;
         use Illuminate\Database\Eloquent\Model;
         use App\Traits\CreatedUpdatedBy;
-        use App\Models\Hr\Employee;
 
-        class Promotiondemotion extends Model
+        class PaidLeave extends Model
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_promotiondemotion';
-            protected $primaryKey = 'promotiondemotion_id';
+            protected $table = 'tbl_paid_leaves';
+            protected $primaryKey = 'paid_leave_id';
             public $timestamps = true;
             protected $fillable =[
-                'company_id',
-'employee_id',
-'promotionTitle',
-'updated_designation_id',
-'updated_department_id',
-'type',
-'promotionDate',
-'description',
+                'organization_id',
+'paidLeave',
 'createdOn',
 'createdBy',
+'updatedBy',
 'alias',
 'status',
 'remarks',
 'created_at',
 'updated_at',
-'updatedBy',
 
             ];
 
-            protected $appends = ['status_name','employee_name'];
+            protected $appends = ['status_name'];
 
             protected function getStatusNameAttribute()
             {
@@ -54,10 +47,5 @@
         return Attribute::make(
             get: fn ($value) => User::find($value) ? User::find($value)->name : '',
         );
-    }
-    protected function getEmployeeNameAttribute()
-    {
-        $employee=Employee::find($this->employee_id);
-        return $employee ? $employee->full_name:'';
     }
         }

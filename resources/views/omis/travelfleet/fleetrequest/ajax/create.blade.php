@@ -1,6 +1,6 @@
 <form action="{{route('travelfleet.fleetrequest.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_fleet","fleet_id","fleetName",'') !!}
+<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_fleet","fleet_id","fleetName",'','','Fleet') !!}
 </div><div class="col-lg-6">{{createText("fleetName","fleetName","Fleet Name")}}
 </div><div class="col-lg-6">{{createText("modelNumber","modelNumber","Model Number")}}
 </div><div class="col-lg-6">{{createText("numberPlate_id","numberPlate_id","Number Plate Id")}}

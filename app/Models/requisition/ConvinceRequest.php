@@ -11,7 +11,7 @@
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_convinceRequest';
+            protected $table = 'tbl_convincerequest';
             protected $primaryKey = 'convinceReuest_id';
             public $timestamps = true;
             protected $fillable =[

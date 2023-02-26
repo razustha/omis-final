@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['goodsCategory_id']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>Goods Category Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->goodsCategory_id}}</span></p><p><b>Assets Value :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->assetsValue}}</span></p><p><b>Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->date}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Goods Category :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->goodsCategory_id}}</span></p><p><b>Assets Value :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->assetsValue}}</span></p><p><b>Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->date}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

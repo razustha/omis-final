@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Expenses Reports List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Expensesreports</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Expensesreports Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Expensesreports
+                                                <li class="breadcrumb-item"><a href="#">Expenses Reports</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Expenses Reports Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Expenses Reports
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicant_id</span></th>
+<th class="tb-col"><span class="overline-title">applicant</span></th>
 <!-- <th class="tb-col"><span class="overline-title">expensesDesciption</span></th> -->
 <th class="tb-col"><span class="overline-title">Report By</span></th>
 <!-- <th class="tb-col"><span class="overline-title">totalExpenses</span></th> -->

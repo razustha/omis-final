@@ -14,8 +14,12 @@ class AttendenceController extends Controller
 {
     public function index(Request $request)
     {
-
-        $users = User::get();
+        if(auth()->user()->hasRole('super-super-admin','super-admin'))
+        {
+            $users = User::get();
+        } else {
+            $users = User::where('id', auth()->user()->id)->get();
+        }
         $data = Attendence::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
 
         if ($request->ajax()) {

@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Late Reasons List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Latereasons</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Latereasons Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Latereasons
+                                                <li class="breadcrumb-item"><a href="#">Late Reasons</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Late Reasons Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Late Reasons
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,9 +32,9 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">applicantsName_id</span></th>
-<th class="tb-col"><span class="overline-title">lateDate</span></th>
-<th class="tb-col"><span class="overline-title">dayLate</span></th>
+<th class="tb-col"><span class="overline-title">applicants Name</span></th>
+<th class="tb-col"><span class="overline-title">late Date</span></th>
+<th class="tb-col"><span class="overline-title">Late day</span></th>
 <!-- <th class="tb-col"><span class="overline-title">lateDesignation</span></th>
 <th class="tb-col"><span class="overline-title">reasonForLate</span></th>
 <th class="tb-col"><span class="overline-title">submittedBy</span></th>

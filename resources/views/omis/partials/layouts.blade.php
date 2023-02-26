@@ -6,6 +6,7 @@
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Multi-purpose admin dashboard template that especially build for programmers.">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>{{ env('APP_NAME') }}</title>
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -138,7 +139,7 @@
                 url: route,
                 success: function(res) {
                     $("#editConvasByAjax").html(res.content);
-                    $('.lfm').filemanager('image');
+                    $('.lfm').filemanager('file');
                 }
             })
         })
@@ -150,7 +151,7 @@
                 url: route,
                 success: function(res) {
                     $("#addConvasByAjax").html(res.content);
-                    $('.lfm').filemanager('image');
+                    $('.lfm').filemanager('file');
                     let mainInput = document.getElementById("nepali-datepicker1");
                     mainInput.nepaliDatePicker();
 

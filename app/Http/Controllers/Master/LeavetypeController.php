@@ -3,7 +3,9 @@
         use App\Http\Controllers\Controller;
         use Illuminate\Http\Request;
         use App\Models\Master\Leavetype;
-        use Illuminate\Support\Facades\DB;
+use App\Models\Master\PaidLeave;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
 
         class LeavetypeController extends Controller
@@ -11,11 +13,12 @@
            public function index(Request $request)
             {
                 $data = Leavetype::where('status','<>',-1)->orderBy('created_at','desc')->get();
+                $paidLeave = PaidLeave::where('organization_id', 1)->first();
                 if ($request->ajax()) {
                     $html = view("omis.master.leavetype.ajax.index", compact('data'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
-                return view("omis.master.leavetype.ajax_index", compact('data'));
+                return view("omis.master.leavetype.ajax_index", compact('data','paidLeave'));
             }
 
             public function create(Request $request)
@@ -136,5 +139,28 @@
                     }
                 } else {
                 }
+            }
+
+
+            public function addPaidLeave(Request $request)
+            {
+                $this->validate($request, [
+                    'paidLeave' => 'required'
+                ]);
+                $request->request->add(['alias' => slugify($request->leavetypeName)]);
+
+                //checking if there is already paid leave added
+                $paidLeave = PaidLeave::where('organization_id', 1)->first();
+                if($paidLeave == null){
+                    PaidLeave::create([
+                        'organization_id' => 1,
+                        'paidLeave' => $request->paidLeave,
+                    ]);
+                }else{
+                    $paidLeave->paidLeave = $request->paidLeave;
+                    $paidLeave->updated_at = Carbon::now();
+                    $paidLeave->save();
+                }
+                return redirect()->back()->with('success','Success');
             }
         }

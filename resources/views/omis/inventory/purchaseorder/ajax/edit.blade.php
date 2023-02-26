@@ -21,8 +21,8 @@
 </div><div class="col-lg-4">{{createText("operationalDesignation","operationalDesignation","Operational Designation",'',$data->operationalDesignation)}}
 </div><div class="col-lg-4">{{createDate("operationalDate","operationalDate","Operational Date",'',$data->operationalDate)}}
 </div><div class="col-lg-4">{{createText("vendorName","vendorName","Vendor Name",'',$data->vendorName)}}
-</div><div class="col-lg-4">{{createDate("vendorDesignation","vendor Designation","VendorDesignation",'',$data->vendorDesignation)}}
-</div><div class="col-lg-4">{{createText("vendorDate","vendorDate","Vendor Date",'',$data->vendorDate)}}
+</div><div class="col-lg-4">{{createText("vendorDesignation","vendor Designation","Vendor Designation",'',$data->vendorDesignation)}}
+</div><div class="col-lg-4">{{createDate("vendorDate","vendorDate","Vendor Date",'',$data->vendorDate)}}
 </div><div class="col-lg-6">{{createText("specialRequest","specialRequest","Special Request",'',$data->specialRequest)}}
 </div><div class="col-lg-6">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'],$data->status)}}
 </div><div class="col-lg-6">{{createLabel('goodsDescription','form-label col-form-label','Description')}}{{createTextArea("goodsDescription","goodsDescription","GoodsDescription",'',$data->goodsDescription)}}

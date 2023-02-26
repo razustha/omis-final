@@ -2,10 +2,10 @@
  @csrf 
  @method('PUT')
 <div class="row">
-<div class="col-lg-6">{{createText("companyName_id","companyName_id","Company Id",'',$data->companyName_id)}}
+<div class="col-lg-6">{{createText("companyName_id","companyName_id","Company",'',$data->companyName_id)}}
 </div>        
-<div class="col-lg-6">{{createText("employeeName_id","employeeName_id","Employee Id",'',$data->employeeName_id)}}
-</div><div class="col-lg-6">{{createText("arrangementType_id","arrangementType_id","Arrangement Id",'',$data->arrangementType_id)}}
+<div class="col-lg-6">{{createText("employeeName_id","employeeName_id","Employee",'',$data->employeeName_id)}}
+</div><div class="col-lg-6">{{createText("arrangementType_id","arrangementType_id","Arrangement",'',$data->arrangementType_id)}}
 </div><div class="col-lg-6">{{createText("purposeOfVisit","purposeOfVisit","Purpose Of Visit",'',$data->purposeOfVisit)}}
 </div><div class="col-lg-6">{{createText("destination","destination","Destination",'',$data->destination)}}
 </div><div class="col-lg-6">{{createDate("travelStartDate","travelStartDate","Start Date",'',$data->travelStartDate)}}

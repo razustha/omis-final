@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Vehicle Log List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Vehiclelog</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Vehiclelog Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Vehiclelog
+                                                <li class="breadcrumb-item"><a href="#">Vehicle Log</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Vehicle Log Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Vehicle Log
                                                 </li>
                                             </ol>
                                         </nav>

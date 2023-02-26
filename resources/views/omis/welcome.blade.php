@@ -47,33 +47,23 @@
                     </div>
                     <div class="row g-gs">
                         <div class="col-sm-6 col-xl-6 col-xxl-3">
-
                             <div class="card h-100">
                                 <div class="card-body">
-                                    <div class="card-title-group align-items-start row">
-                                        <div class="col-sm-7 col-xl-7 col-xxl-6">
+                                    <div class="card-title-group align-items-start">
                                             <div class="card-title">
                                                 <h4 class="title">Total Clients</h4>
                                             </div>
-                                            <div class="mt-2 ">
-                                                <div class="amount h1">2,765</div>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-xl-6 col-xxl-3">
                                             <div class="media media-middle media-circle media-sm text-bg-primary-soft">
                                                 <em class="icon icon-md ni ni-bar-chart-fill"></em>
-                                            </div>
                                         </div>
                                     </div>
-
-
-
-
-
+                                        <div class="mt-2 ">
+                                                <div class="amount h1">2,765</div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-6 col-xl-6 col-xxl-3">
                             <div class="card h-100">
                                 <div class="card-body">

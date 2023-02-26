@@ -1,6 +1,6 @@
 <form action="{{route('reports.attendancereports.store')}}" id="storeCustomForm">
  @csrf 
-<div class="row"><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants Id")}}
+<div class="row"><div class="col-lg-6">{{createText("applicants_id","applicants_id","Applicants")}}
 </div><div class="col-lg-6">{{createText("totalAttendance","totalAttendance","Total Attendance")}}
 </div><div class="col-lg-6">{{createText("totalWorkingDays","totalWorkingDays","Total Working Days")}}
 </div><div class="col-lg-6">{{createText("totalAbsentDays","totalAbsentDays","Total Absent Days")}}

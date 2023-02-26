@@ -3,7 +3,7 @@
     @method('PUT')
     <div class="row">
         <div class="col-lg-6">
-            {{ createText('travelTypeName', 'travelTypeName', 'Travel Type Name', '', $data->travelTypeName) }}
+            {{ createText('travelTypeName', 'travelTypeName', 'Travel Type', '', $data->travelTypeName) }}
         </div>
        
         <div class="col-lg-6">

@@ -2,7 +2,7 @@
                 <form action="{{route('inventory.service.store')}}" id="storeCustomForm">
  @csrf 
 <div class="row"><div class="col-lg-6">{{createText("serviceName","serviceName","Service Name")}}
-</div><div class="col-lg-6">{{createText("serviceType_id","serviceType_id","Service Type Id")}}
+</div><div class="col-lg-6">{{createText("serviceType_id","serviceType_id","Service Type")}}
 </div><div class="col-lg-4">{{createDate("issueDate","issueDate","Issue Date")}}
 </div><div class="col-lg-4">{{createDate("serviceExpireDate","serviceExpireDate","Service Expire Date")}}
 </div><div class="col-lg-4">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'])}}

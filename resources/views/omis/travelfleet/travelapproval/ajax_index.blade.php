@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Travel Approval List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Travelapproval</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Travelapproval Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Travelapproval
+                                                <li class="breadcrumb-item"><a href="#">Travel Approval</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Travel Approval Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Travel Approval
                                                 </li>
                                             </ol>
                                         </nav>

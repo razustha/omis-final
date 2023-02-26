@@ -87,9 +87,9 @@
                         </ul>
                     </li>
                     @endif
-                   
-                 
-                
+
+
+
                     @if(Gate::check('settings-organization-index'))
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
@@ -97,20 +97,20 @@
                             <span class="nk-menu-text">Settings</span></a>
                         <ul class="nk-menu-sub">
 
-                          
+
                             <li class="nk-menu-item"><a href="{{ route('settings.organizationsettings.index') }}"
                                     class="nk-menu-link"><span class="nk-menu-text">Organization
                                         Setting</span></a></li>
-                                        
-                                  
-                                  
-                                        
+
+
+
+
 
                         </ul>
                     </li>
                     @endif
-                   
-                   
+
+
                     {{-- <li class="nk-menu-item ">
                         <a href="#" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
@@ -295,7 +295,7 @@
                                 class="nk-menu-text">Leaves</span></a>
                     </li>
                     @endcan
-                    
+
                     @if(Gate::check('crm-clients-index') || Gate::check('crm-leads-index'))
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-centos"></em></span><span
@@ -328,7 +328,7 @@
                         <ul class="nk-menu-sub">
                             @can('hr-attendence-index')
                             <li class="nk-menu-item"><a href="{{ route('hr.attendence.index') }}"
-                                    class="nk-menu-link"><span class="nk-menu-text">Create Attendance
+                                    class="nk-menu-link"><span class="nk-menu-text">Attendance
                                     </span></a></li>
                             @endcan
                             @can('hr-absentreason-index')
@@ -586,7 +586,7 @@
                     @endif
                     @if(Gate::check('training-trainingtype-index') || Gate::check('training-traininglist-index')
                     || Gate::check('training-trainer-index'))
-                   
+
 
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-shield-half"></em></span><span
@@ -611,10 +611,10 @@
                     </li>
                     @endif
                     @if(Gate::check('travelfleet-driverroster-index') || Gate::check('travelfleet-maintenancelog-index')
-                    || Gate::check('travelfleet-fleetroster-index') || Gate::check('travelfleet-fleetmanagement-index') 
+                    || Gate::check('travelfleet-fleetroster-index') || Gate::check('travelfleet-fleetmanagement-index')
                     || Gate::check('travelfleet-travelslog-index') || Gate::check('travelfleet-vehiclelog-index')
-                    || Gate::check('travelfleet-travelrequest-index') || Gate::check('travelfleet-travelcategory-index') 
-                    || Gate::check('travelfleet-travelapproval-index') || Gate::check('travelfleet-fleetrequest-index')) 
+                    || Gate::check('travelfleet-travelrequest-index') || Gate::check('travelfleet-travelcategory-index')
+                    || Gate::check('travelfleet-travelapproval-index') || Gate::check('travelfleet-fleetrequest-index'))
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-map-pin-fill"></em></span><span
                                 class="nk-menu-text">Travel
@@ -811,7 +811,7 @@
                     </li>
                     @endif
                     @if(Gate::check('eventsandmeetings-meeting-index') || Gate::check('eventsandmeetings-event-index'))
-                  
+
 
                     <li class="nk-menu-item has-sub"><a href="#" class="nk-menu-link nk-menu-toggle"><span
                                 class="nk-menu-icon"><em class="icon ni ni-done"></em></span><span

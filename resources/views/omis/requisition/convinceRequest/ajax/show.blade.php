@@ -16,7 +16,7 @@
                         <h2 class="text-center">{{$data['ttileName']}}</h2>
                     </div>
                     <div class="card-body">
-                <p><b>Ttile Name :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->ttileName}}</span></p><p><b>Applicants Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicants_id}}</span></p><p><b>Start Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->startDate}}</span></p><p><b>Expire Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->expireDate}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                <p><b>Title :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->ttileName}}</span></p><p><b>Applicants Id :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->applicants_id}}</span></p><p><b>Start Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->startDate}}</span></p><p><b>Expire Date :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->expireDate}}</span></p><p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->alias}}</span></p><p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                 class="{{$data->status == 1 ? 'text-success' : 'text-danger'}}">{{$data->status == 1 ? 'Active' : 'Inactive'}}</span></p><p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{$data->remarks}}</span></p><div class="d-flex justify-content-between">
         <div>
             <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{$data->created_at}}</span></p>

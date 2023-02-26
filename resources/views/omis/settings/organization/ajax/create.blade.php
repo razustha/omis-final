@@ -33,6 +33,19 @@
 
         <div class="col-lg-4">{{ createNumber('budgetSize', 'budgetSize', 'Budget Size') }}
         </div>
+        <!-- Working days -->
+        <div class="form-group mt-2">
+            <p class="mb-1">Working Days * : </p>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-lg-6 col-12">
+                    {{ customCreateSelect('fromWorkDays', 'fromWorkDays', '', 'From', ['Sunday' => 'Sunday', 'Monday' => 'Monday','Tuesday' => 'Tuesday','Wednesday'=> 'Wednesday','Thursday' => 'Thursday', 'Friday' => 'Friday', 'Saturday' => 'Saturday']) }}
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-6 col-12">
+                    {{ customCreateSelect('toWorkDays', 'toWorkDays', '', 'To', ['Sunday' => 'Sunday', 'Monday' => 'Monday','Tuesday' => 'Tuesday','Wednesday'=> 'Wednesday','Thursday' => 'Thursday', 'Friday' => 'Friday', 'Saturday' => 'Saturday']) }}
+                </div>
+            </div>
+
+        </div>
         <div class="col-lg-4">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive']) }}
         </div>

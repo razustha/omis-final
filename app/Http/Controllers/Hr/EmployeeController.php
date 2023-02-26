@@ -66,6 +66,12 @@ class EmployeeController extends Controller
             'firstName' => 'required',
             'password' => 'required',
             'emailAddress' => 'required|email:unique:users',
+            // 'gender_id' => 'required',
+            // 'dateOfBirth' => 'required',
+            // 'country_id' => 'required|exists:tbl_country,country_id',
+            // 'state_id' => 'required|exists:tbl_state,state_id',
+            // 'district_id' => 'required|exists:tbl_district,district_id',
+            // 'city_id' => 'required|exists:tbl_city,city_id',
         ]);
 
         if ($validator->fails()) {

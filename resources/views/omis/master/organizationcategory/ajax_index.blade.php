@@ -10,16 +10,16 @@
                                     <h2 class="nk-block-title">Organization Category List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Organizationcategory</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Organizationcategory Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Organizationcategory
+                                                <li class="breadcrumb-item"><a href="#">Organization Category</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Organization Category Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Organization Category
                                                 </li>
                                             </ol>
                                         </nav>
                                 </div>
                                 <div class="nk-block-head-content">
                                     <ul class="d-flex">
-                                        {!!createCanvasButton("customBtnAdd","","Organizationcategory","master.organizationcategory.create") !!}
+                                        {!!createCanvasButton("customBtnAdd","","Organization Category","master.organizationcategory.create") !!}
                                     </ul>
                                 </div>
                             </div>
@@ -30,8 +30,8 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">organization Category Parent_id</span></th>
-<th class="tb-col"><span class="overline-title">organization Category Name</span></th>
+<th class="tb-col"><span class="overline-title">organization Category Parent</span></th>
+<th class="tb-col"><span class="overline-title">organization Category</span></th>
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span

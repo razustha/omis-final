@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Task Reports List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Taskreports</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Taskreports Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Taskreports
+                                                <li class="breadcrumb-item"><a href="#">Task Reports</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Task Reports Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Task Reports
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,7 +32,7 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">employee_id</span></th>
+<th class="tb-col"><span class="overline-title">employee</span></th>
 <th class="tb-col"><span class="overline-title">task Type</span></th>
 <th class="tb-col"><span class="overline-title">task Name</span></th>
 <!-- <th class="tb-col"><span class="overline-title">tastStartDate</span></th>

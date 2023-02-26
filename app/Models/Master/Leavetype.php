@@ -17,7 +17,7 @@
             protected $fillable =[
                 'leaveType',
 'leavePaidStatus',
-'numberOfLeave',
+'leaveCount',
 'monthlyLimit',
 'colorCode',
 'assignEmployee',

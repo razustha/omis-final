@@ -29,6 +29,24 @@
 
             public function store(Request $request)
             {
+                $validator = Validator::make($request->all(), [
+                    'department_id' => 'required|exists:tbl_department,department_id',
+                    'employee_id' => 'required|exists:tbl_employee,employee_id',
+                    'designation_id' => 'required|exists:tbl_designation,designation_id',
+                    'workingShift' => 'required',
+                    'workingHour' => 'required',
+                    'workingMode' => 'required',
+                    'joinDate' => 'required',
+                    'dayFrom' => 'required',
+                    'dayTo' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
                 $request->request->add(['alias' => slugify($request->employeeonboardingName)]);
                 Employeeonboarding::create($request->all());
                 if ($request->ajax()) {
@@ -61,6 +79,23 @@
 
             public function update(Request $request, $id)
             {
+                $validator = Validator::make($request->all(), [
+                    'department_id' => 'required|exists:tbl_department,department_id',
+                    'employee_id' => 'required|exists:tbl_employee,employee_id',
+                    'designation_id' => 'required|exists:tbl_designation,designation_id',
+                    'workingShift' => 'required',
+                    'workingHour' => 'required',
+                    'workingMode' => 'required',
+                    'joinDate' => 'required',
+                    'dayFrom' => 'required',
+                    'dayTo' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
                 $data = Employeeonboarding::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->employeeonboardingName)]);
                 $data->update($request->all());

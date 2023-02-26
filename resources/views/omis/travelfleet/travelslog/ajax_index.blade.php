@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Travel Service Log List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Travelservicelog</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Travelservicelog Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Travelservicelog
+                                                <li class="breadcrumb-item"><a href="#">Travel Service Log</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Travel Service Log Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Travel Service Log
                                                 </li>
                                             </ol>
                                         </nav>

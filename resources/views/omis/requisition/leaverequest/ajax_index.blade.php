@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Leave Request List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Leaverequest</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Leaverequest Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Leaverequest
+                                                <li class="breadcrumb-item"><a href="#">Leave Request</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Leave Request Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Leave Request
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,10 +32,10 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">leaveType</span></th>
-<th class="tb-col"><span class="overline-title">company_id</span></th>
-<th class="tb-col"><span class="overline-title">departmentType</span></th>
-<th class="tb-col"><span class="overline-title">department_id</span></th>
+<th class="tb-col"><span class="overline-title">leave Type</span></th>
+<th class="tb-col"><span class="overline-title">company</span></th>
+<th class="tb-col"><span class="overline-title">department Type</span></th>
+<th class="tb-col"><span class="overline-title">department</span></th>
 <!-- <th class="tb-col"><span class="overline-title">startDate</span></th>
 <th class="tb-col"><span class="overline-title">endDate</span></th>
 <th class="tb-col"><span class="overline-title">totalDays</span></th>

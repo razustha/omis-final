@@ -29,6 +29,19 @@
 
             public function store(Request $request)
             {
+                $validator = Validator::make($request->all(), [
+                    'warningTo' => 'required',
+                    'warningDate' => 'required',
+                    'warningSubject' => 'required',
+                    'warningDescription' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
                 $request->request->add(['alias' => slugify($request->warningsName)]);
                 Warnings::create($request->all());
                 if ($request->ajax()) {
@@ -61,6 +74,19 @@
 
             public function update(Request $request, $id)
             {
+                $validator = Validator::make($request->all(), [
+                    'warningTo' => 'required',
+                    'warningDate' => 'required',
+                    'warningSubject' => 'required',
+                    'warningDescription' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+                
                 $data = Warnings::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->warningsName)]);
                 $data->update($request->all());

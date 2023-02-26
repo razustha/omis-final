@@ -34,9 +34,24 @@
 
             public function store(Request $request)
             {
+
+                $validator = Validator::make($request->all(), [
+                  
+                    'title' => 'required',
+                    'eventStartDate' => 'required',
+                    'eventEndDate' =>  'required',
+                    'holidayDescription' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
                 $request->request->add(['alias' => slugify($request->mangeholidayName)]);
-        dd($request->all());
-                $holiday = Mangeholiday::create($request->all());
+                //  dd($request->all());
+                 $holiday = Mangeholiday::create($request->all());
                 if ($request->ajax()) {
                     return response()->json(['status' => true, 'message' => 'The Mangeholiday Created Successfully.'], 200);
                 }
@@ -87,6 +102,20 @@
 
             public function update(Request $request, $id)
             {
+                $validator = Validator::make($request->all(), [
+                  
+                    'title' => 'required',
+                    'eventStartDate' => 'required',
+                    'eventEndDate' =>  'required',
+                    'holidayDescription' => 'required',
+                ]);
+        
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+
                 $data = Mangeholiday::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->mangeholidayName)]);
                 $data->update($request->all());

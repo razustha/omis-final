@@ -137,4 +137,9 @@ class Employee extends Model
     {
         return $this->belongsTo(Designation::class,'designation_id','designation_id');
     }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class,'department_id','department_id');
+    }
 }

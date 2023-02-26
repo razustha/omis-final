@@ -7,7 +7,7 @@
 </div><div class="col-lg-6">{{createText("appreciatedBy","appreciatedBy","Appreciated By",'',$data->appreciatedBy)}}
 </div><div class="col-lg-6">{{createText("recievedBy","recievedBy","Recieved By",'',$data->recievedBy)}}
 </div><div class="col-lg-6">{{createDate("appreciationRecievedOn","appreciationRecievedOn","Appreciation Recieved On",'',$data->appreciationRecievedOn)}}
-</div><div class="col-lg-6">{{createDate("appreciatioanApprovedOn","appreciatioanApprovedOn","Appreciatioan Approved On",'',$data->appreciatioanApprovedOn)}}
+</div><div class="col-lg-6">{{createDate("appreciatioanApprovedOn","appreciatioanApprovedOn","Appreciation Approved On",'',$data->appreciatioanApprovedOn)}}
 </div><div class="col-lg-12">{{customCreateSelect("status","status",'',"Status",['1'=>'Active','0'=>'Inactive'],$data->status)}}
 </div><div class="col-lg-12">{{createLabel('remarks', 'form-label col-form-label', 'Remarks')}}{{createTextArea("remarks","remarks","remarks",'',$data->remarks)}}
 </div>  <div class="col-md-12"><?php createButton("btn-primary btn-update","","Update"); ?>

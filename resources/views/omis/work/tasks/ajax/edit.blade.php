@@ -20,15 +20,15 @@
         </div>
         <div class="col-lg-6">{{ createText('tasksName', 'tasksName', 'Tasks Title','',$data->tasksName) }}
         </div>
-        <div class="col-lg-6">
-            {{ createDate('tasksStartDate', 'tasksStartDate', 'TasksStartDate', '', $data->tasksStartDate) }}
+        <div class="col-lg-3">
+            {{ createDate('tasksStartDate', 'tasksStartDate', 'Start Date', '', $data->tasksStartDate) }}
         </div>
-        <div class="col-lg-6">{{ createDate('tasksEndDate', 'tasksEndDate', 'TasksEndDate', '', $data->tasksEndDate) }}
+        <div class="col-lg-3">{{ createDate('tasksEndDate', 'tasksEndDate', 'End Date', '', $data->tasksEndDate) }}
         </div>
 
 
 
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
         </div>
         <div class="col-lg-12">

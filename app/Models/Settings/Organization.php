@@ -41,6 +41,7 @@ class Organization extends Model
         'documentPath',
         'budgetSize',
         'package_id',
+        'workDays',
         'createdOn',
         'createdBy',
         'alias',

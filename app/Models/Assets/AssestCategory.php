@@ -11,7 +11,7 @@
         {
             use HasFactory, CreatedUpdatedBy;
 
-            protected $table = 'tbl_assestCategory';
+            protected $table = 'tbl_assestcategory';
             protected $primaryKey = 'assestCategory_id';
             public $timestamps = true;
             protected $fillable =[

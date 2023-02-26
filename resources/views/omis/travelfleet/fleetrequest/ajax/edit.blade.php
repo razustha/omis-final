@@ -1,7 +1,7 @@
 <form action="{{route('travelfleet.fleetrequest.update',[$data->fleetRequest_id])}}" id="updateCustomForm">
  @csrf 
  @method('PUT')
-<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_fleet","fleet_id","fleetName",'',$data) !!}
+<div class="row"><div class="col-lg-6">{!! getSelectForForeignColumn("tbl_fleet","fleet_id","fleetName",'',$data,'Fleet') !!}
 </div><div class="col-lg-6">{{createText("fleetName","fleetName","Fleet Name",'',$data->fleetName)}}
 </div><div class="col-lg-6">{{createText("modelNumber","modelNumber","Model Number",'',$data->modelNumber)}}
 </div><div class="col-lg-6">{{createText("numberPlate_id","numberPlate_id","Number Plate Id",'',$data->numberPlate_id)}}

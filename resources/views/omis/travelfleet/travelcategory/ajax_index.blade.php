@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Travel Category List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Travelcategory</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Travelcategory Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Travelcategory
+                                                <li class="breadcrumb-item"><a href="#">Travel Category</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Travel Category Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Travel Category
                                                 </li>
                                             </ol>
                                         </nav>

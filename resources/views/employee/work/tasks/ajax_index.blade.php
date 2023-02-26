@@ -37,8 +37,8 @@
                                         <th class="tb-col"><span class="overline-title">Start Date</span></th>
                                         <th class="tb-col"><span class="overline-title">End Date</span></th>
                                         <th class="tb-col"><span class="overline-title">Task Status</span></th>
-                                        {{-- <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
-                                        </th> --}}
+                                        <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,17 +73,19 @@
                                                     <span class="badge text-bg-success">Completed</span>
                                                 @endif
                                             </td>
-                                            {{-- <td class="tb-col">
+                                            <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
                                                     <li>
                                                         {!! actionCanvasButton('', 'btn-showCanvas', 'showoffcanvas', 'eye', 'work.tasks.show', $item->tasks_id) !!}
                                                     </li>
+                                                    {{--              
                                                     <li>
                                                         {!! actionCanvasButton('', 'btn-editCanvas', 'editoffcanvas', 'edit', 'work.tasks.edit', $item->tasks_id) !!}
                                                     </li>
                                                     <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'work.tasks.destroy', $item->tasks_id) !!}</li>
+                                                    --}} 
                                                 </ul>
-                                            </td> --}}
+                                            </td>
                                         </tr>
                                     @endforeach
 

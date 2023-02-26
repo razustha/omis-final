@@ -10,9 +10,9 @@
                                     <h2 class="nk-block-title">Job Post List</h1>
                                         <nav>
                                             <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                                <li class="breadcrumb-item"><a href="#">Jobpost</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Jobpost Manage</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Jobpost
+                                                <li class="breadcrumb-item"><a href="#">Job Post</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Job Post Manage</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Job Post
                                                 </li>
                                             </ol>
                                         </nav>
@@ -32,11 +32,11 @@
                                     <thead class="table-light">
                                         <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
-<th class="tb-col"><span class="overline-title">jobTitle</span></th>
-<th class="tb-col"><span class="overline-title">jobType</span></th>
-<th class="tb-col"><span class="overline-title">vacancyNumber</span></th>
-<th class="tb-col"><span class="overline-title">closingDate</span></th>
-<th class="tb-col"><span class="overline-title">jobCategory</span></th>
+<th class="tb-col"><span class="overline-title">job Title</span></th>
+<th class="tb-col"><span class="overline-title">job Type</span></th>
+<th class="tb-col"><span class="overline-title">vacancy Number</span></th>
+<th class="tb-col"><span class="overline-title">closing Date</span></th>
+<th class="tb-col"><span class="overline-title">job Category</span></th>
 <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
 <th class="tb-col"><span class="overline-title">status</span></th>
 <th class="tb-col" data-sortable="false"><span

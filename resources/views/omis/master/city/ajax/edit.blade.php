@@ -2,13 +2,13 @@
     @csrf
     @method('PUT')
     <div class="row">
-        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '', $data) !!}
+        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '', $data,'Country Name') !!}
         </div>
-        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', $data) !!}
+        <div class="col-lg-6">{!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', $data,'State Name') !!}
         </div>
-        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', $data) !!}
+        <div class="col-lg-4">{!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', $data,'District Name') !!}
         </div>
-        <div class="col-lg-4">{{ createText('cityName', 'cityName', 'CityName', '', $data->cityName) }}
+        <div class="col-lg-4">{{ createText('cityName', 'cityName', 'City Name', '', $data->cityName) }}
         </div>
         <div class="col-lg-4">
             {{ customCreateSelect('status', 'status', '', 'Status', ['1' => 'Active', '0' => 'Inactive'], $data->status) }}
