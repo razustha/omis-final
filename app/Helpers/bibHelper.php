@@ -12,6 +12,7 @@
         use App\Models\Settings\NotificationSettings;
         use App\Models\Settings\UserSettings;
         use App\Models\Log\OperationLog;
+        use App\Models\Log\ErrorLog;
         use Illuminate\Support\Facades\DB;
 
         function label($text)
@@ -561,13 +562,18 @@
                         $startNumber= date('YmdHis').rand(100000,999999);
                         $isExists = OperationLog::where('operation_end_no',$startNumber)->first();
                     }
+<<<<<<< HEAD
+                        return $startNumber; 
+                } 
+=======
                         return $startNumber + 1;
                 }
+>>>>>>> a4cadc61cb5fba34c4ae6f955576543e5d229627
 
                 /**
                  * function createLog(operation start number, operation end number, model class full name with path,model Id for create and upodate operation, operation Name, previous values in array, new values in array);
                  */
-                function createLog($startOperationNumber,$endOperationNumber,$modelName,$modelId,$operationName,$previousValues,$newValues)
+                function createOperationLog($startOperationNumber,$endOperationNumber,$modelName,$modelId,$operationName,$previousValues,$newValues)
                 {
                     $operationId = getOperationNumber();
                     $user_id = auth()->user()->id;
@@ -580,6 +586,17 @@
                         'operation_name' => $operationName,
                         'previous_values' => $previousValues ? json_encode($previousValues) : null,
                         'new_values' => $newValues ? json_encode($newValues) : null,
+                    ]);
+                }
+
+                function createErrorLog($controllerName,$methodName,$errors)
+                {
+                    $user_id = auth()->user()->id;
+                    ErrorLog::create([
+                        'user_id'=> $user_id,
+                        'controller_name'=> $controllerName,
+                        'method_name'=> $methodName,
+                        'errors' => $errors,
                     ]);
                 }
 

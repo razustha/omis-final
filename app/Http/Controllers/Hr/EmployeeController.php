@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Hr;
 
 use App\Http\Controllers\Controller;
+use App\Service\CommonModelService;
 use Illuminate\Http\Request;
 use App\Models\Hr\Employee;
 use App\Models\Master\Document;
@@ -20,6 +21,13 @@ use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
+    protected $userService;
+    protected $employeeService;
+    public function __construct(Employee $employee, User $user)
+    {
+        $this->employeeService = new CommonModelService($employee);
+        $this->userService = new CommonModelService($user);
+    }
     public function index(Request $request)
     {
 
@@ -41,7 +49,7 @@ class EmployeeController extends Controller
 
         if ($request->ajax()) {
             $employeeID = Employee::get()->last();
-            $emp_id = '';
+            $emp_id = '1';
             if ($employeeID) {
                 $emp_id = $employeeID->employee_id + 1;
             }
@@ -83,9 +91,8 @@ class EmployeeController extends Controller
             ];
             try {
                 DB::beginTransaction();
-                $user = User::create($users);
                 $operationNumber = getOperationNumber();
-                createLog($operationNumber, null, User::class, $user->id, 'create', null, $users);
+                $user = $this->userService->create($operationNumber, $operationNumber, null, $users);
 
                 $user_role = Role::findOrFail($request->role_id);
 
@@ -98,17 +105,17 @@ class EmployeeController extends Controller
                 }
                 $user->roles()->attach($user_role);
 
-                createLog(null, null, 'users_roles', $user->id, 'create', null, ['user_id' => $user->id, 'role_id' => $request->role_id]);
+                createOperationLog(null, $operationNumber, 'users_roles', $user->id, 'create', null, ['user_id' => $user->id, 'role_id' => $request->role_id]);
 
                 $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : null;
 
                 $request->request->add(['user_id' => $user->id]);
-                $employee = Employee::create($request->all());
-                createLog(null, $operationNumber, Employee::class, $employee->id, 'create', null, $request->all());
+                $employee = $this->employeeService->create(null, $operationNumber, null, $request->all());
 
             } catch (Exception $e) {
                 DB::rollBack();
                 Log::info($e->getMessage());
+                createErrorLog(EmployeeController::class, 'store', $e->getMessage());
                 return $e->getMessage();
             }
             DB::commit();
@@ -123,13 +130,12 @@ class EmployeeController extends Controller
             $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : '1';
             try {
                 DB::beginTransaction();
-                $employee = Employee::create($request->all());
-                createLog(getOperationNumber(), getOperationNumber(), Employee::class, $employee->employee_id, 'create', null, $request->all());
-
+                $operationNumber = getOperationNumber();
+                $employee = $this->employeeService->create($operationNumber, $operationNumber, null, $request->all());
             } catch (Exception $e) {
                 DB::rollBack();
                 Log::info($e->getMessage());
-                return $e->getMessage();
+                createErrorLog(EmployeeController::class, 'store', $e->getMessage());
             }
             DB::commit();
         }
@@ -146,6 +152,7 @@ class EmployeeController extends Controller
                 Mail::to($user->email)->send(new CommonMail($mail_data, $user));
             } catch (Exception $e) {
                 Log::info($e->getMessage());
+                createErrorLog(EmployeeController::class, 'store', $e->getMessage());
             }
         }
 
@@ -173,7 +180,6 @@ class EmployeeController extends Controller
     {
         $data = Employee::findOrFail($id);
         $skills = explode(',', $data->skills);
-
         if ($request->ajax()) {
             $html = view("omis.hr.employee.ajax.edit", compact('data', 'skills'))->render();
             return response()->json(['status' => true, 'content' => $html], 200);
@@ -195,27 +201,23 @@ class EmployeeController extends Controller
         }
         $request['organization_id'] = auth()->user()->userOrganization ? auth()->user()->userOrganization->organization_id : '1';
         $OperationNumber = getOperationNumber();
-        $previousRec = $employee->toArray();
 
         try {
             DB::beginTransaction();
-
-            $employee->update($request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'));
-            createLog($OperationNumber, null, Employee::class, $employee->employee_id, 'update', $previousRec, $employee->toArray());
-
+            $this->employeeService->update($OperationNumber, $OperationNumber, null, $request->except('image_name', 'image_path', 'temp', 'inlineRadioOptions'), $id);
             $user = User::find($employee->user_id);
             if ($user) {
                 $previousRole = [];
                 foreach ($user->roles as $role) {
-                    $previousRole = ['user_id' => $role->pivot->user_id, 'role_id' => $role->pivot->user_id];
+                    $previousRole[] = ['user_id' => $role->pivot->user_id, 'role_id' => $role->pivot->user_id];
                 }
                 $user->roles()->sync([$request->role_id]);
-                createLog(null, $OperationNumber, 'users_roles', $user->id, 'update', $previousRole, ['user_id' => $user->id, 'role_id' => $request->role_id]);
+                createOperationLog(null, $OperationNumber, 'users_roles', $user->id, 'update', $previousRole, ['user_id' => $user->id, 'role_id' => $request->role_id]);
             }
         } catch (Exception $e) {
             DB::rollBack();
             Log::info($e->getMessage());
-            return $e->getMessage();
+            createErrorLog(EmployeeController::class, 'update', $e->getMessage());
         }
         DB::commit();
         $imagePath = [];

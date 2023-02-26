@@ -104,7 +104,7 @@
 
 
                                         <div class="col-lg-6 mt-3">
-                                            {{ createDate('joinDate', 'joinDate', 'Join Date') }}
+                                            {{ createDate('joiningDate', 'joiningDate', 'Join Date') }}
                                             {{-- <input type="text" id="nepali-datepicker" placeholder="Select Nepali Date" name="joinDate"/> --}}
                                         </div>
                                         <div class="col-lg-6 mt-3">
