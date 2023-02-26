@@ -7,17 +7,77 @@
         use Illuminate\Support\Facades\DB;
         use Illuminate\Support\Facades\Validator;
         use App\Mail\CommonMail;
-        use Exception;
+use App\Models\Master\Leavetype;
+use App\Models\Master\PaidLeave;
+use Exception;
         use Illuminate\Support\Facades\Log;
         use Illuminate\Support\Facades\Mail;
         use App\Models\User;
-
-        
-
-
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 
         class LeaveapplicationController extends Controller
         {
+            public function calculateRemainingPaidLeave($employeeId)
+            {
+                $employeeData = Employee::where('employee_id', auth()->user()->employee->employee_id)->first();
+                $currentDate = Carbon::now()->format('Y-m-d');
+                $employeeJoinFrom = Carbon::parse($employeeData->joiningDate)->format('Y-m-d');
+
+                $remainingPaidLeaveDays = 0;
+                $extraPaidLeaveTaken = 0;
+                $totalLeaveDays = 0;
+                //paid leave allocated per month
+                $paidLeaveAllocation = PaidLeave::where('organization_id', $employeeData->organization_id)->first()->paidLeave ?? 0;
+                if ($paidLeaveAllocation != 0) {
+                    $period = CarbonPeriod::create($employeeJoinFrom, '1 month', $currentDate);
+                    //calculating total paid leave earned
+                    //getting total days he joined the company till current date
+                    $employeeJoinedDaysTillCurrent = Carbon::parse($employeeJoinFrom)->diffInDays($currentDate);
+
+                    $totalMonthsStayed = intval($employeeJoinedDaysTillCurrent / 30);
+
+                    $totalPaidLeaveAccumulated = $totalMonthsStayed * intval($paidLeaveAllocation);
+                    //end of calculating total paid leave earned
+                    $leaveRequestApproved = Leaveapplication::where([
+                        ['employee_id', $employeeData->employee_id], ['leaveApplication_status', 'Approved']
+                    ])->whereDate('created_at', '>=', $employeeJoinFrom)->get();
+
+                    foreach ($leaveRequestApproved as $data) {
+                        if ($data->leaveStart == $data->leaveEnd) {
+                            $leaveDays = 1;
+                        } else {
+                            $leaveDays = Carbon::parse($data->startDate)->diffInDays($data->leaveEnd) + 1;
+                        }
+                        $totalLeaveDays += $leaveDays;
+                    }
+                    $remainingPaidLeaveDays = $totalPaidLeaveAccumulated - $totalLeaveDays;
+                    if ($remainingPaidLeaveDays < 0) {
+                        $extraPaidLeaveTaken = abs($remainingPaidLeaveDays);
+                        $remainingPaidLeaveDays = 0;
+                    } else {
+                        $extraPaidLeaveTaken = 0;
+                    }
+                }
+                return [$paidLeaveAllocation, $remainingPaidLeaveDays, $extraPaidLeaveTaken, $totalLeaveDays];
+            }
+            public function leaveTakenDays($leavetype_id, $employeeId)
+            {
+                if ($leavetype_id == 0) {
+                    //then its paid leave
+                    $totalDays = $this->calculateRemainingPaidLeave($employeeId)[1];
+                } else {
+                    $leaveRequests = Leaveapplication::where([
+                        ['leavetype_id', $leavetype_id], ['employee_id', $employeeId], ['leaveApplication_status', 'Approved']
+                    ])->get();
+                    $totalDays = 0;
+                    foreach ($leaveRequests as $data) {
+                        $leaveDays = Carbon::parse($data->leaveStart)->diffInDays($data->leaveEnd) + 1;
+                        $totalDays += $leaveDays;
+                    }
+                }
+                return $totalDays;
+            }
            public function index(Request $request)
             {
                 if(auth()->user()->hasRole('hr'))
@@ -37,43 +97,64 @@
 
             public function create(Request $request)
             {
+                $employeeId = auth()->user()->employee->employee_id;
+                $employeeData = Employee::where('employee_id', $employeeId)->first();
+                $organizationId = $employeeData->organization_id;
+                $leaveData = Leavetype::where('organization_id', $organizationId)->get();
+                $leaves = [];
+                foreach ($leaveData as $key => $data) {
+                    $leaves[$key]['leavetype_id'] = $data->leavetype_id;
+                    $leaves[$key]['leaveType'] = $data->leaveType;
+                    $leaveTaken = $this->leaveTakenDays($data->leavetype_id, $employeeId);
+                    $leavesRemaining = $data->leaveCount - $leaveTaken;
+                    if ($leavesRemaining > 0) {
+                        $leaves[$key]['remainingLeave'] = $data->leaveCount - $leaveTaken;
+                    } else {
+                        $leaves[$key]['remainingLeave'] = 0;
+                    }
+                }
+                //remaining Paid Leave
+                $remainingPaidLeave = $this->leaveTakenDays(0, $employeeId);
+
                 if ($request->ajax()) {
-                    $html = view("omis.hr.leaveapplication.ajax.create")->render();
+                    $html = view("omis.hr.leaveapplication.ajax.create",compact('remainingPaidLeave','leaves'))->render();
                     return response()->json(['status' => true, 'content' => $html], 200);
                 }
+
                 return view("omis.hr.leaveapplication.create");
             }
 
             public function store(Request $request)
             {
-                
+
                 $employee = Employee::findOrFail($request->employee_id);
                 // dd(!empty($employee->emailAddress));
                 $request->request->add(['alias' => slugify($request->leaveapplicationName)]);
-             
+
                 $leaveApplication=Leaveapplication::create($request->all());
-             
-                
+
+
             //    start
-      
-                if (!empty($employee->emailAddress)) {
-                    try {
-                        $mail_data = [
-                            'name' => $employee->full_name,
-                            'subject' => 'Leave Application',
-                            'message' => 'Leave Application Result:',
-                            'leaveStart'=>$request->leaveStart,
-                            'leaveEnd'=>$request->leaveEnd,
-                            'leaveType'=>$request->leaveType,
-                            'manager_name'=>$employee->manager_name,
-                            'remarks'=>$request->remarks,
-                            'view' => 'omis.emails.leaveapplication'
-                        ];
-                        Mail::to($employee->emailAddress)->send(new CommonMail($mail_data, $employee));
-                    } catch (Exception $e) {
-                        Log::info($e->getMessage());
-                        return $e->getMessage();
-    
+                if (!env('APP_MODE')) {
+                    if (!empty($employee->emailAddress)) {
+                        try {
+                            $mail_data = [
+                                'name' => $employee->full_name,
+                                'subject' => 'Leave Application',
+                                'message' => 'Leave Application Result:',
+                                'leaveStart'=>$request->leaveStart,
+                                'leaveEnd'=>$request->leaveEnd,
+                                'leavetype_id'=>$request->leavetype_id,
+                                'manager_name'=>$employee->manager_name,
+                                'remarks'=>$request->remarks,
+                                'view' => 'omis.emails.leaveapplication'
+                            ];
+                            Mail::to($employee->emailAddress)->send(new CommonMail($mail_data, $employee));
+                        } catch (Exception $e) {
+                            Log::info($e->getMessage());
+                            return $e->getMessage();
+
+                        }
                     }
                 }
                 // end
@@ -82,7 +163,7 @@
                     return response()->json(['status' => true, 'message' => 'The Leaveapplication Created Successfully.'], 200);
                 }
                 return redirect()->route('hr.leaveapplication.index')->with('success','The Leaveapplication created Successfully.');
-           
+
             }
 
             public function show(Request $request, $id)

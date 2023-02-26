@@ -46,9 +46,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="eventModalLabel">Add Event</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <input type="text" name="title" placeholder="Title *" class="form-control" id="title" required/>
@@ -81,7 +79,7 @@
                     <button type="button" class="btn btn-primary preventMultipleButtonClick" id="clickBtn">
                         <i class="spinner fa fa-spinner fa-spin" style="display: none"></i> Save changes
                     </button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">Close</button>
                 </div>
             </div>
         </div>
@@ -148,7 +146,7 @@
                         </div>
                     </form>
                 </div>
-               
+
             </div>
         </div>
     </div>
@@ -216,7 +214,7 @@
                                 description: '{{ preg_replace('/\r|\n/', ' ', $task->description)}}',
                                 start: '{{ $task->eventStartDate}}',
                                 end: '{{$task->eventEndDate}}',
-                                
+
                                 allDay: false,
                                 color: '{{ $task->backgroundColor??'#1C9CD8'}}',
                                 textColor: '{{ $task->textColor??'#FFFFFF'}}',
@@ -242,7 +240,7 @@
                                 description: '{{ preg_replace('/\r|\n/', ' ', $data->description)}}',
                                 start: '{{ $data->startDate}}',
                                 end: '{{$task->endDate}}',
-                                
+
                                 allDay: false,
                                 color: '{{ $data->backgroundColor??'#1C9CD8'}}',
                                 textColor: '{{ $data->textColor??'#FFFFFF'}}',
@@ -300,14 +298,14 @@
                                 }
                             }
                         });
-                        
+
                     });
                 },
 
 
 
             });
-            
+
 
         });
 

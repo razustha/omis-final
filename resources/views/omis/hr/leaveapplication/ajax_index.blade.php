@@ -57,7 +57,7 @@
                                                             {{ $item->employee->firstName }}{{ $item->employee->middleName }}
                                                             {{ $item->employee->lastName }}
                                                         </td>
-                                                        <td class="tb-col">{{ $item->leaveType }}</td>
+                                                        <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
 
                                                         <td class="tb-col">
                                                             @if ($item->leaveApplication_status == null)
@@ -148,7 +148,7 @@
                                                         <td class="tb-col">
                                                             {{ $item->employee->firstName }}{{ $item->employee->middleName }}
                                                         </td>
-                                                        <td class="tb-col">{{ $item->leaveType }}</td>
+                                                        <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
 
                                                         <td class="tb-col">
                                                             @if ($item->leaveApplication_status == null)
@@ -213,7 +213,7 @@
                                                     <td class="tb-col">
                                                         {{ $item->employee->firstName }}{{ $item->employee->middleName }}
                                                     </td>
-                                                    <td class="tb-col">{{ $item->leaveType }}</td>
+                                                    <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
 
                                                     <td class="tb-col">
                                                         @if ($item->leaveApplication_status == null)
@@ -263,7 +263,7 @@
                                                     <td class="tb-col">
                                                         {{ $item->employee->firstName }}{{ $item->employee->middleName }}
                                                     </td>
-                                                    <td class="tb-col">{{ $item->leaveType }}</td>
+                                                    <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
 
                                                     <td class="tb-col">
                                                         @if ($item->leaveApplication_status == null)

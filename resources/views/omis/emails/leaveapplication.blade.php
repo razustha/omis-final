@@ -34,24 +34,24 @@
                                         <br>
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td>Dear Sir/Madam,<br />
-                                       
+
                                         <table>
                                             <tr>
                                             <td style="display:block">{{$mail_data['remarks']}}</td><br>
                                            <td style="display:block;"><b>Leave From: {{$mail_data['leaveStart']}} - {{$mail_data['leaveEnd']}}</b></td>
-                                           <td style="display:block"><b>Leave Type: {{$mail_data['leaveType']}}</b></td>
+                                           <td style="display:block"><b>Leave Type: {{$mail_data['leavetype_id']}}</b></td>
                                            <td style="display:block">Your's Sincerely</td>
                                            <td style="display:block">{{$mail_data['name']}}</td>
                                            </tr>
                                         </table>
-                                     
+
                                     </td>
                                 </tr>
-                              
-                                
+
+
                             </table>
                         </td>
                     </tr>

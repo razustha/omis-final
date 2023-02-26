@@ -2,15 +2,14 @@
 
 //orginization dashboard
 
+use App\Http\Controllers\Dashboard\EmployeeDashboardController;
 use App\Models\Hr\Employee;
 use App\Models\Hr\Leaveapplication;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/user/dashboard', function () {
-    return view('employee.dashboard');
-})->middleware(['auth'])->name('employee.dashboard');
+Route::get('/user/dashboard', [EmployeeDashboardController::class, 'dashboard'])->middleware(['auth'])->name('employee.dashboard');
 
 Route::get('/user/projects', function () {
     return view('employee.projects.index');

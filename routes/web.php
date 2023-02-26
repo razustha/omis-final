@@ -152,7 +152,7 @@ Route::get('calander', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('role:super-super-admin|super-admin');
 
 
     Route::get('/calendar', [DashboardController::class, 'calendar'])->name('getcalendar');

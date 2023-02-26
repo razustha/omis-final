@@ -2,6 +2,7 @@
 
 namespace App\Models\Hr;
 
+use App\Models\Master\Leavetype;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,7 +21,7 @@ class Leaveapplication extends Model
         'leaveRequestedBy',
         'employee_id',
         'chooseDepartment_id',
-        'leaveType',
+        'leavetype_id',
         'leaveStart',
         'leaveEnd',
         'leaveApprovalBy',
@@ -60,6 +61,11 @@ class Leaveapplication extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::class,'employee_id','employee_id');
+    }
+
+    public function leavetype()
+    {
+        return $this->belongsTo(Leavetype::class,'leavetype_id','leavetype_id');
     }
 
     public function attendence()
