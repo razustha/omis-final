@@ -94,7 +94,7 @@
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id', 'designationName', '', $data, 'Designation') !!}
                                         </div>
                                         <div class="col-lg-6">
-                                            {{ createDate('joinDate', 'joinDate', 'Join Date','',$data->joiningDate) }}
+                                            {{ createDate('joiningDate', 'joiningDate', 'Join Date','',$data->joiningDate) }}
                                         </div>
                                         <div class="col-lg-6">
                                         {{ customCreateSelect('reportingTo','reportingTo','','Reporting To',getReportingTo($data->department_id)->pluck('full_name', 'employee_id')->toArray(),$data->reportingTo) }}

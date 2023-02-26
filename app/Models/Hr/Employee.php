@@ -39,6 +39,7 @@ class Employee extends Model
         'department_id',
         'designation_id',
         'panNo',
+        'joiningDate',
         'document_id',
         'documentName',
         'documentPath',

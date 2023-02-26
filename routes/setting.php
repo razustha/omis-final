@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Log\OperationLogController;
 use App\Http\Controllers\Setting\PermissionController;
 use App\Http\Controllers\Setting\RoleController;
 use App\Http\Controllers\Setting\UsersController;
@@ -39,6 +40,18 @@ Route::middleware('auth')->prefix("setting")->group(function () {
         Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('setting.role.edit');
         Route::put('/update/{id}', [RoleController::class, 'update'])->name('setting.role.update')->middleware('permission:settings-role-index');
         Route::get('/destroy/{id}', [RoleController::class, 'destroy'])->name('setting.role.destroy')->middleware('permission:settings-role-index');
+    });
+});
+
+Route::middleware('auth')->prefix("setting")->group(function () {
+    Route::prefix("operation")->group(function () {
+        Route::get('/', [OperationLogController::class, 'index'])->name('setting.operation.index');//->middleware('permission:settings-role-index');
+        Route::get('/create', [OperationLogController::class, 'create'])->name('setting.operation.create');
+        Route::post('/store', [OperationLogController::class, 'store'])->name('setting.operation.store');//->middleware('permission:settings-role-index');
+        Route::get('/show/{id}', [OperationLogController::class, 'show'])->name('setting.operation.show');//->middleware('permission:settings-role-index');
+        Route::get('/edit/{id}', [OperationLogController::class, 'edit'])->name('setting.operation.edit');
+        Route::put('/update/{id}', [OperationLogController::class, 'update'])->name('setting.operation.update');//->middleware('permission:settings-role-index');
+        Route::get('/destroy/{id}', [OperationLogController::class, 'destroy'])->name('setting.operation.destroy');//->middleware('permission:settings-role-index');
     });
 });
 

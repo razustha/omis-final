@@ -80,7 +80,10 @@
                                     class="nk-menu-link"><span class="nk-menu-text">Permissions</span></a>
                             </li>
                             @endcan
-                         
+
+                            <li class="nk-menu-item"><a href="{{ route('setting.operation.index') }}"
+                                class="nk-menu-link"><span class="nk-menu-text">Operations Logs</span></a>
+                                </li>
                         </ul>
                     </li>
                     @endif
