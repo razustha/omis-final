@@ -85,6 +85,7 @@
                             </div>
                         @endforeach
                     </div>
+                    <a href="" type="button" class="btn btn-danger" style="float: right; margin-top: 16px;"> Rollback to Previous Step</a>
                 </div>
             </div>
         </div>

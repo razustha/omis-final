@@ -34,7 +34,7 @@ class CommonModelService
     {
         $baseClass = get_class($this->model);
         $this->model = $this->model->find($ModelID);
-        $oldValues = !empty($oldValues) ? $oldValues : $this->model;
+        $oldValues = !empty($oldValues) ? $oldValues : $this->model->toArray();
         $this->model->update($newValues);
         createOperationLog($operationStartNumber, $operationEndNumber, $baseClass, $ModelID, 'update', $oldValues, $this->model->getChanges());
         return $this->model;
