@@ -285,6 +285,7 @@ Route::prefix('hr')->group(function () {
         Route::get('/destroy/{id}', [AttendenceController::class, 'destroy'])->name('hr.attendence.destroy')->middleware('permission:hr-attendence-destroy');
         Route::post('/checkIn', [AttendenceController::class, 'checkIn'])->name('hr.attendence.checkIn');//->middleware('permission:hr-attendence-checkin');
         Route::post('/checkOut/{id}', [AttendenceController::class, 'checkOut'])->name('hr.attendence.checkOut');//->middleware('permission:hr-attendence-checkout');
+        Route::get('/getAttendenceDetail', [AttendenceController::class, 'getAttendenceDetail'])->name('hr.attendence.getAttendenceDetail');//->middleware('permission:hr-attendence-checkout');
     });
 
     Route::prefix("complaints")->group(function () {

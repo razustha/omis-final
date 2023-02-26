@@ -40,7 +40,7 @@ use Carbon\CarbonPeriod;
                     $totalPaidLeaveAccumulated = $totalMonthsStayed * intval($paidLeaveAllocation);
                     //end of calculating total paid leave earned
                     $leaveRequestApproved = Leaveapplication::where([
-                        ['employee_id', $employeeData->employee_id], ['leaveApplication_status', 'Approved']
+                        ['employee_id', $employeeData->employee_id], ['leaveApplication_status', 'Approved'], ['leavetype_id', 0]
                     ])->whereDate('created_at', '>=', $employeeJoinFrom)->get();
 
                     foreach ($leaveRequestApproved as $data) {
@@ -83,8 +83,14 @@ use Carbon\CarbonPeriod;
                 if(auth()->user()->hasRole('hr'))
                 {
                     $data = Leaveapplication::orderBy('created_at','desc')->where('leaveApplication_status','forwarded')->get();
-                } else {
+                } elseif(auth()->user()->hasRole('super-super-admin','super-admin')) {
                     $data = Leaveapplication::orderBy('created_at','desc')->get();
+                } elseif(auth()->user()->employee->is_head == "manager") {
+                    $data = Leaveapplication::orderBy('created_at','desc')->get();
+
+                } else {
+                    $data = Leaveapplication::orderBy('created_at','desc')->where('employee_id', auth()->user()->employee->employee_id)->get();
+
                 }
 
 
@@ -130,7 +136,12 @@ use Carbon\CarbonPeriod;
                 $employee = Employee::findOrFail($request->employee_id);
                 // dd(!empty($employee->emailAddress));
                 $request->request->add(['alias' => slugify($request->leaveapplicationName)]);
-
+                $employee_department = $employee->department_id;
+                $department_head = Employee::where('department_id', $employee_department)->where('is_head','manager')->where('employee_id','!=',$employee->employee_id)->first();
+                if($department_head == null)
+                {
+                    $request['leaveApplication_status'] = "forwarded";
+                }
                 $leaveApplication=Leaveapplication::create($request->all());
 
 

@@ -39,52 +39,52 @@
                 </div>
             </div>
 
-                <!-- add event Modal -->
-    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="eventModalLabel">Add Event</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" name="title" placeholder="Title *" class="form-control" id="title" required/>
-                    <span id="titleError" class="text-danger"></span>
-                    <textarea name="description" class="form-control mt-2" id="description" rows="9"
-                              placeholder="Description"></textarea>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label for="start_time">Starting Time</label>
-                            <input type="time" name="start_time" id="startTime" class="form-control"/>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="end_time">Ending Time</label>
-                            <input type="time" name="end_time" class="form-control" id="endTime"/>
+            <!-- add event Modal -->
+                <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="eventModalLabel">Add Event</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="title" placeholder="Title *" class="form-control" id="title" required/>
+                                <span id="titleError" class="text-danger"></span>
+                                <textarea name="description" class="form-control mt-2" id="description" rows="9"
+                                        placeholder="Description"></textarea>
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <label for="start_time">Starting Time</label>
+                                        <input type="time" name="start_time" id="startTime" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="end_time">Ending Time</label>
+                                        <input type="time" name="end_time" class="form-control" id="endTime"/>
+                                    </div>
+                                </div>
+                                <div class=" row mt-2">
+                                    <div class="col-md-6 col-sm-12 col-12">
+                                        <label for="backgroundColor">Background color</label>
+                                        <input type="color" class="form-control backgroundColor" name="backgroundColor"
+                                            id="backgroundColor1">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-12">
+                                        <label for="textColor">Text color</label>
+                                        <input type="color" class="form-control textColor" name="textColor" id="textColor1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary preventMultipleButtonClick" id="clickBtn">
+                                    <i class="spinner fa fa-spinner fa-spin" style="display: none"></i> Save changes
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                            </div>
                         </div>
                     </div>
-                    <div class=" row mt-2">
-                        <div class="col-md-6 col-sm-12 col-12">
-                            <label for="backgroundColor">Background color</label>
-                            <input type="color" class="form-control backgroundColor" name="backgroundColor"
-                                   id="backgroundColor1">
-                        </div>
-                        <div class="col-md-6 col-sm-12 col-12">
-                            <label for="textColor">Text color</label>
-                            <input type="color" class="form-control textColor" name="textColor" id="textColor1">
-                        </div>
-                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary preventMultipleButtonClick" id="clickBtn">
-                        <i class="spinner fa fa-spinner fa-spin" style="display: none"></i> Save changes
-                    </button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end of add event Modal -->
+            <!-- end of add event Modal -->
 
     <!-- edit/delete event modal -->
     <div class="modal fade" id="editDeleteEventModal" tabindex="-1" role="dialog"

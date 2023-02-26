@@ -108,16 +108,16 @@
 
                                     @foreach ($user->getAllAttendence($user->id) as $key => $attendence)
                                         @if($key == $attendence)
-
                                         <th class="tb-col px-1">
                                             <span class="overline-title"> <em style="color: red">-</em></span>
                                         </th>
                                         @else
+
                                         <?php
                                             $count = $count + 1
                                         ?>
                                         <th class="tb-col px-1">
-                                            <span class="overline-title"> <em class="icon ni ni-check" style="color: green"></em></span>
+                                            <span class="overline-title btn-attendence" data-date_id="{{$key}}"> <em class="icon ni ni-check" style="color: green"></em></span>
                                         </th>
                                         @endif
                                     @endforeach
@@ -134,13 +134,79 @@
     </div>
     </div>
     </div>
+
+    <!-- attendence Modal -->
+        <div class="modal fade" id="attendencedetail" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eventModalLabel">View Attendence</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="Date">Date</label>
+                        <input type="text" name="title" class="form-control date" id="title" readonly/>
+
+                        <label for="interval">Interval</label>
+                        <input type="text" name="title" class="form-control interval" id="title" readonly/>
+
+                        <label for="time1">Check In Time</label>
+                        <input type="text" name="title" class="form-control time1" id="title" readonly/>
+
+                        <label for="time2">Check Out Time</label>
+                        <input type="text" name="title" class="form-control time2" id="title" readonly/>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    <!-- attendence Modal -->
 @endsection
 @push('js')
     <script>
+        $(document).on('click', ".btn-attendence", function() {
+            let attendence_id = $(this).data('date_id');
+            $.ajax({
+                type: "GET",
+                url: "{{route('hr.attendence.getAttendenceDetail')}}",
+                data: {
+                    'attendence_id': attendence_id
+                },
+                dataType: "json",
+                success: function(response){
+                    // console.log(response);
+                    if (typeof(response) != 'object') {
+                        response = JSON.parse(response)
+                    }
+                    if (response.status) {
+                        $('.date').val(response.data.date);
+                        $('.interval').val(response.data.interval);
+                        $('.time1').val(response.data.time1);
+                        $('.time2').val(response.data.time2);
+                        $('#attendencedetail').modal('show');
+                    } else {
+                        $('.date').val();
+                        $('.interval').val(response.data.interval);
+                        $('.time1').val(response.data.time1);
+                        $('.time2').val(response.data.time2);
+                        $('#attendencedetail').modal('show');
+                        $('#attendencedetail').modal('show');
+                    }
+                }
+            });
+
+
+        });
+
         $(document).on('click', ".btn-hover-danger", function() {
             let _token = "{{ csrf_token() }}";
             let url = $(this).data("route");
-            console.log(url);
+
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",

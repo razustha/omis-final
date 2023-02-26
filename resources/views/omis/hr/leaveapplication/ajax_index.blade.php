@@ -57,7 +57,12 @@
                                                             {{ $item->employee->firstName }}{{ $item->employee->middleName }}
                                                             {{ $item->employee->lastName }}
                                                         </td>
-                                                        <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
+                                                        @if($item->leavetype_id == 0)
+                                                            <td class="tb-col">Casual/Paid Leave</td>
+                                                        @else
+                                                            <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
+
+                                                        @endif
 
                                                         <td class="tb-col">
                                                             @if ($item->leaveApplication_status == null)
@@ -82,18 +87,19 @@
                                                                         $item->leaveApplication_id,
                                                                     ) !!}
                                                                 </li>
-                                                                <li>
-                                                                    {!! actionCanvasButton(
-                                                                        '',
-                                                                        'btn-editCanvas',
-                                                                        'editoffcanvas',
-                                                                        'edit',
-                                                                        'hr.leaveapplication.edit',
-                                                                        $item->leaveApplication_id,
-                                                                    ) !!}
-                                                                </li>
-                                                                <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
-
+                                                                @if ($item->leaveApplication_status == null)
+                                                                    <li>
+                                                                        {!! actionCanvasButton(
+                                                                            '',
+                                                                            'btn-editCanvas',
+                                                                            'editoffcanvas',
+                                                                            'edit',
+                                                                            'hr.leaveapplication.edit',
+                                                                            $item->leaveApplication_id,
+                                                                        ) !!}
+                                                                    </li>
+                                                                    <li>{!! deleteCanvasButton('', 'btn-hover-danger', 'hr.leaveapplication.destroy', $item->leaveApplication_id) !!}</li>
+                                                                @endif
 
                                                                 @if ($item->leaveApplication_status == null && auth()->user()->employee->is_head == 'manager')
                                                                     <li>
@@ -116,28 +122,8 @@
                                                                             title="Rejected"> <em
                                                                                 class="icon ni ni-cross-circle"></em></button>
                                                                     </li>
-                                                                @elseif(auth()->user()->hasRole('hr'))
-                                                                    <li>
-                                                                        <button type="button"
-                                                                            class="btn btn-color-info btn-hover-info btn-icon btn-soft"
-                                                                            onclick="approvedthis({{ $item->leaveApplication_id }})"
-                                                                            value="1" data-bs-toggle="tooltip"
-                                                                            data-bs-placement="top"
-                                                                            data-bs-custom-class="custom-tooltip"
-                                                                            title="Approved Leave"> <em
-                                                                                class="icon ni ni-forward"></em></button>
-                                                                    </li>
-                                                                    <li>
-                                                                        <button type="button"
-                                                                            class="btn btn-color-danger btn-hover-danger btn-icon btn-soft"
-                                                                            onclick="rejectthis({{ $item->leaveApplication_id }})"
-                                                                            value="0" data-bs-toggle="tooltip"
-                                                                            data-bs-placement="top"
-                                                                            data-bs-custom-class="custom-tooltip"
-                                                                            title="Rejected"> <em
-                                                                                class="icon ni ni-cross-circle"></em></button>
-                                                                    </li>
                                                                 @endif
+
                                                             </ul>
                                                         </td>
                                                     </tr>
@@ -148,7 +134,12 @@
                                                         <td class="tb-col">
                                                             {{ $item->employee->firstName }}{{ $item->employee->middleName }}
                                                         </td>
-                                                        <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
+                                                        @if($item->leavetype_id == 0)
+                                                            <td class="tb-col">Casual/Paid Leave</td>
+                                                        @else
+                                                            <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
+
+                                                        @endif
 
                                                         <td class="tb-col">
                                                             @if ($item->leaveApplication_status == null)
@@ -213,7 +204,12 @@
                                                     <td class="tb-col">
                                                         {{ $item->employee->firstName }}{{ $item->employee->middleName }}
                                                     </td>
-                                                    <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
+                                                    @if($item->leavetype_id == 0)
+                                                        <td class="tb-col">Casual/Paid Leave</td>
+                                                    @else
+                                                        <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
+
+                                                    @endif
 
                                                     <td class="tb-col">
                                                         @if ($item->leaveApplication_status == null)
