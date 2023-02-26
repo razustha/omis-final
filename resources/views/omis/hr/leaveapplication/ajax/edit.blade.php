@@ -2,16 +2,16 @@
     @csrf
     @method('PUT')
     <div class="row">
-      
-        <div class="col-lg-4">{{ createText('leaveType', 'leaveType', 'Leave Type', '', $data->leaveType) }}
+
+        <div class="col-lg-4">{{ createText('leavetype_id', 'leavetype_id', 'Leave Type', '', $data) }}
         </div>
         <div class="col-lg-4">{{ createDate('leaveStart', 'leaveStart', 'Leave Start Date', '', $data->leaveStart) }}
         </div>
         <div class="col-lg-4">{{ createDate('leaveEnd', 'leaveEnd', 'Leave End Date', '', $data->leaveEnd) }}
         </div>
-       
-       
-       
+
+
+
         <div class="col-lg-12">
             {{ createLabel('remarks', 'form-label col-form-label', 'Reason') }}{{ createTextArea('remarks', 'remarks', 'Remarks', '', $data->remarks) }}
         </div>

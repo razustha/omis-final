@@ -8,9 +8,9 @@
                 <div class="col-lg-6">
                     {{ createText('leaveCount', 'leaveCount', 'Number Of Leave(Annually)', '', $data->leaveCount) }}
                 </div>
-                <div class="col-lg-6">
+                {{-- <div class="col-lg-6">
                     {{ createText('monthlyLimit', 'monthlyLimit', 'Monthly Limit', '', $data->monthlyLimit) }}
-                </div>
+                </div> --}}
                 <div class="col-lg-6">{{ createText('colorCode', 'colorCode', 'Color Code', '', $data->colorCode) }}
                 </div>
                 {{-- <div class="col-lg-4">

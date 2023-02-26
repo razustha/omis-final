@@ -23,13 +23,22 @@
                 <ul class="nk-menu">
 
 
+                    @if(auth()->user()->hasRole('super-super-admin'))
+                        <li class="nk-menu-item">
+                            <a href="{{ route('dashboard') }}" class="nk-menu-link ">
+                                <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
+                                <span class="nk-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                    @else
+                        <li class="nk-menu-item">
+                            <a href="{{ route('employee.dashboard') }}" class="nk-menu-link ">
+                                <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
+                                <span class="nk-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                    @endif
 
-                    <li class="nk-menu-item">
-                        <a href="{{ route('dashboard') }}" class="nk-menu-link ">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
-                            <span class="nk-menu-text">Dashboard</span>
-                        </a>
-                    </li>
                     @can('settings-users-index')
                     <li class="nk-menu-heading">
                         <h6 class="overline-title">Settings</h6>
@@ -294,6 +303,16 @@
                                     class="icon ni ni-briefcase"></em></span><span
                                 class="nk-menu-text">Leaves</span></a>
                     </li>
+                    @endcan
+
+                    @can('master-leavetype-index')
+                    <li class="nk-menu-item has-sub"><a href="{{ route('master.leavetype.index') }}"
+                        class="nk-menu-link"><span class="nk-menu-icon"><em
+                                class="icon ni ni-briefcase"></em></span><span
+                            class="nk-menu-text">Leave Type</span></a>
+                    </li>
+
+
                     @endcan
 
                     @if(Gate::check('crm-clients-index') || Gate::check('crm-leads-index'))

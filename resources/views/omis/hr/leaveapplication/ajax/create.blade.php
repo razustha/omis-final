@@ -8,11 +8,24 @@
         <div class="col-lg-4">
             <label class="form-label">Leave Type</label>
             <div class="input-group">
-                {{ customCreateSelect('leaveType', 'leaveType', '', '', ['sick' => 'Sick', 'paid' => 'Paid']) }}
+                <select name="leavetype_id" id="leaveType"
+                    class="form-control @if ($errors->first('leaveType')) is-invalid @endif">
+                    <option disabled selected>--Select--</option>
+                    @if ($remainingPaidLeave != 0)
+                        <option value="0">Casual/Paid ( {{ $remainingPaidLeave }} )</option>
+                    @endif
+                    @foreach ($leaves as $data)
+                        @if ($data['remainingLeave'] != 0)
+                            <option value="{{ $data['leavetype_id'] }}">
+                                {{ $data['leaveType'] }} ( {{ $data['remainingLeave'] }} )
+                            </option>
+                        @endif
+                    @endforeach
+                </select>
                 @can('master-leavetype-index')
                     <button class="btn btn-outline-light" type="button" data-bs-toggle="modal"
-                    data-bs-target="#leaveTypeModal">
-                    Add</button>
+                        data-bs-target="#leaveTypeModal">
+                        Add</button>
                 @endcan
 
             </div>

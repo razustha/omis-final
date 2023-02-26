@@ -48,6 +48,7 @@ class Employee extends Model
         'sign',
         'skills',
         'reportingTo',
+        'joiningDate',
         'fatherName',
         'motherName',
         'grandFatherName',
