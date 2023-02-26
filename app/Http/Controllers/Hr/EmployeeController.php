@@ -209,7 +209,7 @@ class EmployeeController extends Controller
             if ($user) {
                 $previousRole = [];
                 foreach ($user->roles as $role) {
-                    $previousRole[] = ['user_id' => $role->pivot->user_id, 'role_id' => $role->pivot->user_id];
+                    $previousRole[] = ['user_id' => $role->pivot->user_id, 'role_id' => $role->pivot->role_id];
                 }
                 $user->roles()->sync([$request->role_id]);
                 createOperationLog(null, $OperationNumber, 'users_roles', $user->id, 'update', $previousRole, ['user_id' => $user->id, 'role_id' => $request->role_id]);
