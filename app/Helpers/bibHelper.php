@@ -562,7 +562,7 @@
                         $startNumber= date('YmdHis').rand(100000,999999);
                         $isExists = OperationLog::where('operation_end_no',$startNumber)->first();
                     }
-                        return $startNumber + 1;
+                        return $startNumber;
                 }
 
                 /**
