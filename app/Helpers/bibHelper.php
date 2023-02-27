@@ -562,8 +562,8 @@
                         $startNumber= date('YmdHis').rand(100000,999999);
                         $isExists = OperationLog::where('operation_end_no',$startNumber)->first();
                     }
-                        return $startNumber; 
-                } 
+                        return $startNumber;
+                }
 
                 /**
                  * function createLog(operation start number, operation end number, model class full name with path,model Id for create and upodate operation, operation Name, previous values in array, new values in array);

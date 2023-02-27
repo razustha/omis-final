@@ -26,8 +26,10 @@ class EmployeeDashboardController extends Controller
         $totalLeaveDays = 0;
         //paid leave allocated per month
         $paidLeaveAllocation = PaidLeave::where('organization_id', $employeeData->organization_id)->first()->paidLeave ?? 0;
+
         if ($paidLeaveAllocation != 0) {
             $period = CarbonPeriod::create($employeeJoinFrom, '1 month', $currentDate);
+
             //calculating total paid leave earned
             //getting total days he joined the company till current date
             $employeeJoinedDaysTillCurrent = Carbon::parse($employeeJoinFrom)->diffInDays($currentDate);
@@ -35,22 +37,25 @@ class EmployeeDashboardController extends Controller
             $totalMonthsStayed = intval($employeeJoinedDaysTillCurrent / 30);
 
             $totalPaidLeaveAccumulated = $totalMonthsStayed * intval($paidLeaveAllocation);
+
             //end of calculating total paid leave earned
             $leaveRequestApproved = Leaveapplication::where([
-                ['employee_id', $employeeData->employee_id], ['leaveApplication_status', 'Approved']
+                ['employee_id', $employeeData->employee_id], ['leaveApplication_status', 'Approved'], ['leavetype_id', 0]
             ])->whereDate('created_at', '>=', $employeeJoinFrom)->get();
 
             foreach ($leaveRequestApproved as $data) {
-                if ($data->startDate == $data->endDate) {
+                if ($data->leaveStart == $data->leaveEnd) {
                     $leaveDays = 1;
                 } else {
-                    $leaveDays = Carbon::parse($data->startDate)->diffInDays($data->endDate) + 1;
+                    $leaveDays = Carbon::parse($data->leaveStart)->diffInDays($data->leaveEnd) + 1;
                 }
                 $totalLeaveDays += $leaveDays;
             }
             $remainingPaidLeaveDays = $totalPaidLeaveAccumulated - $totalLeaveDays;
+
             if ($remainingPaidLeaveDays < 0) {
                 $extraPaidLeaveTaken = abs($remainingPaidLeaveDays);
+
                 $remainingPaidLeaveDays = 0;
             } else {
                 $extraPaidLeaveTaken = 0;
@@ -61,6 +66,7 @@ class EmployeeDashboardController extends Controller
 
     public function leaveTakenDays($leavetype_id, $employeeId)
     {
+
         if ($leavetype_id == 0) {
             //then its paid leave
             $totalDays = $this->calculateRemainingPaidLeave($employeeId)[1];
@@ -104,10 +110,12 @@ class EmployeeDashboardController extends Controller
             $leaveDetails[$key]['leaveColor'] = $data->colorCode;
         }
 
+
         //leave request taken
         $leaveRequests = Leaveapplication::where([
-            ['employee_id', $employeeData->employee_id], ['status', 'Approved']
-        ])->orderBy('created_at', 'desc')->take(3)->get();
+            ['employee_id', $employeeData->employee_id], ['leaveApplication_status', 'Approved']
+        ])->orderBy('created_at', 'desc')->get();
+
         //total leave taken
         $totalLeaveRequestApproved = count($leaveRequests);
         $remainingLeave = $totalLeave - $totalLeaveTaken;

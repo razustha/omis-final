@@ -19,12 +19,19 @@
                     <p><b>Leave Requested By :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveRequestedBy }}</span></p>
 
 
-                   
+
                     <div class="d-flex justify-content-between">
                         <div class="col-xl-6">
                             <p><b>Department :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->designationId }}</span></p>
                             <p><b>Department :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->departmentId }}</span></p>
-                            <p><b>Leave Type :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveType }}</span></p>
+                            <p><b>Leave Type :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>
+                                @if($data->leavetype_id == 0)
+                                Casual/Paid Leave
+                                @else
+                                    {{ $data->leavetype->leaveType }}
+
+                                @endif
+                            </span></p>
                             <p><b>Leave Start :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveStart }}</span></p>
                             <p><b>Leave End :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->leaveEnd }}</span></p>
                             <p><b>Leave Approved/Rejected By :&nbsp;&nbsp;&nbsp;&nbsp;</b>
@@ -33,7 +40,7 @@
                             <p><b>Leave Approved/Rejected Date :&nbsp;&nbsp;&nbsp;&nbsp;</b>
                                 <span>{{ $data->leaveApprovedDate }}</span>
                             </p>
-        
+
                             <p><b>Leave Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                                     class="{{ $data->status == 1 ? 'text-success' : 'text-danger' }}">{{ $data->leaveApplication_status }}</span>
                             </p>

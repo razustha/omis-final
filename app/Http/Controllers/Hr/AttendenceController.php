@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Hr\Attendence;
 use App\Models\User;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -168,5 +169,39 @@ class AttendenceController extends Controller
         $updateData['timePicker2'] = date('H:i:s');
         $data->update($updateData);
         return redirect()->back()->with('success', 'The Check Out has been recorded successfully.');
+    }
+
+    public function getAttendenceDetail(Request $request)
+    {
+        $data = Attendence::where('todayDate', $request->attendence_id)->get();
+
+        if($data)
+        {
+            $timepicker1 = $data[0]->timePicker1;
+            $time1 = new DateTime($data[0]->todayDate. '' .$data[0]->timePicker1);
+            $timepicker2 = $data[count($data) - 1]->timePicker2 ?? "18:00:00";
+            $time2 = new DateTime($data[0]->todayDate. '' .$timepicker2);
+            $interval = $time1->diff($time2);
+            $interval = $interval->format('%h')." Hours ".$interval->format('%i')." Minutes";
+            $message['time1'] = $timepicker1;
+            $message['time2'] = $timepicker2;
+            $message['interval'] = $interval;
+            $message['date'] = $request->attendence_id;
+
+            return response()->json([
+                'data' => $message,
+                'status' => true,
+                'message' => "Attendence Generated Successfully."
+            ]);
+
+        } else {
+            return response()->json([
+                'data' => null,
+                'status' => false,
+                'message' => "Attendence Not Found Successfully."
+            ]);
+        }
+
+
     }
 }

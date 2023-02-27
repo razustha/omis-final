@@ -156,10 +156,18 @@
                                             </thead>
                                             <tbody>
                                             @foreach($leaveRequests as $request)
+
                                                 <tr>
+                                                    @if($request->leavetype_id == '0')
                                                     <td>
-                                                        <a href="{{route('viewLeaveRequestDetailsByEmployee',['id'=>$request->id])}}">{{$request->leaveData->leaveType}}</a>
+                                                        <a href="#">Casual/Paid Leave</a>
                                                     </td>
+                                                    @else
+                                                    <td>
+                                                        <a href="#">{{$request->leavetype->leaveType}}</a>
+                                                    </td>
+                                                    @endif
+
                                                     <td>{{Carbon\Carbon::parse($request->created_at)->format('F d, Y')}}</td>
                                                 </tr>
                                             @endforeach
