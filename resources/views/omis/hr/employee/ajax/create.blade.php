@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('hr.employee.store') }}">
+<form method="post" action="{{ route('hr.employee.store') }}" id="storeCustomForm">
     @csrf
     <div class="row g-gs">
         <div class="col-xxl-9 col-lg-9 col-md-9 col-sm-9">
@@ -229,7 +229,7 @@
                         <hr class="border-primary border-2 opacity-85">
                         <div class="gap-col">
                             <ul class="d-flex align-items-center gap g-3">
-                                <li><button type="submit" class="btn btn-primary">Submit</button></li>
+                                <li><?php createButton('btn-primary btn-store', '', 'Submit'); ?></li>
                                 <li><a href="products.html" class="btn border-0">Cancel</a></li>
                             </ul>
                         </div>
