@@ -32,7 +32,7 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'countryName' => 'required',
+            'countryName' => 'required|unique:tbl_country',
         ]);
 
         if ($validator->fails()) {
