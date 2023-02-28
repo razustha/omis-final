@@ -28,7 +28,17 @@
             }
 
             public function store(Request $request)
-            {
+                            {
+                                    $validator = Validator::make($request->all(), [
+                            'departmentName' => 'required',
+                               'designation' => 'required',
+                                'status' => 'required',
+                        ]);
+                           if ($validator->fails()) {
+                            return response()->json([
+                                'error' => $validator->errors()->all(),
+                            ]);
+                        }
                 $request->request->add(['alias' => slugify($request->departmenttypeName)]);
                 Departmenttype::create($request->all());
                 if ($request->ajax()) {
@@ -50,6 +60,7 @@
 
             public function edit(Request $request, $id)
             {
+
                 $data = Departmenttype::findOrFail($id);
                 if ($request->ajax()) {
                     $html = view("omis.master.departmenttype.ajax.edit", compact('data'))->render();
@@ -61,6 +72,16 @@
 
             public function update(Request $request, $id)
             {
+                        $validator = Validator::make($request->all(), [
+                            'departmentName' => 'required',
+                               'designation' => 'required',
+                                'status' => 'required',
+                        ]);
+                           if ($validator->fails()) {
+                            return response()->json([
+                                'error' => $validator->errors()->all(),
+                            ]);
+                        }
                 $data = Departmenttype::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->departmenttypeName)]);
                 $data->update($request->all());
