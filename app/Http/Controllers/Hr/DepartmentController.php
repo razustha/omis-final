@@ -33,6 +33,7 @@ class DepartmentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'departmentName' => 'required',
+            'status' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -75,8 +76,14 @@ class DepartmentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'departmentName' => 'required',
+               'status' => 'required',
         ]);
-        
+           if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->all(),
+            ]);
+        }
+
         $data = Department::findOrFail($id);
         $request->request->add(['alias' => slugify($request->departmentName)]);
         $data->update($request->all());

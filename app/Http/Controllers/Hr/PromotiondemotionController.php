@@ -38,6 +38,7 @@ use Illuminate\Http\Request;
                     'promotionDate' => 'required',
                     'updated_designation_id' => 'required',
                     'department_id' => 'required',
+                    'status' => 'required'
                 ]);
 
                 if ($validator->fails()) {
@@ -84,6 +85,22 @@ use Illuminate\Http\Request;
 
             public function update(Request $request, $id)
             {
+                    $validator = Validator::make($request->all(), [
+                    'promotionTitle' => 'required',
+                    'employee_id' => 'required|exists:tbl_employee,employee_id',
+                    'type' => 'required',
+                    'promotionDate' => 'required',
+                    'updated_designation_id' => 'required',
+                    'department_id' => 'required',
+                    'status' => 'required'
+                ]);
+
+                if ($validator->fails()) {
+                    return response()->json([
+                        'error' => $validator->errors()->all(),
+                    ]);
+                }
+                
                 $data = Promotiondemotion::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->promotiondemotionName)]);
                 $data->update($request->all());
