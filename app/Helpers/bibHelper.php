@@ -595,4 +595,9 @@
                     ]);
                 }
 
+                function createErrorParagraph($name, $class=null)
+                {
+                    echo "<p id='error_$name' class='text-danger custom-error $class'></p>";
+                }
+
                 ?>

@@ -25,37 +25,53 @@
 
                                         <div class="col-lg-4">
                                             {{ createText('firstName', 'firstName', 'First Name') }}
+                                            {{createErrorParagraph('firstName','')}}
                                         </div>
 
                                         <div class="col-lg-4">
                                             {{ createText('middleName', 'middleName', 'Middle Name') }}
+                                            {{createErrorParagraph('middleName','')}}
                                         </div>
 
                                         <div class="col-lg-4">
                                             {{ createText('lastName', 'lastName', 'Last Name') }}
+                                            {{createErrorParagraph('lastName','')}}
+
                                         </div>
 
                                         <div class="col-lg-4">
                                             {{ customCreateSelect('gender_id', 'gender_id', '', 'Gender', ['1' => 'Male', '0' => 'Female', '2' => 'Others']) }}
+                                            {{createErrorParagraph('gender_id','')}}
+
                                         </div>
 
                                         <div class="col-lg-4">
                                             {{ createDate('dateOfBirth', 'dateOfBirth', 'Date Of Birth') }}
+                                            {{createErrorParagraph('dateOfBirth','')}}
+
                                         </div>
 
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_nationality', 'nationality_id', 'nationalityName', '','','Nationality') !!}
+                                            {{createErrorParagraph('nationality_id','')}}
+
                                         </div>
 
                                         <div class="col-lg-4">
                                             {{ createEmail('emailAddress', 'emailAddress', 'Email Address') }}
+                                            {{createErrorParagraph('emailAddress','')}}
+
                                         </div>
                                         <div class="col-lg-4">
                                             {{ createPassword('password', 'password', 'Password') }}
+                                            {{createErrorParagraph('password','')}}
+
                                         </div>
 
                                         <div class="col-lg-4">
                                             {{ createText('phoneNumber', 'phoneNumber', 'Phone Number') }}
+                                            {{createErrorParagraph('phoneNumber','')}}
+
                                         </div>
 
 
@@ -66,50 +82,68 @@
 
                                         <div class="col-lg-3">
                                             {!! getSelectForForeignColumn('tbl_country', 'country_id', 'countryName', '', '', 'Country Name') !!}
+                                            {{createErrorParagraph('country_id','')}}
+
                                         </div>
 
                                         <div class="col-lg-3">
                                             {{-- {!! getSelectForForeignColumn('tbl_state', 'state_id', 'stateName', '', '', 'State Name') !!} --}}
                                             {{  customCreateSelect('state_id', 'state_id', '','State Name', [])  }}
-
+                                            {{createErrorParagraph('state_id','')}}
                                         </div>
                                         <div class="col-lg-3">
                                             {{-- {!! getSelectForForeignColumn('tbl_district', 'district_id', 'districtName', '', '', 'District Name') !!} --}}
                                             {{  customCreateSelect('district_id', 'district_id', '','District Name', [])  }}
+                                            {{createErrorParagraph('district_id','')}}
 
                                         </div>
                                         <div class="col-lg-3">
                                             {{-- {!! getSelectForForeignColumn('tbl_city', 'city_id', 'cityName', '', '', 'City Name') !!} --}}
                                             {{  customCreateSelect('city_id', 'city_id', '','City Name', [])  }}
+                                            {{createErrorParagraph('city_id','')}}
 
                                         </div>
                                         <div class="col-lg-6">
                                             {{ createText('permanentAddress', 'permanentAddress', 'Permanent Address') }}
+                                            {{createErrorParagraph('permanentAddress','')}}
+
                                         </div>
                                         <div class="col-lg-6">
                                             {{ createText('temproryAddress', 'temproryAddress', 'Temporary Address') }}
+                                            {{createErrorParagraph('temproryAddress','')}}
+
                                         </div>
                                         <div class="col-lg-12">
                                             <h2 class="mt-3">Organization Role</h2>
                                         </div>
                                         <div class="col-lg-4">
                                             {{customCreateSelect('role_id', 'role_id', '', 'User Role', getRoles()->pluck('name','id')->toArray())}}
+                                            {{createErrorParagraph('role_id','')}}
+
                                         </div>
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_department', 'department_id', 'departmentName', '', '', 'Department Name') !!}
+                                            {{createErrorParagraph('department_id','')}}
+
                                         </div>
                                         <div class="col-lg-4">
                                             {!! getSelectForForeignColumn('tbl_designation', 'designation_id','designationName','', '','Designation' ) !!}
+                                            {{createErrorParagraph('designation_id','')}}
+
                                         </div>
 
 
                                         <div class="col-lg-6 mt-3">
                                             {{ createDate('joiningDate', 'joiningDate', 'Join Date') }}
+                                            {{createErrorParagraph('joiningDate','')}}
+
                                             {{-- <input type="text" id="nepali-datepicker" placeholder="Select Nepali Date" name="joinDate"/> --}}
                                         </div>
                                         <div class="col-lg-6 mt-3">
                                             {{-- {{ createLabel('', 'form-label col-form-label', 'Reporting To : ') }} --}}
                                             {{  customCreateSelect('reportingTo', 'reportingTo', '','Reporting To', [])  }}
+                                            {{createErrorParagraph('reportingTo','')}}
+
                                         </div>
 
                                         <div class="col-lg-12">
@@ -117,10 +151,13 @@
                                             <select name="skills[]" class="form-select form-control skills" multiple>
 
                                             </select>
+                                            {{createErrorParagraph('skills','')}}
+
                                         </div>
                                         <div class="col-lg-12">
                                             {{ createLabel('remarks', 'form-label col-form-label', 'Remarks') }}
                                             {{ createTextArea('remarks', 'remarks', 'remarks', '', '') }}
+                                            {{createErrorParagraph('remarks','')}}
                                         </div>
 
 

@@ -18,5 +18,5 @@
         </div>
         <div class="col-md-12"><?php createButton('btn-primary btn-update', '', 'Submit'); ?>
         </div>
-</div>
+    </div>
 </form>

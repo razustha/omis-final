@@ -24,13 +24,15 @@ class OperationLogController extends Controller
     {
         $operationLogs = OperationLog::where('operation_end_no', $operationNumber)->orderBy('created_at', 'DESC')->get();
         foreach ($operationLogs as $opLog) {
-            if (str_contains($opLog->model_name, 'Models')) {
-                $model = $opLog->model_name::find($opLog->model_id);
-                if ($model) {
-                    $model->update(json_decode($opLog->previous_values, true));
+            if ($opLog->operation_name == 'update') {
+                if (str_contains($opLog->model_name, 'Models')) {
+                    $model = $opLog->model_name::find($opLog->model_id);
+                    if ($model) {
+                        $model->update(json_decode($opLog->previous_values, true));
+                    }
+                } else {
+                    \DB::table($opLog->model_name)->where('user_id', $opLog->model_id)->update(json_decode($opLog->previous_values, true));
                 }
-            } else {
-                \DB::table($opLog->model_name)->where('user_id', $opLog->model_id)->update(json_decode($opLog->previous_values, true));
             }
         }
         return redirect()->route('setting.operation.index')->with('success', 'Rollback Operation Successfully Completed.');

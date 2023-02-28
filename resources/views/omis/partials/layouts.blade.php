@@ -183,6 +183,13 @@
                     } else {
                         printErrorMsg(res.error);
                     }
+                },
+                error: function (response) {
+                        $('.custom-error').empty();
+                        var obj = response.responseJSON.error;
+                        $.each(obj, function (key, value) {
+                            $('#error_' + key).text(value);
+                        });
                 }
             })
         })
@@ -209,8 +216,17 @@
                             window.location.reload();
                         }, 1500);
                     } else {
-                        printErrorMsg(res.error);
+                        Console.log(res);
+                        Console.log(res.error);
+                        // printErrorMsg(res.error);
                     }
+                },
+                error: function (response) {
+                        $('.custom-error').empty();
+                        var obj = response.responseJSON.error;
+                        $.each(obj, function (key, value) {
+                            $('#error_' + key).text(value);
+                        });
                 }
             })
         })
