@@ -12,14 +12,10 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title">Events and Holiday</h1>
+                                <h2 class="nk-block-title">Events </h1>
 
                             </div>
-                            <div class="nk-block-head-content">
-                                <ul class="d-flex">
-                                    {!! createCanvasButton('customBtnAdd', '', 'Holiday', 'hr.mangeholiday.create') !!}
-                                </ul>
-                            </div>
+
                             <div class="row mt-3">
 
                                 <div class="col-12">
@@ -86,91 +82,83 @@
                 </div>
             <!-- end of add event Modal -->
 
-    <!-- edit/delete event modal -->
-    <div class="modal fade" id="editDeleteEventModal" tabindex="-1" role="dialog"
-         aria-labelledby="editDeleteEventModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editDeleteEventModalLabel">Edit/Delete Event</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" class="eventUpdate preventMultipleFormSubmit" action="">
-                        @csrf
-                        <label class="mt-2" for="title">Title*</label>
-                        <input type="text" name="title" id="'title" class="form-control title"
-                               required/>
-                        <span id="titleError" class="text-danger"></span>
+            <!-- edit/delete event modal -->
+            <div class="modal fade" id="editDeleteEventModal" tabindex="-1" role="dialog"
+                aria-labelledby="editDeleteEventModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editDeleteEventModalLabel">Edit/Delete Event</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-                        <label class="mt-2" for="description">Description</label>
-                        <textarea name="description" class="form-control description" rows="5"
-                                  id="description"></textarea>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" class="eventUpdate preventMultipleFormSubmit" action="">
+                                @csrf
+                                <label class="mt-2" for="title">Title*</label>
+                                <input type="text" name="title" id="'title" class="form-control title"
+                                    required/>
+                                <span id="titleError" class="text-danger"></span>
 
-                        <label for="start_date" class="mt-2">Starting date*</label>
-                        <input type="date" name="start_date" placeholder="Start Date *" id="start_date"
-                               class="form-control start_date" required/>
-                        <label for="end_date" class="mt-2">Ending date*</label>
-                        <input type="date" name="end_date" placeholder="End Date *" id="end_date"
-                               class="form-control end_date" required/>
-                        <div class="row mt-2">
-                            <div class="col-md-6">
-                                <label for="start_time">Starting Time</label>
-                                <input type="time" name="start_time" class="form-control start_time"/>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="end_time">Ending Time</label>
-                                <input type="time" name="end_time" class="form-control end_time"/>
-                            </div>
+                                <label class="mt-2" for="description">Description</label>
+                                <textarea name="description" class="form-control description" rows="5"
+                                        id="description"></textarea>
+
+                                <label for="start_date" class="mt-2">Starting date*</label>
+                                <input type="date" name="start_date" placeholder="Start Date *" id="start_date"
+                                    class="form-control start_date" required/>
+                                <label for="end_date" class="mt-2">Ending date*</label>
+                                <input type="date" name="end_date" placeholder="End Date *" id="end_date"
+                                    class="form-control end_date" required/>
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <label for="start_time">Starting Time</label>
+                                        <input type="time" name="start_time" class="form-control start_time"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="end_time">Ending Time</label>
+                                        <input type="time" name="end_time" class="form-control end_time"/>
+                                    </div>
+                                </div>
+
+                                <div class=" row mt-2">
+                                    <div class="col-md-6 col-sm-12 col-12">
+                                        <label for="backgroundColor">Event Background color</label>
+                                        <input type="color" class="form-control backgroundColor" name="backgroundColor"
+                                            id="backgroundColor">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-12">
+                                        <label for="textColor">Event Text color</label>
+                                        <input type="color" class="form-control textColor" name="textColor" id="textColor">
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-primary btn-sm updateEventButton">
+                                        <i class="spinner fa fa-spinner fa-spin" style="display: none"></i> Save changes
+                                    </button>
+                                </div>
+                                @if($deleteCalendarPermission)
+
+                                <div class="modal-footer">
+                                    <p class="mb-0 text-danger" style="font-size: 12px">(Note: This will delete this event
+                                        permanently.)</p>
+                                    <a class="btn btn-danger btn-sm preventMultipleButtonClick deleteEvent" href="#">
+                                        <i class="spinner fa fa-spinner fa-spin"
+                                        style="display: none"></i> Delete this event</a>
+                                </div>
+                                @endif
+
+                            </form>
                         </div>
 
-                        <div class=" row mt-2">
-                            <div class="col-md-6 col-sm-12 col-12">
-                                <label for="backgroundColor">Event Background color</label>
-                                <input type="color" class="form-control backgroundColor" name="backgroundColor"
-                                       id="backgroundColor">
-                            </div>
-                            <div class="col-md-6 col-sm-12 col-12">
-                                <label for="textColor">Event Text color</label>
-                                <input type="color" class="form-control textColor" name="textColor" id="textColor">
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <button type="submit" class="btn btn-primary btn-sm updateEventButton">
-                                <i class="spinner fa fa-spinner fa-spin" style="display: none"></i> Save changes
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- end/delete of edit event modal -->
-
-            {{-- Add Modal --}}
-            <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
-                <div class="offcanvas-header border-bottom border-light">
-                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Manage Holiday</h5><button
-                        type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body" data-simplebar>
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="alert alert-danger print-error-msg" style="display:none">
-                                <ul></ul>
-                            </div>
-                            <div id="addConvasByAjax">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
+            <!-- end/delete of edit event modal -->
+
+
         </div>
 
     @endsection
@@ -196,31 +184,7 @@
                     'right': 'prev, next today',
                 },
                 events: [
-                        @foreach($allholidays as $task)
-                            {
-                                <?php
-                                    $endDate = $task->end_date ?? '';
-                                    if ($endDate == null) {
-                                        $endDate = Carbon\Carbon::parse($task->start_date ?? '')->format('Y-m-d');
-                                    } else {
-                                        $endDate = Carbon\Carbon::parse($task->end_date)->addDays(1)->format('Y-m-d');
-                                    }
-                                    $title = Carbon\Carbon::parse($task->start_time)->format('g:iA') . '-'
-                                        . Carbon\Carbon::parse($task->end_time)->format('g:iA') . ' | ' . $task->title;
-                                    ?>
-                                id: '{{$task->id}}',
-                                displayEventTime: true,
-                                title: '{{ $task->title }}',
-                                description: '{{ preg_replace('/\r|\n/', ' ', $task->description)}}',
-                                start: '{{ $task->eventStartDate}}',
-                                end: '{{$task->eventEndDate}}',
 
-                                allDay: false,
-                                color: '{{ $task->backgroundColor??'#1C9CD8'}}',
-                                textColor: '{{ $task->textColor??'#FFFFFF'}}',
-                                themeSystem: 'bootstrap5'
-                            },
-                    @endforeach
 
                     @foreach($events as $data)
                             {
@@ -229,17 +193,17 @@
                                     if ($endDate == null) {
                                         $endDate = Carbon\Carbon::parse($data->startDate ?? '')->format('Y-m-d');
                                     } else {
-                                        $endDate = Carbon\Carbon::parse($task->endDate)->addDays(1)->format('Y-m-d');
+                                        $endDate = Carbon\Carbon::parse($data->endDate)->addDays(1)->format('Y-m-d');
                                     }
-                                    $title = Carbon\Carbon::parse($task->start_time)->format('g:iA') . '-'
-                                        . Carbon\Carbon::parse($task->end_time)->format('g:iA') . ' | ' . $task->title;
+                                    $title = Carbon\Carbon::parse($data->startTime)->format('g:iA') . '-'
+                                        . Carbon\Carbon::parse($data->endTime)->format('g:iA') . ' | ' . $data->eventTitle;
                                     ?>
                                 id: '{{$data->event_id }}',
                                 displayEventTime: true,
                                 title: '{{ $data->eventTitle }}',
                                 description: '{{ preg_replace('/\r|\n/', ' ', $data->description)}}',
                                 start: '{{ $data->startDate}}',
-                                end: '{{$task->endDate}}',
+                                end: '{{$data->endDate}}',
 
                                 allDay: false,
                                 color: '{{ $data->backgroundColor??'#1C9CD8'}}',
@@ -248,8 +212,10 @@
                             },
                     @endforeach
                 ],
-                selectable: true,
-                selectHelper: true,
+                @if($addcalendarPermission)
+                    selectable: true,
+                    selectHelper: true,
+                @endif
                 eventRender: function (event, element) {
                     $(element).popover({
                         title: event.title,
@@ -301,9 +267,42 @@
 
                     });
                 },
+                @if($editCalendarPermission)
+                eventClick: function (event) {
+                    $('#editDeleteEventModal').modal('toggle');
+                    var id = event.id;
+                    $.ajax({
+                        url: '{{route('editDeleteEventsShowData','')}}' + '/' + id,
+                        type: 'get',
+                        data: {id: id},
+                        success: function (response) {
+                            console.log(response);
+                            $('.title').attr('value', response.title);
+                            $('.start_date').attr('value', response.start_date);
+                            $('.end_date').attr('value', response.end_date);
+                            $('.description').html(response.description);
+                            $('.start_time').attr('value', response.start_time);
+                            $('.end_time').attr('value', response.end_time);
+                            $('.backgroundColor').attr('value', response.backgroundColor);
+                            $('.textColor').attr('value', response.textColor);
+                            $('.eventUpdate').attr('action', response.updateEventUrl);
+                            $('.deleteEvent').attr('href', response.deleteEventUrl);
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                }
+                @endif
 
 
+                //unbinding the event after multiple calender days are clicked before one is added
 
+
+            });
+
+            $('#eventModal').on('hidden.bs.modal', function () {
+                $('#clickBtn').unbind();
             });
 
 

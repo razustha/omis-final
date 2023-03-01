@@ -17,9 +17,9 @@
             protected $fillable =[
                 'companyName_id',
 'title',
-'eventStartDate',
-'eventEndDate',
-'holidayDescription',
+'startDate',
+'endDate',
+'description',
 'createdOn',
 'createdBy',
 'alias',

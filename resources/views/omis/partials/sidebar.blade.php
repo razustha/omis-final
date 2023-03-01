@@ -335,9 +335,14 @@
                     @endif
 
 
-                    <li class="nk-menu-item"><a href="{{ route('getcalendar') }}" class="nk-menu-link"><span
+                    <li class="nk-menu-item"><a href="{{ route('eventcalendar') }}" class="nk-menu-link"><span
                                 class="nk-menu-icon"><em class="icon ni ni-calendar-alt"></em></span><span
-                                class="nk-menu-text">Calender</span></a>
+                                class="nk-menu-text">Event Calender</span></a>
+                    </li>
+
+                    <li class="nk-menu-item"><a href="{{ route('holidaycalendar') }}" class="nk-menu-link"><span
+                        class="nk-menu-icon"><em class="icon ni ni-calendar-alt"></em></span><span
+                        class="nk-menu-text">Holiday Calender</span></a>
                     </li>
                     @if(Gate::check('hr-attendence-index') || Gate::check('hr-absentreason-index')
                     || Gate::check('hr-latereasons-index'))
