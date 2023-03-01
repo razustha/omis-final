@@ -106,20 +106,21 @@
                         </li>
                     @endrole
 
-                    <select class="form-control changeLang">
-                        <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English
-                        </option>
-                        <option value="ne" {{ session()->get('locale') == 'ne' ? 'selected' : '' }}>नेपाली
-                        </option>
-                        <option value="sp" {{ session()->get('locale') == 'sp' ? 'selected' : '' }}>Spanish
-                        </option>
-                    </select>
+                   
+
+
                 </ul>
 
             </nav>
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav ms-2">
-
+                    <li> <select class="form-control changeLang">
+                        <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English
+                        </option>
+                        <option value="ne" {{ session()->get('locale') == 'ne' ? 'selected' : '' }}>Nepali
+                        </option>
+                       
+                    </select></li>
                     <li>
 
                         <button class="btn btn-icon btn-sm btn-zoom " onclick="openFullscreen();"><em
