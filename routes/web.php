@@ -2,6 +2,7 @@
 //Start of Master Controllers
 use App\Http\Controllers\Assets\FixedassetsController;
 use App\Http\Controllers\Hr\EmployeeonboardingController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Master\CityController;
 use App\Http\Controllers\Master\CountryController;
 use App\Http\Controllers\Master\DepartmentController as MasterDepartmentController;
@@ -151,6 +152,7 @@ Route::get('calander', function () {
 
 
 Route::middleware('auth')->group(function () {
+    Route::get('lang/change', [LanguageController::class, 'change'])->name('changeLang');
 
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('role:super-super-admin|super-admin');
 

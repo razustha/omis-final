@@ -7,12 +7,12 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title">Department List</h1>
+                                <h2 class="nk-block-title">{{ __('lang.Department') }} {{ __('lang.List') }}</h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                            <li class="breadcrumb-item"><a href="#">Department</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Department Manage</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Department
+                                            <li class="breadcrumb-item"><a href="#">{{ __('lang.Department') }}</a></li>
+                                            <li class="breadcrumb-item"><a href="#">{{ __('lang.Department') }} {{ __('lang.Manage') }}</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Department') }}
                                             </li>
                                         </ol>
                                     </nav>
@@ -31,11 +31,11 @@
                             <table class="datatable-init table" data-nk-container="table-responsive" id="CustomTable">
                                 <thead class="table-light">
                                     <tr>
-                                        <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">Department</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.S.N.') }}</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Department') }}</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
-                                        <th class="tb-col"><span class="overline-title">status</span></th>
-                                        <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Status') }}</span></th>
+                                        <th class="tb-col" data-sortable="false"><span class="overline-title">{{ __('lang.Action') }}</span>
                                         </th>
                                     </tr>
                                 </thead>
@@ -81,7 +81,7 @@
                             {{-- Add Modal --}}
                             <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                                 <div class="offcanvas-header border-bottom border-light">
-                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Department</h5><button
+                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">{{ __('lang.Add Department') }}</h5><button
                                         type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>
@@ -102,7 +102,7 @@
                         {{-- Edit Modal --}}
                         <div class="offcanvas offcanvas-end offcanvas-size-xxlg editoffcanvas" id="editoffcanvas">
                             <div class="offcanvas-header border-bottom border-light">
-                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Edit Department<h5><button type="button"
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">{{ __('lang.Edit Department') }}<h5><button type="button"
                                             class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body" data-simplebar>

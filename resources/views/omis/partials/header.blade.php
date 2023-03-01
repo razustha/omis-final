@@ -42,80 +42,88 @@
                 </a>
             </div>
             <nav class="nk-header-menu nk-navbar">
-            
+
                 <ul class="nk-nav">
-                  
+
                     <li class="nk-nav-item "><a href="#" class="nk-nav-link "><span
                                 class="nk-nav-text">Dashboards</span></a>
 
                     </li>
                     @role('super-super-admin')
-               
-                   
-                    <li class="nk-nav-item "><a href="{{ route('form.create') }}" class="nk-nav-link "><span
-                                class="nk-nav-text">Master Curd</span></a>
+                        <li class="nk-nav-item "><a href="{{ route('form.create') }}" class="nk-nav-link "><span
+                                    class="nk-nav-text">Master Curd</span></a>
 
-                    </li>
-                  
-                    <li class="nk-nav-item has-sub"><a href="#" class="nk-nav-link nk-nav-toggle"><span
-                                class="nk-nav-text">Master Tables</span></a>
-                                <ul class="nk-nav-sub">
-                                    <li class="nk-nav-item"><a href="{{ route('master.country.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Countries </span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.city.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Cities </span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.district.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">District </span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.nationality.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Nationality </span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.policy.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Policy </span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.state.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">state </span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.organizationtype.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Organization Type </span></a></li>
-                                    {{-- <li class="nk-nav-item"><a href="{{ route('master.employee.index') }}"
+                        </li>
+
+                        <li class="nk-nav-item has-sub"><a href="#" class="nk-nav-link nk-nav-toggle"><span
+                                    class="nk-nav-text">Master Tables</span></a>
+                            <ul class="nk-nav-sub">
+                                <li class="nk-nav-item"><a href="{{ route('master.country.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Countries </span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.city.index') }}" class="nk-nav-link"><span
+                                            class="nk-nav-text">Cities </span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.district.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">District </span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.nationality.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Nationality </span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.policy.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Policy </span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.state.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">state </span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.organizationtype.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Organization Type </span></a></li>
+                                {{-- <li class="nk-nav-item"><a href="{{ route('master.employee.index') }}"
                                             class="nk-nav-link"><span class="nk-nav-text">Employee </span></a></li> --}}
-                                    <li class="nk-nav-item"><a href="{{ route('master.organizationcategory.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Organization Category </span></a>
-                                    </li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.holidaytypes.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Holiday Types </span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.fleet.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Fleet Types</span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.traveltype.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Travel Types</span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.department.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Department Type</span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.employmentsizecategory.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Employment Size
-                                                Category</span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.attendancefrom.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Attendance Form</span></a></li>
-                                    <li class="nk-nav-item"><a href="{{ route('master.jobtitle.index') }}"
-                                            class="nk-nav-link"><span class="nk-nav-text">Job Title</span></a></li>
-                                </ul>
+                                <li class="nk-nav-item"><a href="{{ route('master.organizationcategory.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Organization Category </span></a>
+                                </li>
+                                <li class="nk-nav-item"><a href="{{ route('master.holidaytypes.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Holiday Types </span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.fleet.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Fleet Types</span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.traveltype.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Travel Types</span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.department.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Department Type</span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.employmentsizecategory.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Employment Size
+                                            Category</span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.attendancefrom.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Attendance Form</span></a></li>
+                                <li class="nk-nav-item"><a href="{{ route('master.jobtitle.index') }}"
+                                        class="nk-nav-link"><span class="nk-nav-text">Job Title</span></a></li>
+                            </ul>
 
 
-                    </li>
-                    <li class="nk-nav-item has-sub"><a href="#" class="nk-nav-link nk-nav-toggle"><span
-                                class="nk-nav-text">Settings</span></a>
-                                <ul class="nk-nav-sub">
-                                    {{ BibClass::createSidebarMenu(url('settings/dictonary'), 'Dictonary') }}
-                                    {{ BibClass::createSidebarMenu(url('settings/curd/'), 'CURD Function') }}
+                        </li>
+                        <li class="nk-nav-item has-sub"><a href="#" class="nk-nav-link nk-nav-toggle"><span
+                                    class="nk-nav-text">Settings</span></a>
+                            <ul class="nk-nav-sub">
+                                {{ BibClass::createSidebarMenu(url('settings/dictonary'), 'Dictonary') }}
+                                {{ BibClass::createSidebarMenu(url('settings/curd/'), 'CURD Function') }}
 
-                                </ul>
-                    </li>
+                            </ul>
+                        </li>
                     @endrole
+
+                    <select class="form-control changeLang">
+                        <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English
+                        </option>
+                        <option value="ne" {{ session()->get('locale') == 'ne' ? 'selected' : '' }}>नेपाली
+                        </option>
+                        <option value="sp" {{ session()->get('locale') == 'sp' ? 'selected' : '' }}>Spanish
+                        </option>
+                    </select>
                 </ul>
-              
+
             </nav>
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav ms-2">
 
                     <li>
 
-                        <button class="btn btn-icon btn-sm btn-zoom " onclick="openFullscreen();"><em class="icon ni ni-maximize"></em></button>
+                        <button class="btn btn-icon btn-sm btn-zoom " onclick="openFullscreen();"><em
+                                class="icon ni ni-maximize"></em></button>
 
                     </li>
 
@@ -209,7 +217,7 @@
                             class="btn btn-icon btn-md btn-zoom d-none d-sm-inline-flex" data-bs-toggle="offcanvas"
                             data-bs-target="#notificationOffcanvas"><em class="icon ni ni-bell"></em></button></li>
 
-                            <li>
+                    <li>
                         <button class="btn btn-icon btn-sm btn-zoom d-sm-none" data-bs-toggle="offcanvas"
                             data-bs-target="#dashboardOffcanvas"><em class="icon ni ni-menu-circled"></em></button>
                         <button class="btn btn-icon btn-md btn-zoom d-none d-sm-inline-flex"
@@ -235,7 +243,8 @@
                                             src="{{ asset('assets/images/avatar/a.jpg') }}" alt=""
                                             class="img-thumbnail"></div>
                                     <div class="media-text">
-                                        <div class="lead-text">{{ auth()->user()->name }}</div><span class="sub-text">{{ auth()->user()->user_type }}</span>
+                                        <div class="lead-text">{{ auth()->user()->name }}</div><span
+                                            class="sub-text">{{ auth()->user()->user_type }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -251,7 +260,8 @@
                             </div>
                             <div class="dropdown-content dropdown-content-x-lg py-3">
                                 <ul class="link-list">
-                                    <li><a href="{{ route('logout') }}"><em class="icon ni ni-signout"></em> <span>Log
+                                    <li><a href="{{ route('logout') }}"><em class="icon ni ni-signout"></em>
+                                            <span>Log
                                                 Out</span></a></li>
                                 </ul>
                             </div>

@@ -105,6 +105,8 @@
         <?php
         function createText($name, $id, $display, $class = "", $value = "", $placeHolder = "", $readonly = "")
         {
+            $display = trans('lang.'.$display);
+            // $add = trans('lang.Add');
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
             <div class="form-control-wrap">
@@ -321,10 +323,20 @@
 
                 function createCanvasButton($class = "", $type = "", $display, $route)
                 {
+                    $display = trans('lang.'.$display);
+                    $add = trans('lang.Add');
+                    if(App::getLocale() == 'ne')
+                    {
                 ?>
-                    <button class="mt-3 btn btn-primary  <?php echo $class; ?>" data-route="<?php echo route($route); ?>" data-bs-toggle="offcanvas" data-bs-target="#addOffcanvas"> <em class="icon ni ni-plus"></em>Add <?php echo $display ?>
+                    <button class="mt-3 btn btn-primary  <?php echo $class; ?>" data-route="<?php echo route($route); ?>" data-bs-toggle="offcanvas" data-bs-target="#addOffcanvas"> <em class="icon ni ni-plus"></em> <?php echo $display ?> <?php echo $add ?>
                     </button>
                 <?php
+                }else{
+                    ?>
+                    <button class="mt-3 btn btn-primary  <?php echo $class; ?>" data-route="<?php echo route($route); ?>" data-bs-toggle="offcanvas" data-bs-target="#addOffcanvas"> <em class="icon ni ni-plus"></em><?php echo $add ?> <?php echo $display ?>
+                    </button>
+                <?php 
+                }
                 }
                 ?>
 
