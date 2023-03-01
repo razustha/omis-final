@@ -156,11 +156,31 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('role:super-super-admin|super-admin');
 
-
-    Route::get('/calendar', [DashboardController::class, 'calendar'])->name('getcalendar');
+    //  Event Calendar
+    Route::get('/event-calendar', [DashboardController::class, 'eventCalendar'])->name('eventcalendar');
     Route::get('/full-calendar', [DashboardController::class, 'getEvent'])->name('fetchcalendardata');
     Route::post('/calendar/saveRelocateEventStartDate',  [DashboardController::class, 'saveRelocateEventStartDate'])
     ->name('saveRelocateEventStartDate');
+    Route::get('/calendar/editDeleteEventsShowData/{id}', [DashboardController::class, 'editDeleteEventsShowData'])
+    ->name('editDeleteEventsShowData');
+    Route::post('/calendar/updateSelectedEvent/{id}', [DashboardController::class, 'updateSelectedEvent'])
+    ->name('updateSelectedEvent');
+    Route::get('/calendar/deleteSelectedEvent/{id}', [DashboardController::class, 'deleteSelectedEvent'])
+    ->name('deleteSelectedEvent');
+    //  Event Calendar
+
+    //  Holiday Calendar
+    Route::get('/holiday-calendar', [DashboardController::class, 'holidayCalendar'])->name('holidaycalendar');
+    Route::post('/holiday-calendar/saveHoliday',  [DashboardController::class, 'saveHoliday'])
+    ->name('saveHoliday');
+    Route::get('/holiday-calendar/editHoliday/{id}', [DashboardController::class, 'editHoliday'])
+    ->name('editHoliday');
+    Route::post('/holiday-calendar/updateHoliday/{id}', [DashboardController::class, 'updateHoliday'])
+    ->name('updateHoliday');
+    Route::get('/holiday-calendar/deleteHoliday/{id}', [DashboardController::class, 'deleteHoliday'])
+    ->name('deleteHoliday');
+    //  Holiday Calendar
+
 
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
