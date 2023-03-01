@@ -1,9 +1,11 @@
-<div class="" id="" style="margin-top: 55px">
+<div class="" id="" style="margin-top: 60px">
     @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
+      
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert"> 
+            <em class="ni ni-check icon me-1"></em>   
             <strong>{{ $message }}</strong>
-        </div>
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
     @endif
 
 

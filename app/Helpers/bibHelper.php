@@ -40,11 +40,11 @@
         }
 
         function nullableFields($table)
-        { 
+        {
             $columns = DB::select("describe $table");
             unset($columns[0]);
             foreach ($columns as $column) {
-                if ($column->Type == "varchar(255)") { 
+                if ($column->Type == "varchar(255)") {
                     $q = "ALTER TABLE $table CHANGE $column->Field $column->Field VARCHAR(255) NULL DEFAULT NULL";
                     //echo $q;die;
                     DB::select($q);
@@ -70,7 +70,8 @@
 
 
         function createInput($type, $name, $id, $display, $class = "", $value = "", $placeHolder = "", $min = "")
-        {  $display = trans('lang.'.$display);
+        {
+            $display = trans('lang.' . $display);
         ?>
             <label for="<?php echo $id; ?>" class="<?php echo $class; ?>">
                 <?php echo label($display); ?>
@@ -81,7 +82,8 @@
         ?>
         <?php
         function createPassword($name, $id, $display, $class = "", $value = "", $placeHolder = "", $readonly = "")
-        {   $display = trans('lang.'.$display);
+        {
+            $display = trans('lang.' . $display);
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
             <div class="form-control-wrap">
@@ -92,7 +94,8 @@
         ?>
         <?php
         function createEmail($name, $id, $display, $class = "", $value = "", $placeHolder = "", $readonly = "")
-        {   $display = trans('lang.'.$display);
+        {
+            $display = trans('lang.' . $display);
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
             <div class="form-control-wrap">
@@ -105,7 +108,7 @@
         <?php
         function createText($name, $id, $display, $class = "", $value = "", $placeHolder = "", $readonly = "")
         {
-            $display = trans('lang.'.$display);
+            $display = trans('lang.' . $display);
             // $add = trans('lang.Add');
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
@@ -121,7 +124,7 @@
         <?php
         function createNumber($name, $id, $display, $class = "", $value = "", $placeHolder = "")
         {
-            $display = trans('lang.'.$display);
+            $display = trans('lang.' . $display);
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
             <input type="number" id="<?php echo $id; ?>" placeholder="<?php echo $placeHolder; ?>" name="<?php echo $name; ?>" class="form-control <?php $class; ?>" value="<?php echo $value; ?>">
@@ -152,7 +155,7 @@
         <?php
         function createDate($name, $id, $display, $class = "", $value = "", $placeHolder = "")
         {
-            $display = trans('lang.'.$display);
+            $display = trans('lang.' . $display);
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo $display; ?> </label>
             <input type="date" id="<?php echo $id; ?>" placeholder="<?php echo $placeHolder; ?>" name="<?php echo $name; ?>" class="form-control <?php $class; ?>" value="<?php echo $value; ?>">
@@ -203,7 +206,7 @@
                 {
                 ?>
                     <select class="js-select <?php $class; ?>" name="<?php echo $name; ?>" aria-label="Default select example" data-search="true" data-sort="false">
-                    <option value="">Select Option</option>
+                        <option value="">Select Option</option>
                         <?php $sn = 0;
                         for ($i = 0; $i < sizeof($values); $i++) : $v = $values[$i][0];
                             $d = isset($values[$i]) ? $values[$i] : "";
@@ -218,18 +221,18 @@
                 }
                 function customCreateSelect($name, $id, $class = "form-control", $display, $values = array(), $keyValue = '')
                 {
-                    $display = trans('lang.'.$display);
+                    $display = trans('lang.' . $display);
                     // $add = trans('lang.Add');
                 ?>
 
                     <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
 
-                        <select class="form-select <?php echo $class ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" aria-label="Default select example">
+                    <select class="form-select <?php echo $class ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" aria-label="Default select example">
                         <option value="">Select Option</option>
-                            <?php foreach ($values as $key => $value) { ?>
-                                <option value="<?= $key ?>" <?php echo $keyValue == $key ? 'selected' : '' ?>><?= $value ?></option>
-                            <?php } ?>
-                        </select>
+                        <?php foreach ($values as $key => $value) { ?>
+                            <option value="<?= $key ?>" <?php echo $keyValue == $key ? 'selected' : '' ?>><?= $value ?></option>
+                        <?php } ?>
+                    </select>
 
 
 
@@ -271,7 +274,7 @@
                 //for label
                 function createLabel($for = "", $class = "", $display)
                 {
-                    $display = trans('lang.'.$display);
+                    $display = trans('lang.' . $display);
                     // $add = trans('lang.Add');
                 ?>
                     <label for="<?php echo $for; ?>" class="<?php echo $class; ?>">
@@ -324,25 +327,24 @@
                     <button class="mt-3 btn btn-primary  <?php echo $class; ?>" type="submit">
                         <?php echo $display ?>
                     </button>
-                <?php
+                    <?php
                 }
 
                 function createCanvasButton($class = "", $type = "", $display, $route)
                 {
-                    $display = trans('lang.'.$display);
+                    $display = trans('lang.' . $display);
                     $add = trans('lang.Add');
-                    if(App::getLocale() == 'ne')
-                    {
-                ?>
-                    <button class="mt-3 btn btn-primary  <?php echo $class; ?>" data-route="<?php echo route($route); ?>" data-bs-toggle="offcanvas" data-bs-target="#addOffcanvas"> <em class="icon ni ni-plus"></em> <?php echo $display ?> <?php echo $add ?>
-                    </button>
-                <?php
-                }else{
+                    if (App::getLocale() == 'ne') {
                     ?>
-                    <button class="mt-3 btn btn-primary  <?php echo $class; ?>" data-route="<?php echo route($route); ?>" data-bs-toggle="offcanvas" data-bs-target="#addOffcanvas"> <em class="icon ni ni-plus"></em><?php echo $add ?> <?php echo $display ?>
-                    </button>
-                <?php 
-                }
+                        <button class="mt-3 btn btn-primary  <?php echo $class; ?>" data-route="<?php echo route($route); ?>" data-bs-toggle="offcanvas" data-bs-target="#addOffcanvas"> <em class="icon ni ni-plus"></em> <?php echo $display ?> <?php echo $add ?>
+                        </button>
+                    <?php
+                    } else {
+                    ?>
+                        <button class="mt-3 btn btn-primary  <?php echo $class; ?>" data-route="<?php echo route($route); ?>" data-bs-toggle="offcanvas" data-bs-target="#addOffcanvas"> <em class="icon ni ni-plus"></em><?php echo $add ?> <?php echo $display ?>
+                        </button>
+                <?php
+                    }
                 }
                 ?>
 
@@ -353,7 +355,10 @@
                 ?>
                     <div class="form-group">
                         <div class="form-control-wrap">
-                            <textarea class="form-control text-area" name="<?php echo $name;?>" id="<?php echo $id;?>" rows="<?php echo $row;?>"><?php if(isset($display)){echo strip_tags($display);} ?></textarea>
+                            <textarea class="form-control text-area" name="<?php echo $name; ?>" id="<?php echo $id; ?>" rows="<?php echo $row; ?>">
+                                <?php if (isset($display)) 
+                                {  echo strip_tags($display);} ?>
+                                </textarea>
                         </div>
                     </div>
 
@@ -549,7 +554,7 @@
 
                 function getRoles()
                 {
-                    return Role::whereNotIn('id',[1,2])->get();
+                    return Role::whereNotIn('id', [1, 2])->get();
                 }
                 function getEmployees()
                 {
@@ -558,7 +563,7 @@
 
                 function getModules()
                 {
-                    return Module::where('status', '<>', '-1')->where('module_id','<>','1')->get();
+                    return Module::where('status', '<>', '-1')->where('module_id', '<>', '1')->get();
                 }
 
                 function getReportingTo($department_id)
@@ -574,26 +579,26 @@
                 //get unique Operation number
                 function getOperationNumber()
                 {
-                    $startNumber= date('YmdHis').rand(1000,9999);
-                    $isExists = OperationLog::where('operation_end_no',$startNumber)->first();
-                    while($isExists){
-                        $startNumber= date('YmdHis').rand(100000,999999);
-                        $isExists = OperationLog::where('operation_end_no',$startNumber)->first();
+                    $startNumber = date('YmdHis') . rand(1000, 9999);
+                    $isExists = OperationLog::where('operation_end_no', $startNumber)->first();
+                    while ($isExists) {
+                        $startNumber = date('YmdHis') . rand(100000, 999999);
+                        $isExists = OperationLog::where('operation_end_no', $startNumber)->first();
                     }
-                        return $startNumber;
+                    return $startNumber;
                 }
 
                 /**
                  * function createLog(operation start number, operation end number, model class full name with path,model Id for create and upodate operation, operation Name, previous values in array, new values in array);
                  */
-                function createOperationLog($startOperationNumber,$endOperationNumber,$modelName,$modelId,$operationName,$previousValues,$newValues)
+                function createOperationLog($startOperationNumber, $endOperationNumber, $modelName, $modelId, $operationName, $previousValues, $newValues)
                 {
                     $operationId = getOperationNumber();
                     $user_id = auth()->user()->id;
                     OperationLog::create([
-                        'user_id'=> $user_id,
-                        'operation_start_no'=> $startOperationNumber,
-                        'operation_end_no'=> $endOperationNumber,
+                        'user_id' => $user_id,
+                        'operation_start_no' => $startOperationNumber,
+                        'operation_end_no' => $endOperationNumber,
                         'model_name' => $modelName,
                         'model_id' => $modelId,
                         'operation_name' => $operationName,
@@ -602,18 +607,18 @@
                     ]);
                 }
 
-                function createErrorLog($controllerName,$methodName,$errors)
+                function createErrorLog($controllerName, $methodName, $errors)
                 {
                     $user_id = auth()->user()->id;
                     ErrorLog::create([
-                        'user_id'=> $user_id,
-                        'controller_name'=> $controllerName,
-                        'method_name'=> $methodName,
+                        'user_id' => $user_id,
+                        'controller_name' => $controllerName,
+                        'method_name' => $methodName,
                         'errors' => $errors,
                     ]);
                 }
 
-                function createErrorParagraph($name, $class=null)
+                function createErrorParagraph($name, $class = null)
                 {
                     echo "<p id='error_$name' class='text-danger custom-error $class'></p>";
                 }

@@ -35,6 +35,8 @@ return [
     'Employee Name' => 'कर्मचारीको नाम',
     'Personal Details' => 'व्यक्तिगत विवरण',
     'Leave Application' => 'छुट्टि निवेदन',
+    'Leave Type' => 'छुट्टिको प्रकार',
+    'Number Of Leave(Annually)' => 'छुट्टिको संख्या(वार्षिक)',
     'Designation' => 'पद',
     'Reporting To' => 'रिर्पोट गर्ने',
     'Skills' => 'सीप',
