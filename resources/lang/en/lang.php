@@ -33,7 +33,7 @@ return [
     'Employee Name' => 'Employee Name',
     'Personal Details' => 'Personal Details',
     'Leave Application' => 'Leave Application',
-    'Leave Type' => 'Leave TYpe',
+    'Leave Type' => 'Leave Type',
     'Number Of Leave(Annually)' => 'Number Of Leave(Annually)',
     'Designation' => 'Designation',
     'Reporting To' => 'Reporting To',
