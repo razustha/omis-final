@@ -40,11 +40,11 @@
         }
 
         function nullableFields($table)
-        {
+        { 
             $columns = DB::select("describe $table");
             unset($columns[0]);
             foreach ($columns as $column) {
-                if ($column->Type == "varchar(255)") {
+                if ($column->Type == "varchar(255)") { 
                     $q = "ALTER TABLE $table CHANGE $column->Field $column->Field VARCHAR(255) NULL DEFAULT NULL";
                     //echo $q;die;
                     DB::select($q);
@@ -70,7 +70,7 @@
 
 
         function createInput($type, $name, $id, $display, $class = "", $value = "", $placeHolder = "", $min = "")
-        {
+        {  $display = trans('lang.'.$display);
         ?>
             <label for="<?php echo $id; ?>" class="<?php echo $class; ?>">
                 <?php echo label($display); ?>
@@ -81,7 +81,7 @@
         ?>
         <?php
         function createPassword($name, $id, $display, $class = "", $value = "", $placeHolder = "", $readonly = "")
-        {
+        {   $display = trans('lang.'.$display);
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
             <div class="form-control-wrap">
@@ -92,7 +92,7 @@
         ?>
         <?php
         function createEmail($name, $id, $display, $class = "", $value = "", $placeHolder = "", $readonly = "")
-        {
+        {   $display = trans('lang.'.$display);
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
             <div class="form-control-wrap">
@@ -121,6 +121,7 @@
         <?php
         function createNumber($name, $id, $display, $class = "", $value = "", $placeHolder = "")
         {
+            $display = trans('lang.'.$display);
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
             <input type="number" id="<?php echo $id; ?>" placeholder="<?php echo $placeHolder; ?>" name="<?php echo $name; ?>" class="form-control <?php $class; ?>" value="<?php echo $value; ?>">
@@ -151,6 +152,7 @@
         <?php
         function createDate($name, $id, $display, $class = "", $value = "", $placeHolder = "")
         {
+            $display = trans('lang.'.$display);
         ?>
             <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo $display; ?> </label>
             <input type="date" id="<?php echo $id; ?>" placeholder="<?php echo $placeHolder; ?>" name="<?php echo $name; ?>" class="form-control <?php $class; ?>" value="<?php echo $value; ?>">

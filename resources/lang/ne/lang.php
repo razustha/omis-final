@@ -22,6 +22,7 @@ return [
     'gender' => 'लिङ्ग',
     'Date Of Birth' => 'जन्म मिति',
     'Nationality' => 'राष्ट्रियता',
+    'Email Address' => 'ईमेल ठेगाना',
     'Password' => 'पासवर्ड',
     'Employee' => 'कर्मचारी',
     'Phone Number' => 'फोन नं.',
@@ -37,6 +38,12 @@ return [
     'Designation' => 'पद',
     'Reporting To' => 'रिर्पोट गर्ने',
     'Skills' => 'सीप',
+    'User Role' => 'प्रयोगकर्ता भूमिका',
+    'Address Details' => 'ठेगानाको विवरण',
+    'Employee Name' => 'कर्मचारीको नाम',
+    'Is Head' => 'विभाग प्रमुख',
+    'Join Date' => 'सामेल मिति',
+    'Govt. Pan No.' => 'सरकारी पान नं.',
     '1' => '१',
   
 ];
