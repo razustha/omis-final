@@ -216,6 +216,8 @@
                 }
                 function customCreateSelect($name, $id, $class = "form-control", $display, $values = array(), $keyValue = '')
                 {
+                    $display = trans('lang.'.$display);
+                    // $add = trans('lang.Add');
                 ?>
 
                     <label for="<?php echo $id; ?>" class="form-label col-form-label"> <?php echo label($display); ?> </label>
@@ -267,6 +269,8 @@
                 //for label
                 function createLabel($for = "", $class = "", $display)
                 {
+                    $display = trans('lang.'.$display);
+                    // $add = trans('lang.Add');
                 ?>
                     <label for="<?php echo $for; ?>" class="<?php echo $class; ?>">
                         <?php echo label($display); ?>

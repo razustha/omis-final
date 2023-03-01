@@ -11,8 +11,9 @@ return [
     'Action' => 'कार्य',
     'Add' => 'थप्नुहोस्',
     'Add Department' => 'विभाग थप्नुहोस्',
-    'Department Name' => 'विभाग थप्नुहोस्',
+    'Department Name' => 'विभागको नाम',
     'Remarks' => 'टिप्पणीहरू',
+    'remarks' => 'टिप्पणीहरू',
     'Edit Department' => 'विभाग सम्पादन गर्नुहोस्'
   
 ];
