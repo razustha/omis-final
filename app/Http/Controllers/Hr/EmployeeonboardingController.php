@@ -39,6 +39,7 @@
                     'joinDate' => 'required',
                     'dayFrom' => 'required',
                     'dayTo' => 'required',
+                    'status' => 'required'
                 ]);
         
                 if ($validator->fails()) {
@@ -89,6 +90,7 @@
                     'joinDate' => 'required',
                     'dayFrom' => 'required',
                     'dayTo' => 'required',
+                    'status' => 'required'
                 ]);
         
                 if ($validator->fails()) {

@@ -46,10 +46,10 @@
                     <h5 class="modal-title align-self-center mt-0 text-center" id="exampleModalLabel">Add Check In</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('hr.attendence.checkIn')}}" method="POST">
+                    <form action="{{ route('hr.attendence.checkIn') }}" method="POST">
                         @csrf
                         <div class="form-group row">
-                            <input type="hidden" value="{{auth()->user()->id}}">
+                            <input type="hidden" value="{{ auth()->user()->id }}">
                             <div class="col-md-12">
                                 {{ createText('location', 'location', 'location') }}
                             </div>
@@ -60,7 +60,7 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <?php createButton("btn-primary","","Save"); ?>
+                                <?php createButton('btn-primary', '', 'Save'); ?>
                             </div>
                         </div>
                     </form>
@@ -85,7 +85,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
-    <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
+    <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
     <script src="{{ asset('assets/js/nepali.datepicker.v4.0.1.min.js') }}"></script>
     <script>
         $(document).on('click', '#nepali-datepicker', function(e) {
@@ -183,6 +183,13 @@
                     } else {
                         printErrorMsg(res.error);
                     }
+                },
+                error: function(response) {
+                    $('.custom-error').empty();
+                    var obj = response.responseJSON.error;
+                    $.each(obj, function(key, value) {
+                        $('#error_' + key).text(value);
+                    });
                 }
             })
         })
@@ -209,8 +216,17 @@
                             window.location.reload();
                         }, 1500);
                     } else {
-                        printErrorMsg(res.error);
+                        Console.log(res);
+                        Console.log(res.error);
+                        // printErrorMsg(res.error);
                     }
+                },
+                error: function(response) {
+                    $('.custom-error').empty();
+                    var obj = response.responseJSON.error;
+                    $.each(obj, function(key, value) {
+                        $('#error_' + key).text(value);
+                    });
                 }
             })
         })
@@ -249,22 +265,25 @@
         });
 
         // For Attendence
-        $(document ).ready(function() {
+        $(document).ready(function() {
             $(".update_CheckIn").modal({
                 show: false,
                 backdrop: 'static',
                 keyboard: false
             });
-            @if(empty(auth()->user()->attendence()))
+            @if (empty(auth()->user()->attendence()
+                ))
                 $(window).on('load', function() {
                     $('.update_CheckIn').modal('show');
                 });
             @endif
         });
 
+        var url = "{{ route('changeLang') }}";
 
-
-
+        $(".changeLang").change(function() {
+            window.location.href = url + "?lang=" + $(this).val();
+        });
     </script>
 
 

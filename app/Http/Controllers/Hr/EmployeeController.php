@@ -62,22 +62,35 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request->ajax());
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
+            'lastName' => 'required',
             'password' => 'required',
             'emailAddress' => 'required|email:unique:users',
-            // 'gender_id' => 'required',
-            // 'dateOfBirth' => 'required',
-            // 'country_id' => 'required|exists:tbl_country,country_id',
-            // 'state_id' => 'required|exists:tbl_state,state_id',
-            // 'district_id' => 'required|exists:tbl_district,district_id',
-            // 'city_id' => 'required|exists:tbl_city,city_id',
+            'dateOfBirth' => 'required',
+            'nationality_id' => 'required',
+            'temproryAddress' => 'required',
+            'gender_id' => 'required',
+            'country_id' => 'required|exists:tbl_country,country_id',
+            'state_id' => 'required|exists:tbl_state,state_id',
+            'district_id' => 'required|exists:tbl_district,district_id',
+            'city_id' => 'required|exists:tbl_city,city_id',
+            'permanentAddress' => 'required',
+            'role_id' => 'required',
+            'department_id' => 'required',
+            'designation_id' => 'required',
+            'is_head' => 'required',
+            'joiningDate' => 'required',
+            'status' => 'required',
+
         ]);
 
         if ($validator->fails()) {
+            // dd($validator->messages());
             return response()->json([
-                'error' => $validator->errors()->all(),
-            ]);
+                'error' => $validator->messages(),
+            ],500);
         }
 
         $user = null;
@@ -190,6 +203,36 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'password' => 'required',
+            'emailAddress' => 'required|email',
+            'dateOfBirth' => 'required',
+            'nationality_id' => 'required',
+            'temproryAddress' => 'required',
+            'gender_id' => 'required',
+            'country_id' => 'required|exists:tbl_country,country_id',
+            'state_id' => 'required|exists:tbl_state,state_id',
+            'district_id' => 'required|exists:tbl_district,district_id',
+            'city_id' => 'required|exists:tbl_city,city_id',
+            'permanentAddress' => 'required',
+            'role_id' => 'required',
+            'department_id' => 'required',
+            'designation_id' => 'required',
+            'is_head' => 'required',
+            'joiningDate' => 'required',
+            'status' => 'required',
+
+        ]);
+
+        if ($validator->fails()) {
+            // dd($validator->messages());
+            return response()->json([
+                'error' => $validator->messages(),
+            ],500);
+        }
+
         $employee = Employee::findOrFail($id);
         $employee->skills = null;
         if ($request->skills) {

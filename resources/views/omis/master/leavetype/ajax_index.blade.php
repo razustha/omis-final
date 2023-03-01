@@ -5,22 +5,6 @@
                 <div class="nk-content-inner">
                     <div class="nk-content-body">
                         <div class="card-body">
-                                <p class="mb-1" style="font-size: 20px">Paid Leave : @if($paidLeave != null )
-                                        <b>{{$paidLeave->paidLeave}}</b> / month @else <b
-                                            class="badge badge-warning">Not Added</b>@endif</p>
-                                <p>(This is the no. of paid leaves an employee can take in a month.)</p>
-                                <hr/>
-                                <form action="{{route('master.leavetype.addPaidLeave')}}" method="POST">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="paidLeave" class="font-weight-normal">Change paid leave per month</label>
-                                        <input type="number" class="form-control" name="paidLeave" id="paidLeave">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-success">Change</button>
-                                    </div>
-                                </form>
-                        </div>
                         <div class="nk-block-head">
                             <div class="nk-block-head-between flex-wrap gap g-2">
                                 <div class="nk-block-head-content">
@@ -41,8 +25,34 @@
                                 </div>
                             </div>
                         </div>
+                                <p class="col-form-label form-label" style="font-size: 20px">Paid Leave : @if($paidLeave != null )
+                                        <b>{{$paidLeave->paidLeave}}</b> / month @else <b
+                                            class="badge badge-warning">Not Added</b>@endif</p>
+                                <caption>(This is the no. of paid leaves an employee can take in a month.)</caption>
+                                <hr/>
+                             
+
+                                
+                                <form action="{{route('master.leavetype.addPaidLeave')}}" method="POST">
+                                <div class="row d-flex align-items-center">   
+                                @csrf
+                                    <div class="col-9  form-group">
+                                        <label for="paidLeave" class="font-weight-normal col-form-label">Change paid leave per month</label>
+                                        <input type="number" class="form-control" name="paidLeave" id="paidLeave">
+                                    </div>
+                                    <div class="col-3 form-group mt-5">
+                                        <button type="submit" class="btn btn-success">Change</button>
+                                    </div>
+                                    </div>
+                                </form>
+                            
+
+                            </div>
+
+                            
+                        
                         <div class="nk-block">
-                            <div class="card">
+                            <div class="card mt-3">
                                 <table class="datatable-init table" data-nk-container="table-responsive" id="CustomTable">
                                     <thead class="table-light">
                                         <tr>

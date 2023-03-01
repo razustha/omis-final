@@ -25,9 +25,13 @@
                                     <div class="kanban-container" style="width: 750px;">
                                         <div data-id="_inprocess" data-order="1" class="kanban-board"
                                             style="width: 250px; margin-left: 0px; margin-right: 0px;">
-                                            <header class="kanban-board-header">
-                                                <div class="kanban-title-board">In Process</div>
-                                            </header>
+                                            <header class="kanban-board-header kanban-light"><div class="kanban-title-board">
+                                                <div class="kanban-title-content">
+                                                    <h6 class="title">In process</h6>
+                                                    <span class="count">3</span>
+                                                </div>
+                                            </div></header>
+                                           
                                             <main class="kanban-drag">
 
                                                 @foreach ($data as $allData)

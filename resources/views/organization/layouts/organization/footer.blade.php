@@ -1,4 +1,4 @@
-<div class="nk-footer">
+<div class="nk-footer nk-footer-fixed">
     <div class="container-fluid">
         <div class="nk-footer-wrap">
             <div class="nk-footer-copyright"> &copy; {{ date("Y") }} Bibhuti-OMIS. </div>

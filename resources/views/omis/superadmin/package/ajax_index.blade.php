@@ -26,14 +26,14 @@
                     </div>
                     <div class="nk-block">
                         <div class="card">
-                            <table class="datatable-init table" data-nk-container="table-responsive" id="CustomTable">
+                            <table class="datatable-init table table-responsive" data-nk-container="table-responsive" id="CustomTable">
                                 <thead class="table-light">
                                     <tr>
                                         <th class="tb-col"><span class="overline-title">S.N.</span></th>
                                         <th class="tb-col"><span class="overline-title">name</span></th>
                                         <th class="tb-col"><span class="overline-title">price</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">description</span></th> -->
-                                        <th class="tb-col"><span class="overline-title">feature</span></th>
+                                        <th class="tb-col  col-lg-2"><span class="overline-title">feature</span></th>
                                         <th class="tb-col"><span class="overline-title">User Login Limit</span></th>
                                         <th class="tb-col"><span class="overline-title">duration</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">alias</span></th> -->
@@ -52,7 +52,9 @@
                                             <td class="tb-col">{{ $item->name }}</td>
                                             <td class="tb-col">{{ $item->price }}</td>
                                             <!-- <td class="tb-col">{{ $item->description }}</td> -->
+                  
                                             <td class="tb-col">{{ $item->module_name }}</td>
+
                                             <td class="tb-col">{{ $item->loginLimitNo }}</td>
                                             <td class="tb-col">{{ $item->duration }}</td>
                                             <!-- <td class="tb-col">{{ $item->alias }}</td> -->

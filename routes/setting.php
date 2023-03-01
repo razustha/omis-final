@@ -52,6 +52,8 @@ Route::middleware('auth')->prefix("setting")->group(function () {
         Route::get('/edit/{id}', [OperationLogController::class, 'edit'])->name('setting.operation.edit');
         Route::put('/update/{id}', [OperationLogController::class, 'update'])->name('setting.operation.update');//->middleware('permission:settings-role-index');
         Route::get('/destroy/{id}', [OperationLogController::class, 'destroy'])->name('setting.operation.destroy');//->middleware('permission:settings-role-index');
+        Route::get('/rollback/{operationNumber}', [OperationLogController::class, 'rollback'])->name('setting.operation.rollback');//->middleware('permission:settings-role-index');
+
     });
 });
 

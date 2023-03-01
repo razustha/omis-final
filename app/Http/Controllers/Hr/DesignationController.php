@@ -31,6 +31,8 @@
             {
                 $validator = Validator::make($request->all(), [
                     'designationName' => 'required',
+                    'rank' => 'required',
+                    'status' => 'required',
                 ]);
         
                 if ($validator->fails()) {
@@ -73,6 +75,8 @@
             {
                 $validator = Validator::make($request->all(), [
                     'designationName' => 'required',
+                      'rank' => 'required',
+                    'status' => 'required',
                 ]);
         
                 if ($validator->fails()) {
