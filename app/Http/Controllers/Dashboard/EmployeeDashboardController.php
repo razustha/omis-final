@@ -45,14 +45,25 @@ class EmployeeDashboardController extends Controller
 
             foreach ($leaveRequestApproved as $data) {
                 if ($data->leaveStart == $data->leaveEnd) {
-                    $leaveDays = 1;
+                    if($data->type == "half")
+                    {
+                        $leaveDays = 0.5;
+                    } else {
+                        $leaveDays = 1;
+                    }
                 } else {
                     $leaveDays = Carbon::parse($data->leaveStart)->diffInDays($data->leaveEnd) + 1;
+                    if($data->type == "half")
+                    {
+                        $leaveDays = $leaveDays/2;
+                    } else {
+                        $leaveDays = $leaveDays;
+                    }
                 }
                 $totalLeaveDays += $leaveDays;
             }
-            $remainingPaidLeaveDays = $totalPaidLeaveAccumulated - $totalLeaveDays;
 
+            $remainingPaidLeaveDays = $totalPaidLeaveAccumulated - $totalLeaveDays;
             if ($remainingPaidLeaveDays < 0) {
                 $extraPaidLeaveTaken = abs($remainingPaidLeaveDays);
 
@@ -61,6 +72,7 @@ class EmployeeDashboardController extends Controller
                 $extraPaidLeaveTaken = 0;
             }
         }
+
         return [$paidLeaveAllocation, $remainingPaidLeaveDays, $extraPaidLeaveTaken, $totalLeaveDays];
     }
 
@@ -77,6 +89,12 @@ class EmployeeDashboardController extends Controller
             $totalDays = 0;
             foreach ($leaveRequests as $data) {
                 $leaveDays = Carbon::parse($data->startDate)->diffInDays($data->endDate) + 1;
+                if($data->type == "half")
+                {
+                    $leaveDays = $leaveDays/2;
+                } else {
+                    $leaveDays = $leaveDays;
+                }
                 $totalDays += $leaveDays;
             }
         }

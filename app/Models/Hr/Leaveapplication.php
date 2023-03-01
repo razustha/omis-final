@@ -24,6 +24,8 @@ class Leaveapplication extends Model
         'leavetype_id',
         'leaveStart',
         'leaveEnd',
+        'type',
+        'sub_total',
         'leaveApprovalBy',
         'leaveApprovedDate',
         'createdOn',

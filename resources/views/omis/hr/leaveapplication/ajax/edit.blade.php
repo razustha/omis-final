@@ -10,7 +10,7 @@
         <div class="col-lg-4">{{ createDate('leaveEnd', 'leaveEnd', 'Leave End Date', '', $data->leaveEnd) }}
         </div>
 
-
+        <div class="col-lg-4">{{customCreateSelect("type","type",'',"Type",['half'=>'Half Day','full'=>'Full Day'],$data->type)}}
 
         <div class="col-lg-12">
             {{ createLabel('remarks', 'form-label col-form-label', 'Reason') }}{{ createTextArea('remarks', 'remarks', 'Remarks', '', $data->remarks) }}

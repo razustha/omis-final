@@ -35,6 +35,9 @@
         </div>
         <div class="col-lg-4">{{ createDate('leaveEnd', 'leaveEnd', 'Leave End Date') }}
         </div>
+        <div class="col-ld-4">
+            {{customCreateSelect("type","type",'',"Type",['half'=>'Half Day','full'=>'Full Day'])}}
+        </div>
         <div class="col-lg-12">
 
             {{ createLabel('remarks', 'form-label col-form-label', 'Reason') }}

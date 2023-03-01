@@ -35,6 +35,10 @@
 
                                         <th class="tb-col"><span class="overline-title">Employee</span></th>
                                         <th class="tb-col"><span class="overline-title">leave Type</span></th>
+                                        <th class="tb-col"><span class="overline-title">Type</span></th>
+                                        <th class="tb-col"><span class="overline-title">From</span></th>
+                                        <th class="tb-col"><span class="overline-title">To</span></th>
+                                        <th class="tb-col"><span class="overline-title">Sub Total</span></th>
                                         <th class="tb-col"><span class="overline-title">Leave Status</span></th>
                                         <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
                                         </th>
@@ -63,6 +67,22 @@
                                                             <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
 
                                                         @endif
+                                                        <td class="tb-col">
+                                                            {{ $item->type }}
+
+                                                        </td>
+                                                        <td class="tb-col">
+                                                            {{ $item->leaveStart }}
+
+                                                        </td>
+                                                        <td class="tb-col">
+                                                            {{ $item->leaveEnd }}
+
+                                                        </td>
+                                                        <td class="tb-col">
+                                                            {{ $item->sub_total }}
+
+                                                        </td>
 
                                                         <td class="tb-col">
                                                             @if ($item->leaveApplication_status == null)
@@ -75,6 +95,7 @@
                                                                 <span class="badge text-bg-danger">Rejected</span>
                                                             @endif
                                                         </td>
+
                                                         <td class="tb-col">
                                                             <ul class="d-flex flex-wrap ">
                                                                 <li>
@@ -140,6 +161,22 @@
                                                             <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
 
                                                         @endif
+                                                        <td class="tb-col">
+                                                            {{ $item->type }}
+
+                                                        </td>
+                                                        <td class="tb-col">
+                                                            {{ $item->leaveStart }}
+
+                                                        </td>
+                                                        <td class="tb-col">
+                                                            {{ $item->leaveEnd }}
+
+                                                        </td>
+                                                        <td class="tb-col">
+                                                            {{ $item->sub_total }}
+
+                                                        </td>
 
                                                         <td class="tb-col">
                                                             @if ($item->leaveApplication_status == null)
@@ -210,6 +247,22 @@
                                                         <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
 
                                                     @endif
+                                                    <td class="tb-col">
+                                                        {{ $item->type }}
+
+                                                    </td>
+                                                    <td class="tb-col">
+                                                        {{ $item->leaveStart }}
+
+                                                    </td>
+                                                    <td class="tb-col">
+                                                        {{ $item->leaveEnd }}
+
+                                                    </td>
+                                                    <td class="tb-col">
+                                                        {{ $item->sub_total }}
+
+                                                    </td>
 
                                                     <td class="tb-col">
                                                         @if ($item->leaveApplication_status == null)
@@ -260,6 +313,22 @@
                                                         {{ $item->employee->firstName }}{{ $item->employee->middleName }}
                                                     </td>
                                                     <td class="tb-col">{{ $item->leavetype->leaveType }}</td>
+                                                    <td class="tb-col">
+                                                        {{ $item->type }}
+
+                                                    </td>
+                                                    <td class="tb-col">
+                                                        {{ $item->leaveStart }}
+
+                                                    </td>
+                                                    <td class="tb-col">
+                                                        {{ $item->leaveEnd }}
+
+                                                    </td>
+                                                    <td class="tb-col">
+                                                        {{ $item->sub_total }}
+
+                                                    </td>
 
                                                     <td class="tb-col">
                                                         @if ($item->leaveApplication_status == null)

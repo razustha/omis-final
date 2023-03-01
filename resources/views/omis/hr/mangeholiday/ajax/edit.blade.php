@@ -1,5 +1,5 @@
 <form action="{{route('hr.mangeholiday.update',[$data->mangeHoliday_id])}}" id="updateCustomForm">
- @csrf 
+ @csrf
  @method('PUT')
 <div class="row">
     <!-- <div class="col-lg-6">{{createText("companyName_id","companyName_id","Company Id",'',$data->companyName_id)}}
