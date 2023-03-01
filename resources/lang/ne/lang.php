@@ -3,9 +3,18 @@
 return [
   
     'Department' => 'विभाग',
+    'Manager' => 'प्रबन्धक',
     'List' => 'सूची',
     'Manage' => 'व्यवस्थापन',
-    'S.N.' => 'S.N.',
+    'Role' => 'भूमिका',
+    'Contact' => 'सम्पर्क',
+    'EMP Id' => 'कर्मचारीको आईडी',
+    'Employee Id' => 'कर्मचारीको आईडी',
+    'Add Employee' => 'कर्मचारीको थप्नुहोस्',
+    'Organization Role' => 'संगठनको भूमिका',
+    'Employees' => 'कर्मचारीहरु',
+    'Employee Manage' => 'कर्मचारी व्यवस्थापन',
+    'S.N.' => 'सि.नं.',
     'status' => 'स्थिति',
     'Status' => 'स्थिति',
     'Action' => 'कार्य',
@@ -39,7 +48,7 @@ return [
     'Number Of Leave(Annually)' => 'छुट्टिको संख्या(वार्षिक)',
     'Designation' => 'पद',
     'Reporting To' => 'रिर्पोट गर्ने',
-    'Skills' => 'सीप',
+    'Skills' => 'सीपहरू',
     'User Role' => 'प्रयोगकर्ता भूमिका',
     'Address Details' => 'ठेगानाको विवरण',
     'Employee Name' => 'कर्मचारीको नाम',
@@ -47,5 +56,8 @@ return [
     'Join Date' => 'सामेल मिति',
     'Govt. Pan No.' => 'सरकारी पान नं.',
     '1' => '१',
+    'Search' => 'खोज्नुहोस्',
+    'Yes' => 'हुन्छ',
+    'No' => 'हुँदैन',
   
 ];

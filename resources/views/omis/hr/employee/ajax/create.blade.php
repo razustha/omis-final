@@ -8,7 +8,8 @@
                         <div class="card-body">
                             <div class="row g-gs">
                                 <div class="col-6">
-                                    <label class="form-label">Employee ID -
+                                    <label class="form-label">{{ __('lang.Employee Id') }} -
+                                      
                                         {{ $emp_id }}
                                     </label>
                                 </div>
@@ -20,7 +21,7 @@
                                         {{ createText('employeeType_id', 'employeeType_id', 'Employee Type Id') }}
                                     </div> -->
                                         <div class="col-lg-12">
-                                            <h2 class="mt-3">Personal Details</h2>
+                                            <h2 class="mt-3">{{ __('lang.Personal Details') }}</h2>
                                         </div>
 
                                         <div class="col-lg-4">
@@ -77,7 +78,7 @@
 
 
                                         <div class="col-lg-12">
-                                            <h2 class="mt-3">Address Details</h2>
+                                            <h2 class="mt-3">{{ __('lang.Address Details') }}</h2>
                                         </div>
 
                                         <div class="col-lg-3">
@@ -114,7 +115,7 @@
 
                                         </div>
                                         <div class="col-lg-12">
-                                            <h2 class="mt-3">Organization Role</h2>
+                                            <h2 class="mt-3">{{ __('lang.Organization Role') }}</h2>
                                         </div>
                                         <div class="col-lg-4">
                                             {{customCreateSelect('role_id', 'role_id', '', 'User Role', getRoles()->pluck('name','id')->toArray())}}

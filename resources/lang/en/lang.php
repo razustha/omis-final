@@ -44,5 +44,9 @@ return [
     'Join Date' => 'Join Date',
     'Govt. Pan No.' => 'Govt. PAN No.',
     '1' => '1',
+    'Organization Role' => 'Organization Role',
+    'Employees' => 'Employees',
+    'Search'=> 'Search',
+    'Add Employee' => 'Add Employee',
   
 ];

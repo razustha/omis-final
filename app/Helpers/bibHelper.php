@@ -259,7 +259,7 @@
                 <?php
                 //Create Checkbox
                 function createCheck($name, $id, $display, $class = "", $value = "", $placeHolder = "")
-                {
+                {   $display = trans('lang.' . $display);
                 ?>
                     <div class="form-check">
                         <input type="checkbox" id="<?php echo $id; ?>" placeholder="<?php echo $placeHolder; ?>" name="<?php echo $name; ?>" class="form-check-input <?php $class; ?>" value="<?php echo $value; ?>">
@@ -273,8 +273,8 @@
                 <?php
                 //for label
                 function createLabel($for = "", $class = "", $display)
-                {
-                    $display = trans('lang.' . $display);
+                {     $display = trans('lang.' . $display);
+                    
                     // $add = trans('lang.Add');
                 ?>
                     <label for="<?php echo $for; ?>" class="<?php echo $class; ?>">

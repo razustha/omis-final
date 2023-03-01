@@ -7,12 +7,12 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title">Employees</h1>
+                                <h2 class="nk-block-title">{{ __('lang.Employees') }} </h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                            <li class="breadcrumb-item"><a href="#">Employee</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Employee Manage</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Employee
+                                            <li class="breadcrumb-item"><a href="#">{{ __('lang.Employee') }} </a></li>
+                                            <li class="breadcrumb-item"><a href="#">{{ __('lang.Employee Manage') }}</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Employee') }} 
                                             </li>
                                         </ol>
                                     </nav>
@@ -33,15 +33,15 @@
                             <table class="datatable-init table" data-nk-container="table-responsive" id="CustomTable">
                                 <thead class="table-light">
                                     <tr>
-                                        <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        <th class="tb-col"><span class="overline-title">EMP. Id</span></th>
-                                        <th class="tb-col"><span class="overline-title">Employee Name</span></th>
-                                        <th class="tb-col"><span class="overline-title">Contact</span></th>
-                                        <th class="tb-col"><span class="overline-title">Role</span></th>
-                                        <th class="tb-col"><span class="overline-title">Department</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.S.N.') }}</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.EMP Id') }}</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Employee Name') }}</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Contact') }}</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Role') }}</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Department') }}</span></th>
                                         {{-- <th class="tb-col"><span class="overline-title">designation</span></th> --}}
-                                        <th class="tb-col"><span class="overline-title">status</span></th>
-                                        <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Status') }}</span></th>
+                                        <th class="tb-col" data-sortable="false"><span class="overline-title">{{ __('lang.Action') }}</span>
                                         </th>
                                     </tr>
                                 </thead>
@@ -96,7 +96,7 @@
                             {{-- Add Modal --}}
                             <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                                 <div class="offcanvas-header border-bottom border-light">
-                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Employee</h5><button
+                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">{{ __('lang.Add Employee') }}</h5><button
                                         type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>

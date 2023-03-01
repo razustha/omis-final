@@ -7,7 +7,7 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title">Add Employee</h1>
+                                <h2 class="nk-block-title">{{ __('lang.Add Employee.') }}</h1>
 
                             </div>
                             <div class="nk-block-head-content">
