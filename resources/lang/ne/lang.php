@@ -51,7 +51,6 @@ return [
     'Skills' => 'सीपहरू',
     'User Role' => 'प्रयोगकर्ता भूमिका',
     'Address Details' => 'ठेगानाको विवरण',
-    'Employee Name' => 'कर्मचारीको नाम',
     'Is Head' => 'विभाग प्रमुख',
     'Join Date' => 'सामेल मिति',
     'Govt. Pan No.' => 'सरकारी पान नं.',
