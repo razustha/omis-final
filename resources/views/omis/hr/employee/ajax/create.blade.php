@@ -10,7 +10,7 @@
                                 <div class="col-6">
                                     <label class="form-label">{{ __('lang.Employee Id') }} -
                                       
-                                        {{ $emp_id }}
+                                        {{ __('lang.'.$emp_id) }}
                                     </label>
                                 </div>
                                 <hr class="border-primary border-2 opacity-85">
@@ -200,6 +200,7 @@
                             {{ createNumber('panNo', 'panNo', 'Govt. Pan No.') }}
                         </div>
                         <hr>
+                       
                         <div class="col-12">
                             <div class="form-group"><label class="form-label">Thumbnail</label>
                                 <div class="form-control-wrap">
@@ -215,9 +216,6 @@
                                     image files are accepted.</div>
                             </div>
                         </div>
-
-
-
 
                         <div class="col-12">
                             <div class="form-group"><label class="form-label">Login Allowed</label>
