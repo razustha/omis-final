@@ -49,17 +49,5 @@ return [
     'Employees' => 'Employees',
     'Search'=> 'Search',
     'Add Employee' => 'Add Employee',
-    'Demotion' => 'Demotion',
-    'Promotion' => 'Promotion',
-    'Promotion / Demotion' => 'Promotion / Demotion',
-    'Promotion / Demotion' => 'Promotion / Demotion',
-    'Promotion / Demotion Type' => 'Promotion / Demotion Type',
-    'Promotion Demotion' => 'Promotion Demotion',
-    'Date' => 'Date',
-    'Company' => 'Company',
-    'Title' => 'Title',
-    'Show' => 'Show',
-    'Description' => 'Description',
-    
   
 ];

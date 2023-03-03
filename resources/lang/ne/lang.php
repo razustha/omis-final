@@ -61,16 +61,5 @@ return [
     'Search' => 'खोज्नुहोस्',
     'Yes' => 'हुन्छ',
     'No' => 'हुँदैन',
-    'Promotion'=>'पदोन्नति',
-    'Demotion'=>'पदावनति',
-
-    'Promotion / Demotion'=>'पदोन्नति / पदावनति',
-    'Promotion / Demotion Type'=>'पदोन्नति / पदावनति प्रकार',
-    'Promotion Demotion'=>'पदोन्नति पदावनति',
-    'Date'=>'मिति',
-    'Company'=>'कम्पनी',
-    'Title'=>'शीर्षक',
-    'Show'=>'देखाउनु',
-    'Description'=>'विवरण',
   
 ];
