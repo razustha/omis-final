@@ -1,7 +1,7 @@
 <form action="{{ route('hr.designation.store') }}" id="storeCustomForm">
     @csrf
     <div class="row">
-        <div class="col-lg-4">{{ createText('designationName', 'designationName', 'Designation Title') }}
+        <div class="col-lg-4">{{ createText('designationName', 'designationName', 'Designation') }}
         </div>
 
         <div class="col-lg-4">{{ createText('rank', 'rank', 'Designation Rank') }}

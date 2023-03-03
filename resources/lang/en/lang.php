@@ -48,5 +48,11 @@ return [
     'Employees' => 'Employees',
     'Search'=> 'Search',
     'Add Employee' => 'Add Employee',
+    'Rank'=>'Rank',
+    'Designation Rank'=>'Designation Rank',
+    'alias'=>'alias',
+    'alias'=>'alias',
+    'Created On'=>'Created On',
+
   
 ];

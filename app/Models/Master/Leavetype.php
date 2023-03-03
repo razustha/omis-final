@@ -16,6 +16,7 @@
             public $timestamps = true;
             protected $fillable =[
                 'leaveType',
+                'organization_id',
 'leavePaidStatus',
 'leaveCount',
 'monthlyLimit',
