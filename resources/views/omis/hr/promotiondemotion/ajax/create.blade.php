@@ -1,14 +1,14 @@
 <form action="{{ route('hr.promotiondemotion.store') }}" id="storeCustomForm">
     @csrf
     <div class="row">
-    <div class="col-lg-9">{{ createText('promotionTitle', 'promotionTitle', ' Title') }}
+    <div class="col-lg-9">{{ createText('promotionTitle', 'promotionTitle', 'Title') }}
         </div>
-        <div class="col-lg-3">{{ createDate('promotionDate', 'promotionDate', ' Date', '', '', '') }}
+        <div class="col-lg-3">{{ createDate('promotionDate', 'promotionDate', 'Date', '', '', '') }}
         </div>
         <div class="col-lg-6">
             {{ customCreateSelect('employee_id','employee_id','','Employee',getEmployees()->pluck('full_name', 'employee_id')->toArray()) }}
         </div>
-        <div class="col-lg-6">{{ customCreateSelect('type', 'type', '', 'Promotion/Demotion Type', ['promotion' => 'Promotion', 'demotion' => 'Demotion']) }}
+        <div class="col-lg-6">{{ customCreateSelect('type', 'type', '', 'Promotion / Demotion Type', ['promotion' => 'Promotion', 'demotion' => 'Demotion']) }}
         </div>
        
 

@@ -7,12 +7,12 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-between flex-wrap gap g-2">
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title">Promotion / Demotion</h1>
+                                <h2 class="nk-block-title">{{ __('lang.Promotion / Demotion') }}</h1>
                                     <nav>
                                         <ol class="breadcrumb breadcrumb-arrow mb-0">
-                                            <li class="breadcrumb-item"><a href="#">Promotion / Demotion</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Promotion / Demotion Manage</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Promotion Demotion
+                                            <li class="breadcrumb-item"><a href="#">{{ __('lang.Promotion / Demotion') }}</a></li>
+                                            <li class="breadcrumb-item"><a href="#">{{ __('lang.Promotion / Demotion') }}{{ __('lang.Manage') }}</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Promotion') }} {{ __('lang.Demotion') }}
                                             </li>
                                         </ol>
                                     </nav>
@@ -20,7 +20,7 @@
                             <div class="nk-block-head-content">
                             @can('hr-promotiondemotion-create')
                             <ul class="d-flex">
-                                    {!! createCanvasButton('customBtnAdd', '', 'Promotion Demotion', 'hr.promotiondemotion.create') !!}
+                                    {!! createCanvasButton('customBtnAdd', '', 'Promotion / Demotion', 'hr.promotiondemotion.create') !!}
                                 </ul>
                                 @endcan
                             </div>
@@ -31,15 +31,15 @@
                             <table class="datatable-init table" data-nk-container="table-responsive" id="CustomTable">
                                 <thead class="table-light">
                                     <tr>
-                                        <th class="tb-col"><span class="overline-title">S.N.</span></th>
-                                        {{-- <th class="tb-col"><span class="overline-title">company_id</span></th> --}}
-                                        <th class="tb-col"><span class="overline-title">employee</span></th>
-                                        <th class="tb-col"><span class="overline-title">Title</span></th>
-                                        <th class="tb-col"><span class="overline-title">Date</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.S.N.') }}</span></th>
+                                        {{-- <th class="tb-col"><span class="overline-title">{{ __('lang.Company') }}</span></th> --}}
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Employee') }}</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Title') }}</span></th>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Date') }}</span></th>
                                         <!-- <th class="tb-col"><span class="overline-title">description</span></th>
                                         <th class="tb-col"><span class="overline-title">alias</span></th> -->
-                                        <th class="tb-col"><span class="overline-title">status</span></th>
-                                        <th class="tb-col" data-sortable="false"><span class="overline-title">Action</span>
+                                        <th class="tb-col"><span class="overline-title">{{ __('lang.Status') }}</span></th>
+                                        <th class="tb-col" data-sortable="false"><span class="overline-title">{{ __('lang.Action') }}</span>
                                         </th>
                                     </tr>
                                 </thead>
@@ -83,7 +83,7 @@
                             {{-- Add Modal --}}
                             <div class="addoffcanvas offcanvas offcanvas-end offcanvas-size-xxlg" id="addOffcanvas">
                                 <div class="offcanvas-header border-bottom border-light">
-                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Add Promotion Demotion</h5><button
+                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">{{ __('lang.Promotion / Demotion') }} {{ __('lang.Add') }} </h5><button
                                         type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>

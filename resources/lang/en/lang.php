@@ -36,6 +36,7 @@ return [
     'Leave Type' => 'Leave Type',
     'Number Of Leave(Annually)' => 'Number Of Leave(Annually)',
     'Designation' => 'Designation',
+    'Select Designation' => 'Select Designation',
     'Reporting To' => 'Reporting To',
     'Skills' => 'Skills',
     'User Role' => 'User Role',
@@ -48,5 +49,17 @@ return [
     'Employees' => 'Employees',
     'Search'=> 'Search',
     'Add Employee' => 'Add Employee',
+    'Demotion' => 'Demotion',
+    'Promotion' => 'Promotion',
+    'Promotion / Demotion' => 'Promotion / Demotion',
+    'Promotion / Demotion' => 'Promotion / Demotion',
+    'Promotion / Demotion Type' => 'Promotion / Demotion Type',
+    'Promotion Demotion' => 'Promotion Demotion',
+    'Date' => 'Date',
+    'Company' => 'Company',
+    'Title' => 'Title',
+    'Show' => 'Show',
+    'Description' => 'Description',
+    
   
 ];

@@ -48,6 +48,7 @@ return [
     'Leave Type' => 'छुट्टिको प्रकार',
     'Number Of Leave(Annually)' => 'छुट्टिको संख्या(वार्षिक)',
     'Designation' => 'पद',
+    'Select Designation' => 'पद चयन गर्नुहोस्',
     'Reporting To' => 'रिर्पोट गर्ने',
     'Skills' => 'सीपहरू',
     'User Role' => 'प्रयोगकर्ता भूमिका',
@@ -60,5 +61,16 @@ return [
     'Search' => 'खोज्नुहोस्',
     'Yes' => 'हुन्छ',
     'No' => 'हुँदैन',
+    'Promotion'=>'पदोन्नति',
+    'Demotion'=>'पदावनति',
+
+    'Promotion / Demotion'=>'पदोन्नति / पदावनति',
+    'Promotion / Demotion Type'=>'पदोन्नति / पदावनति प्रकार',
+    'Promotion Demotion'=>'पदोन्नति पदावनति',
+    'Date'=>'मिति',
+    'Company'=>'कम्पनी',
+    'Title'=>'शीर्षक',
+    'Show'=>'देखाउनु',
+    'Description'=>'विवरण',
   
 ];
