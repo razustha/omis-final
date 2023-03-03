@@ -38,6 +38,7 @@ return [
     'Country Name' => 'देश',
     'State Name' => 'प्रदेश',
     'District Name' => 'जिल्ला',
+    'District' => 'जिल्ला',
     'City Name' => 'शहर',
     'Permanent Address' => 'स्थाही ठेगाना',
     'Temporary Address' => 'अस्थाही ठेगाना',
