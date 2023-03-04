@@ -24,15 +24,15 @@
                     <div class="d-flex justify-content-between">
                         <div class="col-xl-6">
                             
-                            <p><b>Status :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                            <p><b>{{ __('lang.status') }} :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
                                     class="{{ $data->status == 1 ? 'text-success' : 'text-danger' }}">{{ $data->status == 1 ? 'Active' : 'Inactive' }}</span>
                             </p>
-                            <p><b>Alias :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->alias }}</span></p>
-                            <p><b>Remarks :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->remarks }}</span></p>
+                            <p><b>{{ __('lang.alias') }} :&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->alias }}</span></p>
+                            <p><b>{{ __('lang.Remarks') }}:&nbsp;&nbsp;&nbsp;&nbsp;</b> <span>{{ $data->remarks }}</span></p>
                         </div>
                         <div class="col-xl-6">
 
-                            <p><b>Created On :</b>&nbsp;&nbsp;&nbsp;<span>{{ $data->created_at }}</span></p>
+                            <p><b>{{ __('lang.Created On') }} :</b>&nbsp;&nbsp;&nbsp;<span>{{ $data->created_at }}</span></p>
                             <p><b>Created By :</b>&nbsp;&nbsp;&nbsp;<span>{{ $data->createdBy }}</span></p>
                             <p><b>Updated On :</b>&nbsp;&nbsp;&nbsp;<span>{{ $data->updated_at }}</span></p>
                             <p><b>Updated By :</b>&nbsp;&nbsp;&nbsp;<span>{{ $data->updatedBy }}</span></p>

@@ -48,6 +48,7 @@ return [
     'Leave Type' => 'छुट्टिको प्रकार',
     'Number Of Leave(Annually)' => 'छुट्टिको संख्या(वार्षिक)',
     'Designation' => 'पद',
+    'Select Designation' => 'पद चयन गर्नुहोस्',
     'Reporting To' => 'रिर्पोट गर्ने',
     'Skills' => 'सीपहरू',
     'User Role' => 'प्रयोगकर्ता भूमिका',

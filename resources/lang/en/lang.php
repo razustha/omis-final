@@ -36,6 +36,7 @@ return [
     'Leave Type' => 'Leave Type',
     'Number Of Leave(Annually)' => 'Number Of Leave(Annually)',
     'Designation' => 'Designation',
+    'Select Designation' => 'Select Designation',
     'Reporting To' => 'Reporting To',
     'Skills' => 'Skills',
     'User Role' => 'User Role',

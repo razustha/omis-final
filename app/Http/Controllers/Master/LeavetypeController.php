@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\DB;
 
             public function store(Request $request)
             {
+                $request['organization_id'] = auth()->user()->organization->organization_id;
 
                 $request->request->add(['alias' => slugify($request->leavetypeName)]);
                 Leavetype::create($request->all());
@@ -65,6 +66,8 @@ use Illuminate\Support\Facades\DB;
 
             public function update(Request $request, $id)
             {
+                $request['organization_id'] = auth()->user()->organization->organization_id;
+
                 $data = Leavetype::findOrFail($id);
                 $request->request->add(['alias' => slugify($request->leavetypeName)]);
                 $data->update($request->all());
@@ -153,7 +156,7 @@ use Illuminate\Support\Facades\DB;
                 $paidLeave = PaidLeave::where('organization_id', 1)->first();
                 if($paidLeave == null){
                     PaidLeave::create([
-                        'organization_id' => 1,
+                        'organization_id' => auth()->user()->organization->organization_id,
                         'paidLeave' => $request->paidLeave,
                     ]);
                 }else{
