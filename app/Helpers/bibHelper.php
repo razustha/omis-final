@@ -13,6 +13,7 @@
         use App\Models\Settings\UserSettings;
         use App\Models\Log\OperationLog;
         use App\Models\Log\ErrorLog;
+        use App\Models\Log\ActivityLog;
         use Illuminate\Support\Facades\DB;
 
         function label($text)
@@ -621,6 +622,18 @@
                 function createErrorParagraph($name, $class = null)
                 {
                     echo "<p id='error_$name' class='text-danger custom-error $class'></p>";
+                }
+
+                function createActivityLog($controllerName, $methodName, $activity)
+                {
+                    $user_id = auth()->user()->id;
+                    ActivityLog::create([
+                        'user_id' => $user_id,
+                        'controllerName' => $controllerName,
+                        'methodName' => $methodName,
+                        'actionUrl' => request()->fullUrl(),
+                        'activity' => $activity,
+                    ]);
                 }
 
                 ?>

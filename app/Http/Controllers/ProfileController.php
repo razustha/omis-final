@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Log\LoginLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -66,6 +67,14 @@ class ProfileController extends Controller
     }
     public function logout(Request $request)
     {
+        $loginDetails = [
+            'user_id' => auth()->user()->id,
+            'ip' => $request->ip(),
+            'user_agent' => $request->header('User-Agent'),
+            'type' => 'Logout',
+            'logout_at' => now(),
+        ];
+        LoginLog::create($loginDetails);
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

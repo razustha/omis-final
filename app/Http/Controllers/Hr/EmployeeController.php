@@ -30,7 +30,7 @@ class EmployeeController extends Controller
     }
     public function index(Request $request)
     {
-
+        createActivityLog(EmployeeController::class, 'index', 'hr employee list');
         if (auth()->user()->user_type == "COMPANY") {
             $organization_id = auth()->user()->organization->organization_id;
             $data = Employee::where('status', '<>', -1)->where('organization_id', $organization_id)->orderBy('created_at', 'desc')->get();
@@ -46,7 +46,7 @@ class EmployeeController extends Controller
 
     public function create(Request $request)
     {
-
+        createActivityLog(EmployeeController::class, 'create', 'hr employee create');
         if ($request->ajax()) {
             $employeeID = Employee::get()->last();
             $emp_id = '1';
@@ -61,7 +61,7 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
-
+        createActivityLog(EmployeeController::class, 'store', 'hr employee store');
         // dd($request->ajax());
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
@@ -90,7 +90,7 @@ class EmployeeController extends Controller
             // dd($validator->messages());
             return response()->json([
                 'error' => $validator->messages(),
-            ],500);
+            ], 500);
         }
 
         $user = null;
@@ -179,6 +179,7 @@ class EmployeeController extends Controller
 
     public function show(Request $request, $id)
     {
+        createActivityLog(EmployeeController::class, 'show', 'hr employee show');
         $data = Employee::findOrFail($id);
         $documents = Document::where('imageable_type', Employee::class)->where('imageable_id', $data->employee_id)->get();
         if ($request->ajax()) {
@@ -191,6 +192,7 @@ class EmployeeController extends Controller
 
     public function edit(Request $request, $id)
     {
+        createActivityLog(EmployeeController::class, 'edit', 'hr employee edit');
         $data = Employee::findOrFail($id);
         $skills = explode(',', $data->skills);
         if ($request->ajax()) {
@@ -203,6 +205,7 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
+        createActivityLog(EmployeeController::class, 'update', 'hr employee update');
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
             'lastName' => 'required',
@@ -230,7 +233,7 @@ class EmployeeController extends Controller
             // dd($validator->messages());
             return response()->json([
                 'error' => $validator->messages(),
-            ],500);
+            ], 500);
         }
 
         $employee = Employee::findOrFail($id);
@@ -309,9 +312,18 @@ class EmployeeController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $data = Employee::findOrFail($id);
-        $data->status = -1;
-        $data->save();
+        createActivityLog(EmployeeController::class, 'destroy', 'hr employee destroy');
+        DB::beginTransaction();
+        try {
+            $OperationNumber = getOperationNumber();
+            $this->employeeService->destroy($OperationNumber, $OperationNumber, $id);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+            createErrorLog(EmployeeController::class, 'destroy', $e->getMessage());
+            return response()->json(['status' => false, 'message' => $e->getMessage()], 500);
+        }
+        DB::commit();
         return response()->json(['status' => true, 'message' => 'The Employee Deleted Successfully.'], 200);
     }
 

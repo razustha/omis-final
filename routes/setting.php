@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Log\ActivityLogController;
+use App\Http\Controllers\Log\LoginLogController;
 use App\Http\Controllers\Log\OperationLogController;
 use App\Http\Controllers\Setting\PermissionController;
 use App\Http\Controllers\Setting\RoleController;
@@ -53,6 +55,28 @@ Route::middleware('auth')->prefix("setting")->group(function () {
         Route::put('/update/{id}', [OperationLogController::class, 'update'])->name('setting.operation.update');//->middleware('permission:settings-role-index');
         Route::get('/destroy/{id}', [OperationLogController::class, 'destroy'])->name('setting.operation.destroy');//->middleware('permission:settings-role-index');
         Route::get('/rollback/{operationNumber}', [OperationLogController::class, 'rollback'])->name('setting.operation.rollback');//->middleware('permission:settings-role-index');
+
+    });
+
+    Route::prefix("login")->group(function () {
+        Route::get('/', [LoginLogController::class, 'index'])->name('setting.login.index');//->middleware('permission:settings-role-index');
+        Route::get('/create', [LoginLogController::class, 'create'])->name('setting.login.create');
+        Route::post('/store', [LoginLogController::class, 'store'])->name('setting.login.store');//->middleware('permission:settings-role-index');
+        Route::get('/show/{id}', [LoginLogController::class, 'show'])->name('setting.login.show');//->middleware('permission:settings-role-index');
+        Route::get('/edit/{id}', [LoginLogController::class, 'edit'])->name('setting.login.edit');
+        Route::put('/update/{id}', [LoginLogController::class, 'update'])->name('setting.login.update');//->middleware('permission:settings-role-index');
+        Route::get('/destroy/{id}', [LoginLogController::class, 'destroy'])->name('setting.login.destroy');//->middleware('permission:settings-role-index');
+
+    });
+
+    Route::prefix("activity")->group(function () {
+        Route::get('/', [ActivityLogController::class, 'index'])->name('setting.activity.index');//->middleware('permission:settings-role-index');
+        Route::get('/create', [ActivityLogController::class, 'create'])->name('setting.activity.create');
+        Route::post('/store', [ActivityLogController::class, 'store'])->name('setting.activity.store');//->middleware('permission:settings-role-index');
+        Route::get('/show/{id}', [ActivityLogController::class, 'show'])->name('setting.activity.show');//->middleware('permission:settings-role-index');
+        Route::get('/edit/{id}', [ActivityLogController::class, 'edit'])->name('setting.activity.edit');
+        Route::put('/update/{id}', [ActivityLogController::class, 'update'])->name('setting.activity.update');//->middleware('permission:settings-role-index');
+        Route::get('/destroy/{id}', [ActivityLogController::class, 'destroy'])->name('setting.activity.destroy');//->middleware('permission:settings-role-index');
 
     });
 });

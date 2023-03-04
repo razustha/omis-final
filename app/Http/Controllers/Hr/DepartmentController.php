@@ -3,15 +3,24 @@
 namespace App\Http\Controllers\Hr;
 
 use App\Http\Controllers\Controller;
+use App\Service\CommonModelService;
+use Exception;
 use Illuminate\Http\Request;
 use App\Models\Hr\Department;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Log;
 
 class DepartmentController extends Controller
 {
+    protected $modelService;
+    public function __construct(Department $department)
+    {
+        $this->modelService = new CommonModelService($department);
+    }
     public function index(Request $request)
     {
+        createActivityLog(DepartmentController::class, 'destroy', 'hr department index');
         $data = Department::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             $html = view("omis.hr.department.ajax.index", compact('data'))->render();
@@ -22,6 +31,7 @@ class DepartmentController extends Controller
 
     public function create(Request $request)
     {
+        createActivityLog(DepartmentController::class, 'create', 'hr department create');
         if ($request->ajax()) {
             $html = view("omis.hr.department.ajax.create")->render();
             return response()->json(['status' => true, 'content' => $html], 200);
@@ -31,6 +41,7 @@ class DepartmentController extends Controller
 
     public function store(Request $request)
     {
+        createActivityLog(DepartmentController::class, 'store', 'hr department store');
         $validator = Validator::make($request->all(), [
             'departmentName' => 'required',
             'status' => 'required',
@@ -43,7 +54,16 @@ class DepartmentController extends Controller
         }
 
         $request->request->add(['alias' => slugify($request->departmentName)]);
-        Department::create($request->all());
+        DB::beginTransaction();
+        try {
+            $operationNumber = getOperationNumber();
+            $this->modelService->create($operationNumber, $operationNumber, null, $request->all());
+        } catch (\Exception $e) {
+            Log::info($e->getMessage());
+            createErrorLog(DepartmentController::class, 'store', $e->getMessage());
+            return response()->json(['status' => false, 'message' => $e->getMessage()], 500);
+        }
+        DB::commit();
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Department Created Successfully.'], 200);
         }
@@ -52,6 +72,7 @@ class DepartmentController extends Controller
 
     public function show(Request $request, $id)
     {
+        createActivityLog(DepartmentController::class, 'show', 'hr department show');
         $data = Department::findOrFail($id);
         if ($request->ajax()) {
             $html = view("omis.hr.department.ajax.show", compact('data'))->render();
@@ -63,6 +84,7 @@ class DepartmentController extends Controller
 
     public function edit(Request $request, $id)
     {
+        createActivityLog(DepartmentController::class, 'edit', 'hr department edit');
         $data = Department::findOrFail($id);
         if ($request->ajax()) {
             $html = view("omis.hr.department.ajax.edit", compact('data'))->render();
@@ -74,11 +96,12 @@ class DepartmentController extends Controller
 
     public function update(Request $request, $id)
     {
+        createActivityLog(DepartmentController::class, 'update', 'hr department update');
         $validator = Validator::make($request->all(), [
             'departmentName' => 'required',
-               'status' => 'required',
+            'status' => 'required',
         ]);
-           if ($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json([
                 'error' => $validator->errors()->all(),
             ]);
@@ -86,7 +109,17 @@ class DepartmentController extends Controller
 
         $data = Department::findOrFail($id);
         $request->request->add(['alias' => slugify($request->departmentName)]);
-        $data->update($request->all());
+        DB::beginTransaction();
+        try {
+            $OperationNumber = getOperationNumber();
+            $this->modelService->update($OperationNumber, $OperationNumber, null, $request->all(), $id);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+            createErrorLog(DepartmentController::class, 'update', $e->getMessage());
+            return response()->json(['status' => false, 'message' => $e->getMessage()], 500);
+        }
+        DB::commit();
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Department updated Successfully.'], 200);
         }
@@ -95,9 +128,18 @@ class DepartmentController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $data = Department::findOrFail($id);
-        $data->status = -1;
-        $data->save();
+        createActivityLog(DepartmentController::class, 'destroy', 'hr department destroy');
+        DB::beginTransaction();
+        try {
+            $OperationNumber = getOperationNumber();
+            $this->modelService->destroy($OperationNumber, $OperationNumber, $id);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+            createErrorLog(DepartmentController::class, 'destroy', $e->getMessage());
+            return response()->json(['status' => false, 'message' => $e->getMessage()], 500);
+        }
+        DB::commit();
         return response()->json(['status' => true, 'message' => 'The Department Deleted Successfully.'], 200);
     }
 

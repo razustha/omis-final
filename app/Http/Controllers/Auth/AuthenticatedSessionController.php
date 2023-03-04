@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Log\LoginLog;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +33,13 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $loginDetails = [
+            'user_id' => auth()->user()->id,
+            'ip' => $request->ip(),
+            'user_agent' => $request->header('User-Agent'),
+            'login_at' => now(),
+        ];
+        LoginLog::create($loginDetails);
 
         // return redirect()->intended(RouteServiceProvider::HOME);
         if (auth()->user()->user_type == 'EMPLOYEE') {
@@ -52,6 +60,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+        $loginDetails = [
+            'user_id' => auth()->user()->id,
+            'ip' => $request->ip(),
+            'user_agent' => $request->header('User-Agent'),
+            'type' => 'Logout',
+            'logout_at' => now(),
+        ];
+        LoginLog::create($loginDetails);
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

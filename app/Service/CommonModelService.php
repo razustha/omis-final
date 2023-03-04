@@ -19,7 +19,13 @@ class CommonModelService
     }
 
 
-    /*For create*/
+    /**
+     * Create operation
+     * $operationStartNumber -> It is required first time if it contain multiple tables operation
+     * $operationEndNumber  -> It is required Every time on any operation because on showing block it is required.
+     * $oldValues -> On store/insert old values will be null
+     * $newValues => On store/insert operation $new values will be model created object values and stoe in json format. 
+     */
     public function create($operationStartNumber, $operationEndNumber, $oldValues, $newValues)
     {
         $baseClass = get_class($this->model);
@@ -30,6 +36,14 @@ class CommonModelService
         return $modelData;
     }
 
+    /**
+     * update operation
+     * $operationStartNumber -> It is required first time if it contain multiple tables operation
+     * $operationEndNumber  -> It is required Every time on any operation because on showing block it is required.
+     * $oldValues -> On store/insert old values case, is required only if it is updated on direct table on like users_roles table case other wise We get here
+     * null but find from model Id. It will be also stored in json format.
+     * $newValues => On store/insert operation $new values will be model created object values and stoe in json format. 
+     */
     public function update($operationStartNumber, $operationEndNumber, $oldValues, $newValues, $ModelID)
     {
         $baseClass = get_class($this->model);
@@ -41,6 +55,22 @@ class CommonModelService
     }
 
 
+    /**
+     * Create operation
+     * $operationStartNumber -> It is required first time if it contain multiple tables operation
+     * $operationEndNumber  -> It is required Every time on any operation because on showing block it is required.
+     * $oldValues -> On store/insert old values will be null
+     * $newValues => On store/insert operation $new values will be model created object values and stoe in json format. 
+     */
+    public function destroy($operationStartNumber, $operationEndNumber, $ModelID)
+    {
+        $baseClass = get_class($this->model);
+        $this->model = $this->model->find($ModelID);
+        $oldValues = ['status' => $this->model->status];
+        $this->model->update(['status' => -1]);
+        createOperationLog($operationStartNumber, $operationEndNumber, $baseClass, $ModelID, 'delete', $oldValues, ['status' => -1]);
+        return $this->model;
+    }
     /**
      * Paginate all User
      *
