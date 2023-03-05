@@ -113,7 +113,6 @@ class DesignationController extends Controller
                 'error' => $validator->errors()->all(),
             ]);
         }
-        $data = Designation::findOrFail($id);
         $request->request->add(['alias' => slugify($request->designationName)]);
         DB::beginTransaction();
         try {

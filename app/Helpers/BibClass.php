@@ -684,12 +684,12 @@ class BibClass
         $listContent = '<table class="datatable-init table" data-nk-container="table-responsive" id="CustomTable">
     <thead class="table-light">
         <tr>
-        <th class="tb-col"><span class="overline-title">S.N.</span></th>' . PHP_EOL;
+        <th class="tb-col"><span class="overline-title">{{__("lang.SN")}}</span></th>' . PHP_EOL;
 
         foreach ($columns as $key => $column) {
             if ($key == 0 || $column == 'remarks' || $column == 'createdOn' || $column == 'createdBy' || $column == 'updatedBy' || $column == 'created_at' || $column == 'updated_at')
                 continue;
-            $listContent .= '<th class="tb-col"><span class="overline-title">' . $column . '</span></th>' . PHP_EOL;
+            $listContent .= '<th class="tb-col"><span class="overline-title">{{__("lang.' . $column . '")}}</span></th>' . PHP_EOL;
         }
         $listContent .= '<th class="tb-col" data-sortable="false"><span
                     class="overline-title">Action</span></th>
