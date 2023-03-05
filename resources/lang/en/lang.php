@@ -49,5 +49,12 @@ return [
     'Employees' => 'Employees',
     'Search'=> 'Search',
     'Add Employee' => 'Add Employee',
+    'User Name' => 'User Name',
+    'Action Type' => 'Action Type',
+    'Model Name' => 'Model Name',
+    'From Date' => 'From Date',
+    'To Date' => 'To Date',
+    'Clear' => 'Clear',
+
   
 ];

@@ -29,11 +29,11 @@ class OperationLog extends Model
     ];
 
 
-    protected $appends = ['operation_by'];
+    // protected $appends = ['operation_by'];
 
-    public function getOperationByAttribute()
-    {
-        $user = User::find($this->user_id);
-        return $user ? $user->name : '';
-    }
+    // public function getOperationByAttribute()
+    // {
+    //     $user = User::find($this->user_id);
+    //     return $user ? $user->name : '';
+    // }
 }

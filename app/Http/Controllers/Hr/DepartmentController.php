@@ -20,7 +20,7 @@ class DepartmentController extends Controller
     }
     public function index(Request $request)
     {
-        createActivityLog(DepartmentController::class, 'destroy', 'hr department index');
+        createActivityLog(DepartmentController::class, 'index', 'hr department index');
         $data = Department::where('status', '<>', -1)->orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             $html = view("omis.hr.department.ajax.index", compact('data'))->render();

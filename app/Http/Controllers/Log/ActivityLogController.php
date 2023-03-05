@@ -14,10 +14,10 @@ class ActivityLogController extends Controller
         return view('log.activity.index', compact('data'));
     }
 
-    public function show($operationNumber)
+    public function show($activity_id)
     {
-        $ActivityLogs = ActivityLog::where('operation_end_no', $operationNumber)->get();
-        return view('log.operation.show', compact('ActivityLogs', 'operationNumber'));
+        $ActivityLogs = ActivityLog::where('activity_id', $activity_id)->firstOrFail();
+        return view('log.activity.show', compact('ActivityLogs'));
     }
 
     public function rollback($operationNumber)

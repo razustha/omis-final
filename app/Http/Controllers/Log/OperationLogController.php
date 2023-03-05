@@ -8,9 +8,25 @@ use Illuminate\Http\Request;
 
 class OperationLogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $operations = OperationLog::all();
+        $operations = OperationLog::join('users', 'tbl_operation_logs.user_id', 'users.id');
+        $userName = $request->user_id;
+        $operation_name = $request->operation_name;
+        $model_name = $request->model_name;
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        if ($userName)
+            $operations->where('users.name', 'like', "%$userName%");
+        if ($model_name)
+            $operations->where('tbl_operation_logs.model_name', 'like', "%$model_name%");
+        if ($operation_name)
+            $operations->where('tbl_operation_logs.operation_name', $operation_name);
+        if ($from_date && $to_date)
+            $operations->whereBetween('tbl_operation_logs.created_at', [$from_date, $to_date]);
+        $operations = $operations->select('tbl_operation_logs.*','users.name')->get();
+
+        // $operations = OperationLog::all();
         return view('log.operation.index', compact('operations'));
     }
 

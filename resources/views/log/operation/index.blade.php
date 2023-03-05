@@ -18,10 +18,32 @@
                                     </nav>
                             </div>
 
+
                         </div>
                     </div>
                     <div class="nk-block">
-                        <div class="card">
+                        <h3>Custom Search Filter</h3>
+                        <form action="{{ route('setting.operation.index') }}" id="">
+                            <div class="row">
+                                <div class="col-lg-4">{{ createText('user_id', 'user_id', 'User Name','',request()->user_id) }}
+                                </div>
+                                <div class="col-lg-4">
+                                    {{ customCreateSelect('operation_name', 'operation_name', '', 'Action Type', ['create' => 'create', 'update' => 'update', 'delete' => 'delete'],request()->operation_name) }}
+                                </div>
+                                <div class="col-lg-4">{{ createText('model_name', 'model_name', 'Model Name','',request()->model_name) }}
+                                </div>
+
+                                <div class="col-lg-4">{{ createDate('from_date', 'from_date', 'From Date','',request()->from_date) }}
+                                </div>
+                                <div class="col-lg-4">{{ createDate('to_date', 'to_date', 'To Date','',request()->to_date) }}
+                                </div>
+                                <div class="col-lg-1" style="margin-top: 26px;"><?php createButton('btn-primary btn-submit', '', 'Search'); ?>
+                                </div>
+                                <div class="col-lg-2" style="margin-top: 26px;"> <a href="{{route('setting.operation.index')}}" class="mt-3 btn btn-primary">
+                                        {{__('lang.Clear')}} </a>
+                                </div>
+                        </form>
+                        <div class="card" style="margin-top: 1rem">
                             <table class="datatable-init table" data-nk-container="table-responsive" id="CustomTable">
                                 <thead class="table-light">
                                     <tr>
@@ -43,9 +65,14 @@
                                         $i = 1;
                                     @endphp
                                     @foreach ($operations as $item)
-                                        <tr>
+                                        <tr
+                                            @if ($item->operation_name == 'delete') class="table-danger"
+                                        @elseif($item->operation_name == 'create')
+                                            class="table-primary"
+                                        @else
+                                            class="table-success" @endif>
                                             <td class="tb-col">{{ $i++ }}</td>
-                                            <td class="tb-col">{{ $item->operation_by }}</td>
+                                            <td class="tb-col">{{ $item->name }}</td>
                                             <td class="tb-col">{{ $item->operation_start_no }}</td>
                                             <td class="tb-col">{{ $item->model_name }}</td>
                                             <td class="tb-col">{{ $item->operation_name }}</td>

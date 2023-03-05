@@ -40,7 +40,14 @@
                                         $i = 1;
                                     @endphp
                                     @foreach ($data as $item)
-                                        <tr>
+                                        <tr  @if($item->methodName == 'destroy')
+                                                class="table-danger"
+                                            @elseif($item->methodName == 'create' || $item->methodName == 'edit')
+                                                class="table-primary"
+                                            @else
+                                                class="table-success"
+                                            @endif
+                                            >
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->user_name }}</td>
                                             <td class="tb-col">{{ $item->methodName }}</td>
@@ -49,7 +56,7 @@
                                             <td class="tb-col">{{ $item->created_at }}</td>
                                             <td class="tb-col">
                                                 <ul class="d-flex flex-wrap ">
-                                                    <li><a href="{{ route('setting.operation.show', [$item->activity_id]) }}"
+                                                    <li><a href="{{ route('setting.activity.show', [$item->activity_id]) }}"
                                                             type="button"
                                                             class="btn btn-color-success btn-hover-success btn-icon btn-soft"><em
                                                                 class="icon ni ni-eye"></em>

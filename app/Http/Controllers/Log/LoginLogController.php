@@ -14,10 +14,10 @@ class LoginLogController extends Controller
         return view('log.login.index', compact('data'));
     }
 
-    public function show($operationNumber)
+    public function show($loginId)
     {
-        $LoginLogs = LoginLog::where('operation_end_no', $operationNumber)->get();
-        return view('log.operation.show', compact('LoginLogs', 'operationNumber'));
+        $LoginLogs = LoginLog::findOrFail($loginId);
+        return view('log.login.show', compact('LoginLogs'));
     }
 
     public function rollback($operationNumber)
