@@ -42,11 +42,13 @@
                                     @foreach ($data as $item)
                                         <tr  @if($item->methodName == 'destroy')
                                                 class="table-danger"
-                                            @elseif($item->methodName == 'create' || $item->methodName == 'edit')
-                                                class="table-primary"
-                                            @else
-                                                class="table-success"
-                                            @endif
+                                                @elseif($item->methodName == 'create' || $item->methodName == 'edit')
+                                                    class="table-primary"
+                                                @elseif($item->methodName == 'index')
+                                                class="table-info"
+                                                @else
+                                                    class="table-success"
+                                                @endif
                                             >
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->user_name }}</td>

@@ -67,10 +67,11 @@
                                     @foreach ($operations as $item)
                                         <tr
                                             @if ($item->operation_name == 'delete') class="table-danger"
-                                        @elseif($item->operation_name == 'create')
-                                            class="table-primary"
-                                        @else
-                                            class="table-success" @endif>
+                                                @elseif($item->operation_name == 'create')
+                                                    class="table-primary"
+                                                @else
+                                                class="table-success" 
+                                            @endif>
                                             <td class="tb-col">{{ $i++ }}</td>
                                             <td class="tb-col">{{ $item->name }}</td>
                                             <td class="tb-col">{{ $item->operation_start_no }}</td>
