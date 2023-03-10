@@ -60,6 +60,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+        dd('logout');
         $loginDetails = [
             'user_id' => auth()->user()->id,
             'ip' => $request->ip(),

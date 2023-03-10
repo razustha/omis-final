@@ -8,5 +8,6 @@ return [
         ],
     ],
     'required' => 'The :attribute Field is required',
+    'unique' => 'The :attribute Field is already exists!',
 
 ];

@@ -262,8 +262,7 @@
                             <div class="dropdown-content dropdown-content-x-lg py-3">
                                 <ul class="link-list">
                                     <li><a href="{{ route('logout') }}"><em class="icon ni ni-signout"></em>
-                                            <span>Log
-                                                Out</span></a></li>
+                                            <span>Log Out</span></a></li>
                                 </ul>
                             </div>
                         </div>

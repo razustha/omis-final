@@ -100,6 +100,9 @@
                                 <li class="nk-menu-item"><a href="{{ route('setting.operation.index') }}"
                                         class="nk-menu-link"><span class="nk-menu-text">Operations Logs</span></a>
                                 </li>
+                                <li class="nk-menu-item"><a href="{{ route('setting.nepalicontent.index') }}"
+                                        class="nk-menu-link"><span class="nk-menu-text">Nepali Content</span></a>
+                                </li> 
                             </ul>
                         </li>
                     @endif
