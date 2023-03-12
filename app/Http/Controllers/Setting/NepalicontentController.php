@@ -8,6 +8,7 @@ use App\Models\Setting\Nepalicontent;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class NepalicontentController extends Controller
 {
@@ -95,9 +96,36 @@ class NepalicontentController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = Nepalicontent::findOrFail($id);
-        $request->request->add(['alias' => slugify($request->nepalicontentName)]);
+        $validator = Validator::make($request->all(), [
+            'english_string' => 'required|unique:tbl_nepalicontent,english_string,'.$id.',nepalicontent_id',
+            'nepali_string' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->messages(),
+            ], 500);
+        }
+       
+         //updating 
+         $data = Nepalicontent::findOrFail($id);
+        // $request->request->add(['alias' => preg_replace('#[ -]+#', '-', $request->nepalicontentName)]);
+        $nepaliArray = require resource_path('lang/ne/lang.php');
+        if(isset($nepaliArray[$data->english_string]))
+            unset($nepaliArray[$data->english_string]);
+        $nepaliArray[$request->english_string] = $request->nepali_string;
+        $nepaliArray = '<?php return ' . var_export($nepaliArray, true) . ';' . PHP_EOL;
+        file_put_contents(resource_path('lang/ne/lang.php'), $nepaliArray);
+
+        $englishArray = require resource_path('lang/en/lang.php');
+        if(isset($englishArray[$data->english_string]))
+            unset($englishArray[$data->english_string]);
+        $englishArray[$request->english_string] = $request->english_string;
+        $englishArray = '<?php return ' . var_export($englishArray, true) . ';' . PHP_EOL;
+        file_put_contents(resource_path('lang/en/lang.php'), $englishArray);
         $data->update($request->all());
+
+        
         if ($request->ajax()) {
             return response()->json(['status' => true, 'message' => 'The Nepalicontent updated Successfully.'], 200);
         }
@@ -169,5 +197,85 @@ class NepalicontentController extends Controller
             }
         } else {
         }
+    }
+
+    public function getDatabaseBackupFiles()
+    {
+        $directory = "backup/";
+        $backups = Storage::disk('local')->files($directory);
+
+        return view('omis.setting.backup.index',compact('backups'));
+    }
+
+    public function takeDatabaseBackup()
+    {
+        $DbName = env('DB_DATABASE');
+        $get_all_table_query = "SHOW TABLES ";
+        $result = DB::select(DB::raw($get_all_table_query));
+
+        $prep = "Tables_in_$DbName";
+        foreach ($result as $res) {
+            $tables[] = $res->$prep;
+        }
+
+
+
+        $connect = DB::connection()->getPdo();
+
+        $get_all_table_query = "SHOW TABLES";
+        $statement = $connect->prepare($get_all_table_query);
+        $statement->execute();
+        $result = $statement->fetchAll();
+
+
+        $output = '';
+        foreach ($tables as $table) {
+            $show_table_query = "SHOW CREATE TABLE " . $table . "";
+            $statement = $connect->prepare($show_table_query);
+            $statement->execute();
+            $show_table_result = $statement->fetchAll();
+
+            foreach ($show_table_result as $show_table_row) {
+                $output .= "\n\n" . $show_table_row["Create Table"] . ";\n\n";
+            }
+            $select_query = "SELECT * FROM " . $table . "";
+            $statement = $connect->prepare($select_query);
+            $statement->execute();
+            $total_row = $statement->rowCount();
+
+            for ($count = 0; $count < $total_row; $count++) {
+                $single_result = $statement->fetch(\PDO::FETCH_ASSOC);
+                $table_column_array = array_keys($single_result);
+                $table_value_array = array_values($single_result);
+                $output .= "\nINSERT INTO $table (";
+                $output .= "" . implode(", ", $table_column_array) . ") VALUES (";
+                $output .= "'" . implode("','", $table_value_array) . "');\n";
+            }
+        }
+        
+        if (!file_exists(storage_path() .'/app/backup')) {
+            mkdir(storage_path() .'/app/database-backup', 0777, true);
+        }
+
+        $file_name = storage_path() .'/app/backup/'.'backup-' . date('Y-m-d') . '.sql';
+        $file_handle = fopen($file_name, 'w+');
+        fwrite($file_handle, $output);
+        fclose($file_handle);
+        echo "Success <br>";
+        echo 'database_backup_on_' . date('Y-m-d') . '.sql';
+        
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($file_name));
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file_name));
+        ob_clean();
+        flush();
+        readfile($file_name);
+        // unlink($file_name);
+
     }
 }

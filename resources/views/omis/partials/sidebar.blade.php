@@ -103,6 +103,9 @@
                                 <li class="nk-menu-item"><a href="{{ route('setting.nepalicontent.index') }}"
                                         class="nk-menu-link"><span class="nk-menu-text">Nepali Content</span></a>
                                 </li> 
+                                <li class="nk-menu-item"><a href="{{ route('setting.database.index') }}"
+                                    class="nk-menu-link"><span class="nk-menu-text">Database Backup</span></a>
+                            </li>
                             </ul>
                         </li>
                     @endif

@@ -7,6 +7,8 @@ use App\Http\Controllers\Setting\PermissionController;
 use App\Http\Controllers\Setting\RoleController;
 use App\Http\Controllers\Setting\UsersController;
 use App\Http\Controllers\Setting\NepalicontentController;
+use App\Http\Controllers\Setting\DatabaseBackupController;
+
 use App\Http\Controllers\Test\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -89,6 +91,13 @@ Route::middleware('auth')->prefix("setting")->group(function () {
         Route::get('/edit/{id}', [NepalicontentController::class, 'edit'])->name('setting.nepalicontent.edit');
         Route::put('/update/{id}', [NepalicontentController::class, 'update'])->name('setting.nepalicontent.update');
         Route::delete('/destroy/{id}', [NepalicontentController::class, 'destroy'])->name('setting.nepalicontent.destroy');
+    });
+
+    Route::prefix("database")->group(function () {
+        Route::get('/', [DatabaseBackupController::class, 'getDatabaseBackupFiles'])->name('setting.database.index');
+        Route::get('/backup', [DatabaseBackupController::class, 'takeDatabaseBackup'])->name('setting.database.backup');
+        Route::get('/download/{fileName}', [DatabaseBackupController::class, 'downloadDatabaseBackup'])->name('setting.database.download');
+
     });
 });
 

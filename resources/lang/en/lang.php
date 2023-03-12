@@ -53,5 +53,7 @@
   'To Date' => 'To Date',
   'Clear' => 'Clear',
   'Ram' => 'Ram',
+  'Hari' => 'Hari',
   'hari' => 'hari',
+  'yes' => 'yes',
 );
