@@ -324,6 +324,7 @@
                 //for button
                 function createButton($class = "", $type = "", $display)
                 {
+                    $display = trans('lang.' . $display);
                 ?>
                     <button class="mt-3 btn btn-primary  <?php echo $class; ?>" type="submit">
                         <?php echo $display ?>

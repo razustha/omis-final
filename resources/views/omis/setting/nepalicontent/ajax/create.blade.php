@@ -2,12 +2,12 @@
     @csrf
     <div class="row">
         <div class="col-lg-6">
-            {{ createText('english_string', 'english_string', 'English String') }}
+            {{ createText('english_string', 'english_string', 'English Word') }}
             {{ createErrorParagraph('english_string', '') }}
 
         </div>
         <div class="col-lg-6">
-            {{ createText('nepali_string', 'nepali_string', 'Nepali String') }}
+            {{ createText('nepali_string', 'nepali_string', 'Nepali Word') }}
             {{ createErrorParagraph('nepali_string', '') }}
 
         </div>

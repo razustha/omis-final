@@ -67,4 +67,12 @@
   'Hari' => 'हरि',
   'hari' => 'हरि',
   'yes' => 'हुन्छ',
+  'English Corresponding Nepali Word List' => 'अंग्रेजी अनुरूप नेपाली शब्द सूची',
+  'English Word' => 'अंग्रेजी शब्द',
+  'Nepali Word' => 'नेपाली शब्द',
+  'Edit Nepali Word according To English' => 'अंग्रेजी अनुसार नेपाली शब्द सम्पादन गर्नुहोस्',
+  'Add Nepali Word according To English' => 'अंग्रेजी अनुसार नेपाली शब्द थप्नुहोस्',
+  'English according Nepali Word List' => 'नेपाली शब्द सूची अनुसार अंग्रेजी',
+  'Nepali Word Manage' => 'नेपाली शब्द व्यवस्थापन',
+  'Submit' => 'पेश गर्नुहोस्',
 );

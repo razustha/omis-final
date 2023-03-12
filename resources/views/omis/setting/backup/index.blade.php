@@ -26,7 +26,8 @@
                                 <h1>Database Backup Details</h1>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ route('setting.database.backup') }}" class="btn btn-sm btn-primary" style="float: right">Take Current
+                                <a href="#" data-route="{{ route('setting.database.backup') }}"
+                                    class="btn btn-sm btn-primary" id="backupDB" style="float: right">Take Current
                                     database backup</a>
                             </div>
 
@@ -44,13 +45,19 @@
                                 <tbody>
                                     @foreach ($backups as $item)
                                         <tr>
-                                            <td class="tb-col">{{ $item }}</td>
                                             @php
-                                                $fileName = explode('/',$item);
+                                                $fileName = explode('/', $item);
                                             @endphp
-                                            <td class="tb-col"><a href="{{route('setting.database.download',[$fileName[1]])}}">download <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
-                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-                                              </svg></a></td>
+                                            <td class="tb-col">{{ $fileName[1] }}</td>
+
+                                            <td class="tb-col"><a
+                                                    href="{{ route('setting.database.download', [$fileName[1]]) }}">download
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-arrow-down-circle-fill"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+                                                    </svg></a></td>
 
                                         </tr>
                                     @endforeach
@@ -65,3 +72,19 @@
     </div>
     </div>
 @endsection
+@push('js')
+    <script>
+        $(document).on("click", "#backupDB", function(obj) {
+            var route = $(this).data("route");
+            $.ajax({
+                type: "get",
+                url: route,
+                success: function(res) {
+                    setTimeout(function() {
+                        Swal.fire('Backup Created Successfully.')
+                    }, 1500);
+                }
+            })
+        })
+    </script>
+@endpush

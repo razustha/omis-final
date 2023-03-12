@@ -74,7 +74,7 @@ class DatabaseBackupController extends Controller
         }
         
         if (!file_exists(storage_path() .'/app/backup')) {
-            mkdir(storage_path() .'/app/database-backup', 0777, true);
+            mkdir(storage_path() .'/app/backup', 0777, true);
         }
 
         $file_name = storage_path() .'/app/backup/'.'backup-' . date('Y-m-d-his') . '.sql';

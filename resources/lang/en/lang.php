@@ -56,4 +56,12 @@
   'Hari' => 'Hari',
   'hari' => 'hari',
   'yes' => 'yes',
+  'English Corresponding Nepali Word List' => 'English Corresponding Nepali Word List',
+  'English Word' => 'English Word',
+  'Nepali Word' => 'Nepali Word',
+  'Edit Nepali Word according To English' => 'Edit Nepali Word according To English',
+  'Add Nepali Word according To English' => 'Add Nepali Word according To English',
+  'English according Nepali Word List' => 'English according Nepali Word List',
+  'Nepali Word Manage' => 'Nepali Word Manage',
+  'Submit' => 'Submit',
 );
